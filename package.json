@@ -1,0 +1,47 @@
+{
+  "name": "mission-control",
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron-main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "electron:dev": "concurrently \"npm run dev -- --port 3002\" \"wait-on tcp:3002 && electron .\"",
+    "electron:prod": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win portable",
+    "quality:gate": "powershell -ExecutionPolicy Bypass -File .\\scripts\\quality-gate.ps1"
+  },
+  "build": {
+    "appId": "ai.myrie.missioncontrol",
+    "productName": "Mission Control",
+    "files": [
+      "app/**/*",
+      "public/**/*",
+      ".next/**/*",
+      "data/**/*",
+      "electron-main.js",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": ["portable"],
+      "signAndEditExecutable": false
+    }
+  },
+  "dependencies": {
+    "next": "16.1.6",
+    "nodemailer": "^8.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^40.6.1",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "wait-on": "^9.0.4"
+  }
+}

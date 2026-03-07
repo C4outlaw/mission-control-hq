@@ -1,0 +1,44 @@
+[
+  {
+    "id": "news-brief-agent",
+    "name": "News Brief Agent",
+    "mode": "local",
+    "purpose": "Build concise daily briefings from NPR, CNN, FOX, and local Florida sources.",
+    "activation": "Fetch headlines now, summarize, and send email/WhatsApp outputs."
+  },
+  {
+    "id": "email-triage-agent",
+    "name": "Email Triage Agent",
+    "mode": "local",
+    "purpose": "Scan inbox, prioritize urgent items, draft replies, and propose cleanup.",
+    "activation": "Run inbox triage and return urgent-first summary."
+  },
+  {
+    "id": "calendar-concierge-agent",
+    "name": "Calendar Concierge Agent",
+    "mode": "local",
+    "purpose": "Generate daily schedule briefing with prep notes and reminders.",
+    "activation": "Build today timeline and prep checklist."
+  },
+  {
+    "id": "social-ops-agent",
+    "name": "Social Ops Agent",
+    "mode": "local",
+    "purpose": "Plan and produce social content for TikTok/IG/FB/X with CTAs.",
+    "activation": "Generate today content queue with hook/caption/CTA pack."
+  },
+  {
+    "id": "revenue-agent",
+    "name": "Revenue Agent",
+    "mode": "local",
+    "purpose": "Track offers, sales scripts, pipeline health, and daily KPIs.",
+    "activation": "Return revenue actions and KPI focus for today."
+  },
+  {
+    "id": "web-build-agent",
+    "name": "Web Build Agent",
+    "mode": "local",
+    "purpose": "Handle website updates, SEO improvements, and conversion fixes.",
+    "activation": "List top web tasks and implementation order."
+  }
+]

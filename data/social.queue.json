@@ -1,0 +1,19 @@
+{
+  "queue": [
+    {
+      "platform": "TikTok",
+      "hook": "POV: You run 3 brands from one dashboard",
+      "status": "draft"
+    },
+    {
+      "platform": "Instagram",
+      "hook": "Behind-the-scenes at Beach Bucket",
+      "status": "idea"
+    },
+    {
+      "platform": "Facebook",
+      "hook": "Today's specials + hours update",
+      "status": "ready"
+    }
+  ]
+}

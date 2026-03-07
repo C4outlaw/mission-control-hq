@@ -1,0 +1,19 @@
+{
+  "inbox": [
+    {
+      "from": "onlinebanking@ealerts.bankofamerica.com",
+      "subject": "A withdrawal was made over the limit you set",
+      "priority": "urgent"
+    },
+    {
+      "from": "team@beachbucket.com",
+      "subject": "Menu update approval needed",
+      "priority": "today"
+    },
+    {
+      "from": "promo@newsletter.example",
+      "subject": "Weekly deals",
+      "priority": "low"
+    }
+  ]
+}

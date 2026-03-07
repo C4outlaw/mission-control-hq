@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "time": "09:00 AM",
+      "title": "Morning Ops Review",
+      "prep": "Open Mission Control and review urgent inbox"
+    },
+    {
+      "time": "12:00 PM",
+      "title": "Content Publishing Block",
+      "prep": "Finalize TikTok + FB captions"
+    },
+    {
+      "time": "04:30 PM",
+      "title": "Website Progress Check",
+      "prep": "Review beachbucket-new-build tasks"
+    }
+  ]
+}
