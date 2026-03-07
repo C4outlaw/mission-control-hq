@@ -103,6 +103,8 @@ export default function Home() {
   const [agents, setAgents] = useState(fallbackAgents);
   const [newsOutput, setNewsOutput] = useState('');
   const [agentOutput, setAgentOutput] = useState('');
+  const [fbPostMessage, setFbPostMessage] = useState('Bucket cocktails 🍹');
+  const [fbImageUrl, setFbImageUrl] = useState('');
   const [weather, setWeather] = useState({ location: 'Daytona Beach, FL', days: [] });
   const [activeTab, setActiveTab] = useState('overview');
   const [socialConnected, setSocialConnected] = useState({
@@ -409,6 +411,40 @@ export default function Home() {
       }
     } catch {
       setAgentOutput('Local FB test failed right now.');
+    }
+  };
+
+  const runFbDiagnose = async () => {
+    setAgentOutput('Checking Facebook token permissions...');
+    try {
+      const res = await fetch('/api/facebook-post-diagnose', { cache: 'no-store' });
+      const data = await res.json();
+      if (data?.ok) {
+        setAgentOutput(JSON.stringify(data, null, 2));
+      } else {
+        setAgentOutput(`FB diagnose failed: ${data?.error || 'unknown error'}`);
+      }
+    } catch {
+      setAgentOutput('FB diagnose failed right now.');
+    }
+  };
+
+  const runFbApiPost = async () => {
+    setAgentOutput('Posting to Facebook via direct API...');
+    try {
+      const res = await fetch('/api/facebook-post', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: fbPostMessage, imageUrl: fbImageUrl.trim() || undefined }),
+      });
+      const data = await res.json();
+      if (data?.ok) {
+        setAgentOutput(`Facebook API post success:\n${JSON.stringify(data, null, 2)}`);
+      } else {
+        setAgentOutput(`Facebook API post failed: ${data?.error || 'unknown error'}`);
+      }
+    } catch {
+      setAgentOutput('Facebook API post failed right now.');
     }
   };
 
@@ -911,6 +947,27 @@ export default function Home() {
               </div>
             </article>
           ))}
+
+          <article className="mc-card social-card">
+            <h3 className="social-title">Facebook Direct API</h3>
+            <p>Post directly from backend route (no browser relay).</p>
+            <input
+              className="transcribe-input"
+              value={fbPostMessage}
+              onChange={(e) => setFbPostMessage(e.target.value)}
+              placeholder="Post message"
+            />
+            <input
+              className="transcribe-input"
+              value={fbImageUrl}
+              onChange={(e) => setFbImageUrl(e.target.value)}
+              placeholder="Optional public image URL"
+            />
+            <div className="agent-actions">
+              <button className="mini" onClick={runFbDiagnose}>Diagnose Token</button>
+              <button className="mini" onClick={runFbApiPost}>Post to Facebook</button>
+            </div>
+          </article>
 
           <article className="mc-card social-card">
             <h3 className="social-title">Local Automation Test</h3>
