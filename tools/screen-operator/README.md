@@ -16,12 +16,20 @@ Local-only screen control microservice for autonomous click/type workflows.
 - `POST /keyboard/hotkey`
 - `POST /screen/screenshot`
 
-## Run
+## Run (FastAPI mode)
 ```powershell
 cd tools\screen-operator
 py -m pip install -r requirements.txt
 $env:SCREEN_OPERATOR_TOKEN="set-a-long-random-token"
 py server.py
+```
+
+## Run (No extra deps mode - recommended fallback)
+If Python package builds fail, use stdlib server:
+```powershell
+cd tools\screen-operator
+$env:SCREEN_OPERATOR_TOKEN="set-a-long-random-token"
+py server_stdlib.py
 ```
 
 ## Example
