@@ -414,23 +414,8 @@ export default function Home() {
     }
   };
 
-  const runFbDiagnose = async () => {
-    setAgentOutput('Checking Facebook token permissions...');
-    try {
-      const res = await fetch('/api/facebook-post-diagnose', { cache: 'no-store' });
-      const data = await res.json();
-      if (data?.ok) {
-        setAgentOutput(JSON.stringify(data, null, 2));
-      } else {
-        setAgentOutput(`FB diagnose failed: ${data?.error || 'unknown error'}`);
-      }
-    } catch {
-      setAgentOutput('FB diagnose failed right now.');
-    }
-  };
-
   const runFbApiPost = async () => {
-    setAgentOutput('Posting to Facebook via direct API...');
+    setAgentOutput('Posting to Facebook Page API...');
     try {
       const res = await fetch('/api/facebook-post', {
         method: 'POST',
@@ -439,12 +424,12 @@ export default function Home() {
       });
       const data = await res.json();
       if (data?.ok) {
-        setAgentOutput(`Facebook API post success:\n${JSON.stringify(data, null, 2)}`);
+        setAgentOutput(`Facebook Page post sent successfully.\n${JSON.stringify(data.result || {}, null, 2)}`);
       } else {
-        setAgentOutput(`Facebook API post failed: ${data?.error || 'unknown error'}`);
+        setAgentOutput(`Facebook Page post failed: ${data?.error || 'unknown error'}`);
       }
     } catch {
-      setAgentOutput('Facebook API post failed right now.');
+      setAgentOutput('Facebook Page API post failed right now.');
     }
   };
 
@@ -619,6 +604,7 @@ export default function Home() {
         <div className="links tabs">
           <button className={activeTab === 'overview' ? 'tab on' : 'tab'} onClick={() => setActiveTab('overview')}>Overview</button>
           <button className={activeTab === 'agents' ? 'tab on' : 'tab'} onClick={() => setActiveTab('agents')}>Agents</button>
+          <button className={activeTab === 'tree' ? 'tab on' : 'tab'} onClick={() => setActiveTab('tree')}>Goal Tree</button>
           <button className={activeTab === 'schedule' ? 'tab on' : 'tab'} onClick={() => setActiveTab('schedule')}>Schedule</button>
           <button className={activeTab === 'logs' ? 'tab on' : 'tab'} onClick={() => setActiveTab('logs')}>Logs</button>
           <button className={activeTab === 'social' ? 'tab on' : 'tab'} onClick={() => setActiveTab('social')}>Social</button>
@@ -787,6 +773,51 @@ export default function Home() {
       </section>
       ) : null}
 
+      {activeTab === 'tree' ? (
+      <section className="mc-tree-wrap">
+        <div className="mc-section-head">
+          <h2>Smart Goals Tree Diagram</h2>
+          <p>Modern pastel strategy map for mission execution, progress tracking, and KPI targets.</p>
+        </div>
+
+        <div className="goal-tree">
+          <div className="goal-root">
+            <h3>Result Goal</h3>
+            <p>Over the next six months, increase output quality and social publishing consistency by 50%.</p>
+          </div>
+
+          <div className="goal-col indicators">
+            <div className="goal-pill pink">Task completion</div>
+            <div className="goal-pill cyan">Quality delivered</div>
+            <div className="goal-pill coral">Team collaboration</div>
+            <div className="goal-pill amber">Overtime hours</div>
+          </div>
+
+          <div className="goal-col measures">
+            <div className="goal-box pink">Time spent on research</div>
+            <div className="goal-box pink">Time spent on execution</div>
+            <div className="goal-box cyan">Time spent on QA</div>
+            <div className="goal-box cyan">Time spent on revision</div>
+            <div className="goal-box coral">Slack channel activity</div>
+            <div className="goal-box coral">Breakout sessions</div>
+            <div className="goal-box amber">Content production tracker</div>
+            <div className="goal-box amber">Publishing count</div>
+          </div>
+
+          <div className="goal-col targets">
+            <div className="goal-target pink">No more than 40%</div>
+            <div className="goal-target pink">No loss beyond 20%</div>
+            <div className="goal-target cyan">No more than 1 hour</div>
+            <div className="goal-target cyan">No more than 5 hours</div>
+            <div className="goal-target coral">Every channel active</div>
+            <div className="goal-target coral">8–9 sessions weekly</div>
+            <div className="goal-target amber">Max 2h / day</div>
+            <div className="goal-target amber">Daily posting minimum hit</div>
+          </div>
+        </div>
+      </section>
+      ) : null}
+
       {activeTab === 'agents' ? (
       <section className="mc-agents-wrap">
         <div className="mc-section-head">
@@ -949,8 +980,8 @@ export default function Home() {
           ))}
 
           <article className="mc-card social-card">
-            <h3 className="social-title">Facebook Direct API</h3>
-            <p>Post directly from backend route (no browser relay).</p>
+            <h3 className="social-title">Facebook Page API Post (Direct)</h3>
+            <p>Posts directly with our own backend route (no browser relay).</p>
             <input
               className="transcribe-input"
               value={fbPostMessage}
@@ -964,8 +995,8 @@ export default function Home() {
               placeholder="Optional public image URL"
             />
             <div className="agent-actions">
-              <button className="mini" onClick={runFbDiagnose}>Diagnose Token</button>
-              <button className="mini" onClick={runFbApiPost}>Post to Facebook</button>
+              <button className="mini" onClick={runFbApiPost}>Post to FB Page</button>
+              <button className="mini" onClick={refreshAll}>Refresh</button>
             </div>
           </article>
 
