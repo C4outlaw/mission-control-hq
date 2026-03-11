@@ -202,7 +202,7 @@ const featuredItemImages = {
   'Chicken Tender': withBase('/assets/menu/chicken-tender.jpg'),
   'Fried Shrimp': withBase('/assets/menu/fried-shrimp-plate.jpg'),
   '#4 The Big Beach': withBase('/assets/menu/big-beach.jpg'),
-  'Seafood Omelet': withBase('/assets/menu/seafood-omelet.jpg')
+  'Ormond Omelet': withBase('/assets/menu/seafood-omelet.jpg')
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
