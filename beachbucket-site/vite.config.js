@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 
+// GitHub Pages project site base path
 export default defineConfig({
   base: '/mission-control-hq/',
   server: {
