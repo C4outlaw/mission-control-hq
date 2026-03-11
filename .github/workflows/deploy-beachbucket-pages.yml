@@ -25,17 +25,20 @@ jobs:
         working-directory: beachbucket-site
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: beachbucket-site/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Validate required media assets
+        run: npm run validate:assets
 
       - name: Build site
         run: npm run build
