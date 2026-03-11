@@ -141,13 +141,6 @@ export default function Home() {
   const [voiceRate, setVoiceRate] = useState(0.92);
   const [voiceEngine, setVoiceEngine] = useState('piper');
   const [autoListen, setAutoListen] = useState(false);
-  const [flightStatus, setFlightStatus] = useState({
-    flight: 'Arajet 5805 (DWI5805)',
-    route: 'YYZ → PUJ',
-    landed: false,
-    onTime: null,
-    source: 'https://flightaware.com/live/flight/DWI5805',
-  });
   const [phoneDevices, setPhoneDevices] = useState([]);
 
   const counts = useMemo(() => {
@@ -435,20 +428,18 @@ export default function Home() {
 
   const refreshAll = async () => {
     try {
-      const [cronRes, agentsRes, weatherRes, integrationsRes, flightRes, phoneRes] = await Promise.all([
+      const [cronRes, agentsRes, weatherRes, integrationsRes, phoneRes] = await Promise.all([
         fetch('/api/cron', { cache: 'no-store' }),
         fetch('/api/agents', { cache: 'no-store' }),
         fetch('/api/weather', { cache: 'no-store' }),
         fetch('/api/integrations', { cache: 'no-store' }),
-        fetch('/api/flight-status', { cache: 'no-store' }),
         fetch('/api/phone-tracker-dashboard', { cache: 'no-store' }),
       ]);
-      const [cronData, agentsData, weatherData, integrationsData, flightData, phoneData] = await Promise.all([
+      const [cronData, agentsData, weatherData, integrationsData, phoneData] = await Promise.all([
         cronRes.json(),
         agentsRes.json(),
         weatherRes.json(),
         integrationsRes.json(),
-        flightRes.json(),
         phoneRes.json(),
       ]);
       if (cronData?.ok && Array.isArray(cronData.jobs) && cronData.jobs.length) setCronJobs(cronData.jobs);
@@ -462,9 +453,6 @@ export default function Home() {
         if (integrationsData.integrations.social) {
           setSocialConnected((prev) => ({ ...prev, ...integrationsData.integrations.social }));
         }
-      }
-      if (flightData?.flight) {
-        setFlightStatus(flightData);
       }
       if (Array.isArray(phoneData?.devices)) {
         setPhoneDevices(phoneData.devices);
@@ -547,14 +535,6 @@ export default function Home() {
       } catch {}
     };
 
-    const loadFlight = async () => {
-      try {
-        const res = await fetch('/api/flight-status', { cache: 'no-store' });
-        const data = await res.json();
-        if (live && data?.flight) setFlightStatus(data);
-      } catch {}
-    };
-
     const loadPhone = async () => {
       try {
         const res = await fetch('/api/phone-tracker-dashboard', { cache: 'no-store' });
@@ -567,7 +547,6 @@ export default function Home() {
     loadAgents();
     loadWeather();
     loadIntegrations();
-    loadFlight();
     loadPhone();
 
     try {
@@ -609,7 +588,7 @@ export default function Home() {
           <button className={activeTab === 'logs' ? 'tab on' : 'tab'} onClick={() => setActiveTab('logs')}>Logs</button>
           <button className={activeTab === 'social' ? 'tab on' : 'tab'} onClick={() => setActiveTab('social')}>Social</button>
           <button className={activeTab === 'chat' ? 'tab on' : 'tab'} onClick={() => setActiveTab('chat')}>Chat</button>
-          <button className={activeTab === 'flight' ? 'tab on' : 'tab'} onClick={() => setActiveTab('flight')}>Flight Tracker</button>
+          <button className={activeTab === 'apps' ? 'tab on' : 'tab'} onClick={() => setActiveTab('apps')}>Apps</button>
           <button className={activeTab === 'phone' ? 'tab on' : 'tab'} onClick={() => setActiveTab('phone')}>Phone Tracker</button>
         </div>
         <div className="top-actions">
@@ -1064,22 +1043,29 @@ export default function Home() {
       </section>
       ) : null}
 
-      {activeTab === 'flight' ? (
+      {activeTab === 'apps' ? (
       <section className="mc-schedule-wrap">
         <div className="mc-section-head">
-          <h2>Flight Tracker</h2>
-          <p>Live monitor for Arajet 5805 (YYZ → PUJ). You will get a message when it lands.</p>
+          <h2>Apps</h2>
+          <p>Quick launch links for all active apps we’re building.</p>
         </div>
-
-        <div className="mc-card">
-          <p><strong>{flightStatus.flight}</strong></p>
-          <p>{flightStatus.route}</p>
-          <p>Status: <span className={`status-chip ${flightStatus.landed ? 'active' : 'pending'}`}>{flightStatus.landed ? 'Landed' : 'In Flight / Pending'}</span></p>
-          <p>On Time: <strong>{flightStatus.onTime === null ? 'Unknown' : (flightStatus.onTime ? 'Yes' : 'No')}</strong></p>
-          <div className="agent-actions">
-            <button className="mini" onClick={refreshAll}>Refresh Status</button>
-            <a className="mini" href={flightStatus.source} target="_blank" rel="noopener noreferrer">Open Flight Page</a>
-          </div>
+        <div className="social-grid">
+          {[
+            { name: 'Magic Menu (Local)', href: 'http://127.0.0.1:3010/dashboard', note: 'Savory Studio app dashboard' },
+            { name: 'Magic Menu (Phone/Public)', href: 'https://vast-needles-wave.loca.lt/dashboard', note: 'Public preview link for mobile access' },
+            { name: 'Beach Bucket (Live)', href: 'https://c4outlaw.github.io/mission-control-hq/', note: 'Published website' },
+            { name: 'Beach Bucket Two (Local)', href: 'http://127.0.0.1:3000', note: 'Local rebuild project' },
+            { name: 'Beach Bucket Site (Local)', href: 'http://127.0.0.1:4173', note: 'Original local site build' },
+            { name: 'Mission Control', href: '/', note: 'Main command center' },
+          ].map((appLink) => (
+            <article key={appLink.name} className="mc-card social-card">
+              <h3 className="social-title">{appLink.name}</h3>
+              <p>{appLink.note}</p>
+              <div className="agent-actions">
+                <a className="mini" href={appLink.href} target="_blank" rel="noopener noreferrer">Open App</a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
       ) : null}
