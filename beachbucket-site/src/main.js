@@ -1,5 +1,24 @@
 ﻿import './style.css'
 
+const BASE_URL = import.meta.env.BASE_URL || '/'
+const withBase = (url = '') => {
+  const normalized = String(url).replace(/%2520/g, '%20')
+  if (!normalized.startsWith('/assets/')) return normalized
+  return `${BASE_URL}${normalized.replace(/^\//, '')}`
+}
+
+const rewriteAssetPaths = (root = document) => {
+  const nodes = root.querySelectorAll('[src],[href],[poster],[data-img]')
+  nodes.forEach((el) => {
+    ;['src', 'href', 'poster', 'data-img'].forEach((attr) => {
+      const v = el.getAttribute(attr)
+      if (!v) return
+      const next = withBase(v)
+      if (next !== v) el.setAttribute(attr, next)
+    })
+  })
+}
+
 const itemImagePool = [
   '/assets/facebook/all/1015235283944365.jpg',
   '/assets/facebook/all/1022110573256836.jpg',
@@ -162,11 +181,15 @@ const menuSections = [
   }
 ]
 
+galleryItems.forEach((item) => {
+  item.img = withBase(item.img)
+})
+
 let menuImageCounter = 0
-const nextImage = () => itemImagePool[(menuImageCounter++) % itemImagePool.length]
+const nextImage = () => withBase(itemImagePool[(menuImageCounter++) % itemImagePool.length])
 
 const featuredItemImages = {
-  'Smoked Fish Dip': '/assets/menu/smoked-fish-dip.jpg'
+  'Smoked Fish Dip': withBase('/assets/menu/smoked-fish-dip.jpg')
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
@@ -473,6 +496,8 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
 `
+
+rewriteAssetPaths(document.getElementById('app'))
 
 document.getElementById('year').textContent = new Date().getFullYear()
 document.querySelector('.contact')?.addEventListener('submit', (e) => { e.preventDefault(); alert('Thanks!') })
