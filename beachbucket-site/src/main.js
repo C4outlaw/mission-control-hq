@@ -200,7 +200,8 @@ const featuredItemImages = {
   'Pulled Pork and Slaw Tacos': withBase('/assets/menu/pulled-pork-and-slaw-tacos.jpg'),
   'Bucket Burger': withBase('/assets/menu/bucket-burger.jpg'),
   'Chicken Tender': withBase('/assets/menu/chicken-tender.jpg'),
-  'Fried Shrimp': withBase('/assets/menu/fried-shrimp-plate.jpg')
+  'Fried Shrimp': withBase('/assets/menu/fried-shrimp-plate.jpg'),
+  '#4 The Big Beach': withBase('/assets/menu/big-beach.jpg')
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
