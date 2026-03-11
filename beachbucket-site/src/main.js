@@ -189,12 +189,18 @@ let menuImageCounter = 0
 const nextImage = () => withBase(itemImagePool[(menuImageCounter++) % itemImagePool.length])
 
 const featuredItemImages = {
-  'Smoked Fish Dip': withBase('/assets/menu/smoked-fish-dip.jpg'),
+  'Smoked Fish Dip': withBase('/assets/menu/smoked-fish-dip-plate.jpg'),
   'Conch Fritters': withBase('/assets/menu/conch-fritters.jpg'),
-  'Fried Shrimp': withBase('/assets/menu/fried-shrimp.jpg'),
-  'Shrimp Tacos (House Specialty)': withBase('/assets/menu/shrimp-tacos.jpg'),
+  'Crab Cakes': withBase('/assets/menu/crab-cakes.jpg'),
   'Wings': withBase('/assets/menu/wings.jpg'),
-  'Chicken Tender': withBase('/assets/menu/chicken-tender.jpg')
+  'Bucket House Salad (Large)': withBase('/assets/menu/bucket-house-salad.jpg'),
+  'Loaded Chicken Panini': withBase('/assets/menu/loaded-chicken-panini.jpg'),
+  'Mozzarella Caprese Panini': withBase('/assets/menu/mozzarella-caprese-panini.jpg'),
+  'Shrimp Tacos (House Specialty)': withBase('/assets/menu/shrimp-tacos.jpg'),
+  'Pulled Pork and Slaw Tacos': withBase('/assets/menu/pulled-pork-and-slaw-tacos.jpg'),
+  'Bucket Burger': withBase('/assets/menu/bucket-burger.jpg'),
+  'Chicken Tender': withBase('/assets/menu/chicken-tender.jpg'),
+  'Fried Shrimp': withBase('/assets/menu/fried-shrimp-plate.jpg')
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
