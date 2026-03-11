@@ -191,7 +191,8 @@ const nextImage = () => withBase(itemImagePool[(menuImageCounter++) % itemImageP
 const featuredItemImages = {
   'Smoked Fish Dip': withBase('/assets/menu/smoked-fish-dip.jpg'),
   'Conch Fritters': withBase('/assets/menu/conch-fritters.jpg'),
-  'Fried Shrimp': withBase('/assets/menu/fried-shrimp.jpg')
+  'Fried Shrimp': withBase('/assets/menu/fried-shrimp.jpg'),
+  'Shrimp Tacos (House Specialty)': withBase('/assets/menu/shrimp-tacos.jpg')
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
