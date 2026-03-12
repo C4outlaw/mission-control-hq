@@ -16,12 +16,7 @@ const featured = [
     title: 'Magic Menu App',
     copy: 'Operations-focused product concept for menus, content, and restaurant growth workflows.',
   },
-  {
-    title: 'Mission Control (Private)',
-    copy: 'Internal execution system locked behind authentication for secure operations.',
-    href: '/mission-control',
-    label: 'Private access',
-  },
+
 ];
 
 const localBusinessSchema = {
@@ -129,7 +124,7 @@ export default function HomePage() {
         <div className="cta">
           <a className="btn primary" href="mailto:myriework@gmail.com">myriework@gmail.com</a>
           <a className="btn" href="tel:+16053892273">+1 (605) 389-2273</a>
-          <a className="btn ghost" href="/mission-control">Mission Control (Private)</a>
+
         </div>
       </section>
 

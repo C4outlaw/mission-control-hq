@@ -33,11 +33,6 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.85,
     },
-    {
-      url: `${base}/mission-control`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.2,
-    },
+
   ];
 }
