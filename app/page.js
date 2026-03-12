@@ -27,6 +27,7 @@ export default function HomePage() {
         </p>
         <div style={styles.actions}>
           <a style={{ ...styles.btn, ...styles.btnPrimary }} href="#apps">View Apps</a>
+          <a style={styles.btn} href="/mission-control">Mission Control (Private)</a>
           <a style={styles.btn} href="#contact">Contact Myrie for Marketing</a>
         </div>
       </header>
