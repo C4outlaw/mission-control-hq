@@ -1,234 +1,186 @@
-const styles = {
-  page: {
-    minHeight: '100vh',
-    background: 'radial-gradient(circle at 10% 0%, #1a2f57 0%, #0a1020 38%, #05070f 100%)',
-    color: '#f3f7ff',
-  },
-  wrap: {
-    maxWidth: 1160,
-    margin: '0 auto',
-    padding: '28px 20px 90px',
-  },
-  nav: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: 16,
-    padding: '12px 0 22px',
-  },
-  brand: { fontWeight: 800, letterSpacing: '.08em', fontSize: 14, color: '#8cc4ff' },
-  navLinks: { display: 'flex', gap: 10, flexWrap: 'wrap' },
-  chip: {
-    textDecoration: 'none',
-    color: '#d9e9ff',
-    border: '1px solid #28486f',
-    borderRadius: 999,
-    padding: '8px 12px',
-    fontSize: 13,
-  },
-  hero: { padding: '30px 0 22px' },
-  kicker: { color: '#89bfff', fontWeight: 700, letterSpacing: '.08em', fontSize: 13, marginBottom: 12 },
-  h1: { fontSize: 'clamp(2rem, 5vw, 3.6rem)', lineHeight: 1.05, margin: '0 0 14px', maxWidth: 900 },
-  sub: { color: '#c4d8f5', fontSize: 18, lineHeight: 1.55, maxWidth: 760, margin: 0 },
-  ctaRow: { display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 24 },
-  btn: {
-    textDecoration: 'none',
-    borderRadius: 12,
-    padding: '12px 16px',
-    fontWeight: 600,
-    fontSize: 14,
-    border: '1px solid #365d8c',
-    color: '#e6f2ff',
-  },
-  btnPrimary: {
-    border: 'none',
-    color: '#fff',
-    background: 'linear-gradient(90deg, #1f8dff 0%, #5a63ff 100%)',
-  },
-  stats: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit,minmax(210px,1fr))',
-    gap: 12,
-    marginTop: 28,
-  },
-  stat: {
-    background: 'linear-gradient(180deg, rgba(27,43,71,.85), rgba(11,18,31,.85))',
-    border: '1px solid #2a476f',
-    borderRadius: 14,
-    padding: '16px 14px',
-  },
-  statNum: { fontSize: 30, fontWeight: 800, lineHeight: 1.1 },
-  statTxt: { color: '#b7ceef', marginTop: 4, fontSize: 13 },
-  section: { marginTop: 44 },
-  h2: { fontSize: 30, margin: '0 0 10px' },
-  p: { color: '#c4d8f5', margin: 0, lineHeight: 1.65 },
-  cards: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 14, marginTop: 16 },
-  card: {
-    background: 'linear-gradient(180deg, rgba(20,32,51,.86), rgba(10,16,27,.86))',
-    border: '1px solid #263f60',
-    borderRadius: 16,
-    padding: 18,
-  },
-  cardTitle: { margin: '0 0 8px', fontSize: 19 },
-  cardText: { margin: '0 0 8px', color: '#bfd4f2', lineHeight: 1.55 },
-  link: { color: '#7fc6ff', textDecoration: 'none', fontWeight: 600 },
-  process: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))',
-    gap: 12,
-    marginTop: 14,
-  },
-  step: {
-    border: '1px solid #263f60',
-    borderRadius: 14,
-    padding: 16,
-    background: 'rgba(8,13,24,.75)',
-  },
-  contact: {
-    marginTop: 46,
-    border: '1px solid #32537f',
-    borderRadius: 18,
-    padding: 22,
-    background: 'linear-gradient(120deg, rgba(22,40,68,.95), rgba(7,13,24,.95))',
-  },
-};
-
-const serviceCards = [
+const services = [
   {
-    title: 'Marketing Websites',
-    text: 'Premium website design and rebuilds for restaurants, cafes, and local service brands that need authority online.',
+    title: 'Website Rebuilds',
+    text: 'Premium web experiences for restaurants and local brands that need stronger trust, clearer positioning, and higher conversion.',
   },
   {
-    title: 'Local SEO Growth',
-    text: 'Google visibility strategy for Daytona and Orlando, including GBP optimization, service pages, and ranking-focused content.',
+    title: 'Local SEO Systems',
+    text: 'Daytona and Orlando focused visibility strategy including GBP optimization, city landing pages, and authority growth.',
   },
   {
-    title: 'Brand & Visual Refresh',
-    text: 'Creative direction, image upgrades, and conversion-focused visuals that make your business feel premium.',
+    title: 'Creative + Content',
+    text: 'Brand visuals, campaign assets, and high-end media direction to elevate perception and attract better customers.',
   },
   {
-    title: 'Automation Systems',
-    text: 'Operational workflows that reduce manual work and speed up execution across content, websites, and campaigns.',
+    title: 'Automation + Ops',
+    text: 'Execution systems that remove manual bottlenecks and keep marketing output consistent week after week.',
   },
 ];
 
 const projects = [
   {
     title: 'Beach Bucket Website',
-    text: 'Restaurant website with menu image workflows, mobile optimization, and public deployment.',
+    summary: 'Restaurant website redesign, menu image pipeline, and public deployment workflow.',
     href: 'https://c4outlaw.github.io/mission-control-hq/',
-    cta: 'View Live Project',
+    label: 'View Live Project',
   },
   {
     title: 'Magic Menu App',
-    text: 'Restaurant operations app for menu workflows, optimization, and execution infrastructure.',
+    summary: 'Operational app concept for menu, recipe, and restaurant workflow execution.',
   },
   {
     title: 'Mission Control (Private)',
-    text: 'Internal command system secured behind authentication for workflows and automation.',
+    summary: 'Internal execution dashboard secured behind authentication.',
     href: '/mission-control',
-    cta: 'Private Access',
+    label: 'Private Access',
   },
 ];
 
 export default function HomePage() {
   return (
-    <main style={styles.page}>
-      <div style={styles.wrap}>
-        <nav style={styles.nav}>
-          <div style={styles.brand}>MYRIE HQ</div>
-          <div style={styles.navLinks}>
-            <a style={styles.chip} href="#services">Services</a>
-            <a style={styles.chip} href="#work">Work</a>
-            <a style={styles.chip} href="#areas">Areas</a>
-            <a style={styles.chip} href="#contact">Contact</a>
+    <main className="mhq-page">
+      <section className="hero">
+        <video className="hero-video" autoPlay muted loop playsInline poster="/images/mc-bg-dark.jpg">
+          <source src="/assets/myriehq/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-overlay" />
+
+        <nav className="nav shell">
+          <div className="brand">MYRIE HQ</div>
+          <div className="nav-links">
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#results">Results</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
-        <header style={styles.hero}>
-          <p style={styles.kicker}>DAYTONA + ORLANDO MARKETING SYSTEMS</p>
-          <h1 style={styles.h1}>We build premium growth systems for local businesses that want to dominate online.</h1>
-          <p style={styles.sub}>
-            Myrie HQ helps restaurants, coffee shops, and local brands modernize their website, strengthen Google visibility, and turn traffic into real customers.
+        <div className="hero-content shell">
+          <p className="kicker">PREMIUM MARKETING SYSTEMS · DAYTONA + ORLANDO</p>
+          <h1>
+            We help local businesses look elite online,
+            <span> rank higher, and convert more customers.</span>
+          </h1>
+          <p className="sub">
+            Myrie HQ builds modern websites, local SEO systems, and creative growth engines for restaurants, coffee shops, and
+            local brands ready to scale.
           </p>
-          <div style={styles.ctaRow}>
-            <a style={{ ...styles.btn, ...styles.btnPrimary }} href="#contact">Book a Strategy Call</a>
-            <a style={styles.btn} href="#work">See Recent Work</a>
-            <a style={styles.btn} href="/mission-control">Mission Control (Private)</a>
+          <div className="cta-row">
+            <a className="btn primary" href="#contact">Book a Strategy Call</a>
+            <a className="btn" href="#work">See Work</a>
+            <a className="btn ghost" href="/mission-control">Mission Control (Private)</a>
           </div>
+        </div>
+      </section>
 
-          <div style={styles.stats}>
-            <article style={styles.stat}>
-              <div style={styles.statNum}>24/7</div>
-              <div style={styles.statTxt}>Execution mindset with fast turnaround.</div>
-            </article>
-            <article style={styles.stat}>
-              <div style={styles.statNum}>Daytona</div>
-              <div style={styles.statTxt}>Primary local growth market.</div>
-            </article>
-            <article style={styles.stat}>
-              <div style={styles.statNum}>Orlando</div>
-              <div style={styles.statTxt}>Expansion market for service and SEO growth.</div>
-            </article>
-            <article style={styles.stat}>
-              <div style={styles.statNum}>Premium</div>
-              <div style={styles.statTxt}>Modern creative direction and polished delivery.</div>
-            </article>
-          </div>
+      <section id="results" className="section shell">
+        <div className="stats-grid">
+          <article className="stat"><strong>Faster</strong><span>Execution systems built for speed and consistency.</span></article>
+          <article className="stat"><strong>Premium</strong><span>Design direction that elevates trust and perceived value.</span></article>
+          <article className="stat"><strong>Local</strong><span>Daytona + Orlando growth strategy for map and organic visibility.</span></article>
+          <article className="stat"><strong>Built to Scale</strong><span>From launch to optimization with clear next actions.</span></article>
+        </div>
+      </section>
+
+      <section id="services" className="section shell">
+        <header className="section-head">
+          <p>Services</p>
+          <h2>Everything needed to turn attention into revenue</h2>
         </header>
+        <div className="card-grid">
+          {services.map((item) => (
+            <article key={item.title} className="card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section id="services" style={styles.section}>
-          <h2 style={styles.h2}>What We Build</h2>
-          <p style={styles.p}>End-to-end marketing and web systems designed to make your business look elite and convert better.</p>
-          <div style={styles.cards}>
-            {serviceCards.map((item) => (
-              <article key={item.title} style={styles.card}>
-                <h3 style={styles.cardTitle}>{item.title}</h3>
-                <p style={styles.cardText}>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+      <section id="work" className="section shell">
+        <header className="section-head">
+          <p>Selected Work</p>
+          <h2>Projects built for real-world business outcomes</h2>
+        </header>
+        <div className="work-grid">
+          {projects.map((item) => (
+            <article key={item.title} className="work-card">
+              <div className="thumb" />
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              {item.href ? (
+                <a className="link" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                  {item.label || 'Open'}
+                </a>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <section id="work" style={styles.section}>
-          <h2 style={styles.h2}>Featured Work</h2>
-          <div style={styles.cards}>
-            {projects.map((item) => (
-              <article key={item.title} style={styles.card}>
-                <h3 style={styles.cardTitle}>{item.title}</h3>
-                <p style={styles.cardText}>{item.text}</p>
-                {item.href ? (
-                  <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={styles.link}>
-                    {item.cta || 'Open'}
-                  </a>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        </section>
+      <section id="contact" className="section shell contact">
+        <div>
+          <p className="kicker">CONTACT MYRIE FOR MARKETING</p>
+          <h2>Ready to rebuild your website and growth system?</h2>
+          <p>Tell us what you’re building and we’ll map out the fastest path to a premium, conversion-ready presence.</p>
+        </div>
+        <div className="cta-row">
+          <a className="btn primary" href="mailto:myriework@gmail.com">myriework@gmail.com</a>
+          <a className="btn" href="tel:+16053892273">+1 (605) 389-2273</a>
+        </div>
+      </section>
 
-        <section id="areas" style={styles.section}>
-          <h2 style={styles.h2}>Local Coverage</h2>
-          <p style={styles.p}>
-            We are actively building campaigns and web growth systems for businesses in Daytona Beach and Orlando, with an emphasis on hospitality, food, and local services.
-          </p>
-          <div style={styles.process}>
-            <article style={styles.step}><strong>1. Strategy</strong><p style={styles.cardText}>Positioning, goals, and opportunity mapping.</p></article>
-            <article style={styles.step}><strong>2. Build</strong><p style={styles.cardText}>Website, SEO, brand assets, and conversion systems.</p></article>
-            <article style={styles.step}><strong>3. Launch</strong><p style={styles.cardText}>Deployment, indexing, and visibility acceleration.</p></article>
-            <article style={styles.step}><strong>4. Scale</strong><p style={styles.cardText}>Continuous optimization and growth execution.</p></article>
-          </div>
-        </section>
+      <style>{`
+        .mhq-page { background:#050916; color:#eef4ff; min-height:100vh; }
+        .shell { width:min(1160px, calc(100% - 40px)); margin:0 auto; }
 
-        <section id="contact" style={styles.contact}>
-          <h2 style={styles.h2}>Contact Myrie for Marketing</h2>
-          <p style={styles.p}>If you want your business to look premium and convert better online, let’s build your system.</p>
-          <div style={styles.ctaRow}>
-            <a style={{ ...styles.btn, ...styles.btnPrimary }} href="mailto:myriework@gmail.com">myriework@gmail.com</a>
-            <a style={styles.btn} href="tel:+16053892273">+1 (605) 389-2273</a>
-          </div>
-        </section>
-      </div>
+        .hero { position:relative; min-height:82vh; overflow:hidden; }
+        .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(1.1) contrast(1.04); }
+        .hero-overlay { position:absolute; inset:0; background:linear-gradient(115deg, rgba(4,9,20,.92) 20%, rgba(7,15,33,.65) 52%, rgba(10,23,51,.72) 100%); }
+
+        .nav { position:relative; z-index:2; padding:22px 0 10px; display:flex; justify-content:space-between; gap:14px; align-items:center; }
+        .brand { font-size:13px; letter-spacing:.12em; font-weight:800; color:#9fd1ff; }
+        .nav-links { display:flex; gap:10px; flex-wrap:wrap; }
+        .nav-links a { color:#d5e6ff; text-decoration:none; border:1px solid rgba(157,194,255,.35); border-radius:999px; padding:7px 12px; font-size:12px; }
+
+        .hero-content { position:relative; z-index:2; padding:64px 0 72px; }
+        .kicker { font-size:12px; letter-spacing:.12em; color:#8bc4ff; font-weight:700; margin:0 0 14px; text-transform:uppercase; }
+        h1 { margin:0; max-width:900px; font-size:clamp(2.1rem,5vw,4.1rem); line-height:1.03; }
+        h1 span { color:#90b8ff; display:block; }
+        .sub { margin:16px 0 0; max-width:760px; color:#c7daf7; font-size:18px; line-height:1.55; }
+
+        .cta-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
+        .btn { text-decoration:none; border-radius:12px; padding:12px 16px; border:1px solid rgba(148,183,241,.45); color:#e9f2ff; font-weight:700; font-size:14px; }
+        .btn.primary { background:linear-gradient(90deg,#1f8fff,#5764ff); border:none; color:#fff; }
+        .btn.ghost { background:rgba(6,10,20,.56); }
+
+        .section { padding:42px 0; }
+        .section-head p { margin:0 0 8px; color:#8bbef8; text-transform:uppercase; letter-spacing:.1em; font-size:12px; font-weight:700; }
+        .section-head h2 { margin:0; font-size:clamp(1.55rem,3vw,2.45rem); line-height:1.1; }
+
+        .stats-grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+        .stat { background:linear-gradient(180deg,#0b1630,#081226); border:1px solid rgba(109,147,208,.35); border-radius:14px; padding:16px; }
+        .stat strong { display:block; font-size:1.08rem; margin-bottom:6px; }
+        .stat span { color:#b7cbed; font-size:14px; }
+
+        .card-grid, .work-grid { margin-top:16px; display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+        .card, .work-card { background:linear-gradient(180deg,#0b1630,#081226); border:1px solid rgba(109,147,208,.35); border-radius:16px; padding:18px; }
+        .card h3, .work-card h3 { margin:0 0 10px; }
+        .card p, .work-card p { margin:0 0 10px; color:#bdd2f1; line-height:1.55; }
+        .link { color:#88ccff; font-weight:700; text-decoration:none; }
+        .thumb { height:140px; border-radius:12px; margin-bottom:12px; background:linear-gradient(120deg,#1f3d72,#0f2247 45%,#182f5c); border:1px solid rgba(129,168,226,.35); }
+
+        .contact { border-top:1px solid rgba(129,168,226,.28); margin-top:12px; }
+        .contact h2 { margin:0 0 10px; font-size:clamp(1.55rem,3vw,2.3rem); }
+        .contact p { margin:0; color:#c5d9f8; max-width:760px; line-height:1.6; }
+
+        @media (max-width: 800px) {
+          .hero { min-height:auto; }
+          .hero-content { padding:46px 0 58px; }
+          .sub { font-size:16px; }
+          .shell { width:min(1160px, calc(100% - 24px)); }
+        }
+      `}</style>
     </main>
   );
 }
