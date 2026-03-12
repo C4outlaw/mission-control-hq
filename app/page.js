@@ -11,12 +11,24 @@ const featured = [
     copy: 'Modern restaurant website with menu workflows, mobile polish, and public deployment.',
     href: 'https://c4outlaw.github.io/mission-control-hq/',
     label: 'View live site',
+    image:
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80',
   },
   {
     title: 'Magic Menu App',
     copy: 'Operations-focused product concept for menus, content, and restaurant growth workflows.',
+    image:
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
   },
+];
 
+const heroImage =
+  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80';
+
+const gallery = [
+  'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
 ];
 
 const localBusinessSchema = {
@@ -45,6 +57,7 @@ export default function HomePage() {
       </header>
 
       <section className="hero shell">
+        <div className="hero-image" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="hero-copy">
           <p className="kicker">DAYTONA + ORLANDO MARKETING SYSTEMS</p>
           <h1>
@@ -79,6 +92,12 @@ export default function HomePage() {
         <article><strong>Scalable</strong><span>Systems built for iteration, not one-off launches.</span></article>
       </section>
 
+      <section className="shell gallery">
+        {gallery.map((src) => (
+          <div key={src} className="gallery-card" style={{ backgroundImage: `url(${src})` }} />
+        ))}
+      </section>
+
       <section id="services" className="shell block">
         <div className="head">
           <p>Services</p>
@@ -102,7 +121,7 @@ export default function HomePage() {
         <div className="grid work">
           {featured.map((item) => (
             <article key={item.title} className="card workCard">
-              <div className="media" />
+              <div className="media" style={{ backgroundImage: `url(${item.image})` }} />
               <h3>{item.title}</h3>
               <p>{item.copy}</p>
               {item.href ? (
@@ -131,11 +150,12 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
       <style>{`
-        .mhq { position:relative; min-height:100vh; color:#eef4ff; background:#060a14; overflow:hidden; }
+        .mhq { position:relative; min-height:100vh; color:#eef4ff; background:linear-gradient(180deg,#050916,#090f24 35%,#120a22 100%); overflow:hidden; }
         .mesh { position:fixed; inset:-20% -10%; background:
-          radial-gradient(circle at 18% 20%, rgba(53,116,255,.28), transparent 35%),
-          radial-gradient(circle at 80% 8%, rgba(106,84,255,.22), transparent 32%),
-          radial-gradient(circle at 70% 75%, rgba(34,171,255,.16), transparent 30%);
+          radial-gradient(circle at 12% 18%, rgba(53,116,255,.30), transparent 35%),
+          radial-gradient(circle at 80% 8%, rgba(196,80,255,.24), transparent 32%),
+          radial-gradient(circle at 70% 75%, rgba(34,221,255,.2), transparent 30%),
+          radial-gradient(circle at 30% 90%, rgba(255,120,70,.14), transparent 34%);
           pointer-events:none; z-index:0; }
         .shell { position:relative; z-index:1; width:min(1160px, calc(100% - 40px)); margin:0 auto; }
         .top { padding:20px 0 12px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
@@ -143,7 +163,8 @@ export default function HomePage() {
         nav { display:flex; gap:10px; flex-wrap:wrap; }
         nav a { color:#d8e8ff; text-decoration:none; font-size:12px; border:1px solid rgba(145,175,235,.35); padding:7px 12px; border-radius:999px; }
 
-        .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:16px; padding:48px 0 24px; }
+        .hero { display:grid; grid-template-columns:1fr 1.05fr .75fr; gap:16px; padding:48px 0 24px; align-items:stretch; }
+        .hero-image { border-radius:18px; min-height:360px; background-size:cover; background-position:center; border:1px solid rgba(137,170,232,.35); box-shadow:0 22px 45px rgba(4,10,22,.45); }
         .hero-copy h1 { margin:0; font-size:clamp(2.2rem,5vw,4.2rem); line-height:1.02; letter-spacing:-.02em; }
         .hero-copy h1 span { display:block; color:#9fc1ff; }
         .kicker { margin:0 0 12px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#86c0ff; font-weight:700; }
@@ -170,15 +191,22 @@ export default function HomePage() {
         .card h3 { margin:0 0 10px; }
         .card p { margin:0; color:#bdd2ef; line-height:1.6; }
         .workCard a { display:inline-block; margin-top:12px; color:#8cd0ff; text-decoration:none; font-weight:700; }
-        .media { height:150px; border-radius:12px; margin-bottom:12px; background:linear-gradient(130deg,#264f8a,#17325f 45%,#2a4473); border:1px solid rgba(125,164,228,.35); }
+        .media { height:180px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; border:1px solid rgba(125,164,228,.35); }
 
-        .contact { margin:52px auto 70px; padding:24px; border-radius:18px; border:1px solid rgba(126,164,230,.35); background:linear-gradient(120deg, rgba(18,35,68,.92), rgba(8,16,32,.92)); }
+        .gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:8px auto 0; }
+        .gallery-card { height:170px; border-radius:14px; background-size:cover; background-position:center; border:1px solid rgba(133,170,235,.32); box-shadow:0 16px 34px rgba(5,10,22,.4); }
+
+        .contact { margin:52px auto 70px; padding:24px; border-radius:18px; border:1px solid rgba(126,164,230,.35); background:linear-gradient(120deg, rgba(18,35,68,.92), rgba(30,10,44,.9)); }
         .contact h2 { margin:0 0 10px; font-size:clamp(1.7rem,3vw,2.5rem); }
         .contact p { margin:0; color:#c2d6f4; max-width:780px; line-height:1.6; }
 
-        @media (max-width:900px){
+        @media (max-width:1020px){
           .hero { grid-template-columns:1fr; }
+          .hero-image { min-height:260px; }
+        }
+        @media (max-width:900px){
           .hero-copy p { font-size:16px; }
+          .gallery { grid-template-columns:1fr; }
           .shell { width:min(1160px, calc(100% - 24px)); }
         }
       `}</style>
