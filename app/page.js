@@ -36,6 +36,17 @@ const projects = [
   },
 ];
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Myrie HQ',
+  url: 'https://www.myriehq.com',
+  areaServed: ['Daytona Beach, FL', 'Orlando, FL'],
+  serviceType: ['Website Design', 'Local SEO', 'Marketing Strategy', 'Brand Creative'],
+  telephone: '+1-605-389-2273',
+  email: 'myriework@gmail.com',
+};
+
 export default function HomePage() {
   return (
     <main className="mhq-page">
@@ -129,6 +140,8 @@ export default function HomePage() {
           <a className="btn" href="tel:+16053892273">+1 (605) 389-2273</a>
         </div>
       </section>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
       <style>{`
         .mhq-page { background:#050916; color:#eef4ff; min-height:100vh; }
