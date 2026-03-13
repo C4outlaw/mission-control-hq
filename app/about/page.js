@@ -8,28 +8,45 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main style={{ background: '#fff', color: '#111', minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" }}>
-      <section style={{ width: 'min(920px, calc(100% - 40px))', margin: '0 auto', padding: '48px 0 76px' }}>
+      <section style={{ width: 'min(1020px, calc(100% - 40px))', margin: '0 auto', padding: '48px 0 76px' }}>
         <p style={{ margin: 0, textTransform: 'uppercase', letterSpacing: '.12em', fontSize: 11, color: '#5f6675', fontWeight: 600 }}>
           About
         </p>
-        <h1 style={{ margin: '10px 0 16px', fontSize: 'clamp(2rem, 5vw, 3.4rem)', lineHeight: 1.05, letterSpacing: '-.03em' }}>
+        <h1 style={{ margin: '10px 0 18px', fontSize: 'clamp(2rem, 5vw, 3.4rem)', lineHeight: 1.05, letterSpacing: '-.03em' }}>
           O’Neill Myrie
         </h1>
-        <p style={{ color: '#4f5663', lineHeight: 1.75, fontSize: 18 }}>
-          O’Neill Myrie leads at the intersection of operations and growth marketing. As General Manager at The Beach Bucket and founder of Myrie HQ, he brings practical business experience into every digital project — from premium website redesigns to local SEO systems and conversion-focused content strategy.
-        </p>
-        <p style={{ color: '#4f5663', lineHeight: 1.75, fontSize: 18 }}>
-          His mission is simple: help local businesses look world-class online and convert that visibility into real revenue.
-          Through Myrie HQ, O’Neill supports restaurants, coffee shops, and local brands in Daytona Beach and Orlando with modern web design, Google optimization, and scalable marketing workflows.
-        </p>
-        <div style={{ marginTop: 24, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <a href="mailto:myriework@gmail.com" style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, background: '#111', color: '#fff', fontWeight: 600 }}>
-            Contact Myrie
-          </a>
-          <a href="/" style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, border: '1px solid #d8dae3', color: '#111', fontWeight: 600 }}>
-            Back to Home
-          </a>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: 22, alignItems: 'start' }}>
+          <img
+            src="/assets/profile/myrie.jpg"
+            alt="O’Neill Myrie"
+            style={{ width: '100%', borderRadius: 16, border: '1px solid #e5e7eb', boxShadow: '0 14px 28px rgba(0,0,0,.08)' }}
+          />
+
+          <div>
+            <p style={{ color: '#4f5663', lineHeight: 1.75, fontSize: 18, marginTop: 0 }}>
+              O’Neill Myrie leads at the intersection of operations and growth marketing. As General Manager at The Beach Bucket and founder of Myrie HQ, he brings practical business experience into every digital project — from premium website redesigns to local SEO systems and conversion-focused content strategy.
+            </p>
+            <p style={{ color: '#4f5663', lineHeight: 1.75, fontSize: 18 }}>
+              His mission is simple: help local businesses look world-class online and convert that visibility into real revenue.
+              Through Myrie HQ, O’Neill supports restaurants, coffee shops, and local brands in Daytona Beach and Orlando with modern web design, Google optimization, and scalable marketing workflows.
+            </p>
+            <div style={{ marginTop: 24, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <a href="mailto:myriework@gmail.com" style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, background: '#111', color: '#fff', fontWeight: 600 }}>
+                Contact Myrie
+              </a>
+              <a href="/" style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, border: '1px solid #d8dae3', color: '#111', fontWeight: 600 }}>
+                Back to Home
+              </a>
+            </div>
+          </div>
         </div>
+
+        <style>{`
+          @media (max-width: 860px) {
+            section > div { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
       </section>
     </main>
   );
