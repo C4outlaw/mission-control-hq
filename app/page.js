@@ -62,7 +62,7 @@ export default function HomePage() {
         <div className="hero-overlay" />
         <div className="hero-copy shell delay">
           <p className="eyebrow">DAYTONA + ORLANDO MARKETING SYSTEMS</p>
-          <h1 className="glass-title">Build a brand that looks premium, ranks locally, and converts.</h1>
+          <h1 className="glass-title">Build A Brand That Looks Premium, Ranks Locally, And Converts.</h1>
           <p>
             Myrie HQ helps restaurants and local businesses launch modern websites, improve local visibility,
             and scale with clean marketing systems.
