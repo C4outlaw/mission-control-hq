@@ -62,7 +62,7 @@ export default function MagicMenuPage() {
 
             <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
               <a
-                href="https://savory-studio.vercel.app"
+                href="https://savory-studio.vercel.app/dashboard"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, background: '#fff', color: '#111', fontWeight: 700 }}
