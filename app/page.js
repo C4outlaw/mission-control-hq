@@ -113,6 +113,15 @@ export default function HomePage() {
         </p>
       </section>
 
+      <section id="about" className="shell about">
+        <h2>About O’Neill Myrie</h2>
+        <p>
+          I’m O’Neill Myrie, General Manager at The Beach Bucket in Ormond Beach and founder of Myrie HQ.
+          I blend real-world hospitality operations with modern marketing systems to help local businesses look premium,
+          rank higher on Google, and convert more customers.
+        </p>
+      </section>
+
       <section id="contact" className="shell contact">
         <h2>Contact Myrie for Marketing</h2>
         <p>Let’s rebuild your site and growth strategy with a premium, modern approach.</p>
@@ -158,6 +167,9 @@ export default function HomePage() {
 
         .quote { margin:8px auto 0; padding:26px 24px; border:1px solid #ececf1; border-radius:18px; background:linear-gradient(180deg,#fff,#fafbff); }
         .quote p { margin:0; font-size:clamp(1.2rem,2.5vw,1.8rem); letter-spacing:-.02em; color:#1d2430; }
+
+        .about { border-top:1px solid #efeff3; margin-top:22px; padding:34px 0 12px; }
+        .about p { color:#5a6070; line-height:1.7; max-width:900px; }
 
         .contact { border-top:1px solid #efeff3; margin-top:22px; padding:36px 0 70px; }
         .contact p { color:#5a6070; }
