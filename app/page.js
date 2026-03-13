@@ -83,7 +83,6 @@ export default function HomePage() {
         <div>Automation</div>
         <div>Menu Engineering</div>
         <div>Product Photo Reimagined</div>
-        <div>Daytona + Orlando</div>
       </section>
 
       <section id="services" className="shell block">
