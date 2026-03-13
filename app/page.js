@@ -46,7 +46,7 @@ export default function HomePage() {
   return (
     <main className="site">
       <header className="nav shell">
-        <div className="brand">Let Myrie HQ Optimize Your Business</div>
+        <div className="brand">Let Us Optimize Your Business And Watch Your Sales Skyrocket</div>
         <nav>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
