@@ -170,7 +170,7 @@ export default function HomePage() {
         .shell { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
 
         .nav { position:sticky; top:0; z-index:5; backdrop-filter: blur(10px); background:rgba(255,255,255,.82); border-bottom:1px solid #efeff3; padding:16px 0; display:flex; justify-content:space-between; align-items:center; }
-        .brand { font-weight:700; letter-spacing:.08em; font-size:13px; text-shadow:0 1px 2px rgba(0,0,0,.12); }
+        .brand { font-weight:800; letter-spacing:.06em; font-size:clamp(1.4rem, 3.2vw, 2.4rem); text-shadow:0 2px 6px rgba(0,0,0,.18); line-height:1; }
         nav { display:flex; gap:10px; }
         nav a {
           text-decoration:none;
