@@ -52,12 +52,12 @@ export default function HomePage() {
       </header>
 
       <section className="hero shell">
-        <div className="hero-media">
+        <div className="hero-media reveal">
           <video autoPlay muted loop playsInline poster={heroPoster}>
             <source src={heroVideo} type="video/mp4" />
           </video>
         </div>
-        <div className="hero-copy">
+        <div className="hero-copy reveal delay">
           <p className="eyebrow">DAYTONA + ORLANDO MARKETING SYSTEMS</p>
           <h1>Build a brand that looks premium, ranks locally, and converts.</h1>
           <p>
@@ -69,6 +69,14 @@ export default function HomePage() {
             <a className="btn" href="#work">See work</a>
           </div>
         </div>
+      </section>
+
+      <section className="shell trust">
+        <div>Web Design</div>
+        <div>Local SEO</div>
+        <div>Brand Creative</div>
+        <div>Automation</div>
+        <div>Daytona + Orlando</div>
       </section>
 
       <section id="services" className="shell block">
@@ -99,6 +107,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="shell quote">
+        <p>
+          “We don’t just make websites look better — we make them perform better.”
+        </p>
+      </section>
+
       <section id="contact" className="shell contact">
         <h2>Contact Myrie for Marketing</h2>
         <p>Let’s rebuild your site and growth strategy with a premium, modern approach.</p>
@@ -114,35 +128,48 @@ export default function HomePage() {
         .site { background:#fff; color:#111; min-height:100vh; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif; }
         .shell { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
 
-        .nav { padding:22px 0; display:flex; justify-content:space-between; align-items:center; }
+        .nav { position:sticky; top:0; z-index:5; backdrop-filter: blur(10px); background:rgba(255,255,255,.82); border-bottom:1px solid #efeff3; padding:16px 0; display:flex; justify-content:space-between; align-items:center; }
         .brand { font-weight:700; letter-spacing:.08em; font-size:13px; }
         nav { display:flex; gap:10px; }
         nav a { text-decoration:none; color:#222; font-size:13px; padding:8px 12px; border:1px solid #ececf1; border-radius:999px; }
 
-        .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:center; padding:16px 0 42px; }
+        .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; align-items:center; padding:28px 0 46px; }
         .hero-media { border-radius:22px; overflow:hidden; border:1px solid #e9e9ef; box-shadow:0 14px 36px rgba(0,0,0,.08); }
-        .hero-media video { width:100%; height:100%; min-height:380px; object-fit:cover; display:block; }
+        .hero-media video { width:100%; height:100%; min-height:410px; object-fit:cover; display:block; }
         .eyebrow { margin:0 0 12px; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#5f6675; font-weight:600; }
-        h1 { margin:0; font-size:clamp(2rem,5vw,3.9rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; }
+        h1 { margin:0; font-size:clamp(2rem,5vw,3.95rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; }
         .hero-copy p { color:#4f5663; line-height:1.6; font-size:17px; margin-top:14px; }
         .actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
-        .btn { text-decoration:none; padding:12px 16px; border-radius:12px; border:1px solid #d8dae3; color:#111; font-weight:600; }
+        .btn { text-decoration:none; padding:12px 16px; border-radius:12px; border:1px solid #d8dae3; color:#111; font-weight:600; transition:all .2s ease; }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
         .btn.primary { background:#111; color:#fff; border-color:#111; }
 
-        .block { padding:28px 0; }
+        .trust { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; margin-bottom:8px; }
+        .trust div { text-align:center; font-size:12px; color:#5f6675; border:1px solid #ececf1; padding:10px 8px; border-radius:999px; }
+
+        .block { padding:34px 0; }
         h2 { margin:0 0 14px; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.02em; }
         .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
-        .card { border:1px solid #ececf1; border-radius:16px; padding:16px; background:#fff; }
+        .card { border:1px solid #ececf1; border-radius:16px; padding:16px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.03); }
         .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; }
         .card p { margin:0; color:#5a6070; line-height:1.6; }
         .thumb { height:170px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; }
         .link { display:inline-block; margin-top:10px; color:#0a63ff; text-decoration:none; font-weight:600; }
 
-        .contact { border-top:1px solid #efeff3; margin-top:8px; padding:36px 0 70px; }
+        .quote { margin:8px auto 0; padding:26px 24px; border:1px solid #ececf1; border-radius:18px; background:linear-gradient(180deg,#fff,#fafbff); }
+        .quote p { margin:0; font-size:clamp(1.2rem,2.5vw,1.8rem); letter-spacing:-.02em; color:#1d2430; }
+
+        .contact { border-top:1px solid #efeff3; margin-top:22px; padding:36px 0 70px; }
+        .contact p { color:#5a6070; }
+
+        .reveal { animation: rise .7s ease both; }
+        .delay { animation-delay:.12s; }
+        @keyframes rise { from {opacity:0; transform:translateY(14px);} to {opacity:1; transform:none;} }
 
         @media (max-width: 920px) {
           .hero { grid-template-columns:1fr; }
           .hero-media video { min-height:280px; }
+          .trust { grid-template-columns:1fr 1fr; }
           .shell { width:min(1120px, calc(100% - 24px)); }
         }
       `}</style>
