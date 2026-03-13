@@ -47,6 +47,7 @@ export default function HomePage() {
         <nav>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
+          <a href="/about">About</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -116,10 +117,9 @@ export default function HomePage() {
       <section id="about" className="shell about">
         <h2>About O’Neill Myrie</h2>
         <p>
-          I’m O’Neill Myrie, General Manager at The Beach Bucket in Ormond Beach and founder of Myrie HQ.
-          I blend real-world hospitality operations with modern marketing systems to help local businesses look premium,
-          rank higher on Google, and convert more customers.
+          O’Neill Myrie is General Manager at The Beach Bucket and founder of Myrie HQ, combining hospitality operations with modern marketing systems for local business growth.
         </p>
+        <a className="link" href="/about">Read full story</a>
       </section>
 
       <section id="contact" className="shell contact">
