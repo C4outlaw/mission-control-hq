@@ -49,6 +49,7 @@ export default function HomePage() {
         <nav>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
+          <a href="/magic-menu">Magic Menu</a>
           <a href="/about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -70,6 +71,7 @@ export default function HomePage() {
           <div className="actions">
             <a className="btn primary" href="#contact">Book strategy call</a>
             <a className="btn" href="#work">See work</a>
+            <a className="btn" href="/magic-menu">Open Magic Menu App</a>
           </div>
         </div>
       </section>

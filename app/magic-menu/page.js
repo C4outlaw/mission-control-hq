@@ -16,6 +16,13 @@ export default function MagicMenuPage() {
           Access the Magic Menu workflow from here. Use the button below to open the live app menu view.
         </p>
 
+        <div style={{ marginTop: 16, padding: '14px 16px', border: '1px solid #e5e7eb', borderRadius: 12, background: '#f9fafb' }}>
+          <strong style={{ display: 'block', marginBottom: 6 }}>What Magic Menu does</strong>
+          <span style={{ color: '#4b5563' }}>
+            Menu planning, content workflow support, and operations-focused execution for restaurant growth.
+          </span>
+        </div>
+
         <div id="menu" style={{ marginTop: 24, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <a href="http://127.0.0.1:3010/dashboard" style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, background: '#111', color: '#fff', fontWeight: 600 }}>
             Open Menu App
