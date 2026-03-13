@@ -61,11 +61,16 @@ export default function MagicMenuPage() {
             </div>
 
             <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-              <a href="/" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, background: '#fff', color: '#111', fontWeight: 700 }}>
-                Back To MyrieHQ
+              <a
+                href="https://savory-studio.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, background: '#fff', color: '#111', fontWeight: 700 }}
+              >
+                Open Live Magic Menu App
               </a>
-              <a href="#" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, border: '1px solid #5f7aa8', color: '#dbe8ff', fontWeight: 700 }}>
-                Request Full Live Demo
+              <a href="/" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, border: '1px solid #5f7aa8', color: '#dbe8ff', fontWeight: 700 }}>
+                Back To MyrieHQ
               </a>
             </div>
           </div>
