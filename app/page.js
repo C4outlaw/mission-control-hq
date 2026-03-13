@@ -256,7 +256,8 @@ export default function HomePage() {
         @media (max-width: 920px) {
           .nav { flex-direction:column; align-items:flex-start; gap:10px; }
           nav { margin-left:0; padding-left:0; justify-content:flex-start; }
-          .brand { max-width:none; }
+          .brand { max-width:none; font-size:clamp(1.05rem, 6vw, 1.35rem); line-height:1.15; }
+          nav a { font-size:11px; padding:8px 10px; }
           .full-hero { min-height:62vh; border-radius:18px; }
           .hero-copy { padding:40px 0 42px; }
           .hero-video { min-height:62vh; }
