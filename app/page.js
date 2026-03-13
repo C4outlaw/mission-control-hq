@@ -25,7 +25,7 @@ const featured = [
 ];
 
 const heroVideo =
-  'https://videos.pexels.com/video-files/854259/854259-hd_1280_720_48fps.mp4';
+  'https://videos.pexels.com/video-files/854252/854252-hd_1920_1080_24fps.mp4';
 
 const heroPoster =
   'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=80';
