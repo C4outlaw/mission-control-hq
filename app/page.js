@@ -143,10 +143,15 @@ export default function HomePage() {
 
       <section id="about" className="shell about">
         <h2>About O’Neill Myrie</h2>
-        <p>
-          O’Neill Myrie is General Manager at The Beach Bucket and founder of Myrie HQ, combining hospitality operations with modern marketing systems for local business growth.
-        </p>
-        <a className="link" href="/about">Read full story</a>
+        <div className="about-grid">
+          <img src="/assets/profile/myrie.jpg" alt="O’Neill Myrie" className="about-photo" />
+          <div>
+            <p>
+              O’Neill Myrie is General Manager at The Beach Bucket and founder of Myrie HQ, combining hospitality operations with modern marketing systems for local business growth.
+            </p>
+            <a className="link" href="/about">Read full story</a>
+          </div>
+        </div>
       </section>
 
       <section id="contact" className="shell contact">
@@ -212,6 +217,9 @@ export default function HomePage() {
         .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; text-shadow:0 1px 1px rgba(255,255,255,.8); }
         .card p { margin:0; color:#4f5663; line-height:1.6; text-shadow:0 1px 1px rgba(255,255,255,.55); }
         .buy-sub { color:#5a6070; margin:0 0 14px; }
+        #buy .card { position:relative; overflow:hidden; }
+        #buy .btn { margin-top:12px; display:inline-flex; align-items:center; justify-content:center; color:#111; border:1px solid transparent; background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(110deg,#0a84ff,#7b61ff,#36c9ff) border-box; box-shadow:0 8px 18px rgba(12,85,220,.14); backdrop-filter:none; }
+        #buy .btn:hover { color:#111; box-shadow:0 10px 22px rgba(12,85,220,.2); }
         .thumb { height:170px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; }
         .thumb-video { width:100%; height:170px; object-fit:cover; border-radius:12px; margin-bottom:12px; display:block; }
         .link { display:inline-block; margin-top:10px; color:#0a63ff; text-decoration:none; font-weight:600; }
@@ -220,7 +228,9 @@ export default function HomePage() {
         .quote p { margin:0; font-size:clamp(1.2rem,2.5vw,1.8rem); letter-spacing:-.02em; color:#1d2430; text-shadow:0 1px 1px rgba(255,255,255,.8); }
 
         .about { border-top:1px solid #efeff3; margin-top:22px; padding:34px 0 12px; }
-        .about p { color:#4f5663; line-height:1.7; max-width:900px; text-shadow:0 1px 1px rgba(255,255,255,.6); }
+        .about-grid { display:grid; grid-template-columns:220px 1fr; gap:16px; align-items:start; }
+        .about-photo { width:100%; border-radius:14px; border:1px solid #e5e7eb; box-shadow:0 10px 20px rgba(0,0,0,.08); }
+        .about p { color:#4f5663; line-height:1.7; max-width:900px; text-shadow:0 1px 1px rgba(255,255,255,.6); margin-top:0; }
 
         .contact { border-top:1px solid #efeff3; margin-top:22px; padding:36px 0 70px; }
         .contact p { color:#4f5663; text-shadow:0 1px 1px rgba(255,255,255,.6); }
@@ -236,6 +246,8 @@ export default function HomePage() {
           .hero-copy { padding:40px 0 42px; }
           .hero-video { min-height:62vh; }
           .trust { grid-template-columns:1fr 1fr; }
+          .about-grid { grid-template-columns:1fr; }
+          .about-photo { max-width:280px; }
           .shell { width:min(1120px, calc(100% - 24px)); }
         }
       `}</style>
