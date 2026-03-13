@@ -4,44 +4,71 @@ export const metadata = {
   alternates: { canonical: 'https://www.myriehq.com/magic-menu' },
 };
 
+const modules = [
+  {
+    name: 'Menu Builder',
+    desc: 'Create and organize menu sections, items, pricing, and featured highlights.',
+  },
+  {
+    name: 'Recipe Workflow',
+    desc: 'Structure kitchen-ready recipe content with consistent formatting and outputs.',
+  },
+  {
+    name: 'Food Costing',
+    desc: 'Track ingredients and pricing logic for better margin decisions.',
+  },
+  {
+    name: 'Content Engine',
+    desc: 'Generate branded social and promo content from menu data.',
+  },
+];
+
 export default function MagicMenuPage() {
   return (
-    <main style={{ background: '#fff', color: '#111', minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" }}>
-      <section style={{ width: 'min(980px, calc(100% - 40px))', margin: '0 auto', padding: '42px 0 72px' }}>
-        <p style={{ margin: 0, textTransform: 'uppercase', letterSpacing: '.12em', fontSize: 11, color: '#5f6675', fontWeight: 600 }}>
-          Product
-        </p>
-        <h1 style={{ margin: '10px 0 12px', fontSize: 'clamp(2rem, 5vw, 3.2rem)', letterSpacing: '-.03em' }}>Magic Menu App</h1>
-        <p style={{ color: '#4f5663', lineHeight: 1.7, fontSize: 18 }}>
-          This is the same Magic Menu product you’ve been building from Lovable and GitHub.
-          This page now points to the real app project, not a food-item placeholder.
-        </p>
+    <main style={{ background: '#0b0f17', color: '#eef3ff', minHeight: '100vh', fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif" }}>
+      <section style={{ width: 'min(1120px, calc(100% - 30px))', margin: '0 auto', padding: '30px 0 60px' }}>
+        <a href="/" style={{ color: '#9cc7ff', textDecoration: 'none', fontSize: 13 }}>← Return to Website</a>
 
-        <div style={{ marginTop: 22, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-          <a
-            href="https://github.com/C4outlaw/savory-studio"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, background: '#111', color: '#fff', fontWeight: 600 }}
-          >
-            Open Magic Menu GitHub Repo
-          </a>
-          <a
-            href="http://127.0.0.1:3010/dashboard"
-            style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, border: '1px solid #d8dae3', color: '#111', fontWeight: 600 }}
-          >
-            Open Local Build
-          </a>
-          <a
-            href="/"
-            style={{ textDecoration: 'none', padding: '12px 16px', borderRadius: 12, border: '1px solid #d8dae3', color: '#111', fontWeight: 600 }}
-          >
-            Return to Website
-          </a>
-        </div>
+        <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: '260px 1fr', gap: 14 }}>
+          <aside style={{ border: '1px solid #233047', borderRadius: 14, background: '#0f1625', padding: 14 }}>
+            <p style={{ margin: 0, fontSize: 11, letterSpacing: '.12em', color: '#93a5c3', textTransform: 'uppercase' }}>Magic Menu</p>
+            <h2 style={{ margin: '8px 0 12px', fontSize: 22, letterSpacing: '-.02em' }}>App Navigation</h2>
+            <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9, color: '#d3def1' }}>
+              <li>Dashboard</li>
+              <li>Menu Builder</li>
+              <li>Recipes</li>
+              <li>Food Cost</li>
+              <li>Content</li>
+              <li>Settings</li>
+            </ul>
+          </aside>
 
-        <div style={{ marginTop: 16, padding: '14px 16px', border: '1px solid #e5e7eb', borderRadius: 12, background: '#f9fafb', color: '#4b5563' }}>
-          If you want this button to open a public production app URL instead of local, send me the deployed Magic Menu URL and I’ll wire it instantly.
+          <div style={{ border: '1px solid #233047', borderRadius: 14, background: '#0f1625', padding: 16 }}>
+            <p style={{ margin: 0, textTransform: 'uppercase', letterSpacing: '.12em', color: '#93a5c3', fontSize: 11 }}>Live Product Preview</p>
+            <h1 style={{ margin: '10px 0 10px', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '-.03em' }}>Magic Menu App</h1>
+            <p style={{ margin: 0, color: '#c4d2ea', lineHeight: 1.65, maxWidth: 760 }}>
+              This is the same app product from your Lovable-to-GitHub build path, presented publicly without exposing repo access.
+              Visitors can see what you are building and how the platform is structured.
+            </p>
+
+            <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 12 }}>
+              {modules.map((m) => (
+                <article key={m.name} style={{ border: '1px solid #2b3b59', borderRadius: 12, padding: 14, background: '#131c2e' }}>
+                  <h3 style={{ margin: '0 0 8px', fontSize: 18 }}>{m.name}</h3>
+                  <p style={{ margin: 0, color: '#bfd0eb', lineHeight: 1.55 }}>{m.desc}</p>
+                </article>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              <a href="/" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, background: '#fff', color: '#111', fontWeight: 700 }}>
+                Back To MyrieHQ
+              </a>
+              <a href="#" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, border: '1px solid #5f7aa8', color: '#dbe8ff', fontWeight: 700 }}>
+                Request Full Live Demo
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
