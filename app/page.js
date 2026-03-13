@@ -124,6 +124,23 @@ export default function HomePage() {
         </p>
       </section>
 
+      <section id="buy" className="shell block">
+        <h2>Get Magic Menu</h2>
+        <p className="buy-sub">We are packaging Magic Menu for direct download on desktop (.exe) and Android (.apk). Launch price: <strong>$9.99</strong>.</p>
+        <div className="grid">
+          <article className="card">
+            <h3>Desktop Download (.exe)</h3>
+            <p>Install on your computer and run Magic Menu as a desktop app.</p>
+            <a className="btn" href="mailto:myriework@gmail.com?subject=Magic%20Menu%20Desktop%20Waitlist">Join Desktop Waitlist</a>
+          </article>
+          <article className="card">
+            <h3>Android Download (.apk)</h3>
+            <p>Install Magic Menu on Android devices for mobile workflow access.</p>
+            <a className="btn" href="mailto:myriework@gmail.com?subject=Magic%20Menu%20Android%20Waitlist">Join Android Waitlist</a>
+          </article>
+        </div>
+      </section>
+
       <section id="about" className="shell about">
         <h2>About O’Neill Myrie</h2>
         <p>
@@ -174,6 +191,7 @@ export default function HomePage() {
         .card { border:1px solid #ececf1; border-radius:16px; padding:16px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.03); }
         .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; }
         .card p { margin:0; color:#5a6070; line-height:1.6; }
+        .buy-sub { color:#5a6070; margin:0 0 14px; }
         .thumb { height:170px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; }
         .thumb-video { width:100%; height:170px; object-fit:cover; border-radius:12px; margin-bottom:12px; display:block; }
         .link { display:inline-block; margin-top:10px; color:#0a63ff; text-decoration:none; font-weight:600; }
