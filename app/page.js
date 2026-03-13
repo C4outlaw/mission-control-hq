@@ -165,18 +165,30 @@ export default function HomePage() {
         .shell { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
 
         .nav { position:sticky; top:0; z-index:5; backdrop-filter: blur(10px); background:rgba(255,255,255,.82); border-bottom:1px solid #efeff3; padding:16px 0; display:flex; justify-content:space-between; align-items:center; }
-        .brand { font-weight:700; letter-spacing:.08em; font-size:13px; }
+        .brand { font-weight:700; letter-spacing:.08em; font-size:13px; text-shadow:0 1px 2px rgba(0,0,0,.12); }
         nav { display:flex; gap:10px; }
-        nav a { text-decoration:none; color:#222; font-size:13px; padding:8px 12px; border:1px solid #ececf1; border-radius:999px; }
+        nav a {
+          text-decoration:none;
+          color:#1b2230;
+          font-size:13px;
+          padding:8px 12px;
+          border:1px solid transparent;
+          border-radius:999px;
+          background:
+            linear-gradient(#ffffff,#ffffff) padding-box,
+            linear-gradient(110deg,#7aa8ff,#9a7bff,#63d2ff) border-box;
+          box-shadow:0 6px 18px rgba(34,64,120,.08);
+          text-shadow:0 1px 1px rgba(255,255,255,.65);
+        }
 
         .hero { position:relative; }
         .full-hero { min-height:70vh; margin-top:10px; border-radius:24px; overflow:hidden; }
         .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
         .hero-overlay { position:absolute; inset:0; background:linear-gradient(115deg, rgba(8,10,14,.32) 10%, rgba(8,10,14,.14) 52%, rgba(8,10,14,.28) 100%); }
         .hero-copy { position:relative; z-index:1; padding:64px 0 64px; max-width:900px; }
-        .eyebrow { margin:0 0 12px; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#e8eefb; font-weight:600; }
-        .glass-title { margin:0; font-size:clamp(2rem,5vw,4.4rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; color:rgba(255,255,255,.9); text-shadow:0 2px 16px rgba(0,0,0,.28), 0 0 1px rgba(255,255,255,.5); -webkit-text-stroke:1px rgba(255,255,255,.24); }
-        .hero-copy p { color:#f1f4fb; line-height:1.6; font-size:18px; margin-top:14px; max-width:680px; }
+        .eyebrow { margin:0 0 12px; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#edf3ff; font-weight:600; text-shadow:0 2px 8px rgba(0,0,0,.45); }
+        .glass-title { margin:0; font-size:clamp(2rem,5vw,4.4rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; color:rgba(255,255,255,.94); text-shadow:0 3px 20px rgba(0,0,0,.38), 0 1px 1px rgba(255,255,255,.55); -webkit-text-stroke:1px rgba(255,255,255,.22); }
+        .hero-copy p { color:#f4f7ff; line-height:1.6; font-size:18px; margin-top:14px; max-width:680px; text-shadow:0 2px 10px rgba(0,0,0,.35); }
         .actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
         .btn { text-decoration:none; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.55); color:#fff; font-weight:600; transition:all .2s ease; background:rgba(255,255,255,.08); backdrop-filter: blur(8px); }
         .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
@@ -188,23 +200,31 @@ export default function HomePage() {
         .block { padding:34px 0; }
         h2 { margin:0 0 14px; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.02em; }
         .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
-        .card { border:1px solid #ececf1; border-radius:16px; padding:16px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.03); }
-        .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; }
-        .card p { margin:0; color:#5a6070; line-height:1.6; }
+        .card {
+          border:1px solid transparent;
+          border-radius:16px;
+          padding:16px;
+          background:
+            linear-gradient(#ffffff,#ffffff) padding-box,
+            linear-gradient(130deg,#c8d8ff,#e2d2ff,#b8f0ff) border-box;
+          box-shadow:0 10px 24px rgba(38,66,115,.08);
+        }
+        .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; text-shadow:0 1px 1px rgba(255,255,255,.8); }
+        .card p { margin:0; color:#4f5663; line-height:1.6; text-shadow:0 1px 1px rgba(255,255,255,.55); }
         .buy-sub { color:#5a6070; margin:0 0 14px; }
         .thumb { height:170px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; }
         .thumb-video { width:100%; height:170px; object-fit:cover; border-radius:12px; margin-bottom:12px; display:block; }
         .link { display:inline-block; margin-top:10px; color:#0a63ff; text-decoration:none; font-weight:600; }
 
-        .quote { margin:8px auto 0; padding:26px 24px; border:1px solid #ececf1; border-radius:18px; background:linear-gradient(180deg,#fff,#fafbff); }
-        .quote p { margin:0; font-size:clamp(1.2rem,2.5vw,1.8rem); letter-spacing:-.02em; color:#1d2430; }
+        .quote { margin:8px auto 0; padding:26px 24px; border:1px solid #ececf1; border-radius:18px; background:linear-gradient(180deg,#fff,#f7f9ff); box-shadow:0 10px 24px rgba(34,64,120,.06); }
+        .quote p { margin:0; font-size:clamp(1.2rem,2.5vw,1.8rem); letter-spacing:-.02em; color:#1d2430; text-shadow:0 1px 1px rgba(255,255,255,.8); }
 
         .about { border-top:1px solid #efeff3; margin-top:22px; padding:34px 0 12px; }
-        .about p { color:#5a6070; line-height:1.7; max-width:900px; }
+        .about p { color:#4f5663; line-height:1.7; max-width:900px; text-shadow:0 1px 1px rgba(255,255,255,.6); }
 
         .contact { border-top:1px solid #efeff3; margin-top:22px; padding:36px 0 70px; }
-        .contact p { color:#5a6070; }
-        .contact .btn { color:#111; border:1px solid #d8dae3; background:#fff; backdrop-filter:none; }
+        .contact p { color:#4f5663; text-shadow:0 1px 1px rgba(255,255,255,.6); }
+        .contact .btn { color:#111; border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(120deg,#c9d8ff,#dfd4ff,#b7ecff) border-box; backdrop-filter:none; }
         .contact .btn.primary { background:#111; color:#fff; border-color:#111; }
 
         .reveal { animation: rise .7s ease both; }
