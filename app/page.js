@@ -148,11 +148,11 @@ export default function HomePage() {
         .hero { position:relative; }
         .full-hero { min-height:70vh; margin-top:10px; border-radius:24px; overflow:hidden; }
         .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-        .hero-overlay { position:absolute; inset:0; background:linear-gradient(115deg, rgba(8,10,14,.55) 10%, rgba(8,10,14,.35) 52%, rgba(8,10,14,.5) 100%); }
+        .hero-overlay { position:absolute; inset:0; background:linear-gradient(115deg, rgba(8,10,14,.32) 10%, rgba(8,10,14,.14) 52%, rgba(8,10,14,.28) 100%); }
         .hero-copy { position:relative; z-index:1; padding:64px 0 64px; max-width:900px; }
-        .eyebrow { margin:0 0 12px; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#dce4f3; font-weight:600; }
-        .glass-title { margin:0; font-size:clamp(2rem,5vw,4.4rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; color:rgba(255,255,255,.86); text-shadow:0 2px 24px rgba(0,0,0,.35), 0 0 1px rgba(255,255,255,.6); -webkit-text-stroke:1px rgba(255,255,255,.28); backdrop-filter: blur(2px); }
-        .hero-copy p { color:#e8edf7; line-height:1.6; font-size:18px; margin-top:14px; max-width:680px; }
+        .eyebrow { margin:0 0 12px; text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:#e8eefb; font-weight:600; }
+        .glass-title { margin:0; font-size:clamp(2rem,5vw,4.4rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; color:rgba(255,255,255,.9); text-shadow:0 2px 16px rgba(0,0,0,.28), 0 0 1px rgba(255,255,255,.5); -webkit-text-stroke:1px rgba(255,255,255,.24); }
+        .hero-copy p { color:#f1f4fb; line-height:1.6; font-size:18px; margin-top:14px; max-width:680px; }
         .actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
         .btn { text-decoration:none; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.55); color:#fff; font-weight:600; transition:all .2s ease; background:rgba(255,255,255,.08); backdrop-filter: blur(8px); }
         .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
