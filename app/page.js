@@ -171,20 +171,31 @@ export default function HomePage() {
         .shell { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
 
         .nav { position:sticky; top:0; z-index:5; backdrop-filter: blur(10px); background:rgba(255,255,255,.82); border-bottom:1px solid #efeff3; padding:16px 0; display:flex; justify-content:space-between; align-items:center; }
-        .brand { font-weight:800; letter-spacing:.06em; font-size:clamp(1.4rem, 3.2vw, 2.4rem); text-shadow:0 2px 6px rgba(0,0,0,.18); line-height:1; }
-        nav { display:flex; gap:10px; }
+        .brand {
+          font-weight:900;
+          letter-spacing:.03em;
+          font-size:clamp(1.45rem, 3.3vw, 2.55rem);
+          line-height:1.04;
+          color:#0f1728;
+          text-shadow:0 1px 0 rgba(255,255,255,.7), 0 5px 16px rgba(20,40,90,.26);
+          max-width:760px;
+        }
+        nav { display:flex; gap:10px; margin-left:auto; padding-left:26px; flex-wrap:wrap; justify-content:flex-end; }
         nav a {
           text-decoration:none;
-          color:#1b2230;
-          font-size:13px;
-          padding:8px 12px;
+          color:#162033;
+          font-size:12px;
+          font-weight:700;
+          letter-spacing:.08em;
+          text-transform:uppercase;
+          padding:9px 12px;
           border:1px solid transparent;
           border-radius:999px;
           background:
             linear-gradient(#ffffff,#ffffff) padding-box,
             linear-gradient(110deg,#7aa8ff,#9a7bff,#63d2ff) border-box;
-          box-shadow:0 6px 18px rgba(34,64,120,.08);
-          text-shadow:0 1px 1px rgba(255,255,255,.65);
+          box-shadow:0 7px 18px rgba(34,64,120,.1);
+          text-shadow:0 1px 1px rgba(255,255,255,.72);
         }
 
         .hero { position:relative; }
@@ -243,6 +254,9 @@ export default function HomePage() {
         @keyframes rise { from {opacity:0; transform:translateY(14px);} to {opacity:1; transform:none;} }
 
         @media (max-width: 920px) {
+          .nav { flex-direction:column; align-items:flex-start; gap:10px; }
+          nav { margin-left:0; padding-left:0; justify-content:flex-start; }
+          .brand { max-width:none; }
           .full-hero { min-height:62vh; border-radius:18px; }
           .hero-copy { padding:40px 0 42px; }
           .hero-video { min-height:62vh; }
