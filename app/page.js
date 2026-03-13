@@ -22,8 +22,11 @@ const featured = [
   },
 ];
 
-const heroImage =
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80';
+const heroVideo =
+  'https://videos.pexels.com/video-files/857195/857195-hd_1920_1080_30fps.mp4';
+
+const heroPoster =
+  'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=80';
 
 const gallery = [
   'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
@@ -57,7 +60,11 @@ export default function HomePage() {
       </header>
 
       <section className="hero shell">
-        <div className="hero-image" style={{ backgroundImage: `url(${heroImage})` }} />
+        <div className="hero-image">
+          <video className="hero-video" autoPlay muted loop playsInline poster={heroPoster}>
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
         <div className="hero-copy">
           <p className="kicker">DAYTONA + ORLANDO MARKETING SYSTEMS</p>
           <h1>
@@ -164,7 +171,9 @@ export default function HomePage() {
         nav a { color:#d8e8ff; text-decoration:none; font-size:12px; border:1px solid rgba(145,175,235,.35); padding:7px 12px; border-radius:999px; }
 
         .hero { display:grid; grid-template-columns:1fr 1.05fr .75fr; gap:16px; padding:48px 0 24px; align-items:stretch; }
-        .hero-image { border-radius:18px; min-height:360px; background-size:cover; background-position:center; border:1px solid rgba(137,170,232,.35); box-shadow:0 22px 45px rgba(4,10,22,.45); }
+        .hero-image { position:relative; border-radius:18px; min-height:360px; overflow:hidden; border:1px solid rgba(137,170,232,.35); box-shadow:0 22px 45px rgba(4,10,22,.45); }
+        .hero-video { width:100%; height:100%; min-height:360px; object-fit:cover; display:block; }
+        .hero-image::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(5,9,20,.05), rgba(5,9,20,.45)); pointer-events:none; }
         .hero-copy h1 { margin:0; font-size:clamp(2.2rem,5vw,4.2rem); line-height:1.02; letter-spacing:-.02em; }
         .hero-copy h1 span { display:block; color:#9fc1ff; }
         .kicker { margin:0 0 12px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#86c0ff; font-weight:700; }
