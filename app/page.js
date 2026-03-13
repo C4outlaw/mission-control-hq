@@ -81,6 +81,8 @@ export default function HomePage() {
         <div>Local SEO</div>
         <div>Brand Creative</div>
         <div>Automation</div>
+        <div>Menu Engineering</div>
+        <div>Product Photo Reimagined</div>
         <div>Daytona + Orlando</div>
       </section>
 
@@ -199,8 +201,8 @@ export default function HomePage() {
         .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
         .btn.primary { background:#fff; color:#111; border-color:#fff; }
 
-        .trust { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; margin-bottom:8px; }
-        .trust div { text-align:center; font-size:12px; color:#5f6675; border:1px solid #ececf1; padding:10px 8px; border-radius:999px; }
+        .trust { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:12px; margin-bottom:12px; }
+        .trust div { text-align:center; font-size:clamp(1rem, 2vw, 1.35rem); font-weight:800; letter-spacing:-.01em; color:#1a2230; border:1px solid transparent; padding:14px 12px; border-radius:16px; background:linear-gradient(#ffffff,#ffffff) padding-box, linear-gradient(110deg,#6f9dff,#9a79ff,#53d1ff) border-box; box-shadow:0 10px 24px rgba(29,61,118,.1); }
 
         .block { padding:34px 0; }
         h2 { margin:0 0 14px; font-size:clamp(1.5rem,3vw,2.2rem); letter-spacing:-.02em; }
@@ -245,7 +247,7 @@ export default function HomePage() {
           .full-hero { min-height:62vh; border-radius:18px; }
           .hero-copy { padding:40px 0 42px; }
           .hero-video { min-height:62vh; }
-          .trust { grid-template-columns:1fr 1fr; }
+          .trust { grid-template-columns:1fr; }
           .about-grid { grid-template-columns:1fr; }
           .about-photo { max-width:280px; }
           .shell { width:min(1120px, calc(100% - 24px)); }
