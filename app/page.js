@@ -17,6 +17,8 @@ const featured = [
   {
     title: 'Magic Menu App',
     copy: 'Operations-focused concept for menu and restaurant workflow growth.',
+    href: '/magic-menu#menu',
+    label: 'Open Magic Menu',
     image:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80',
   },

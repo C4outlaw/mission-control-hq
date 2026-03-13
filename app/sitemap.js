@@ -16,6 +16,12 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${base}/magic-menu`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${base}/daytona-beach-marketing-agency`,
       lastModified: now,
       changeFrequency: 'weekly',
