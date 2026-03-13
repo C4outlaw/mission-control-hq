@@ -164,6 +164,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="mobile-cta">
+        <a className="btn primary" href="mailto:myriework@gmail.com">Start Project</a>
+        <a className="btn" href="/magic-menu">Magic Menu</a>
+      </div>
+
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
       <style>{`
@@ -207,7 +212,7 @@ export default function HomePage() {
         .glass-title { margin:0; font-size:clamp(2rem,5vw,4.4rem); line-height:1.03; letter-spacing:-.03em; font-weight:700; color:rgba(255,255,255,.94); text-shadow:0 3px 20px rgba(0,0,0,.38), 0 1px 1px rgba(255,255,255,.55); -webkit-text-stroke:1px rgba(255,255,255,.22); }
         .hero-copy p { color:#f4f7ff; line-height:1.6; font-size:18px; margin-top:14px; max-width:680px; text-shadow:0 2px 10px rgba(0,0,0,.35); }
         .actions { margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
-        .btn { text-decoration:none; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.55); color:#fff; font-weight:600; transition:all .2s ease; background:rgba(255,255,255,.08); backdrop-filter: blur(8px); }
+        .btn { text-decoration:none; padding:12px 16px; min-height:44px; border-radius:12px; border:1px solid rgba(255,255,255,.55); color:#fff; font-weight:600; transition:all .2s ease; background:rgba(255,255,255,.08); backdrop-filter: blur(8px); }
         .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
         .btn.primary { background:#fff; color:#111; border-color:#fff; }
 
@@ -249,6 +254,8 @@ export default function HomePage() {
         .contact .btn { color:#111; border:1px solid transparent; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(120deg,#c9d8ff,#dfd4ff,#b7ecff) border-box; backdrop-filter:none; }
         .contact .btn.primary { background:#111; color:#fff; border-color:#111; }
 
+        .mobile-cta { display:none; }
+
         .reveal { animation: rise .7s ease both; }
         .delay { animation-delay:.12s; }
         @keyframes rise { from {opacity:0; transform:translateY(14px);} to {opacity:1; transform:none;} }
@@ -265,6 +272,25 @@ export default function HomePage() {
           .about-grid { grid-template-columns:1fr; }
           .about-photo { max-width:280px; }
           .shell { width:min(1120px, calc(100% - 24px)); }
+          .mobile-cta {
+            position: fixed;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 8px;
+            border-radius: 14px;
+            background: rgba(255,255,255,.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e6e8ef;
+            box-shadow: 0 10px 24px rgba(0,0,0,.12);
+          }
+          .mobile-cta .btn { text-align:center; color:#111; border-color:#d8dae3; background:#fff; }
+          .mobile-cta .btn.primary { background:#111; color:#fff; border-color:#111; }
+          .contact { padding-bottom: 110px; }
         }
       `}</style>
     </main>
