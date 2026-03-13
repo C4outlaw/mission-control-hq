@@ -11,6 +11,7 @@ const featured = [
     copy: 'Restaurant website redesign with menu workflows and deployment.',
     href: 'https://c4outlaw.github.io/mission-control-hq/',
     label: 'View live project',
+    video: '/assets/work/beachbucket-featured.mp4',
     image:
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80',
   },
@@ -100,7 +101,13 @@ export default function HomePage() {
         <div className="grid">
           {featured.map((item) => (
             <article className="card" key={item.title}>
-              <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
+              {item.video ? (
+                <video className="thumb-video" autoPlay muted loop playsInline preload="metadata">
+                  <source src={item.video} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
+              )}
               <h3>{item.title}</h3>
               <p>{item.copy}</p>
               {item.href ? (
@@ -168,6 +175,7 @@ export default function HomePage() {
         .card h3 { margin:0 0 8px; font-size:20px; letter-spacing:-.01em; }
         .card p { margin:0; color:#5a6070; line-height:1.6; }
         .thumb { height:170px; border-radius:12px; margin-bottom:12px; background-size:cover; background-position:center; }
+        .thumb-video { width:100%; height:170px; object-fit:cover; border-radius:12px; margin-bottom:12px; display:block; }
         .link { display:inline-block; margin-top:10px; color:#0a63ff; text-decoration:none; font-weight:600; }
 
         .quote { margin:8px auto 0; padding:26px 24px; border:1px solid #ececf1; border-radius:18px; background:linear-gradient(180deg,#fff,#fafbff); }
