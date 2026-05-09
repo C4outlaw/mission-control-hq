@@ -8,10 +8,34 @@ import HeroCinematic from '../components/sections/HeroCinematic';
 import Carousel from '../components/motion/Carousel';
 
 const services = [
-  { title: 'Restaurant & Bar Websites', copy: 'Conversion-focused sites for hospitality — mobile menus, online ordering, reservations, daily specials.' },
-  { title: 'Local SEO Systems',         copy: 'Daytona + Orlando local growth. Google Business Profile, on-page, citations, review velocity.' },
-  { title: 'Brand & Creative',          copy: 'Photography, video commercials, weekly social, and the brand assets that make you look premium.' },
-  { title: 'Marketing Automation',      copy: 'Drinks specials, events, posts, email — running on autopilot so you stay in service.' },
+  {
+    num: '01',
+    title: 'Websites',
+    italic: 'that convert.',
+    copy: 'Mobile-first sites for restaurants, bars, and local brands — menus, ordering, reservations, daily specials, all stitched into one fast, hospitable experience.',
+    proof: 'Live at The Beach Bucket Bar & Grill',
+  },
+  {
+    num: '02',
+    title: 'Local SEO',
+    italic: 'that ranks.',
+    copy: 'Google Business Profile, citations, on-page schema, and review-velocity systems built for the Daytona + Orlando query layer — not generic SaaS playbooks.',
+    proof: '3× lift in average local visibility',
+  },
+  {
+    num: '03',
+    title: 'Brand creative',
+    italic: 'that sells.',
+    copy: 'Daily-specials motion ads, signature cocktail cards, plate photography, weekly social — produced in-house and ready for print, IG, and the digital boards by service.',
+    proof: '50+ hospitality assets shipped',
+  },
+  {
+    num: '04',
+    title: 'Marketing automation',
+    italic: 'that ships.',
+    copy: 'Specials, events, posts, email, review responses — running on autopilot so you stay on the floor and the marketing keeps moving.',
+    proof: '7-day rolling content engine',
+  },
 ];
 
 const stats = [
@@ -83,28 +107,6 @@ export default function HomePage() {
             <span className="stat-label">{s.label}</span>
           </Reveal>
         ))}
-      </section>
-
-      <hr className="hairline" />
-
-      <section id="services" className="shell block">
-        <Reveal><span className="eyebrow">What we build</span></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="tropical-h2">Premium marketing systems for local hospitality.</h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="lead block-sub">
-            Everything a hospitality or local brand needs to look premium, rank locally, and convert daily traffic into revenue.
-          </p>
-        </Reveal>
-        <Stagger className="services-grid" stagger={0.08}>
-          {services.map((s) => (
-            <StaggerItem as="article" key={s.title} className="ti-card svc-card">
-              <h3 className="svc-title">{s.title}</h3>
-              <p>{s.copy}</p>
-            </StaggerItem>
-          ))}
-        </Stagger>
       </section>
 
       <section id="showcase" className="cinema">
@@ -196,6 +198,34 @@ export default function HomePage() {
               />
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="services" className="services-section">
+        <div className="shell">
+          <div className="services-head">
+            <Reveal><span className="eyebrow">— What we build</span></Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="services-headline">
+                Four systems. <em className="accent-italic">One studio.</em>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <p className="lead services-lede">
+                Built by a GM who runs a beachfront floor every weekend — for the restaurants and local brands that want to look premium and convert.
+              </p>
+            </Reveal>
+          </div>
+          <Stagger className="services-grid" stagger={0.08}>
+            {services.map((s) => (
+              <StaggerItem as="article" key={s.title} className="svc-card">
+                <span className="svc-num">{s.num}</span>
+                <h3 className="svc-title"><span>{s.title}</span> <em className="accent-italic">{s.italic}</em></h3>
+                <p className="svc-copy">{s.copy}</p>
+                <p className="svc-proof"><span className="svc-arrow" aria-hidden="true">→</span>{s.proof}</p>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 

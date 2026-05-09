@@ -1034,6 +1034,141 @@ html, body { overflow-x: clip; }
 .myrie-marketing .carousel-frame { cursor: zoom-in; }
 
 /* ==========================================================================
+   SERVICES SECTION — editorial parchment, Fraunces accents, proof per card
+   Replaces the old generic-feeling "Premium marketing systems" block.
+   ========================================================================== */
+
+.myrie-marketing .services-section {
+  /* Warm parchment instead of pure white — Apple's #f5f5f7 tone */
+  background: var(--canvas-parchment, #f5f5f7);
+  padding: 144px 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.myrie-marketing .services-section .shell {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.myrie-marketing .services-head { max-width: 800px; margin: 0 0 80px; }
+.myrie-marketing .services-headline {
+  font-family: var(--font-editorial), Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 24px 0 28px;
+  max-width: 16ch;
+}
+.myrie-marketing .services-headline em.accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--warm);
+}
+.myrie-marketing .services-lede {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+}
+
+/* Editorial grid — 2x2 with hairline rules between rather than card borders.
+   Cards feel like a magazine spread, not generic SaaS boxes. */
+.myrie-marketing .services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.myrie-marketing .svc-card {
+  position: relative;
+  padding: 40px 48px 44px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: padding-left .35s cubic-bezier(.22,1,.36,1);
+}
+.myrie-marketing .svc-card:nth-child(2),
+.myrie-marketing .svc-card:nth-child(4) {
+  padding-left: 48px;
+  border-left: 1px solid var(--line);
+}
+.myrie-marketing .svc-card:nth-child(odd) { padding-right: 48px; }
+
+/* Big editorial number in Fraunces — gives the section pace */
+.myrie-marketing .svc-num {
+  font-family: var(--font-editorial), Fraunces, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--warm);
+  line-height: 1;
+}
+
+.myrie-marketing .svc-title {
+  font-family: var(--font-editorial), Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 8px 0 0;
+}
+.myrie-marketing .svc-title em.accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--muted);
+}
+.myrie-marketing .svc-copy {
+  color: var(--ink-2);
+  line-height: 1.55;
+  font-size: 15.5px;
+  margin: 0;
+  letter-spacing: -0.005em;
+  max-width: 42ch;
+}
+.myrie-marketing .svc-proof {
+  margin: 8px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.myrie-marketing .svc-arrow {
+  color: var(--warm);
+  font-weight: 500;
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.myrie-marketing .svc-card:hover .svc-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 920px) {
+  .myrie-marketing .services-section { padding: 80px 0; }
+  .myrie-marketing .services-head { margin-bottom: 48px; }
+  .myrie-marketing .services-grid { grid-template-columns: 1fr; }
+  .myrie-marketing .svc-card,
+  .myrie-marketing .svc-card:nth-child(2),
+  .myrie-marketing .svc-card:nth-child(4) {
+    padding: 32px 0 32px 0;
+    border-left: 0;
+  }
+  .myrie-marketing .svc-card:nth-child(odd) { padding-right: 0; }
+}
+
+/* ==========================================================================
    APPLE × RUNWAY FUSION — cinematic dark sections
    See docs/design-systems/MYRIE-DESIGN.md
    Dark sections are deliberate punctuation, not the dominant surface.
