@@ -1,3 +1,5 @@
+import SEOLanding from '../../components/sections/SEOLanding';
+
 export const metadata = {
   title: 'Local SEO Orlando',
   description:
@@ -7,21 +9,19 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px 70px', color: '#eaf2ff' }}>
-      <h1>Local SEO in Orlando</h1>
-      <p>
-        Myrie HQ helps Orlando businesses rank higher in local search and attract higher-intent customers.
-      </p>
-      <h2>SEO Execution Areas</h2>
-      <ul>
-        <li>Google Business Profile optimization</li>
-        <li>Local landing pages and internal linking</li>
-        <li>On-page SEO and metadata strategy</li>
-        <li>Authority-building content plans</li>
-      </ul>
-      <p>
-        Get your local SEO plan: <a href="mailto:myriework@gmail.com">myriework@gmail.com</a>
-      </p>
-    </main>
+    <SEOLanding
+      eyebrow="Orlando, FL"
+      title="Local SEO that"
+      italic="actually ranks."
+      sub="Myrie HQ helps Orlando businesses rank higher in local search and attract higher-intent customers — Google Business Profile, citations, on-page schema, and the kind of review velocity that moves the map."
+      services={[
+        { title: 'Google Business Profile', copy: 'Full-stack GBP optimization — categories, services, posts, photos, Q&A, and review-velocity systems.' },
+        { title: 'Local landing pages',     copy: 'Service-area pages with internal linking and schema, built to dominate the local query layer.' },
+        { title: 'On-page + metadata',      copy: 'Title tags, schema, headings, and content structure tuned to your real Orlando search intent.' },
+        { title: 'Authority content',       copy: 'Editorial calendars and authority pieces that compound visibility over weeks, not months.' },
+      ]}
+      contactHeading="Ready to rank in Orlando?"
+      contactSub="Talk to an operator who runs a hospitality floor — and a marketing studio that ships every week."
+    />
   );
 }

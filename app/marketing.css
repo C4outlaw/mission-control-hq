@@ -1,0 +1,1131 @@
+/* MARKETING THEME — Apple-luxury minimal.
+   Scoped to .myrie-marketing. Mission Control electron pages keep their own theme.
+
+   Design language:
+   - Massive whitespace
+   - Near-monochrome palette (white + ink + grays)
+   - One restrained accent (deep ink black for primary, warm gold reserved for ONE element per page)
+   - Subtle motion: fade-in on scroll, nothing kinetic
+   - No gradients on cards. No drop shadows on bodies. No decorative borders.
+   - Clean sans-serif typography. Tight letter-spacing on display. Generous line-height on body.
+   - Hairline dividers (1px @ 8% black) instead of decorative wood planks. */
+
+.myrie-marketing {
+  /* Palette */
+  --bg:           #ffffff;
+  --bg-soft:      #fbfbfa;     /* off-white, very warm */
+  --bg-card:      #ffffff;
+  --ink:          #0a0a0a;     /* near-black for headlines */
+  --ink-2:        #1d1d1f;     /* body text */
+  --muted:        #6e6e73;     /* secondary text */
+  --muted-2:      #a3a3a8;     /* tertiary text */
+  --line:         rgba(10,10,10,0.08);
+  --line-2:       rgba(10,10,10,0.12);
+  --accent:       #0a0a0a;     /* primary action */
+  --warm:         #b08a3e;     /* one warm gold for accents */
+  --warm-soft:    #f5e9d3;     /* cream pop, used sparingly */
+  --teal:         #0e374f;     /* deep teal — only used once per page */
+
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'ss01' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--ink-2);
+  background: var(--bg);
+  min-height: 100vh;
+  text-shadow: none;
+  letter-spacing: -0.011em;
+}
+
+.myrie-marketing * { box-sizing: border-box; }
+
+/* TYPE SYSTEM — Inter (body) + Fraunces (editorial display) for hospitality luxury */
+.myrie-marketing .display {
+  font-family: var(--font-editorial), 'Fraunces', 'GT Sectra', 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+.myrie-marketing .headline {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+.myrie-marketing .script  { /* italic Fraunces — used for one editorial moment per page */
+  font-family: var(--font-editorial), serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.018em;
+}
+
+/* Apply Fraunces to all section h2s + tropical-h2 by default */
+.myrie-marketing h1,
+.myrie-marketing h2,
+.myrie-marketing .tropical-h2 {
+  font-family: var(--font-editorial), 'Fraunces', 'GT Sectra', 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+.myrie-marketing h3 {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+
+/* Italic tropical-h2 accent now uses Fraunces italic with warm gold */
+.myrie-marketing .tropical-h2 .accent {
+  font-family: var(--font-editorial), serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--warm);
+  text-transform: none;
+  text-shadow: none;
+  display: inline;
+  transform: none;
+  margin-left: 0;
+  letter-spacing: -0.04em;
+}
+
+.myrie-marketing h1, .myrie-marketing h2, .myrie-marketing h3, .myrie-marketing h4 {
+  color: var(--ink);
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.myrie-marketing p { color: var(--ink-2); }
+
+/* SHELL */
+.myrie-marketing .shell { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+
+/* ========== Strip out the old tropical decorations ========== */
+.myrie-marketing .palm-leaf,
+.myrie-marketing .wood-strip,
+.myrie-marketing .hero-wave-svg,
+.myrie-marketing .grain::after { display: none !important; }
+
+/* Override the old colorful eyebrows/labels to a single calm style */
+.myrie-marketing .eyebrow,
+.myrie-marketing .eyebrow.gold,
+.myrie-marketing .eyebrow.coral {
+  display: inline-block;
+  padding: 0;
+  background: none !important;
+  border: none !important;
+  color: var(--muted) !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0;
+  margin-bottom: 18px;
+}
+.myrie-marketing .eyebrow::before { content: '— '; opacity: 0.5; }
+
+.myrie-marketing .label-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(10,10,10,0.05);
+  color: var(--ink-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+/* DISPLAY HEADLINES — calm Apple-grade scale */
+.myrie-marketing .tropical-h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.038em;
+  color: var(--ink);
+  text-transform: none;
+  text-shadow: none;
+  margin: 0 0 14px;
+  max-width: 18ch;
+}
+.myrie-marketing .tropical-h2 .accent {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--muted);
+  text-transform: none;
+  text-shadow: none;
+  display: inline;
+  transform: none;
+  margin-left: 0;
+  letter-spacing: -0.04em;
+}
+.myrie-marketing .tropical-h2 .accent.orange,
+.myrie-marketing .tropical-h2 .accent.gold { color: var(--warm); }
+
+.myrie-marketing .lead {
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 60ch;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+
+/* CARDS — flat, hairline border, light hover. Apple style. */
+.myrie-marketing .ti-card {
+  background: var(--bg-card);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  padding: 32px 28px;
+  position: relative;
+  transition: border-color .25s ease, transform .35s ease;
+}
+.myrie-marketing .ti-card:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.myrie-marketing .ti-card.sand,
+.myrie-marketing .ti-card.gradient { background: var(--bg-card); border-color: var(--line); box-shadow: none; }
+
+/* GLASS BUTTONS — Vision Pro / Apple liquid-glass language */
+.myrie-marketing .ti-btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: transform .35s cubic-bezier(0.22, 1, 0.36, 1),
+              background .35s ease,
+              border-color .35s ease,
+              box-shadow .4s ease;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(255,255,255,0.55);
+  color: var(--ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.85),
+    inset 0 -1px 0 rgba(0,0,0,0.05),
+    0 1px 2px rgba(0,0,0,0.04),
+    0 12px 36px rgba(10,30,80,0.08);
+}
+/* Top-half highlight for liquid-glass refraction */
+.myrie-marketing .ti-btn::before {
+  content: '';
+  position: absolute; left: 0; right: 0; top: 0; height: 55%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0));
+  border-radius: 999px 999px 999px 999px / 999px 999px 0 0;
+  pointer-events: none;
+  z-index: -1;
+}
+/* Bottom edge depth */
+.myrie-marketing .ti-btn::after {
+  content: '';
+  position: absolute; left: 8%; right: 8%; bottom: 1px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.65), transparent);
+  pointer-events: none;
+}
+.myrie-marketing .ti-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -1px 0 rgba(0,0,0,0.06),
+    0 1px 2px rgba(0,0,0,0.05),
+    0 22px 56px rgba(10,30,80,0.14);
+}
+.myrie-marketing .ti-btn:active { transform: translateY(0); }
+
+/* Primary — dark glass */
+.myrie-marketing .ti-btn.primary {
+  background: rgba(10,10,10,0.82);
+  color: #fff;
+  border-color: rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.4),
+    0 2px 6px rgba(0,0,0,0.18),
+    0 16px 44px rgba(0,0,0,0.28);
+}
+.myrie-marketing .ti-btn.primary::before {
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0));
+}
+.myrie-marketing .ti-btn.primary:hover {
+  background: rgba(10,10,10,0.94);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 2px 6px rgba(0,0,0,0.2),
+    0 26px 60px rgba(0,0,0,0.36);
+}
+
+/* Gold-glass alias — keeps API but renders liquid-amber highlight */
+.myrie-marketing .ti-btn.gold {
+  background: rgba(176,138,62,0.18);
+  color: var(--ink);
+  border-color: rgba(176,138,62,0.45);
+}
+.myrie-marketing .ti-btn.gold::before {
+  background: linear-gradient(180deg, rgba(255,228,170,0.55), rgba(255,228,170,0));
+}
+.myrie-marketing .ti-btn.gold:hover {
+  background: rgba(176,138,62,0.3);
+  border-color: rgba(176,138,62,0.7);
+}
+
+/* Outline / green now share the light-glass system */
+.myrie-marketing .ti-btn.outline,
+.myrie-marketing .ti-btn.green {
+  background: rgba(255,255,255,0.4);
+  color: var(--ink);
+  border-color: rgba(10,10,10,0.12);
+}
+.myrie-marketing .ti-btn.outline:hover,
+.myrie-marketing .ti-btn.green:hover {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(10,10,10,0.22);
+}
+
+/* Strip out the kitsch decorations from re-used elements */
+.myrie-marketing .star { display: none; }
+.myrie-marketing .ti-foot-stars { display: none !important; }
+
+/* Hairline dividers used between sections */
+.myrie-marketing .hairline {
+  height: 1px;
+  background: var(--line);
+  margin: 0;
+  border: 0;
+}
+
+/* Inline editorial links — warm gold underline animation */
+.myrie-marketing a.editorial-link,
+.myrie-marketing .lead a,
+.myrie-marketing .testi-quote a {
+  color: var(--ink);
+  text-decoration: none;
+  background-image: linear-gradient(0deg, var(--warm), var(--warm));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.myrie-marketing a.editorial-link:hover,
+.myrie-marketing .lead a:hover,
+.myrie-marketing .testi-quote a:hover {
+  background-size: 100% 2px;
+}
+
+/* 4pt spacing rhythm — utility classes for consistent vertical scale */
+.myrie-marketing .pt-section { padding-top: 144px; }
+.myrie-marketing .pb-section { padding-bottom: 144px; }
+.myrie-marketing .my-section { margin-top: 144px; margin-bottom: 144px; }
+
+/* ==========================================================================
+   HERO CINEMATIC — "Katrine Pil" editorial composition
+   Massive sans-serif first word + italic-serif second word, edge-to-edge.
+   Center play button triggers waterfall:cascade event for global downpour.
+   ========================================================================== */
+
+.myrie-marketing .hero-cinematic {
+  position: relative;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 96px 0 56px;
+  overflow: hidden;
+  isolation: isolate;
+  margin-top: -64px;       /* tuck under sticky nav */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  align-items: stretch;
+}
+.myrie-marketing .hero-cinematic .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.myrie-marketing .hero-bg-image {
+  position: absolute; inset: 0;
+  background-image: url('/assets/hero/waterfall-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.05) brightness(0.78);
+  animation: heroBgDrift 32s ease-in-out infinite alternate;
+}
+.myrie-marketing .hero-bg-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) brightness(0.78) contrast(1.05);
+}
+
+/* Shared SEO landing styles */
+.myrie-marketing .seo-hero { padding: 144px 0 96px; max-width: 1200px; }
+.myrie-marketing .seo-title { font-size: clamp(2.6rem, 6.5vw, 5.4rem); margin: 24px 0 32px; max-width: 16ch; line-height: 1.04; letter-spacing: -0.04em; font-weight: 500; }
+.myrie-marketing .seo-italic { font-style: italic; font-weight: 400; color: var(--warm); }
+.myrie-marketing .seo-sub { max-width: 64ch; margin: 0 0 40px; }
+.myrie-marketing .seo-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.myrie-marketing .seo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
+.myrie-marketing .seo-card-title { font-size: 20px; font-weight: 600; letter-spacing: -0.018em; margin: 0 0 12px; }
+.myrie-marketing .seo-contact { padding: 144px 0; text-align: center; }
+.myrie-marketing .seo-contact .lead { max-width: 560px; margin: 16px auto 32px; }
+.myrie-marketing .seo-contact .seo-cta { justify-content: center; }
+@media (max-width: 768px) {
+  .myrie-marketing .seo-hero { padding: 96px 0 64px; }
+  .myrie-marketing .seo-contact { padding: 80px 0; }
+}
+@keyframes heroBgDrift {
+  0%   { transform: scale(1.05) translate(0, 0); }
+  100% { transform: scale(1.10) translate(-12px, -10px); }
+}
+.myrie-marketing .hero-bg-veil {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.92) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 25%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.85) 100%);
+}
+
+.myrie-marketing .hero-cinematic-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 120px 32px 56px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  gap: 0;
+  text-align: center;
+}
+
+/* Massive headline — edge-to-edge, two contrasting weights */
+.myrie-marketing .hero-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 28px);
+  margin: 0;
+  line-height: 0.86;
+  white-space: nowrap;
+}
+.myrie-marketing .hero-display-1 {
+  font-family: var(--font-body), Inter, -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: clamp(4.5rem, 18vw, 18rem);
+  letter-spacing: -0.045em;
+  color: #fff;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.55);
+  font-feature-settings: 'kern' 1;
+}
+.myrie-marketing .hero-display-2 {
+  font-family: var(--font-editorial), Fraunces, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 18vw, 18rem);
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.55);
+}
+
+/* Tagged role list — center column under headline */
+.myrie-marketing .hero-roles {
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+}
+.myrie-marketing .hero-roles p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  letter-spacing: -0.012em;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.myrie-marketing .hero-roles .tag {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 0.7em;
+  color: rgba(255,255,255,0.68);
+  letter-spacing: 0;
+}
+
+/* Play button — clicking pours the waterfall */
+.myrie-marketing .hero-play-wrap {
+  margin: 28px auto 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.myrie-marketing .hero-play {
+  position: relative;
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  transition: transform .25s cubic-bezier(.22,1,.36,1), background .25s ease, border-color .25s ease, box-shadow .35s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 18px 50px rgba(0,0,0,.45);
+}
+.myrie-marketing .hero-play svg { transform: translateX(2px); }
+.myrie-marketing .hero-play:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.75);
+  transform: scale(1.04);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 26px 70px rgba(140, 200, 255, .25);
+}
+.myrie-marketing .hero-play:active { transform: scale(0.97); }
+.myrie-marketing .hero-play.is-pouring {
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.92);
+}
+.myrie-marketing .hero-play-ring {
+  position: absolute; inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  pointer-events: none;
+  animation: heroRing 3.2s ease-out infinite;
+}
+.myrie-marketing .hero-play-ring.two { animation-delay: 1.6s; }
+@keyframes heroRing {
+  0%   { transform: scale(0.92); opacity: 0.7; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+.myrie-marketing .hero-play-toast {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+/* Description paragraph — narrow, calm, below the fold but in viewport */
+.myrie-marketing .hero-desc {
+  margin: 36px auto 0;
+  max-width: 60ch;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: -0.011em;
+}
+
+/* CTA row */
+.myrie-marketing .hero-cta-row {
+  margin: 32px auto 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.myrie-marketing .hero-cinematic .ti-btn:not(.primary):not(.gold) {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.28);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+.myrie-marketing .hero-cinematic .ti-btn:not(.primary):not(.gold):hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.45);
+}
+
+/* Coordinate strip — bottom row */
+.myrie-marketing .hero-coords {
+  margin-top: auto;
+  padding-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+.myrie-marketing .hero-coords .coord-l { text-align: left; }
+.myrie-marketing .hero-coords .coord-c { text-align: center; color: #fff; letter-spacing: 0.16em; }
+.myrie-marketing .hero-coords .coord-r { text-align: right; }
+
+@media (max-width: 768px) {
+  .myrie-marketing .hero-cinematic { min-height: 100svh; padding-top: 80px; }
+  .myrie-marketing .hero-cinematic-grid { padding: 80px 20px 24px; }
+  .myrie-marketing .hero-display-1,
+  .myrie-marketing .hero-display-2 { font-size: clamp(3.4rem, 22vw, 7rem); }
+  .myrie-marketing .hero-roles { margin-top: 24px; }
+  .myrie-marketing .hero-roles p { font-size: 0.95rem; }
+  .myrie-marketing .hero-play { width: 80px; height: 80px; }
+  .myrie-marketing .hero-desc { margin-top: 28px; font-size: 0.95rem; }
+  .myrie-marketing .hero-cta-row { margin-top: 24px; }
+  /* Coordinate strip stacks vertically on small screens to avoid cramping */
+  .myrie-marketing .hero-coords {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px;
+    padding-top: 32px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+  .myrie-marketing .hero-coords .coord-l,
+  .myrie-marketing .hero-coords .coord-r,
+  .myrie-marketing .hero-coords .coord-c { text-align: center; }
+  .myrie-marketing .hero-coords .coord-c { font-size: 11px; order: -1; }
+}
+
+/* ==========================================================================
+   PREMIUM SITE NAV — Apple-grade glass nav, sticky, scroll-aware
+   ========================================================================== */
+
+.myrie-marketing .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: rgba(255,255,255,0.0);
+  border-bottom: 1px solid transparent;
+  transition: background .4s cubic-bezier(.22,1,.36,1), border-color .4s ease, backdrop-filter .35s ease, box-shadow .4s ease;
+}
+.myrie-marketing .site-nav.is-scrolled {
+  background: rgba(255,255,255,0.78);
+  border-bottom-color: rgba(10,10,10,0.07);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+}
+.myrie-marketing .site-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 24px;
+}
+.myrie-marketing .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: opacity .25s ease;
+}
+.myrie-marketing .site-brand:hover { opacity: 0.82; }
+
+/* Premium "M" mark — subtle gradient + warm-gold inner stroke + soft glow */
+.myrie-marketing .brand-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  background:
+    radial-gradient(120% 100% at 30% 10%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 60%, #050505 100%);
+  color: #fff;
+  font-family: var(--font-editorial), Fraunces, serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 0 0 1px rgba(176,138,62,0.32),
+    0 1px 2px rgba(0,0,0,.18),
+    0 4px 14px rgba(0,0,0,.08);
+}
+.myrie-marketing .brand-mark::before {
+  /* The actual "M" character shifts to match Fraunces optical center */
+  content: 'M';
+  transform: translateY(-1px);
+}
+.myrie-marketing .brand-mark > * { display: none; }   /* hide any inline children if used */
+
+.myrie-marketing .brand-word {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-editorial), Fraunces, serif;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: -0.028em;
+  line-height: 1;
+}
+.myrie-marketing .brand-myrie { color: var(--ink); }
+.myrie-marketing .brand-hq    { color: var(--warm); font-style: italic; margin-left: 4px; font-weight: 400; }
+
+.myrie-marketing .site-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+/* Underline-on-hover indicator — Apple/Linear premium pattern */
+.myrie-marketing .site-nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--ink-2);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  padding: 10px 14px 9px;
+  border-radius: 999px;
+  transition: color .25s ease;
+}
+.myrie-marketing .site-nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px;
+  bottom: 6px;
+  height: 1.5px;
+  background: var(--warm);
+  transform: scaleX(0);
+  transform-origin: 50% 100%;
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.myrie-marketing .site-nav-links a:hover {
+  color: var(--ink);
+}
+.myrie-marketing .site-nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Premium CTA — subtle gradient, refined shadow, smooth arrow slide */
+.myrie-marketing .site-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 20px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, background .25s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.4),
+    0 1px 2px rgba(0,0,0,.08),
+    0 6px 18px rgba(0,0,0,.10);
+}
+.myrie-marketing .site-nav-cta:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 2px 4px rgba(0,0,0,.10),
+    0 14px 32px rgba(0,0,0,.18);
+}
+.myrie-marketing .site-nav-cta:active { transform: translateY(0); }
+.myrie-marketing .site-nav-cta svg { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+.myrie-marketing .site-nav-cta:hover svg { transform: translateX(3px); }
+
+@media (max-width: 720px) {
+  .myrie-marketing .site-nav-inner { height: 60px; gap: 12px; }
+  .myrie-marketing .site-nav-links { display: none; }
+  .myrie-marketing .brand-word { font-size: 17px; }
+  .myrie-marketing .brand-mark { width: 30px; height: 30px; font-size: 15px; }
+  .myrie-marketing .site-nav-cta { padding: 8px 14px; font-size: 12px; }
+}
+
+/* ==========================================================================
+   SCROLL CTA — premium scroll-triggered contact pill + expandable form
+   ========================================================================== */
+
+.scroll-cta {
+  position: fixed;
+  z-index: 60;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, Inter, sans-serif);
+}
+.scroll-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(180deg, rgba(26,26,26,0.92) 0%, rgba(5,5,5,0.92) 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.4),
+    0 2px 6px rgba(0,0,0,.12),
+    0 18px 48px rgba(0,0,0,.28);
+  transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+}
+.scroll-cta-pill:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    inset 0 -1px 0 rgba(0,0,0,0.5),
+    0 2px 8px rgba(0,0,0,.16),
+    0 28px 60px rgba(0,0,0,.4);
+}
+.scroll-cta-pill svg { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+.scroll-cta-pill:hover svg { transform: translateX(3px); }
+.scroll-cta-pill .cta-dot {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: var(--warm, #b08a3e);
+  box-shadow: 0 0 0 0 rgba(176,138,62,0.8);
+  animation: ctaDotPulse 2.4s cubic-bezier(.22,1,.36,1) infinite;
+}
+@keyframes ctaDotPulse {
+  0%, 60%, 100% { box-shadow: 0 0 0 0 rgba(176,138,62,0.7); }
+  30%           { box-shadow: 0 0 0 10px rgba(176,138,62,0); }
+}
+
+.scroll-cta-close {
+  width: 30px; height: 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(26,26,26,0.85);
+  color: rgba(255,255,255,0.78);
+  cursor: pointer;
+  font-size: 16px; line-height: 1;
+  display: inline-flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(20px);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.scroll-cta-close:hover { background: rgba(40,40,40,0.95); color: #fff; transform: scale(1.05); }
+
+/* Expanded form */
+.scroll-cta.is-open {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+.scroll-cta-form {
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(180deg, rgba(20,20,20,0.96) 0%, rgba(8,8,8,0.96) 100%);
+  color: #fff;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 4px 12px rgba(0,0,0,.18),
+    0 32px 80px rgba(0,0,0,.55);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-head { display: flex; align-items: center; justify-content: space-between; }
+.form-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm, #b08a3e);
+}
+.scroll-cta-close.inside {
+  background: transparent;
+  border-color: rgba(255,255,255,0.14);
+  width: 26px; height: 26px;
+  font-size: 14px;
+}
+.form-title {
+  font-family: var(--font-editorial, Fraunces, serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 4px 0 2px;
+  color: #fff;
+}
+.form-sub {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: -0.005em;
+}
+.scroll-cta-form input,
+.scroll-cta-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  transition: border-color .2s ease, background .2s ease;
+  outline: none;
+}
+.scroll-cta-form input::placeholder,
+.scroll-cta-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+.scroll-cta-form input:focus,
+.scroll-cta-form textarea:focus {
+  border-color: rgba(176,138,62,0.55);
+  background: rgba(255,255,255,0.06);
+}
+.scroll-cta-form textarea { resize: vertical; min-height: 64px; }
+.form-actions {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 4px;
+}
+.form-send { padding: 10px 18px; font-size: 13px; }
+.form-call {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+}
+.form-call:hover { color: var(--warm, #b08a3e); }
+
+@media (max-width: 480px) {
+  .scroll-cta { right: 12px; bottom: 12px; left: 12px; }
+  .scroll-cta-pill { width: 100%; justify-content: center; }
+  .scroll-cta-form { width: 100%; }
+}
+
+/* ==========================================================================
+   LIGHTBOX — click-to-zoom overlay for carousels
+   ========================================================================== */
+
+.myrie-marketing .lightbox-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+  animation: lbFade .28s ease both;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.myrie-marketing .lightbox-img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  user-select: none;
+  pointer-events: auto;
+  cursor: zoom-out;
+  animation: lbScale .32s cubic-bezier(0.22,1,0.36,1) both;
+}
+.myrie-marketing .lightbox-caption {
+  position: absolute;
+  bottom: 32px; left: 0; right: 0;
+  text-align: center;
+  color: #c9ccd1;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.myrie-marketing .lightbox-close {
+  position: absolute;
+  top: 24px; right: 24px;
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease;
+}
+.myrie-marketing .lightbox-close:hover { background: rgba(255,255,255,.16); }
+.myrie-marketing .lightbox-nav {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease;
+}
+.myrie-marketing .lightbox-nav.prev { left: 24px; }
+.myrie-marketing .lightbox-nav.next { right: 24px; }
+.myrie-marketing .lightbox-nav:hover { background: rgba(255,255,255,.16); }
+
+@keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lbScale { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+
+.myrie-marketing .carousel-frame { cursor: zoom-in; }
+
+/* ==========================================================================
+   APPLE × RUNWAY FUSION — cinematic dark sections
+   See docs/design-systems/MYRIE-DESIGN.md
+   Dark sections are deliberate punctuation, not the dominant surface.
+   ========================================================================== */
+
+.myrie-marketing .cinema {
+  background: #0c0c0c;
+  color: #ffffff;
+  padding: 144px 0;
+  margin: 0;
+  position: relative;
+  isolation: isolate;
+  /* Full-bleed: break out of any container constraint */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+.myrie-marketing .cinema.deep { background: #000000; }
+.myrie-marketing .cinema .shell { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+
+/* Cinema typography — white Fraunces h2 with Runway tightness */
+.myrie-marketing .cinema h2,
+.myrie-marketing .cinema .tropical-h2 {
+  color: #ffffff;
+  font-family: var(--font-editorial), 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin: 0 0 24px;
+}
+.myrie-marketing .cinema h3 { color: #ffffff; font-weight: 500; }
+.myrie-marketing .cinema p,
+.myrie-marketing .cinema .lead { color: #767d88; }      /* Runway cool slate */
+.myrie-marketing .cinema .muted { color: #7d848e; }
+.myrie-marketing .cinema .testi-quote { color: #ffffff; }
+.myrie-marketing .cinema .testi-author { color: #a7a7a7; }
+
+/* Cinema eyebrow — Runway uppercase label, cool slate, 0.35em tracking, weight 500 */
+.myrie-marketing .cinema .eyebrow {
+  color: #767d88 !important;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.myrie-marketing .cinema .eyebrow::before { content: ''; }
+
+/* Cinema cards — Runway: zero shadow, barely-visible border, small radius */
+.myrie-marketing .cinema .ti-card,
+.myrie-marketing .cinema .testi-card,
+.myrie-marketing .cinema .feature-card {
+  background: #1a1a1a;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #ffffff;
+}
+.myrie-marketing .cinema .ti-card:hover,
+.myrie-marketing .cinema .testi-card:hover,
+.myrie-marketing .cinema .feature-card:hover {
+  border-color: #3a3a40;
+  transform: none;
+}
+.myrie-marketing .cinema .ti-card h3,
+.myrie-marketing .cinema .ti-card h4,
+.myrie-marketing .cinema .testi-card strong,
+.myrie-marketing .cinema .feature-title { color: #ffffff; }
+.myrie-marketing .cinema .ti-card p,
+.myrie-marketing .cinema .testi-card p,
+.myrie-marketing .cinema .feature-card p { color: #a7a7a7; }
+.myrie-marketing .cinema .testi-author span { color: #767d88; }
+
+/* Cinema testimonial quote — Runway "mission statement" treatment: large Fraunces italic */
+.myrie-marketing .cinema .testi-quote {
+  font-family: var(--font-editorial), 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+/* Cinema buttons — primary glass already dark; outlines flip to dark-glass */
+.myrie-marketing .cinema .ti-btn:not(.primary):not(.gold) {
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    inset 0 -1px 0 rgba(0,0,0,0.4),
+    0 1px 2px rgba(0,0,0,0.4);
+}
+.myrie-marketing .cinema .ti-btn:not(.primary):not(.gold):hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* Cinema hairline */
+.myrie-marketing .cinema .hairline { background: #27272a; }
+
+/* Apple-style single drop-shadow on portfolio media resting on cinema tile */
+.myrie-marketing .cinema .product-frame {
+  box-shadow: 0 3px 5px rgba(0,0,0,0.22), 0 30px 80px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Smaller padding on mobile */
+@media (max-width: 768px) {
+  .myrie-marketing .cinema { padding: 80px 0; }
+  .myrie-marketing .pt-section { padding-top: 80px; }
+  .myrie-marketing .pb-section { padding-bottom: 80px; }
+  .myrie-marketing .my-section { margin-top: 80px; margin-bottom: 80px; }
+}

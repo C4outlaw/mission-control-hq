@@ -47,3 +47,16 @@ yarn-error.log*
 next-env.d.ts
 
 /models/piper/*.onnx
+
+# dev server logs
+dev.log
+dev.err
+
+# preserved originals (not needed in production)
+/public/assets/work/beach-bucket-design/breakfast/_pre-enhance-backup
+/public/assets/work/beach-bucket-design/drinks/_pre-rembg
+/public/assets/work/beach-bucket-design/drinks/_pre-patch-backup
+/public/assets/work/beach-bucket-design/drink-ads/_orig
+/public/assets/work/beach-bucket-design/drink-ads/_pre-rembg
+/public/assets/work/beach-bucket-design/drink-ads/_pre-rembg
+/public/assets/work/beach-bucket/

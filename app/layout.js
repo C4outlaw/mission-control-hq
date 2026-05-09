@@ -1,15 +1,12 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
+import "./marketing.css";
+import ScrollProgress from "../components/motion/ScrollProgress";
+import Waterfall from "../components/motion/Waterfall";
+import ScrollCTA from "../components/layout/ScrollCTA";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", display: "swap", axes: ["opsz"] });
 
 export const metadata = {
   metadataBase: new URL('https://www.myriehq.com'),
@@ -18,11 +15,12 @@ export const metadata = {
     template: '%s | Myrie HQ',
   },
   description:
-    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants and local businesses in Daytona Beach and Orlando.',
+    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants, bars, and local businesses in Daytona Beach and Orlando.',
   keywords: [
     'Daytona marketing agency',
     'Orlando marketing agency',
     'restaurant website design',
+    'bar marketing',
     'local SEO Daytona',
     'local SEO Orlando',
     'Myrie HQ',
@@ -34,23 +32,24 @@ export const metadata = {
     type: 'website',
     url: 'https://www.myriehq.com',
     title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
-    description:
-      'Premium websites, local SEO, and growth systems for local businesses in Daytona Beach and Orlando.',
+    description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
     siteName: 'Myrie HQ',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
-    description:
-      'Premium websites, local SEO, and growth systems for local businesses in Daytona Beach and Orlando.',
+    description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" style={{ scrollBehavior: 'smooth' }}>
+      <body className={`${inter.variable} ${fraunces.variable}`}>
+        <ScrollProgress />
+        <Waterfall density={0.85} opacity={0.45} topOriginPct={6} />
         {children}
+        <ScrollCTA />
       </body>
     </html>
   );

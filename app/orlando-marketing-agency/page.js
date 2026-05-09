@@ -1,3 +1,5 @@
+import SEOLanding from '../../components/sections/SEOLanding';
+
 export const metadata = {
   title: 'Orlando Marketing Agency',
   description:
@@ -7,22 +9,19 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px 70px', color: '#eaf2ff' }}>
-      <h1>Orlando Marketing Agency</h1>
-      <p>
-        We help Orlando businesses build stronger online positioning with modern websites,
-        local SEO execution, and conversion-ready marketing systems.
-      </p>
-      <h2>Core Orlando Services</h2>
-      <ul>
-        <li>Premium website strategy and rebuilds</li>
-        <li>SEO architecture for local search visibility</li>
-        <li>Growth content and campaign support</li>
-        <li>Creative/brand systems for trust and authority</li>
-      </ul>
-      <p>
-        Start your project: <a href="mailto:myriework@gmail.com">myriework@gmail.com</a>
-      </p>
-    </main>
+    <SEOLanding
+      eyebrow="Orlando, FL"
+      title="Orlando"
+      italic="marketing agency."
+      sub="We help Orlando restaurants, bars, and local brands build stronger online positioning with modern websites, local SEO execution, and conversion-ready marketing systems — built by hospitality operators."
+      services={[
+        { title: 'Premium website rebuilds', copy: 'Conversion-focused redesigns with real menu, ordering, and reservation flows for Orlando hospitality.' },
+        { title: 'Local search architecture', copy: 'GBP, citations, on-page schema, and content structure tuned for the Orlando query layer.' },
+        { title: 'Growth content + campaigns', copy: 'Daily-specials cards, plate photography, and seasonal campaigns — production-ready every week.' },
+        { title: 'Brand systems',              copy: 'Editorial-grade brand creative and trust assets that lift conversion and authority simultaneously.' },
+      ]}
+      contactHeading="Ready to grow in Orlando?"
+      contactSub="Premium websites + local SEO + content systems that ship every week."
+    />
   );
 }
