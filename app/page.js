@@ -53,7 +53,7 @@ const showcaseCarousel = [
 
 const featured = [
   { title: 'Hospitality Brand Designs', tag: 'Brand · Photo · Menus', copy: 'Daily drinks specials, signature cocktail cards, breakfast plate photography, and full menu rebuilds.', href: '/projects/beach-bucket-design', label: 'View design portfolio', image: '/assets/work/beach-bucket-design/drinks/all-drinks.png' },
-  { title: 'Magic Menu',                 tag: 'SaaS · Operations',     copy: 'Operations app for menu engineering, daily specials, food costing, and content automation.', href: '/magic-menu', label: 'Try it live', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80' },
+  { title: 'Magic Menu',                 tag: 'SaaS · Operations',     copy: 'Operations app for menu engineering, daily specials, food costing, and content automation.', href: '/magic-menu', label: 'Try it live', image: '/assets/work/magic-menu/dashboard.png' },
 ];
 
 const localBusinessSchema = {
