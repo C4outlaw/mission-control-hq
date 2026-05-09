@@ -800,6 +800,272 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ==========================================================================
+   PORTFOLIO GRID — full-bleed dark "About" section (Max-Reed style adapted)
+   ========================================================================== */
+
+.pgrid {
+  position: relative;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 24px 16px;
+}
+@media (min-width: 640px)  { .pgrid { padding: 32px 24px; } }
+@media (min-width: 768px)  { .pgrid { padding: 40px 40px; } }
+@media (min-width: 1024px) { .pgrid { padding: 40px 56px; min-height: 100vh; display: flex; flex-direction: column; gap: 32px; } }
+
+.pgrid-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+@media (min-width: 1024px) { .pgrid-head { margin-bottom: 0; } }
+.pgrid-head-copy { max-width: 768px; }
+.pgrid-h {
+  font-family: var(--font-body), Inter, sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  color: #fff;
+}
+@media (min-width: 640px)  { .pgrid-h { font-size: 30px; } }
+@media (min-width: 768px)  { .pgrid-h { font-size: 36px; } }
+@media (min-width: 1024px) { .pgrid-h { font-size: 44px; } }
+.pgrid-lede {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  max-width: 768px;
+}
+@media (min-width: 768px) { .pgrid-lede { font-size: 15px; } }
+
+/* Liquid glass — premium reflective edge */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 20%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.pgrid-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform .25s ease;
+}
+.pgrid-cta:hover { transform: translateY(-1px); }
+@media (min-width: 640px) { .pgrid-cta { padding: 12px 24px; } }
+
+/* Grid */
+.pgrid-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 768px)  { .pgrid-cols { grid-template-columns: 1fr 1fr; gap: 20px; } }
+@media (min-width: 1024px) { .pgrid-cols { grid-template-columns: 1fr 1fr 1fr; flex: 1; min-height: 0; } }
+
+.pgrid-stack {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  min-height: 0;
+}
+@media (min-width: 768px) { .pgrid-stack { gap: 20px; } }
+
+/* Cards */
+.pgrid-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  min-height: 220px;
+  isolation: isolate;
+}
+.pgrid-card-vid {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.pgrid-card-veil {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+.pgrid-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+@media (min-width: 768px) { .pgrid-card-content { padding: 24px; } }
+
+/* Section labels */
+.pgrid-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  justify-content: center;
+}
+.pgrid-label.justify-start { justify-content: flex-start; }
+
+/* Background card */
+.pgrid-bg { min-height: 320px; }
+.pgrid-bg-content { justify-content: space-between; }
+.pgrid-timeline {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  column-gap: 12px;
+  row-gap: 10px;
+  align-items: center;
+  font-size: 12.5px;
+  margin-top: auto;
+}
+.pgrid-tl-year   { color: rgba(255,255,255,0.55); white-space: nowrap; }
+.pgrid-tl-sep    { color: rgba(255,255,255,0.6); }
+.pgrid-tl-role   { color: #fff; font-weight: 500; }
+.pgrid-tl-where  { color: rgba(255,255,255,0.7); text-align: right; white-space: nowrap; }
+
+/* Quote card */
+.pgrid-quote { background: #324444; }
+.pgrid-quote .pgrid-card-content { padding: 22px; gap: 18px; }
+@media (min-width: 768px) { .pgrid-quote .pgrid-card-content { padding: 26px; } }
+.pgrid-quote-text {
+  font-family: var(--font-editorial, Fraunces), Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+  margin: 0;
+}
+@media (min-width: 640px) { .pgrid-quote-text { font-size: 15.5px; } }
+.pgrid-quote-attr {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.pgrid-quote-attr strong { color: #fff; font-weight: 600; }
+
+/* Stat card */
+.pgrid-stat { min-height: 240px; }
+.pgrid-stat-content {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+}
+.pgrid-stat-num {
+  font-family: var(--font-editorial, Fraunces), Georgia, serif;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 8px 32px rgba(0,0,0,0.55);
+}
+@media (min-width: 640px) { .pgrid-stat-num { font-size: 60px; } }
+@media (min-width: 768px) { .pgrid-stat-num { font-size: 72px; } }
+@media (min-width: 1024px) { .pgrid-stat-num { font-size: 88px; } }
+.pgrid-stat-label { color: rgba(255,255,255,0.85); font-size: 13px; }
+
+/* Tools card with marquees */
+.pgrid-tools { min-height: 260px; }
+.pgrid-tools-content { gap: 16px; }
+.pgrid-marquees { display: flex; flex-direction: column; gap: 12px; margin-top: auto; }
+.pgrid-marquee-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.pgrid-marquee-track {
+  display: flex; gap: 12px;
+  width: max-content;
+}
+.pgrid-tool {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  color: #fff;
+}
+@media (min-width: 768px) { .pgrid-tool { width: 64px; height: 64px; } }
+
+@keyframes pgridMarqueeLeft  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+@keyframes pgridMarqueeRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.animate-marquee-left  { animation: pgridMarqueeLeft 22s linear infinite; }
+.animate-marquee-right { animation: pgridMarqueeRight 26s linear infinite; }
+
+/* Reach Me card */
+.pgrid-reach { background: #324444; }
+.pgrid-reach .pgrid-card-content { padding: 22px; gap: 14px; }
+@media (min-width: 768px) { .pgrid-reach .pgrid-card-content { padding: 26px; } }
+.pgrid-reach-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pgrid-reach-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform .25s ease;
+}
+.pgrid-reach-icon:hover { transform: translate(2px, -2px); }
+.pgrid-reach-line {
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  transition: color .2s ease;
+}
+.pgrid-reach-line:hover { color: var(--warm); }
+
+/* Noise overlay (already used elsewhere, scoped here) */
+.noise-overlay::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+
+/* ==========================================================================
    SCROLL CTA — premium scroll-triggered contact pill + expandable form
    ========================================================================== */
 

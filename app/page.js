@@ -5,6 +5,7 @@ import Magnetic from '../components/motion/Magnetic';
 import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
+import PortfolioGrid from '../components/sections/PortfolioGrid';
 import Carousel from '../components/motion/Carousel';
 
 const services = [
@@ -337,6 +338,8 @@ export default function HomePage() {
           ))}
         </Stagger>
       </section>
+
+      <PortfolioGrid />
 
       <hr className="hairline" />
 
