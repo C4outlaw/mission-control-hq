@@ -10,7 +10,13 @@
    - Clean sans-serif typography. Tight letter-spacing on display. Generous line-height on body.
    - Hairline dividers (1px @ 8% black) instead of decorative wood planks. */
 
+html, body { overflow-x: clip; }
+
 .myrie-marketing {
+  /* Prevent 100vw full-bleed sections from overflowing the viewport
+     when a vertical scrollbar is present (scrollbar-width gap). */
+  overflow-x: clip;
+
   /* Palette */
   --bg:           #ffffff;
   --bg-soft:      #fbfbfa;     /* off-white, very warm */
@@ -693,37 +699,55 @@
 .myrie-marketing .site-nav-links {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
+  /* tucked into a subtle pill rail for the "premium agency" feel */
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(10,10,10,0.025);
+  border: 1px solid rgba(10,10,10,0.04);
+  transition: background .35s ease, border-color .35s ease;
 }
-/* Underline-on-hover indicator — Apple/Linear premium pattern */
+.myrie-marketing .site-nav.is-scrolled .site-nav-links {
+  background: rgba(10,10,10,0.04);
+  border-color: rgba(10,10,10,0.05);
+}
 .myrie-marketing .site-nav-links a {
   position: relative;
   text-decoration: none;
   color: var(--ink-2);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   letter-spacing: -0.012em;
-  padding: 10px 14px 9px;
+  padding: 8px 16px 8px 22px;     /* extra left padding makes room for the dot */
   border-radius: 999px;
-  transition: color .25s ease;
+  transition: color .25s ease, background .3s ease;
+  display: inline-flex;
+  align-items: center;
 }
-.myrie-marketing .site-nav-links a::after {
+/* Warm-gold dot that slides in on hover/active — premium agency indicator */
+.myrie-marketing .site-nav-links a::before {
   content: '';
   position: absolute;
-  left: 14px; right: 14px;
-  bottom: 6px;
-  height: 1.5px;
+  left: 12px;
+  top: 50%;
+  width: 5px; height: 5px;
+  border-radius: 999px;
   background: var(--warm);
-  transform: scaleX(0);
-  transform-origin: 50% 100%;
-  transition: transform .35s cubic-bezier(.22,1,.36,1);
+  transform: translate(-4px, -50%) scale(0.4);
+  opacity: 0;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .25s ease;
 }
 .myrie-marketing .site-nav-links a:hover {
   color: var(--ink);
+  background: rgba(255,255,255,0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 1px 2px rgba(0,0,0,.04);
 }
-.myrie-marketing .site-nav-links a:hover::after {
-  transform: scaleX(1);
+.myrie-marketing .site-nav-links a:hover::before {
+  opacity: 1;
+  transform: translate(0, -50%) scale(1);
 }
 
 /* Premium CTA — subtle gradient, refined shadow, smooth arrow slide */
