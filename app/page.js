@@ -470,7 +470,19 @@ export default function HomePage() {
         .app-headline { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.04; letter-spacing: -0.04em; margin: 18px 0 18px; max-width: 22ch; color: var(--ink); }
         .app-sub { margin: 0 0 36px; max-width: 56ch; }
         .app-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
-        .app-frame { border-radius: 24px; overflow: hidden; border: 1px solid var(--line); background: #fff; max-width: 1240px; margin: 0 auto; box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 30px 90px rgba(20,30,60,0.18); transform: translateZ(0); }
+        .app-frame {
+          border-radius: 24px;
+          overflow: hidden;
+          border: 1px solid var(--line);
+          background: #fff;
+          /* Stay within the shell on every screen — never wider than the parent */
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 30px 90px rgba(20,30,60,0.18);
+          transform: translateZ(0);
+          contain: layout paint;       /* nothing inside escapes this box */
+        }
         .app-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; background: rgba(250,250,247,0.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         .app-bar .dot { width: 12px; height: 12px; border-radius: 50%; }
         .app-bar .red { background: #ff5f57; } .app-bar .amber { background: #febc2e; } .app-bar .green { background: #28c840; }
@@ -478,13 +490,19 @@ export default function HomePage() {
         .app-bar .open-tab { font-size: 12px; color: var(--ink); text-decoration: none; font-weight: 500; padding: 7px 12px; border-radius: 8px; transition: background .2s; }
         .app-bar .open-tab:hover { background: rgba(10,10,10,.05); }
         .app-frame iframe {
-          display: block; width: 100%; height: 880px; border: 0;
+          display: block;
+          width: 100%;
+          /* Responsive height — always fits within viewport.
+             Floor 540px so the dashboard isn't cramped, ceiling 75vh so a
+             27" monitor doesn't get a 1500px-tall iframe overflowing the fold. */
+          height: clamp(540px, 70vh, 880px);
+          border: 0;
           background:
             radial-gradient(circle at 50% 50%, rgba(176,138,62,.08) 0%, transparent 70%),
             linear-gradient(180deg, #0b0f17 0%, #050810 100%);
         }
         @media (max-width: 920px) {
-          .app-frame iframe { height: 580px; }
+          .app-frame iframe { height: clamp(420px, 65vh, 620px); }
         }
 
         /* Magic Menu features list — quick-scan numbered grid */
