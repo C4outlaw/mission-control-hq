@@ -76,8 +76,32 @@ const showcaseCarousel = [
 ];
 
 const featured = [
-  { title: 'Hospitality Brand Designs', tag: 'Brand · Photo · Menus', copy: 'Daily drinks specials, signature cocktail cards, breakfast plate photography, and full menu rebuilds.', href: '/projects/beach-bucket-design', label: 'View design portfolio', image: '/assets/work/beach-bucket-design/drinks/all-drinks.png' },
-  { title: 'Magic Menu',                 tag: 'SaaS · Operations',     copy: 'Operations app for menu engineering, daily specials, food costing, and content automation.', href: '/magic-menu', label: 'Try it live', image: '/assets/work/magic-menu/dashboard.png' },
+  {
+    title: 'Hospitality Brand Designs',
+    tag: 'Brand · Photo · Menus',
+    copy: 'Daily drinks specials, signature cocktail cards, breakfast plate photography, and full menu rebuilds.',
+    href: '/projects/beach-bucket-design',
+    label: 'View design portfolio',
+    image: '/assets/work/beach-bucket-design/drinks/all-drinks.png',
+  },
+  {
+    title: 'Magic Menu — image results',
+    tag: 'SaaS · Real AI Output',
+    copy: 'Hit generate → photorealistic dishes, paired drinks, branded recipe cards, full cookbooks, food-cost tables, and ready-to-post marketing copy. Real outputs from the live app.',
+    href: '/#try-app',
+    label: 'Try the live app',
+    carousel: [
+      { src: '/assets/work/magic-menu/02b-generator-result.jpg', caption: 'AI Generator — 4 cocktails, photorealistic plating' },
+      { src: '/assets/work/magic-menu/09-jamaican-dishes.jpg',   caption: 'Generator — 5 authentic Jamaican dishes' },
+      { src: '/assets/work/magic-menu/03-recipe-cards.png',      caption: 'Recipe Cards — branded, scaleable, printable' },
+      { src: '/assets/work/magic-menu/04-cookbook.png',          caption: 'Cookbook — Print Book + Download PDF' },
+      { src: '/assets/work/magic-menu/05-drink-book.png',        caption: 'Drink Book — separate or paired with food' },
+      { src: '/assets/work/magic-menu/06-food-cost.png',         caption: 'Food Cost — calculator + AI generator + OCR scan' },
+      { src: '/assets/work/magic-menu/07-beverage-cost.png',     caption: 'Beverage Cost — same flow, scoped to drinks' },
+      { src: '/assets/work/magic-menu/08-marketing.png',         caption: 'Marketing Hub — auto-write + publish to FB / IG / TikTok / X / LinkedIn' },
+      { src: '/assets/work/magic-menu/01-dashboard.png',         caption: 'Dashboard — total recipes, food cost, monthly revenue' },
+    ],
+  },
 ];
 
 const localBusinessSchema = {
@@ -148,15 +172,37 @@ export default function HomePage() {
         <Stagger className="featured-grid" stagger={0.1}>
           {featured.map((item) => (
             <StaggerItem as="article" key={item.title} className="feature-card">
-              <a href={item.href} className="feature-link">
-                <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
-                <div className="feature-body">
-                  <span className="feature-tag">{item.tag}</span>
-                  <h3 className="feature-title">{item.title}</h3>
-                  <p>{item.copy}</p>
-                  <span className="feature-arrow">{item.label} →</span>
-                </div>
-              </a>
+              {item.carousel ? (
+                <>
+                  <div className="thumb thumb-carousel">
+                    <Carousel
+                      images={item.carousel}
+                      autoplay={4500}
+                      aspect="16/10"
+                      rounded={0}
+                      className="feature-carousel"
+                    />
+                  </div>
+                  <a href={item.href} className="feature-link feature-link-body">
+                    <div className="feature-body">
+                      <span className="feature-tag">{item.tag}</span>
+                      <h3 className="feature-title">{item.title}</h3>
+                      <p>{item.copy}</p>
+                      <span className="feature-arrow">{item.label} →</span>
+                    </div>
+                  </a>
+                </>
+              ) : (
+                <a href={item.href} className="feature-link">
+                  <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
+                  <div className="feature-body">
+                    <span className="feature-tag">{item.tag}</span>
+                    <h3 className="feature-title">{item.title}</h3>
+                    <p>{item.copy}</p>
+                    <span className="feature-arrow">{item.label} →</span>
+                  </div>
+                </a>
+              )}
             </StaggerItem>
           ))}
         </Stagger>
@@ -400,6 +446,15 @@ export default function HomePage() {
         .feature-card:hover { border-color: var(--line-2); transform: translateY(-4px); }
         .feature-link { display: block; text-decoration: none; color: inherit; }
         .feature-card .thumb { aspect-ratio: 16/10; background-size: cover; background-position: center; }
+        .feature-card .thumb-carousel { aspect-ratio: 16/10; background: #0c0c0c; padding: 0; overflow: hidden; }
+        .feature-card .thumb-carousel .carousel-frame {
+          background: #0c0c0c !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+        }
+        .feature-card .thumb-carousel .carousel-frame img { padding: 0 !important; object-fit: cover !important; }
+        .feature-card .thumb-carousel .carousel-zoom-hint { display: none; }
+        .feature-link-body { display: block; text-decoration: none; color: inherit; }
         .feature-body { padding: 28px 30px 32px; }
         .feature-tag { display: inline-block; font-size: 12px; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; }
         .feature-title { font-size: clamp(1.4rem, 2vw, 1.8rem); color: var(--ink); font-weight: 700; letter-spacing: -0.025em; margin: 0 0 10px; line-height: 1.1; }
