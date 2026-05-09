@@ -168,21 +168,51 @@ export default function HomePage() {
         <div className="shell">
           <Reveal><span className="eyebrow">Try it live</span></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="app-headline display">Magic Menu — running live, right now.</h2>
+            <h2 className="app-headline display">An entire restaurant studio in <em className="accent-italic">one app.</em></h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="lead app-sub">
-              The actual Magic Menu app, embedded below. Build a menu. Try the recipes and food-cost
-              flows. No signup, no install. This is the app — you&apos;re using it.
+              Speak or type a prompt — Magic Menu generates entire dishes with photorealistic plating, paired drinks, scaled servings, food-cost math, and a Facebook/Instagram/TikTok caption ready to post. Built for operators who want to look premium without the studio overhead.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="app-actions">
-              <Magnetic strength={0.14}><a className="ti-btn primary" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Open full app ↗</a></Magnetic>
-              <Magnetic strength={0.14}><a className="ti-btn" href="/magic-menu">App details</a></Magnetic>
+            <div className="mm-features">
+              <div className="mm-feature"><span className="mm-num">01</span><div><h4>AI recipe + drink generator</h4><p>&ldquo;Make 4 signature beach bar cocktails&rdquo; → 4 dishes, photorealistic images, ingredients, instructions. Voice or text.</p></div></div>
+              <div className="mm-feature"><span className="mm-num">02</span><div><h4>Auto-paired drinks</h4><p>Every dish ships with a drink that goes with it — the AI thinks like a sommelier.</p></div></div>
+              <div className="mm-feature"><span className="mm-num">03</span><div><h4>Scale servings</h4><p>One plate or fifty. Re-cost in real time.</p></div></div>
+              <div className="mm-feature"><span className="mm-num">04</span><div><h4>Cookbook + drink book PDFs</h4><p>One click — branded PDFs ready for print or sharing. Food and drinks together or split.</p></div></div>
+              <div className="mm-feature"><span className="mm-num">05</span><div><h4>Food cost from your order guide</h4><p>Upload your invoice — the calculator scores margin per dish. Or scan a paper recipe via OCR.</p></div></div>
+              <div className="mm-feature"><span className="mm-num">06</span><div><h4>Marketing hub</h4><p>Pick a dish → AI writes the Facebook / IG / TikTok / X / LinkedIn post. Connect socials and publish from inside the app.</p></div></div>
             </div>
           </Reveal>
           <Reveal delay={0.4}>
+            <div className="mm-gallery">
+              <Carousel
+                images={[
+                  { src: '/assets/work/magic-menu/02b-generator-result.jpg', alt: 'AI Generator — 4 cocktails generated with photorealistic images', caption: 'AI Generator — 4 cocktails, photorealistic, in seconds' },
+                  { src: '/assets/work/magic-menu/03-recipe-cards.png',      alt: 'Recipe cards',                                                       caption: 'Recipe Cards — branded, scaleable, printable' },
+                  { src: '/assets/work/magic-menu/04-cookbook.png',          alt: 'Cookbook view with download PDF',                                    caption: 'Cookbook — Print Book + Download PDF' },
+                  { src: '/assets/work/magic-menu/05-drink-book.png',        alt: 'Drink Book',                                                         caption: 'Drink Book — separate or paired with food' },
+                  { src: '/assets/work/magic-menu/06-food-cost.png',         alt: 'Food cost calculator',                                               caption: 'Food Cost — calculator + AI generator + OCR scan' },
+                  { src: '/assets/work/magic-menu/08-marketing.png',         alt: 'Marketing Hub with social platform connections',                     caption: 'Marketing Hub — auto-write + publish to FB / IG / TikTok / X / LinkedIn' },
+                  { src: '/assets/work/magic-menu/01-dashboard.png',         alt: 'Dashboard overview',                                                 caption: 'Dashboard — total recipes, avg food cost, monthly revenue' },
+                ]}
+                autoplay={5500}
+                aspect="16/10"
+                showThumbs
+                rounded={10}
+                className="mm-carousel"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.5}>
+            <div className="app-actions">
+              <Magnetic strength={0.14}><a className="ti-btn primary" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Open full app ↗</a></Magnetic>
+              <Magnetic strength={0.14}><a className="ti-btn" href="/magic-menu">Read the app spec</a></Magnetic>
+            </div>
+          </Reveal>
+          <Reveal delay={0.6}>
+            <p className="mm-live-label">— Or use it right here, no signup:</p>
             <div className="app-frame">
               <div className="app-bar">
                 <span className="dot red" /><span className="dot amber" /><span className="dot green" />
@@ -396,6 +426,77 @@ export default function HomePage() {
         }
         @media (max-width: 920px) {
           .app-frame iframe { height: 580px; }
+        }
+
+        /* Magic Menu features list — quick-scan numbered grid */
+        .mm-features {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0;
+          margin: 56px 0 64px;
+          border-top: 1px solid var(--line);
+        }
+        .mm-feature {
+          display: flex;
+          gap: 14px;
+          padding: 28px 24px 28px 0;
+          border-bottom: 1px solid var(--line);
+          border-right: 1px solid var(--line);
+        }
+        .mm-feature:nth-child(3n) { border-right: 0; padding-right: 0; }
+        .mm-feature:nth-child(n+1) { padding-left: 0; }
+        .mm-feature:nth-child(3n+2),
+        .mm-feature:nth-child(3n) { padding-left: 24px; }
+        .mm-num {
+          flex-shrink: 0;
+          font-family: var(--font-editorial), Fraunces, serif;
+          font-style: italic;
+          font-weight: 500;
+          font-size: 18px;
+          color: var(--warm);
+          line-height: 1;
+          margin-top: 4px;
+          letter-spacing: -0.02em;
+        }
+        .mm-feature h4 {
+          font-family: var(--font-editorial), Fraunces, Georgia, serif;
+          font-weight: 500;
+          font-size: 18px;
+          letter-spacing: -0.02em;
+          color: var(--ink);
+          margin: 0 0 6px;
+        }
+        .mm-feature p {
+          margin: 0;
+          color: var(--muted);
+          line-height: 1.5;
+          font-size: 14px;
+          letter-spacing: -0.005em;
+        }
+        @media (max-width: 920px) {
+          .mm-features { grid-template-columns: 1fr; margin: 40px 0 48px; }
+          .mm-feature { padding: 24px 0 !important; border-right: 0 !important; }
+        }
+
+        /* Magic Menu screenshot gallery */
+        .mm-gallery {
+          max-width: 1100px;
+          margin: 0 auto 56px;
+          filter: drop-shadow(0 4px 8px rgba(0,0,0,.10)) drop-shadow(0 32px 80px rgba(20,30,60,.12));
+        }
+        .mm-gallery .carousel-frame {
+          background: #0c0c0c !important;
+          border: 1px solid rgba(10,10,10,0.08) !important;
+        }
+        .mm-gallery .carousel-frame img { padding: 0 !important; object-fit: cover !important; }
+        .mm-live-label {
+          font-family: var(--font-body);
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin: 24px 0 16px;
         }
 
         /* TESTIMONIALS */
