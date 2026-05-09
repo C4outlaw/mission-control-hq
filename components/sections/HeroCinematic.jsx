@@ -36,18 +36,13 @@ export default function HeroCinematic() {
     };
   }, []);
 
-  // Click play/pause to start/stop ALL water on the page (canvases + hero video)
+  // Click play/pause to start/stop the CANVAS water (the "fake" cascading drops).
+  // The hero video always plays — that's the real waterfall.
   const handleToggle = () => {
     const next = !waterPaused;
     setWaterPaused(next);
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('waterfall:toggle', { detail: { paused: next } }));
-    }
-    if (videoRef.current) {
-      try {
-        if (next) videoRef.current.pause();
-        else videoRef.current.play().catch(() => {});
-      } catch {}
     }
   };
 

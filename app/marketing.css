@@ -12,6 +12,13 @@
 
 html, body { overflow-x: clip; }
 
+/* Lenis smooth-scroll resets — required for the lib to manage scroll cleanly */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
 .myrie-marketing {
   /* Prevent 100vw full-bleed sections from overflowing the viewport
      when a vertical scrollbar is present (scrollbar-width gap). */

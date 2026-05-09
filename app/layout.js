@@ -4,6 +4,7 @@ import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
 import Waterfall from "../components/motion/Waterfall";
 import ScrollCTA from "../components/layout/ScrollCTA";
+import SmoothScroll from "../components/layout/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", display: "swap", axes: ["opsz"] });
@@ -44,8 +45,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ scrollBehavior: 'smooth' }}>
+    <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable}`}>
+        <SmoothScroll />
         <ScrollProgress />
         <Waterfall density={0.85} opacity={0.45} topOriginPct={6} />
         {children}
