@@ -121,7 +121,7 @@ export default function HomePage() {
           <Reveal delay={0.3}>
             <div className="showcase-gallery">
               <Carousel
-                images={showcaseCarousel.map(p => ({ src: p.src, alt: p.alt, caption: p.headline }))}
+                images={showcaseCarousel.map(p => ({ src: p.src, video: p.video, alt: p.alt, caption: p.headline }))}
                 autoplay={5000}
                 aspect="16/10"
                 showThumbs
