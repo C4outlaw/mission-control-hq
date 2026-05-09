@@ -15,14 +15,12 @@ import HeroWaterfall from '../motion/HeroWaterfall';
  *  - Bottom row coordinate strip
  */
 export default function HeroCinematic() {
-  const [poured, setPoured] = useState(false);
+  const [waterPaused, setWaterPaused] = useState(false);
   const videoRef = useRef(null);
   const [videoOk, setVideoOk] = useState(true);
 
-  // Real-time cascading playback (the user prefers the original cascading version over slow-mo)
   const BASE_RATE = 1.0;
 
-  // Lock the playback rate at mount and after every loop (some browsers reset on loop)
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -38,19 +36,19 @@ export default function HeroCinematic() {
     };
   }, []);
 
-  const handlePour = () => {
-    setPoured(true);
+  // Click play/pause to start/stop ALL water on the page (canvases + hero video)
+  const handleToggle = () => {
+    const next = !waterPaused;
+    setWaterPaused(next);
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('waterfall:cascade', { detail: { duration: 7000, scale: 5 } }));
+      window.dispatchEvent(new CustomEvent('waterfall:toggle', { detail: { paused: next } }));
     }
-    // briefly accelerate the base video for the cascade burst, then return to slow-mo
     if (videoRef.current) {
       try {
-        videoRef.current.playbackRate = 1.4;
-        setTimeout(() => { try { if (videoRef.current) videoRef.current.playbackRate = BASE_RATE; } catch {} }, 5500);
+        if (next) videoRef.current.pause();
+        else videoRef.current.play().catch(() => {});
       } catch {}
     }
-    setTimeout(() => setPoured(false), 7200);
   };
 
   return (
@@ -112,25 +110,50 @@ export default function HeroCinematic() {
         >
           <button
             type="button"
-            className={`hero-play${poured ? ' is-pouring' : ''}`}
-            onClick={handlePour}
-            aria-label="Start the waterfall"
+            className={`hero-play${waterPaused ? ' is-paused' : ''}`}
+            onClick={handleToggle}
+            aria-label={waterPaused ? 'Start the waterfall' : 'Stop the waterfall'}
+            aria-pressed={waterPaused}
           >
             <span className="hero-play-ring" aria-hidden="true" />
             <span className="hero-play-ring two" aria-hidden="true" />
-            <svg viewBox="0 0 32 32" width="32" height="32" fill="currentColor" aria-hidden="true">
-              <path d="M11 8.5v15a.5.5 0 0 0 .77.42l12.5-7.5a.5.5 0 0 0 0-.84l-12.5-7.5A.5.5 0 0 0 11 8.5z"/>
-            </svg>
+            <AnimatePresence mode="wait" initial={false}>
+              {waterPaused ? (
+                <motion.svg
+                  key="play"
+                  viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.2 }}
+                  style={{ transform: 'translateX(2px)' }}
+                >
+                  <path d="M11 8.5v15a.5.5 0 0 0 .77.42l12.5-7.5a.5.5 0 0 0 0-.84l-12.5-7.5A.5.5 0 0 0 11 8.5z"/>
+                </motion.svg>
+              ) : (
+                <motion.svg
+                  key="pause"
+                  viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true"
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <rect x="9" y="8" width="4.5" height="16" rx="1.5"/>
+                  <rect x="18.5" y="8" width="4.5" height="16" rx="1.5"/>
+                </motion.svg>
+              )}
+            </AnimatePresence>
           </button>
           <AnimatePresence>
-            {poured && (
+            {waterPaused && (
               <motion.span
                 className="hero-play-toast"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 8 }}
                 transition={{ duration: 0.35 }}
-              >Pouring…</motion.span>
+              >Tap to flow</motion.span>
             )}
           </AnimatePresence>
         </motion.div>

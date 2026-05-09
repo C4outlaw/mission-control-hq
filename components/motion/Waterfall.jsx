@@ -77,26 +77,41 @@ export default function Waterfall({
 
     for (let i = 0; i < NUM; i++) drops.push(makeDrop(true));
 
-    // Listen for cascade-burst event — adds 4× drops + accelerates for 6s
+    // Cascade-burst event (kept for any caller that wants a downpour)
     const onBurst = (e) => {
       const dur = (e?.detail?.duration ?? 6000);
       burstUntil = performance.now() + dur;
       burstScale = e?.detail?.scale ?? 4;
-      // Spawn extra drops up to the burst total
       const target = baseNUM * burstScale;
       while (drops.length < target) drops.push(makeDrop(true));
     };
     window.addEventListener('waterfall:cascade', onBurst);
 
+    // Toggle event — pauses/resumes the entire waterfall
+    let paused = false;
+    const onToggle = (e) => {
+      paused = !!e?.detail?.paused;
+      if (paused) {
+        ctx.clearRect(0, 0, w, h);   // wipe canvas immediately
+      }
+    };
+    window.addEventListener('waterfall:toggle', onToggle);
+
     let last = performance.now();
     const tick = (now) => {
       const dt = Math.min(40, now - last);
       last = now;
+
+      if (paused) {
+        // Skip rendering and physics — keep the rAF loop alive so resume is instant
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+
       ctx.clearRect(0, 0, w, h);
 
       // Decay burst over time — extra drops drain off after the window expires
       if (now > burstUntil && drops.length > baseNUM) {
-        // remove excess drops gradually (1 per frame)
         drops.pop();
       }
 
@@ -147,6 +162,7 @@ export default function Waterfall({
       cancelAnimationFrame(rafId);
       ro.disconnect();
       window.removeEventListener('waterfall:cascade', onBurst);
+      window.removeEventListener('waterfall:toggle', onToggle);
     };
   }, [density, topOriginPct]);
 

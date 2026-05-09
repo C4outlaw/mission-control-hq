@@ -83,10 +83,23 @@ export default function HeroWaterfall({ density = 1, opacity = 0.85 }) {
     };
     window.addEventListener('waterfall:cascade', onBurst);
 
+    let paused = false;
+    const onToggle = (e) => {
+      paused = !!e?.detail?.paused;
+      if (paused) ctx.clearRect(0, 0, w, h);
+    };
+    window.addEventListener('waterfall:toggle', onToggle);
+
     let last = performance.now();
     const tick = (now) => {
       const dt = Math.min(40, now - last);
       last = now;
+
+      if (paused) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+
       ctx.clearRect(0, 0, w, h);
 
       // Drain extra drops after burst window expires
@@ -150,6 +163,7 @@ export default function HeroWaterfall({ density = 1, opacity = 0.85 }) {
       cancelAnimationFrame(raf);
       ro.disconnect();
       window.removeEventListener('waterfall:cascade', onBurst);
+      window.removeEventListener('waterfall:toggle', onToggle);
     };
   }, [density]);
 
