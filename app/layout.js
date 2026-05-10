@@ -2,7 +2,6 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
-import Waterfall from "../components/motion/Waterfall";
 import ScrollCTA from "../components/layout/ScrollCTA";
 import SmoothScroll from "../components/layout/SmoothScroll";
 
@@ -49,7 +48,6 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${fraunces.variable}`}>
         <SmoothScroll />
         <ScrollProgress />
-        <Waterfall density={0.85} opacity={0.45} topOriginPct={6} />
         {children}
         <ScrollCTA />
       </body>
