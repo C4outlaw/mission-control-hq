@@ -1,27 +1,27 @@
+'use client';
 import Reveal from '../motion/Reveal';
-
-const services = [
-  { label: 'Restaurant Websites', href: '/restaurant-web-design-daytona' },
-  { label: 'Local SEO Daytona', href: '/local-seo-orlando' },
-  { label: 'Daytona Marketing', href: '/daytona-beach-marketing-agency' },
-  { label: 'Orlando Marketing', href: '/orlando-marketing-agency' },
-  { label: 'Magic Menu', href: '/magic-menu' },
-];
-
-const work = [
-  { label: 'Brand Designs', href: '/projects/beach-bucket-design' },
-  { label: 'Full Portfolio', href: '/projects' },
-  { label: 'Magic Menu Live', href: '/#try-app' },
-];
-
-const company = [
-  { label: 'About Myrie', href: '/about' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Work', href: '/#showcase' },
-  { label: 'Contact', href: '/#contact' },
-];
+import { useT } from '../../lib/i18n';
 
 export default function Footer() {
+  const { t } = useT();
+  const services = [
+    { label: t('footer.svc_websites'), href: '/restaurant-web-design-daytona' },
+    { label: t('footer.svc_seo_d'),    href: '/local-seo-orlando' },
+    { label: t('footer.svc_dayt'),     href: '/daytona-beach-marketing-agency' },
+    { label: t('footer.svc_orl'),      href: '/orlando-marketing-agency' },
+    { label: t('footer.svc_mm'),       href: '/magic-menu' },
+  ];
+  const work = [
+    { label: t('footer.work_brand'), href: '/projects/beach-bucket-design' },
+    { label: t('footer.work_full'),  href: '/projects' },
+    { label: t('footer.work_mm'),    href: '/#try-app' },
+  ];
+  const company = [
+    { label: t('footer.co_about'),    href: '/about' },
+    { label: t('footer.co_services'), href: '/#services' },
+    { label: t('footer.co_work'),     href: '/#showcase' },
+    { label: t('footer.co_contact'),  href: '/#contact' },
+  ];
   return (
     <footer className="ti-footer">
       <hr className="hairline" />
@@ -33,38 +33,38 @@ export default function Footer() {
               <span className="ti-myrie">Myrie</span><span className="ti-hq">HQ</span>
             </span>
           </a>
-          <p className="ti-foot-tag">Premium marketing systems for restaurants, bars, and local businesses across Daytona Beach + Orlando.</p>
+          <p className="ti-foot-tag">{t('footer.tag')}</p>
         </Reveal>
 
         <Reveal className="ti-foot-col">
-          <h4>Services</h4>
+          <h4>{t('footer.h_services')}</h4>
           <ul>{services.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.05}>
-          <h4>Work</h4>
+          <h4>{t('footer.h_work')}</h4>
           <ul>{work.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.1}>
-          <h4>Company</h4>
+          <h4>{t('footer.h_company')}</h4>
           <ul>{company.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.15}>
-          <h4>Contact</h4>
+          <h4>{t('footer.h_contact')}</h4>
           <ul>
             <li><a href="mailto:myriework@gmail.com">myriework@gmail.com</a></li>
             <li><a href="tel:+13867958727">+1 (386) 795-8727</a></li>
-            <li className="ti-foot-nap">Daytona Beach · Orlando, FL</li>
+            <li className="ti-foot-nap">{t('footer.nap')}</li>
           </ul>
         </Reveal>
       </div>
 
       <hr className="hairline" />
       <div className="shell ti-foot-bottom">
-        <span>© {new Date().getFullYear()} Myrie HQ. All rights reserved.</span>
-        <span className="ti-foot-bottom-r">Premium hospitality marketing.</span>
+        <span>{t('footer.bottom_l').replace('{year}', new Date().getFullYear())}</span>
+        <span className="ti-foot-bottom-r">{t('footer.bottom_r')}</span>
       </div>
 
       <style>{`

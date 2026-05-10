@@ -5,58 +5,17 @@ import Magnetic from '../components/motion/Magnetic';
 import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
+import HomeStats from '../components/sections/HomeStats';
+import HomeServices from '../components/sections/HomeServices';
+import HomeProcess from '../components/sections/HomeProcess';
+import HomeContact from '../components/sections/HomeContact';
 import PortfolioGrid from '../components/sections/PortfolioGrid';
 import Carousel from '../components/motion/Carousel';
-
-const services = [
-  {
-    num: '01',
-    title: 'Websites',
-    italic: 'that convert.',
-    copy: 'Mobile-first sites for restaurants, bars, and local brands — menus, ordering, reservations, daily specials, all stitched into one fast, hospitable experience.',
-    proof: 'Live at The Beach Bucket Bar & Grill',
-  },
-  {
-    num: '02',
-    title: 'Local SEO',
-    italic: 'that ranks.',
-    copy: 'Google Business Profile, citations, on-page schema, and review-velocity systems built for the Daytona + Orlando query layer — not generic SaaS playbooks.',
-    proof: '3× lift in average local visibility',
-  },
-  {
-    num: '03',
-    title: 'Brand creative',
-    italic: 'that sells.',
-    copy: 'Daily-specials motion ads, signature cocktail cards, plate photography, weekly social — produced in-house and ready for print, IG, and the digital boards by service.',
-    proof: '50+ hospitality assets shipped',
-  },
-  {
-    num: '04',
-    title: 'Marketing automation',
-    italic: 'that ships.',
-    copy: 'Specials, events, posts, email, review responses — running on autopilot so you stay on the floor and the marketing keeps moving.',
-    proof: '7-day rolling content engine',
-  },
-];
-
-const stats = [
-  { number: '50+',  label: 'Projects delivered' },
-  { number: '3X',   label: 'Average ROI lift' },
-  { number: '2',    label: 'Florida markets' },
-  { number: '100%', label: 'Client retention' },
-];
 
 const testimonials = [
   { quote: "Myrie HQ completely transformed our online presence. We saw a 40% increase in online orders.", name: "Restaurant Owner", title: "Daytona Beach, FL" },
   { quote: "The local SEO work was a game-changer. We went from page 3 to the top of Google Maps. The phone hasn't stopped ringing.", name: "Local Business Owner", title: "Orlando, FL" },
   { quote: "What sets Myrie apart is the automation. Our marketing runs itself now — social posts, email campaigns, review responses — all on autopilot.", name: "Franchise Operator", title: "Central Florida" },
-];
-
-const processSteps = [
-  { step: '01', title: 'Discovery', desc: 'We audit your brand, competitors, and growth opportunities.' },
-  { step: '02', title: 'Strategy',  desc: 'Custom roadmap for your website, SEO, and marketing systems.' },
-  { step: '03', title: 'Build',     desc: 'Premium design and development with weekly progress updates.' },
-  { step: '04', title: 'Launch',    desc: 'Go live, optimize, and scale with data-driven marketing.' },
 ];
 
 // Daily-specials carousel — each weekday is a Grok-rendered cinematic motion ad.
@@ -126,14 +85,7 @@ export default function HomePage() {
 
       <hr className="hairline" />
 
-      <section className="shell stats-section">
-        {stats.map((s) => (
-          <Reveal key={s.label} className="stat" delay={0.05}>
-            <span className="stat-num display"><Counter value={s.number} /></span>
-            <span className="stat-label">{s.label}</span>
-          </Reveal>
-        ))}
-      </section>
+      <HomeStats />
 
       <section id="showcase" className="cinema">
         <div className="shell">
@@ -279,33 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="services-section">
-        <div className="shell">
-          <div className="services-head">
-            <Reveal><span className="eyebrow">— What we build</span></Reveal>
-            <Reveal delay={0.1}>
-              <h2 className="services-headline">
-                Four systems. <em className="accent-italic">One studio.</em>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.25}>
-              <p className="lead services-lede">
-                Built by a GM who runs a beachfront floor every weekend — for the restaurants and local brands that want to look premium and convert.
-              </p>
-            </Reveal>
-          </div>
-          <Stagger className="services-grid" stagger={0.08}>
-            {services.map((s) => (
-              <StaggerItem as="article" key={s.title} className="svc-card">
-                <span className="svc-num">{s.num}</span>
-                <h3 className="svc-title"><span>{s.title}</span> <em className="accent-italic">{s.italic}</em></h3>
-                <p className="svc-copy">{s.copy}</p>
-                <p className="svc-proof"><span className="svc-arrow" aria-hidden="true">→</span>{s.proof}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
+      <HomeServices />
 
       <section className="cinema deep">
         <div className="shell">
@@ -325,19 +251,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="shell block">
-        <Reveal><span className="eyebrow">How we work</span></Reveal>
-        <Reveal delay={0.1}><h2 className="tropical-h2">Simple. Proven. Repeatable.</h2></Reveal>
-        <Stagger className="process-grid" stagger={0.08}>
-          {processSteps.map((s) => (
-            <StaggerItem key={s.step} className="process-step">
-              <div className="process-num">{s.step}</div>
-              <h3 className="process-title">{s.title}</h3>
-              <p>{s.desc}</p>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
+      <HomeProcess />
 
       <PortfolioGrid />
 
@@ -361,18 +275,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="contact-block">
-        <div className="shell contact-inner">
-          <Reveal><h2 className="tropical-h2 contact-title">Ready to grow?</h2></Reveal>
-          <Reveal delay={0.1}><p className="lead contact-sub">Let&apos;s rebuild your site and growth strategy with a premium, modern approach.</p></Reveal>
-          <Reveal delay={0.2}>
-            <div className="contact-actions">
-              <Magnetic><a className="ti-btn primary" href="mailto:myriework@gmail.com">myriework@gmail.com</a></Magnetic>
-              <Magnetic><a className="ti-btn outline" href="tel:+13867958727">+1 (386) 795-8727</a></Magnetic>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <HomeContact />
 
       <Footer />
 
