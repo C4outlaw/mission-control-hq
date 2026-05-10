@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function SiteNav({ links }) {
   const [scrolled, setScrolled] = useState(false);
@@ -32,10 +33,13 @@ export default function SiteNav({ links }) {
             <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
-        <a className="site-nav-cta" href="/#contact">
-          <span>Book a call</span>
-          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+        <div className="site-nav-actions">
+          <ThemeToggle />
+          <a className="site-nav-cta" href="/#contact">
+            <span>Book a call</span>
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
     </header>
   );

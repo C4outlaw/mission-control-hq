@@ -12,6 +12,127 @@
 
 html, body { overflow-x: clip; }
 
+/* ==========================================================================
+   THEME — light (default) + dark (.theme-dark on <html>)
+   Cinema sections stay dark in both modes (intentional punctuation).
+   ========================================================================== */
+
+html.theme-dark .myrie-marketing {
+  --bg:           #0a0a0a;
+  --bg-soft:      #141414;
+  --bg-card:      #1a1a1a;
+  --ink:          #f5f5f5;          /* near-white headlines */
+  --ink-2:        #e8e8ea;          /* body text */
+  --muted:        #9a9a9f;          /* secondary text */
+  --muted-2:      #6e6e73;          /* tertiary text */
+  --line:         rgba(255,255,255,0.10);
+  --line-2:       rgba(255,255,255,0.16);
+  --accent:       #ffffff;
+  /* warm gold + warm-soft stay the same — they read on both themes */
+  background: #0a0a0a;
+}
+
+/* Hardcoded-color sections that need explicit dark overrides */
+html.theme-dark .myrie-marketing .services-section {
+  background: #141414;
+  border-top-color: rgba(255,255,255,0.08);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+html.theme-dark .myrie-marketing .app-section {
+  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+  border-top-color: rgba(255,255,255,0.08);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+html.theme-dark .myrie-marketing .ti-footer { background: #0a0a0a; }
+html.theme-dark .myrie-marketing .contact-block { background: #141414; }
+html.theme-dark .myrie-marketing .feature-card { background: #1a1a1a; }
+html.theme-dark .myrie-marketing .testi-card { background: #1a1a1a; border-color: rgba(255,255,255,0.10); }
+
+/* Glass nav rail flips polarity */
+html.theme-dark .myrie-marketing .site-nav.is-scrolled {
+  background: rgba(20,20,20,0.78);
+  border-bottom-color: rgba(255,255,255,0.07);
+}
+html.theme-dark .myrie-marketing .site-nav-links {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+html.theme-dark .myrie-marketing .site-nav.is-scrolled .site-nav-links {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.10);
+}
+html.theme-dark .myrie-marketing .site-nav-links a:hover {
+  background: rgba(255,255,255,0.06);
+}
+html.theme-dark .myrie-marketing .brand-mark {
+  background: linear-gradient(160deg, #2a2a2a 0%, #141414 60%, #0a0a0a 100%);
+}
+
+/* Glass buttons on light surfaces — adjust the white tint to a dark tint */
+html.theme-dark .myrie-marketing .ti-btn:not(.primary):not(.gold) {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border-color: rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.4),
+    0 1px 2px rgba(0,0,0,0.4);
+}
+html.theme-dark .myrie-marketing .ti-btn:not(.primary):not(.gold):hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* Carousel image frame on dark — keep a slightly lighter card so images don't disappear */
+html.theme-dark .myrie-marketing .carousel-frame { background: #1a1a1a; border-color: rgba(255,255,255,0.08); }
+html.theme-dark .myrie-marketing .feature-card .thumb-carousel { background: #0c0c0c; }
+
+/* Magic Menu features grid hairlines */
+html.theme-dark .myrie-marketing .mm-features { border-top-color: rgba(255,255,255,0.10); }
+html.theme-dark .myrie-marketing .mm-feature { border-bottom-color: rgba(255,255,255,0.10); border-right-color: rgba(255,255,255,0.10); }
+
+/* Stats dividers between numbers */
+html.theme-dark .myrie-marketing .stat { border-left-color: rgba(255,255,255,0.10); }
+html.theme-dark .myrie-marketing .stat:nth-child(3),
+html.theme-dark .myrie-marketing .stat:nth-child(4) { border-top-color: rgba(255,255,255,0.10); }
+
+/* Theme toggle button */
+.myrie-marketing .theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(10,10,10,0.10);
+  background: rgba(10,10,10,0.03);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease, color .25s ease, border-color .25s ease;
+}
+.myrie-marketing .theme-toggle:hover {
+  background: rgba(10,10,10,0.07);
+  transform: translateY(-1px);
+}
+html.theme-dark .myrie-marketing .theme-toggle {
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+}
+html.theme-dark .myrie-marketing .theme-toggle:hover {
+  background: rgba(255,255,255,0.10);
+}
+.myrie-marketing .theme-toggle-skeleton {
+  width: 36px; height: 36px;
+  border-radius: 999px;
+}
+.myrie-marketing .site-nav-actions {
+  display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* Hairline dividers between light sections */
+html.theme-dark .myrie-marketing .hairline { background: rgba(255,255,255,0.10); }
+
+/* The hero stays dark in both modes (no change needed). */
+/* The cinema sections stay dark in both modes (intentional). */
+
 /* Lenis smooth-scroll resets — required for the lib to manage scroll cleanly */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
