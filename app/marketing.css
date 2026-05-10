@@ -127,6 +127,51 @@ html.theme-dark .myrie-marketing .theme-toggle:hover {
   display: inline-flex; align-items: center; gap: 8px;
 }
 
+/* Language EN/ES segmented control */
+.myrie-marketing .lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(10,10,10,0.10);
+  background: rgba(10,10,10,0.03);
+  border-radius: 999px;
+  padding: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: background .25s ease, border-color .25s ease;
+}
+.myrie-marketing .lang-opt {
+  background: transparent;
+  border: 0;
+  padding: 5px 9px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: color .2s ease, background .25s ease, box-shadow .25s ease;
+  font: inherit;
+  letter-spacing: inherit;
+}
+.myrie-marketing .lang-opt:hover { color: var(--ink); }
+.myrie-marketing .lang-opt.is-active {
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+html.theme-dark .myrie-marketing .lang-toggle {
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.04);
+}
+html.theme-dark .myrie-marketing .lang-opt.is-active {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+@media (max-width: 720px) {
+  .myrie-marketing .lang-toggle { padding: 2px; font-size: 10px; }
+  .myrie-marketing .lang-opt { padding: 4px 7px; }
+}
+
 /* Hairline dividers between light sections */
 html.theme-dark .myrie-marketing .hairline { background: rgba(255,255,255,0.10); }
 

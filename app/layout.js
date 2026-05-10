@@ -4,6 +4,7 @@ import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
 import ScrollCTA from "../components/layout/ScrollCTA";
 import SmoothScroll from "../components/layout/SmoothScroll";
+import { LangProvider } from "../lib/i18n";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", display: "swap", axes: ["opsz"] });
@@ -46,10 +47,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${fraunces.variable}`}>
-        <SmoothScroll />
-        <ScrollProgress />
-        {children}
-        <ScrollCTA />
+        <LangProvider>
+          <SmoothScroll />
+          <ScrollProgress />
+          {children}
+          <ScrollCTA />
+        </LangProvider>
       </body>
     </html>
   );

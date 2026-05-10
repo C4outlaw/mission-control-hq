@@ -1,9 +1,12 @@
 'use client';
 import { useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
+import { useT } from '../../lib/i18n';
 
 export default function SiteNav({ links }) {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useT();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -12,11 +15,11 @@ export default function SiteNav({ links }) {
   }, []);
 
   const items = links || [
-    { href: '/#services',  label: 'Services' },
-    { href: '/#showcase',  label: 'Work' },
-    { href: '/projects',   label: 'Portfolio' },
-    { href: '/#try-app',   label: 'Magic Menu' },
-    { href: '/about',      label: 'About' },
+    { href: '/#services',  label: t('nav.services') },
+    { href: '/#showcase',  label: t('nav.work') },
+    { href: '/projects',   label: t('nav.portfolio') },
+    { href: '/#try-app',   label: t('nav.magic_menu') },
+    { href: '/about',      label: t('nav.about') },
   ];
 
   return (
@@ -34,9 +37,10 @@ export default function SiteNav({ links }) {
           ))}
         </nav>
         <div className="site-nav-actions">
+          <LanguageToggle />
           <ThemeToggle />
           <a className="site-nav-cta" href="/#contact">
-            <span>Book a call</span>
+            <span>{t('nav.book_call')}</span>
             <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>

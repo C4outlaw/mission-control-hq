@@ -2,6 +2,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import Magnetic from '../motion/Magnetic';
+import { useT } from '../../lib/i18n';
 
 /**
  * Cinematic hero — real waterfall video background, no canvas overlays.
@@ -11,6 +12,7 @@ import Magnetic from '../motion/Magnetic';
  *  - Bottom row coordinate strip
  */
 export default function HeroCinematic() {
+  const { t } = useT();
   const videoRef = useRef(null);
   const [videoOk, setVideoOk] = useState(true);
 
@@ -73,9 +75,9 @@ export default function HeroCinematic() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
         >
-          <p><span className="tag">(WEB)</span> Restaurant &amp; Bar Websites</p>
-          <p><span className="tag">(SEO)</span> Local Growth Systems</p>
-          <p><span className="tag">(ADS)</span> Brand Creative &amp; Automation</p>
+          <p><span className="tag">(WEB)</span> {t('hero.role_web')}</p>
+          <p><span className="tag">(SEO)</span> {t('hero.role_seo')}</p>
+          <p><span className="tag">(ADS)</span> {t('hero.role_ads')}</p>
         </motion.div>
 
         <motion.p
@@ -84,9 +86,7 @@ export default function HeroCinematic() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          Premium websites, brand creative, daily-specials design, and marketing automation —
-          built by a hospitality operator who runs a floor every weekend, for the restaurants
-          and local brands that want to look world-class and convert.
+          {t('hero.desc')}
         </motion.p>
 
         <motion.div
@@ -95,8 +95,8 @@ export default function HeroCinematic() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.15 }}
         >
-          <Magnetic strength={0.14}><a className="ti-btn primary" href="#contact">Book strategy call</a></Magnetic>
-          <Magnetic strength={0.14}><a className="ti-btn outline" href="/projects">See the portfolio →</a></Magnetic>
+          <Magnetic strength={0.14}><a className="ti-btn primary" href="#contact">{t('hero.cta_primary')}</a></Magnetic>
+          <Magnetic strength={0.14}><a className="ti-btn outline" href="/projects">{t('hero.cta_secondary')}</a></Magnetic>
         </motion.div>
 
         <motion.div
@@ -106,7 +106,7 @@ export default function HeroCinematic() {
           transition={{ duration: 0.8, delay: 1.4 }}
         >
           <span className="coord-l">29.2108° N</span>
-          <span className="coord-c">Daytona Beach · Orlando · Florida</span>
+          <span className="coord-c">{t('hero.coord_center')}</span>
           <span className="coord-r">81.0228° W</span>
         </motion.div>
       </div>
