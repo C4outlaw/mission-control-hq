@@ -188,21 +188,74 @@ galleryItems.forEach((item) => {
 let menuImageCounter = 0
 const nextImage = () => withBase(itemImagePool[(menuImageCounter++) % itemImagePool.length])
 
+// Full mapping from each menu item to its Flux-generated dish photo.
+// Filenames are produced by stack/router/beach-bucket-menu-flux.cjs.
 const featuredItemImages = {
-  'Smoked Fish Dip': withBase('/assets/menu/smoked-fish-dip-plate.jpg'),
-  'Conch Fritters': withBase('/assets/menu/conch-fritters.jpg'),
-  'Crab Cakes': withBase('/assets/menu/crab-cakes.jpg'),
-  'Wings': withBase('/assets/menu/wings.jpg'),
-  'Bucket House Salad (Large)': withBase('/assets/menu/bucket-house-salad.jpg'),
-  'Loaded Chicken Panini': withBase('/assets/menu/loaded-chicken-panini.jpg'),
-  'Mozzarella Caprese Panini': withBase('/assets/menu/mozzarella-caprese-panini.jpg'),
-  'Shrimp Tacos (House Specialty)': withBase('/assets/menu/shrimp-tacos.jpg'),
-  'Pulled Pork and Slaw Tacos': withBase('/assets/menu/pulled-pork-and-slaw-tacos.jpg'),
-  'Bucket Burger': withBase('/assets/menu/bucket-burger.jpg'),
-  'Chicken Tender': withBase('/assets/menu/chicken-tender.jpg'),
-  'Fried Shrimp': withBase('/assets/menu/fried-shrimp-plate.jpg'),
-  '#4 The Big Beach': withBase('/assets/menu/big-beach.jpg'),
-  'Ormond Omelet': withBase('/assets/menu/seafood-omelet.jpg')
+  // Breakfast Omelettes
+  'Seafood Omelet':                       withBase('/assets/menu/seafood-omelet.jpg'),
+  'Swiss Bacon Mushroom Omelet':          withBase('/assets/menu/swiss-bacon-mushroom-omelet.jpg'),
+  'Ormond Omelet':                        withBase('/assets/menu/ormond-omelet.jpg'),
+  "Meat Lover's Omelet":                  withBase('/assets/menu/meat-lovers-omelet.jpg'),
+  'Cheese Omelet':                        withBase('/assets/menu/cheese-omelet.jpg'),
+  'Chorizo Omelet':                       withBase('/assets/menu/chorizo-omelet.jpg'),
+  'Veggie Omelet':                        withBase('/assets/menu/veggie-omelet.jpg'),
+  // Benedicts
+  'CHORIZO':                              withBase('/assets/menu/chorizo-benedict.jpg'),
+  'CLASSIC':                              withBase('/assets/menu/classic-benedict.jpg'),
+  'BLUE SWIMMING CRAB (House Specialty)': withBase('/assets/menu/blue-swimming-crab-benedict.jpg'),
+  // Breakfast Combos
+  '#1 Early Bird':                        withBase('/assets/menu/early-bird-breakfast.jpg'),
+  '#2 The Sunrise':                       withBase('/assets/menu/the-sunrise-breakfast.jpg'),
+  '#3 Biscuits and Gravy':                withBase('/assets/menu/biscuits-and-gravy.jpg'),
+  '#4 The Big Beach':                     withBase('/assets/menu/the-big-beach-breakfast.jpg'),
+  // Breakfast Favorites
+  'Breakfast Sandwich':                   withBase('/assets/menu/breakfast-sandwich.jpg'),
+  'Healthy Surfer':                       withBase('/assets/menu/healthy-surfer-breakfast.jpg'),
+  // French Toast
+  'Three Slices French Toast':            withBase('/assets/menu/french-toast-three-slices.jpg'),
+  'French Toast Breakfast Combo':         withBase('/assets/menu/french-toast-combo.jpg'),
+  // Lunch & Dinner Starters
+  'Peel & Eat Shrimp (1/2 Pound / Full Pound)': withBase('/assets/menu/peel-and-eat-shrimp.jpg'),
+  'Conch Fritters':                       withBase('/assets/menu/conch-fritters.jpg'),
+  'Fried Calamari':                       withBase('/assets/menu/fried-calamari.jpg'),
+  'Fried Mozzarella Sticks':              withBase('/assets/menu/fried-mozzarella-sticks.jpg'),
+  'Smoked Fish Dip':                      withBase('/assets/menu/smoked-fish-dip.jpg'),
+  'Wings':                                withBase('/assets/menu/wings.jpg'),
+  'Buffalo Shrimp':                       withBase('/assets/menu/buffalo-shrimp.jpg'),
+  'Crab Cakes':                           withBase('/assets/menu/crab-cakes.jpg'),
+  'Onion Rings':                          withBase('/assets/menu/onion-rings.jpg'),
+  'Sweet Potato Fries':                   withBase('/assets/menu/sweet-potato-fries.jpg'),
+  'Pork Nachos':                          withBase('/assets/menu/pork-nachos.jpg'),
+  'Corn Nuggets':                         withBase('/assets/menu/corn-nuggets.jpg'),
+  'Pretzels':                             withBase('/assets/menu/soft-pretzels.jpg'),
+  // Lunch & Dinner Salads
+  'Tomato Avocado Salsa Salad':           withBase('/assets/menu/tomato-avocado-salsa-salad.jpg'),
+  'Caesar Salad (Small)':                 withBase('/assets/menu/caesar-salad.jpg'),
+  'Caesar Salad (Large)':                 withBase('/assets/menu/caesar-salad.jpg'),
+  'Bucket House Salad (Small)':           withBase('/assets/menu/bucket-house-salad.jpg'),
+  'Bucket House Salad (Large)':           withBase('/assets/menu/bucket-house-salad.jpg'),
+  // Lunch & Dinner Entrees
+  'Key West Chicken Sandwich':            withBase('/assets/menu/key-west-chicken-sandwich.jpg'),
+  'Tuna Melt Sandwich (House Specialty)': withBase('/assets/menu/tuna-melt-sandwich.jpg'),
+  'Shrimp and Bacon Panini':              withBase('/assets/menu/shrimp-and-bacon-panini.jpg'),
+  'Steak and Mozzarella Panini':          withBase('/assets/menu/steak-and-mozzarella-panini.jpg'),
+  'Mozzarella Caprese Panini':            withBase('/assets/menu/mozzarella-caprese-panini.jpg'),
+  'Loaded Chicken Panini':                withBase('/assets/menu/loaded-chicken-panini.jpg'),
+  'Shrimp Tacos (House Specialty)':       withBase('/assets/menu/shrimp-tacos.jpg'),
+  'Fish Tacos (House Specialty)':         withBase('/assets/menu/fish-tacos.jpg'),
+  'Pulled Pork and Slaw Tacos':           withBase('/assets/menu/pulled-pork-and-slaw-tacos.jpg'),
+  'BBQ Burger':                           withBase('/assets/menu/bbq-burger.jpg'),
+  'Bucket Burger':                        withBase('/assets/menu/bucket-burger.jpg'),
+  'Fish & Chips':                         withBase('/assets/menu/fish-and-chips.jpg'),
+  'Chicken Tender':                       withBase('/assets/menu/chicken-tenders.jpg'),
+  'Fried Shrimp':                         withBase('/assets/menu/fried-shrimp-plate.jpg'),
+  'Ahi Tuna Wrap':                        withBase('/assets/menu/ahi-tuna-wrap.jpg'),
+  'Bucket Fish Sandwich':                 withBase('/assets/menu/bucket-fish-sandwich.jpg'),
+  'Fish & Shrimp Combo (House Specialty)':withBase('/assets/menu/fish-and-shrimp-combo.jpg'),
+  // Desserts
+  'Chocolate Peanut Butter Pie':          withBase('/assets/menu/chocolate-peanut-butter-pie.jpg'),
+  'Key Lime Pie':                         withBase('/assets/menu/key-lime-pie.jpg'),
+  'Salted Caramel Cheesecake':            withBase('/assets/menu/salted-caramel-cheesecake.jpg'),
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
@@ -220,7 +273,9 @@ const sectionsHtml = menuSections.map((section) => {
         </button>
         <div class="item-body">
           <div class="item-head">
-            <span class="item-name" data-menu-name="${idx}">${item[0]}</span>
+            <button class="item-name-btn" data-img="${img}" data-name="${item[0]}" aria-label="View photo of ${item[0]}">
+              <span class="item-name" data-menu-name="${idx}">${item[0]}</span>
+            </button>
             <span class="item-price">${item[1]}</span>
           </div>
           <p data-menu-desc="${idx}">${item[2]}</p>
@@ -287,13 +342,20 @@ document.querySelector('#app').innerHTML = `
     </div>
   </header>
 
-  <section class="hero" aria-label="Beach Bucket restaurant hero video">
-    <img class="hero-side-logo hero-side-left" src="/assets/logo-bird-left.jpg" alt="Beach Bucket bird logo" />
-    <video id="heroVideo" class="hero-bg" autoplay loop playsinline preload="metadata" poster="/assets/hero-beachbucket-premium.jpg" aria-label="Oceanfront view at The Beach Bucket">
+  <section class="hero" aria-label="The Beach Bucket — oceanfront dining in Ormond Beach">
+    <video id="heroVideo" class="hero-bg" autoplay loop muted playsinline preload="metadata" poster="/assets/hero-beachbucket-premium.jpg" aria-hidden="true">
       <source src="/assets/hero-video.mp4" type="video/mp4" />
     </video>
-    <img class="hero-side-logo hero-side-right" src="/assets/logo-shark-right.jpg" alt="Beach Bucket shark logo" />
-    <button id="muteToggle" class="mute-toggle" type="button" aria-pressed="false">Mute</button>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="hero-locale" data-i18n="hero.locale">Ormond Beach &middot; Florida</span>
+      <h1 class="hero-title" data-i18n="hero.title">The Beach Bucket</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Oceanfront breakfast &amp; lunch</p>
+      <div class="hero-cta-row">
+        <a class="btn primary" href="#menu" data-i18n="hero.cta_menu">View the menu</a>
+      </div>
+    </div>
+    <button id="muteToggle" class="mute-toggle" type="button" aria-pressed="true">Sound</button>
   </section>
 
   <nav class="mobile-quick-actions" aria-label="Quick actions">
@@ -326,28 +388,22 @@ document.querySelector('#app').innerHTML = `
               <p data-i18n="hours.lunch"><strong>Lunch:</strong> Starts at 11:00 AM</p>
               <p data-i18n="hours.kitchen"><strong>Kitchen Closes:</strong> 8:30 PM</p>
             </div>
-            <div class="hours-right" aria-label="Aerial map preview of restaurant location">
-              <h3>Find Us Fast</h3>
-              <p>867 South Atlantic Avenue, Ormond Beach, FL 32176</p>
-              <div class="map-frame-wrap">
-                <iframe
-                  title="3D-style aerial map of The Beach Bucket location"
-                  src="https://www.google.com/maps?q=The+Beach+Bucket+867+S+Atlantic+Ave+Ormond+Beach+FL+32176&t=k&z=19&output=embed"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <div class="map-guide" aria-hidden="true">
-                  <div class="guide-chip chip-entrance">Beach Bucket Entrance</div>
-                  <svg class="guide-arrow" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                      <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-                        <path d="M0,0 L8,4 L0,8 z" fill="#ffd74a" />
-                      </marker>
-                    </defs>
-                    <line x1="86" y1="16" x2="53" y2="50" marker-end="url(#arrowHead)" />
-                  </svg>
-                  <div class="target-ring"></div>
-                </div>
-              </div>
+            <div class="hours-right">
+              <h3 data-i18n="hours.find_us">Find us</h3>
+              <p data-i18n="hours.address">867 South Atlantic Avenue, Ormond Beach, FL 32176</p>
+              <a class="location-btn"
+                 href="https://maps.google.com/?q=The+Beach+Bucket+867+S+Atlantic+Ave+Ormond+Beach+FL+32176"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Open Google Maps directions to The Beach Bucket">
+                <span class="location-btn-pulse" aria-hidden="true"></span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span data-i18n="hours.click_for_location">Click for directions</span>
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
             </div>
           </div>
         </article>
@@ -357,7 +413,6 @@ document.querySelector('#app').innerHTML = `
     <section id="menu" class="section" aria-labelledby="menu-heading">
       <div class="container">
         <h2 id="menu-heading" data-i18n="menu.title">Menu</h2>
-        <p class="muted">Every menu item has a left thumbnail. Click it to expand, then close and continue.</p>
         ${sectionsHtml}
 
         <div class="menu-notes">
@@ -751,7 +806,7 @@ const lightbox = document.getElementById('lightbox')
 const lightboxImg = document.getElementById('lightboxImg')
 const closeLightbox = document.getElementById('closeLightbox')
 
-document.querySelectorAll('.item-thumb-btn, .gallery-open').forEach((btn) => {
+document.querySelectorAll('.item-thumb-btn, .item-name-btn, .gallery-open').forEach((btn) => {
   btn.addEventListener('click', () => {
     lightboxImg.src = btn.dataset.img
     lightboxImg.alt = btn.dataset.name
