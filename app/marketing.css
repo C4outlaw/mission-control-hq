@@ -560,11 +560,20 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .hero-bg-3d-scene-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: contain;       /* show entire video, no cropping */
+  object-fit: contain;       /* desktop: show entire video, no cropping */
   object-position: center;
   filter: saturate(1.08) brightness(1.18) contrast(1.04);
   pointer-events: none;
   background: #000;
+}
+/* On mobile (portrait), the ultra-wide video would render as a thin strip
+   with huge black bars. Switch to cover so the video fills the viewport. */
+@media (max-width: 920px) {
+  .myrie-marketing .hero-bg-3d-scene-video { object-fit: cover; }
+  /* Click overlay over painted button doesn't align in cover crop; hide it.
+     The floating mobile-cta at the page bottom is the primary CTA on mobile. */
+  .myrie-marketing .hero-cinematic .hero-cta-row { display: none; }
+  .myrie-marketing .hero-cinematic { min-height: 78vh; }
 }
 /* Grok's video carries the MYRIE HQ wordmark + promise text rendered in 3D,
    so hide the HTML duplicates. Keep only the locale tag and the glass CTA. */
@@ -1808,6 +1817,127 @@ html.lenis, html.lenis body { height: auto; }
   .myrie-marketing .pb-section { padding-bottom: 80px; }
   .myrie-marketing .my-section { margin-top: 80px; margin-bottom: 80px; }
 }
+
+/* ==========================================================================
+   MOBILE — hamburger menu + drawer
+   ========================================================================== */
+.myrie-marketing .site-nav-burger {
+  display: none;
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin-left: 4px;
+}
+.myrie-marketing .site-nav-burger span {
+  display: block;
+  position: absolute;
+  left: 10px; right: 10px;
+  height: 1.6px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .25s ease, top .35s ease;
+}
+.myrie-marketing .site-nav-burger span:nth-child(1) { top: 13px; }
+.myrie-marketing .site-nav-burger span:nth-child(2) { top: 19px; }
+.myrie-marketing .site-nav-burger span:nth-child(3) { top: 25px; }
+.myrie-marketing .site-nav.menu-open .site-nav-burger span:nth-child(1) {
+  top: 19px; transform: rotate(45deg);
+}
+.myrie-marketing .site-nav.menu-open .site-nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+.myrie-marketing .site-nav.menu-open .site-nav-burger span:nth-child(3) {
+  top: 19px; transform: rotate(-45deg);
+}
+
+/* Mobile drawer — slides down under the nav bar */
+.myrie-marketing .site-nav-drawer {
+  position: fixed;
+  top: 64px; left: 0; right: 0; bottom: 0;
+  background: var(--bg);
+  z-index: 9;
+  display: none;
+  flex-direction: column;
+  padding: 32px 24px 40px;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .25s ease, transform .35s cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+  overflow-y: auto;
+}
+.myrie-marketing .site-nav-drawer.is-open {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.myrie-marketing .site-nav-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+.myrie-marketing .site-nav-drawer-links a {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s ease;
+}
+.myrie-marketing .site-nav-drawer-links a:last-child { border-bottom: 0; }
+.myrie-marketing .site-nav-drawer-links a:hover,
+.myrie-marketing .site-nav-drawer-links a:active { color: var(--muted); }
+.myrie-marketing .site-nav-drawer-cta {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Mobile breakpoint switches: hide inline links, show burger, shrink CTA */
+@media (max-width: 920px) {
+  .myrie-marketing .site-nav-links { display: none; }
+  .myrie-marketing .site-nav-burger { display: block; }
+  .myrie-marketing .site-nav-cta {
+    padding: 8px 12px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.14em !important;
+    gap: 6px !important;
+  }
+  .myrie-marketing .site-nav-cta svg { width: 12px; height: 12px; }
+  .myrie-marketing .site-nav-actions { gap: 6px; }
+  .myrie-marketing .lang-toggle { padding: 2px; font-size: 10px; }
+  .myrie-marketing .lang-opt { padding: 4px 6px; }
+  .myrie-marketing .theme-toggle { width: 32px; height: 32px; }
+  .myrie-marketing .site-nav-inner { gap: 8px; padding: 0 16px; }
+}
+@media (max-width: 480px) {
+  /* Smallest phones: drop the "BOOK A CALL" text from nav, keep just the arrow */
+  .myrie-marketing .site-nav-cta span { display: none; }
+  .myrie-marketing .site-nav-cta { padding: 8px 10px !important; }
+}
+
+html.theme-dark .myrie-marketing .site-nav-burger span { background: #fff; }
+html.theme-dark .myrie-marketing .site-nav-drawer { background: var(--bg); }
 
 /* ==========================================================================
    PREMIUM POLISH OVERRIDES (impeccable critique pass)
