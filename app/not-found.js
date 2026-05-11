@@ -22,7 +22,7 @@ export default function NotFound() {
           </Reveal>
           <Reveal delay={0.3}>
             <p className="lead">
-              No worries — there&apos;s plenty of other land. Try the homepage, the portfolio, or grab
+              No worries: there&apos;s plenty of other land. Try the homepage, the portfolio, or grab
               a strategy call.
             </p>
           </Reveal>

@@ -4,7 +4,7 @@ import BeachBucketClient from '../../../components/sections/BeachBucketClient';
 
 export const metadata = {
   title: 'Hospitality Brand Design Work · Myrie HQ',
-  description: 'Selected design work for hospitality clients — daily drink-special social graphics, signature cocktail cards, breakfast menu photography, and full menu rebuilds.',
+  description: 'Selected design work for hospitality clients: daily drink-special social graphics, signature cocktail cards, breakfast menu photography, and full menu rebuilds.',
 };
 
 export default function DesignPortfolioPage() {

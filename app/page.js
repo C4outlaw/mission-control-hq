@@ -5,30 +5,28 @@ import Magnetic from '../components/motion/Magnetic';
 import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
-import HomeStats from '../components/sections/HomeStats';
 import HomeServices from '../components/sections/HomeServices';
 import HomeProcess from '../components/sections/HomeProcess';
 import HomeContact from '../components/sections/HomeContact';
-import PortfolioGrid from '../components/sections/PortfolioGrid';
 import Carousel from '../components/motion/Carousel';
 
 const testimonials = [
   { quote: "Myrie HQ completely transformed our online presence. We saw a 40% increase in online orders.", name: "Restaurant Owner", title: "Daytona Beach, FL" },
   { quote: "The local SEO work was a game-changer. We went from page 3 to the top of Google Maps. The phone hasn't stopped ringing.", name: "Local Business Owner", title: "Orlando, FL" },
-  { quote: "What sets Myrie apart is the automation. Our marketing runs itself now — social posts, email campaigns, review responses — all on autopilot.", name: "Franchise Operator", title: "Central Florida" },
+  { quote: "What sets Myrie apart is the automation. Our marketing runs itself now: social posts, email campaigns, review responses, all on autopilot.", name: "Franchise Operator", title: "Central Florida" },
 ];
 
-// Daily-specials carousel — each weekday is a Grok-rendered cinematic motion ad.
+// Daily-specials carousel: each weekday is a Grok-rendered cinematic motion ad.
 // `video` overrides `src` for playback; `src` is also used as the lightbox poster
 // and the thumbnail-strip preview.
 const showcaseCarousel = [
-  { src: '/assets/work/beach-bucket-design/drinks/monday.png',    video: '/assets/work/beach-bucket-design/drink-ads/monday.mp4',    alt: 'Monday specials motion ad',     section: 'NO. 01 · MONDAY',     headline: 'Monday — Grape Pop · Yuengling' },
-  { src: '/assets/work/beach-bucket-design/drinks/tuesday.png',   video: '/assets/work/beach-bucket-design/drink-ads/tuesday.mp4',   alt: 'Tuesday specials motion ad',    section: 'NO. 02 · TUESDAY',    headline: 'Tuesday — Cucumber Cooler · Ultra Draft' },
-  { src: '/assets/work/beach-bucket-design/drinks/wednesday.png', video: '/assets/work/beach-bucket-design/drink-ads/wednesday.mp4', alt: 'Wednesday specials motion ad',  section: 'NO. 03 · WEDNESDAY',  headline: 'Wednesday — Signature pour' },
-  { src: '/assets/work/beach-bucket-design/drinks/thursday.png',  video: '/assets/work/beach-bucket-design/drink-ads/thursday.mp4',  alt: 'Thursday specials motion ad',   section: 'NO. 04 · THURSDAY',   headline: 'Thursday — Raspberry Lemonade · Coors' },
-  { src: '/assets/work/beach-bucket-design/drinks/friday.png',    video: '/assets/work/beach-bucket-design/drink-ads/friday.mp4',    alt: 'Friday specials motion ad',     section: 'NO. 05 · FRIDAY',     headline: 'Friday — weekend pour' },
-  { src: '/assets/work/beach-bucket-design/drinks/saturday.png',  video: '/assets/work/beach-bucket-design/drink-ads/saturday.mp4',  alt: 'Saturday specials motion ad',   section: 'NO. 06 · SATURDAY',   headline: 'Saturday — Blueberry Bay Breeze · Landshark' },
-  { src: '/assets/work/beach-bucket-design/drinks/sunday.png',    video: '/assets/work/beach-bucket-design/drink-ads/sunday.mp4',    alt: 'Sunday specials motion ad',     section: 'NO. 07 · SUNDAY',     headline: 'Sunday — Brunch Bucket · Bottomless mimosas' },
+  { src: '/assets/work/beach-bucket-design/drinks/monday.png',    video: '/assets/work/beach-bucket-design/drink-ads/monday.mp4',    alt: 'Monday specials motion ad',     section: 'NO. 01 · MONDAY',     headline: 'Monday: Grape Pop · Yuengling' },
+  { src: '/assets/work/beach-bucket-design/drinks/tuesday.png',   video: '/assets/work/beach-bucket-design/drink-ads/tuesday.mp4',   alt: 'Tuesday specials motion ad',    section: 'NO. 02 · TUESDAY',    headline: 'Tuesday: Cucumber Cooler · Ultra Draft' },
+  { src: '/assets/work/beach-bucket-design/drinks/wednesday.png', video: '/assets/work/beach-bucket-design/drink-ads/wednesday.mp4', alt: 'Wednesday specials motion ad',  section: 'NO. 03 · WEDNESDAY',  headline: 'Wednesday: Signature pour' },
+  { src: '/assets/work/beach-bucket-design/drinks/thursday.png',  video: '/assets/work/beach-bucket-design/drink-ads/thursday.mp4',  alt: 'Thursday specials motion ad',   section: 'NO. 04 · THURSDAY',   headline: 'Thursday: Raspberry Lemonade · Coors' },
+  { src: '/assets/work/beach-bucket-design/drinks/friday.png',    video: '/assets/work/beach-bucket-design/drink-ads/friday.mp4',    alt: 'Friday specials motion ad',     section: 'NO. 05 · FRIDAY',     headline: 'Friday: weekend pour' },
+  { src: '/assets/work/beach-bucket-design/drinks/saturday.png',  video: '/assets/work/beach-bucket-design/drink-ads/saturday.mp4',  alt: 'Saturday specials motion ad',   section: 'NO. 06 · SATURDAY',   headline: 'Saturday: Blueberry Bay Breeze · Landshark' },
+  { src: '/assets/work/beach-bucket-design/drinks/sunday.png',    video: '/assets/work/beach-bucket-design/drink-ads/sunday.mp4',    alt: 'Sunday specials motion ad',     section: 'NO. 07 · SUNDAY',     headline: 'Sunday: Brunch Bucket · Bottomless mimosas' },
   { src: '/assets/work/beach-bucket-design/drinks/blueberry-bay-breeze.png', alt: 'Blueberry Bay Breeze', section: 'NO. 08 · SIGNATURE', headline: 'Blueberry Bay Breeze' },
   { src: '/assets/work/beach-bucket-design/drinks/cucumber-cooler.png',     alt: 'Cucumber Cooler',      section: 'NO. 09 · SIGNATURE', headline: 'Cucumber Cooler' },
   { src: '/assets/work/beach-bucket-design/drinks/citrus-seabreeze.png',    alt: 'Citrus Seabreeze',     section: 'NO. 10 · SIGNATURE', headline: 'Citrus Seabreeze' },
@@ -45,22 +43,16 @@ const featured = [
     image: '/assets/work/beach-bucket-design/drinks/all-drinks.png',
   },
   {
-    title: 'Magic Menu — image results',
-    tag: 'SaaS · Real AI Output',
-    copy: 'Hit generate → photorealistic dishes, paired drinks, branded recipe cards, full cookbooks, food-cost tables, and ready-to-post marketing copy. Real outputs from the live app.',
+    title: 'Menu Magic: AI-generated outputs',
+    tag: 'SaaS · Real outputs',
+    copy: 'Cocktail cards, dish photography, recipe cards, social posts. Real outputs the app produces in seconds, printed on the bar that night.',
     href: '/#try-app',
-    label: 'Try the live app',
+    label: 'Try the app',
     carousel: [
-      { src: '/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg',         caption: 'Sunset Spritzer — AI-generated cocktail card' },
-      { src: '/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg',   caption: 'Mango Tango Margarita — AI-generated cocktail card' },
-      { src: '/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg',    caption: 'Coconut Cloud Colada — AI-generated cocktail card' },
-      { src: '/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg',      caption: 'Blue Lagoon Breeze — AI-generated cocktail card' },
-      { src: '/assets/work/magic-menu/02b-generator-result.jpg',  caption: '4 cocktails, generated in one prompt — click to view full' },
-      { src: '/assets/work/magic-menu/03-recipe-cards.png',       caption: 'Recipe Cards — branded, scaleable, printable' },
-      { src: '/assets/work/magic-menu/04-cookbook.png',           caption: 'Cookbook — Print Book + Download PDF' },
-      { src: '/assets/work/magic-menu/05-drink-book.png',         caption: 'Drink Book — separate or paired with food' },
-      { src: '/assets/work/magic-menu/06-food-cost.png',          caption: 'Food Cost — calculator + AI generator + OCR scan' },
-      { src: '/assets/work/magic-menu/08-marketing.png',          caption: 'Marketing Hub — auto-write + publish to FB / IG / TikTok / X / LinkedIn' },
+      { src: '/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg',         caption: 'Sunset Spritzer' },
+      { src: '/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg',   caption: 'Mango Tango Margarita' },
+      { src: '/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg',    caption: 'Coconut Cloud Colada' },
+      { src: '/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg',      caption: 'Blue Lagoon Breeze' },
     ],
   },
 ];
@@ -83,39 +75,33 @@ export default function HomePage() {
 
       <HeroCinematic />
 
-      <hr className="hairline" />
-
-      <HomeStats />
-
-      <section id="showcase" className="cinema">
-        <div className="shell">
-          <Reveal><span className="eyebrow">Selected Work</span></Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="tropical-h2">A gallery of designs we&apos;ve shipped.</h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="lead block-sub">
-              Daily drinks promos, signature cocktail cards, social graphics — production-ready, brand-consistent, and printed on the bar tomorrow morning. Click any piece to view it full-detail.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div className="showcase-gallery">
-              <Carousel
-                images={showcaseCarousel.map(p => ({ src: p.src, video: p.video, alt: p.alt, caption: p.headline }))}
-                autoplay={5000}
-                aspect="16/10"
-                showThumbs
-                rounded={8}
-                className="showcase-carousel"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <div className="showcase-cta">
-              <Magnetic><a className="ti-btn outline" href="/projects/beach-bucket-design">View full design portfolio →</a></Magnetic>
-            </div>
-          </Reveal>
-        </div>
+      <section id="showcase" className="shell block">
+        <Reveal><span className="eyebrow">Selected work</span></Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="tropical-h2">A gallery of designs we&apos;ve shipped.</h2>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="lead block-sub">
+            Daily drinks promos, signature cocktail cards, social graphics. Production-ready, brand-consistent, printed on the bar tomorrow morning.
+          </p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <div className="showcase-gallery">
+            <Carousel
+              images={showcaseCarousel.map(p => ({ src: p.src, video: p.video, alt: p.alt, caption: p.headline }))}
+              autoplay={5000}
+              aspect="16/10"
+              showThumbs
+              rounded={8}
+              className="showcase-carousel"
+            />
+          </div>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <div className="showcase-cta">
+            <a className="link-arrow" href="/projects/beach-bucket-design">View the full design portfolio →</a>
+          </div>
+        </Reveal>
       </section>
 
       <section className="shell block">
@@ -166,53 +152,16 @@ export default function HomePage() {
 
       <section id="try-app" className="app-section">
         <div className="shell">
-          <Reveal><span className="eyebrow">Try it live</span></Reveal>
+          <Reveal><span className="eyebrow">The application</span></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="app-headline display">An entire restaurant studio in <em className="accent-italic">one app.</em></h2>
+            <h2 className="app-headline display">Menu Magic. <em className="accent-italic">A restaurant studio in one app.</em></h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="lead app-sub">
-              Speak or type a prompt — Magic Menu generates entire dishes with photorealistic plating, paired drinks, scaled servings, food-cost math, and a Facebook/Instagram/TikTok caption ready to post. Built for operators who want to look premium without the studio overhead.
+              Generate dishes, paired drinks, recipe cards, cookbooks, food-cost tables, and ready-to-post social content. Try it live below.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="mm-features">
-              <div className="mm-feature"><span className="mm-num">01</span><div><h4>AI recipe + drink generator</h4><p>&ldquo;Make 4 signature beach bar cocktails&rdquo; → 4 dishes, photorealistic images, ingredients, instructions. Voice or text.</p></div></div>
-              <div className="mm-feature"><span className="mm-num">02</span><div><h4>Auto-paired drinks</h4><p>Every dish ships with a drink that goes with it — the AI thinks like a sommelier.</p></div></div>
-              <div className="mm-feature"><span className="mm-num">03</span><div><h4>Scale servings</h4><p>One plate or fifty. Re-cost in real time.</p></div></div>
-              <div className="mm-feature"><span className="mm-num">04</span><div><h4>Cookbook + drink book PDFs</h4><p>One click — branded PDFs ready for print or sharing. Food and drinks together or split.</p></div></div>
-              <div className="mm-feature"><span className="mm-num">05</span><div><h4>Food cost from your order guide</h4><p>Upload your invoice — the calculator scores margin per dish. Or scan a paper recipe via OCR.</p></div></div>
-              <div className="mm-feature"><span className="mm-num">06</span><div><h4>Marketing hub</h4><p>Pick a dish → AI writes the Facebook / IG / TikTok / X / LinkedIn post. Connect socials and publish from inside the app.</p></div></div>
-            </div>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <div className="mm-gallery">
-              <Carousel
-                images={[
-                  { src: '/assets/work/magic-menu/02b-generator-result.jpg', alt: 'AI Generator — 4 cocktails generated with photorealistic images', caption: 'AI Generator — 4 cocktails, photorealistic, in seconds' },
-                  { src: '/assets/work/magic-menu/03-recipe-cards.png',      alt: 'Recipe cards',                                                       caption: 'Recipe Cards — branded, scaleable, printable' },
-                  { src: '/assets/work/magic-menu/04-cookbook.png',          alt: 'Cookbook view with download PDF',                                    caption: 'Cookbook — Print Book + Download PDF' },
-                  { src: '/assets/work/magic-menu/05-drink-book.png',        alt: 'Drink Book',                                                         caption: 'Drink Book — separate or paired with food' },
-                  { src: '/assets/work/magic-menu/06-food-cost.png',         alt: 'Food cost calculator',                                               caption: 'Food Cost — calculator + AI generator + OCR scan' },
-                  { src: '/assets/work/magic-menu/08-marketing.png',         alt: 'Marketing Hub with social platform connections',                     caption: 'Marketing Hub — auto-write + publish to FB / IG / TikTok / X / LinkedIn' },
-                  { src: '/assets/work/magic-menu/01-dashboard.png',         alt: 'Dashboard overview',                                                 caption: 'Dashboard — total recipes, avg food cost, monthly revenue' },
-                ]}
-                autoplay={5500}
-                aspect="16/10"
-                showThumbs
-                rounded={10}
-                className="mm-carousel"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.5}>
-            <div className="app-actions">
-              <Magnetic strength={0.14}><a className="ti-btn primary" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Open full app ↗</a></Magnetic>
-              <Magnetic strength={0.14}><a className="ti-btn" href="/magic-menu">Read the app spec</a></Magnetic>
-            </div>
-          </Reveal>
-          <Reveal delay={0.6}>
-            <p className="mm-live-label">— Or use it right here, no signup:</p>
             <div className="app-frame">
               <div className="app-bar">
                 <span className="dot red" /><span className="dot amber" /><span className="dot green" />
@@ -221,11 +170,42 @@ export default function HomePage() {
               </div>
               <iframe
                 src="https://savory-studio.vercel.app/dashboard"
-                title="Magic Menu — live demo"
+                title="Menu Magic app"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allow="clipboard-read; clipboard-write"
               />
+            </div>
+          </Reveal>
+          <Reveal delay={0.4}>
+            <div className="app-actions">
+              <Magnetic strength={0.14}><a className="ti-btn primary" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Try the app ↗</a></Magnetic>
+            </div>
+          </Reveal>
+          <Reveal delay={0.5}>
+            <div className="mm-outputs-head">
+              <span className="eyebrow">What the app creates</span>
+              <h3 className="mm-outputs-h">Real outputs, generated in seconds.</h3>
+            </div>
+          </Reveal>
+          <Reveal delay={0.6}>
+            <div className="mm-outputs-grid">
+              <figure className="mm-output">
+                <img src="/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg" alt="Sunset Spritzer cocktail card generated by Menu Magic" loading="lazy" />
+                <figcaption>Sunset Spritzer</figcaption>
+              </figure>
+              <figure className="mm-output">
+                <img src="/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg" alt="Mango Tango Margarita cocktail card generated by Menu Magic" loading="lazy" />
+                <figcaption>Mango Tango Margarita</figcaption>
+              </figure>
+              <figure className="mm-output">
+                <img src="/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg" alt="Coconut Cloud Colada cocktail card generated by Menu Magic" loading="lazy" />
+                <figcaption>Coconut Cloud Colada</figcaption>
+              </figure>
+              <figure className="mm-output">
+                <img src="/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg" alt="Blue Lagoon Breeze cocktail card generated by Menu Magic" loading="lazy" />
+                <figcaption>Blue Lagoon Breeze</figcaption>
+              </figure>
             </div>
           </Reveal>
         </div>
@@ -233,27 +213,23 @@ export default function HomePage() {
 
       <HomeServices />
 
-      <section className="cinema deep">
-        <div className="shell">
-          <Reveal><span className="eyebrow">Client Love</span></Reveal>
-          <Reveal delay={0.1}><h2 className="tropical-h2">What our clients say.</h2></Reveal>
-          <Stagger className="testimonials-grid" stagger={0.1}>
-            {testimonials.map((t, i) => (
-              <StaggerItem as="article" key={i} className="testi-card">
-                <p className="testi-quote">&ldquo;{t.quote}&rdquo;</p>
-                <div className="testi-author">
-                  <strong>{t.name}</strong>
-                  <span>{t.title}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
+      <section className="shell block">
+        <Reveal><span className="eyebrow">Client love</span></Reveal>
+        <Reveal delay={0.1}><h2 className="tropical-h2">What our clients say.</h2></Reveal>
+        <Stagger className="testimonials-grid" stagger={0.1}>
+          {testimonials.map((t, i) => (
+            <StaggerItem as="article" key={i} className="testi-card">
+              <p className="testi-quote">&ldquo;{t.quote}&rdquo;</p>
+              <div className="testi-author">
+                <strong>{t.name}</strong>
+                <span>{t.title}</span>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </section>
 
       <HomeProcess />
-
-      <PortfolioGrid />
 
       <hr className="hairline" />
 
@@ -264,10 +240,10 @@ export default function HomePage() {
             <h2 className="tropical-h2">O&apos;Neill Myrie.</h2>
             <p className="lead about-lead">
               General Manager at The Beach Bucket. Founder of Myrie HQ. Hospitality operator turned
-              marketing builder — combining real GM experience with modern marketing systems for local
+              marketing builder: combining real GM experience with modern marketing systems for local
               businesses across Florida.
             </p>
-            <a className="ti-btn outline" href="/about">Read full story →</a>
+            <a className="link-arrow" href="/about">Read the full story →</a>
           </Reveal>
           <Reveal delay={0.15}>
             <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" />
@@ -280,8 +256,7 @@ export default function HomePage() {
       <Footer />
 
       <div className="mobile-cta">
-        <a className="ti-btn primary" href="mailto:myriework@gmail.com">Start project</a>
-        <a className="ti-btn outline" href="/projects">See work</a>
+        <a className="ti-btn primary" href="#contact">Book a call</a>
       </div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
@@ -291,24 +266,24 @@ export default function HomePage() {
 
         .hairline { height: 1px; background: var(--line); border: 0; margin: 0; }
 
-        /* STATS — premium calm strip with hairline dividers between */
-        .stats-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 80px 24px; max-width: 1200px; margin: 0 auto; width: 100%; }
+        /* STATS: premium calm strip with hairline dividers between */
+        .stats-section { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 40px 24px; max-width: 1200px; margin: 0 auto; width: 100%; }
         .stat { text-align: center; padding: 0 28px; border-left: 1px solid var(--line); }
         .stat:first-child { border-left: 0; }
         .stat-num {
           display: block;
           font-family: var(--font-editorial), Fraunces, serif;
-          font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+          font-size: clamp(1.9rem, 3.2vw, 2.6rem);
           line-height: 1;
           color: var(--ink);
           font-weight: 500;
-          letter-spacing: -0.035em;
+          letter-spacing: -0.03em;
         }
-        .stat-label { display: block; margin-top: 14px; font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+        .stat-label { display: block; margin-top: 10px; font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
 
-        /* SECTION BLOCK — generous vertical breathing room */
-        .block { padding: 110px 0; }
-        .block-sub { margin: 0 0 56px; max-width: 60ch; }
+        /* SECTION BLOCK: tight, calm vertical rhythm */
+        .block { padding: 56px 0; }
+        .block-sub { margin: 0 0 32px; max-width: 60ch; }
 
         /* SERVICES */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
@@ -316,15 +291,17 @@ export default function HomePage() {
         .svc-title { color: var(--ink); font-size: 20px; font-weight: 600; letter-spacing: -0.018em; margin-bottom: 10px; }
         .svc-card p { color: var(--muted); line-height: 1.55; margin: 0; font-size: 15px; }
 
-        /* SHOWCASE GALLERY — premium pronounced carousel on cinema black */
+        /* SHOWCASE GALLERY: sized so the whole carousel fits one viewport.
+           Drinks images at 4/5 aspect inside a 16/10 frame, plus thumbnail
+           strip, all visible without scrolling. */
         .showcase-gallery {
-          max-width: 1400px;
-          margin: 32px auto 0;
+          max-width: 980px;
+          margin: 24px auto 0;
           /* Dramatic shadow under the gallery on the dark background */
           filter: drop-shadow(0 4px 8px rgba(0,0,0,.45)) drop-shadow(0 60px 100px rgba(0,0,0,.7));
         }
         .showcase-gallery .carousel-frame {
-          background: #0c0c0c !important;       /* matches cinema canvas — images float */
+          background: #0c0c0c !important;       /* matches cinema canvas: images float */
           border: 1px solid rgba(255,255,255,.06) !important;
           border-radius: 8px !important;
         }
@@ -341,7 +318,7 @@ export default function HomePage() {
         .showcase-gallery .carousel-thumbs button:focus {
           border-color: var(--warm) !important;
         }
-        .showcase-cta { display: flex; justify-content: center; margin-top: 64px; }
+        .showcase-cta { display: flex; justify-content: center; margin-top: 40px; }
         @media (max-width: 920px) {
           .showcase-gallery { max-width: 100%; }
           .showcase-gallery .carousel-frame img { padding: 12px !important; }
@@ -368,17 +345,17 @@ export default function HomePage() {
         .feature-card p { color: var(--muted); margin: 0 0 18px; line-height: 1.5; font-size: 15px; }
         .feature-arrow { font-size: 14px; color: var(--ink); font-weight: 500; }
 
-        /* APP — hero-sized, the live Magic Menu is the focal point */
-        .app-section { padding: 130px 0 130px; background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-        .app-headline { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: 1.04; letter-spacing: -0.04em; margin: 18px 0 18px; max-width: 22ch; color: var(--ink); }
-        .app-sub { margin: 0 0 36px; max-width: 56ch; }
-        .app-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+        /* APP: calm focal point for the live Magic Menu */
+        .app-section { padding: 64px 0 56px; background: linear-gradient(180deg, #ffffff 0%, #f4f5f8 100%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .app-headline { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.06; letter-spacing: -0.032em; margin: 16px 0 16px; max-width: 24ch; color: var(--ink); }
+        .app-sub { margin: 0 0 28px; max-width: 56ch; }
+        .app-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
         .app-frame {
           border-radius: 24px;
           overflow: hidden;
           border: 1px solid var(--line);
           background: #fff;
-          /* Stay within the shell on every screen — never wider than the parent */
+          /* Stay within the shell on every screen: never wider than the parent */
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
@@ -395,88 +372,74 @@ export default function HomePage() {
         .app-frame iframe {
           display: block;
           width: 100%;
-          /* Responsive height — always fits within viewport.
-             Floor 540px so the dashboard isn't cramped, ceiling 75vh so a
-             27" monitor doesn't get a 1500px-tall iframe overflowing the fold. */
-          height: clamp(540px, 70vh, 880px);
+          /* Sized so the iframe (chrome + content) fits one viewport, so the
+             user can stop scrolling on it and see the whole app at once. */
+          height: clamp(560px, 78vh, 900px);
           border: 0;
           background:
             radial-gradient(circle at 50% 50%, rgba(176,138,62,.08) 0%, transparent 70%),
             linear-gradient(180deg, #0b0f17 0%, #050810 100%);
         }
         @media (max-width: 920px) {
-          .app-frame iframe { height: clamp(420px, 65vh, 620px); }
+          .app-frame iframe { height: clamp(520px, 80vh, 780px); }
         }
 
-        /* Magic Menu features list — quick-scan numbered grid */
-        .mm-features {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0;
-          margin: 56px 0 64px;
-          border-top: 1px solid var(--line);
+        /* Menu Magic outputs gallery: real generated cards, 4-up grid */
+        .mm-outputs-head {
+          max-width: 880px;
+          margin: 56px auto 24px;
+          text-align: left;
         }
-        .mm-feature {
-          display: flex;
-          gap: 14px;
-          padding: 28px 24px 28px 0;
-          border-bottom: 1px solid var(--line);
-          border-right: 1px solid var(--line);
-        }
-        .mm-feature:nth-child(3n) { border-right: 0; padding-right: 0; }
-        .mm-feature:nth-child(n+1) { padding-left: 0; }
-        .mm-feature:nth-child(3n+2),
-        .mm-feature:nth-child(3n) { padding-left: 24px; }
-        .mm-num {
-          flex-shrink: 0;
-          font-family: var(--font-editorial), Fraunces, serif;
-          font-style: italic;
-          font-weight: 500;
-          font-size: 18px;
-          color: var(--warm);
-          line-height: 1;
-          margin-top: 4px;
-          letter-spacing: -0.02em;
-        }
-        .mm-feature h4 {
+        .mm-outputs-h {
           font-family: var(--font-editorial), Fraunces, Georgia, serif;
           font-weight: 500;
-          font-size: 18px;
-          letter-spacing: -0.02em;
+          font-size: clamp(1.4rem, 2.4vw, 2rem);
+          line-height: 1.1;
+          letter-spacing: -0.025em;
           color: var(--ink);
-          margin: 0 0 6px;
+          margin: 8px 0 0;
         }
-        .mm-feature p {
+        .mm-outputs-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+        .mm-output {
           margin: 0;
-          color: var(--muted);
-          line-height: 1.5;
-          font-size: 14px;
-          letter-spacing: -0.005em;
+          background: #fff;
+          border: 1px solid var(--line);
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 12px 36px rgba(20,30,60,0.06);
+          transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
         }
-        @media (max-width: 920px) {
-          .mm-features { grid-template-columns: 1fr; margin: 40px 0 48px; }
-          .mm-feature { padding: 24px 0 !important; border-right: 0 !important; }
+        .mm-output:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 20px 50px rgba(20,30,60,0.10);
         }
-
-        /* Magic Menu screenshot gallery */
-        .mm-gallery {
-          max-width: 1100px;
-          margin: 0 auto 56px;
-          filter: drop-shadow(0 4px 8px rgba(0,0,0,.10)) drop-shadow(0 32px 80px rgba(20,30,60,.12));
+        .mm-output img {
+          display: block;
+          width: 100%;
+          aspect-ratio: 4/5;
+          object-fit: cover;
+          object-position: center;
         }
-        .mm-gallery .carousel-frame {
-          background: #0c0c0c !important;
-          border: 1px solid rgba(10,10,10,0.08) !important;
+        .mm-output figcaption {
+          padding: 14px 18px 16px;
+          font-family: var(--font-editorial), Fraunces, Georgia, serif;
+          font-weight: 500;
+          font-style: italic;
+          font-size: 15px;
+          color: var(--ink);
+          letter-spacing: -0.012em;
         }
-        .mm-gallery .carousel-frame img { padding: 0 !important; object-fit: cover !important; }
-        .mm-live-label {
-          font-family: var(--font-body);
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: var(--muted);
-          margin: 24px 0 16px;
+        @media (max-width: 1100px) {
+          .mm-outputs-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+          .mm-outputs-grid { grid-template-columns: 1fr; }
         }
 
         /* TESTIMONIALS */
@@ -487,7 +450,7 @@ export default function HomePage() {
         .testi-author strong { color: var(--ink); display: block; font-size: 14px; font-weight: 600; }
         .testi-author span { color: var(--muted); font-size: 13px; }
 
-        /* PROCESS — minimal, type-led */
+        /* PROCESS: minimal, type-led */
         .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
         .process-step { padding: 36px 28px; border-left: 1px solid var(--line); transition: border-color .2s; }
         .process-step:first-child { border-left: 0; padding-left: 0; }
@@ -496,13 +459,13 @@ export default function HomePage() {
         .process-step p { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.55; }
 
         /* ABOUT */
-        .about-block { padding: 110px 0; }
-        .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; padding-top: 12px; }
-        .about-lead { margin: 0 0 28px; }
+        .about-block { padding: 56px 0; }
+        .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; padding-top: 8px; }
+        .about-lead { margin: 0 0 20px; }
         .about-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 24px 50px rgba(0,0,0,0.06); }
 
         /* CONTACT */
-        .contact-block { background: var(--bg-soft); padding: 130px 0; }
+        .contact-block { background: var(--bg-soft); padding: 64px 0; }
         .contact-inner { text-align: center; }
         .contact-block .contact-title { color: var(--ink); margin-bottom: 16px; max-width: none; }
         .contact-block .contact-sub { color: var(--muted); max-width: 580px; margin: 0 auto; }

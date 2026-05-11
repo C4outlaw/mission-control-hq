@@ -31,7 +31,7 @@ export default function SEOLanding({ ns }) {
       <SiteNav />
 
       <section className="seo-hero shell">
-        <Reveal><span className="eyebrow">— {eyebrow}</span></Reveal>
+        <Reveal><span className="eyebrow">: {eyebrow}</span></Reveal>
         <Reveal delay={0.1}>
           <h1 className="display seo-title">{k('title')} <em className="seo-italic">{k('italic')}</em></h1>
         </Reveal>

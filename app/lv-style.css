@@ -1,0 +1,782 @@
+/* ==========================================================================
+   LV-STYLE OVERRIDE LAYER
+   Pure white + black, single sans, all-caps tracked labels, image-led tiles.
+   Loaded AFTER marketing.css — every selector here wins on specificity ties
+   by being last. Toggle off by removing the import in app/layout.js.
+   ========================================================================== */
+
+/* ---------- Palette + type tokens ---------- */
+.myrie-marketing {
+  /* Pure neutral palette — no warm, no gold, no cream */
+  --bg:           #ffffff;
+  --bg-soft:      #ffffff;
+  --bg-card:      #ffffff;
+  --ink:          #000000;
+  --ink-2:        #1a1a1a;
+  --muted:        #6b6b6b;
+  --muted-2:      #9a9a9a;
+  --line:         rgba(0,0,0,0.10);
+  --line-2:       rgba(0,0,0,0.18);
+  --accent:       #000000;
+  --warm:         #000000;   /* kill gold */
+  --warm-soft:    #ffffff;
+  --teal:         #000000;
+
+  /* LV uses Futura — fall back gracefully to system futura-like sans */
+  font-family: 'Futura PT', 'Futura', 'ITC Avant Garde Gothic', 'Century Gothic',
+               'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.005em;
+  color: #000000;
+  background: #ffffff;
+}
+
+html.theme-dark .myrie-marketing {
+  --bg:           #000000;
+  --bg-soft:      #000000;
+  --bg-card:      #0a0a0a;
+  --ink:          #ffffff;
+  --ink-2:        #f0f0f0;
+  --muted:        #a0a0a0;
+  --muted-2:      #6e6e6e;
+  --line:         rgba(255,255,255,0.14);
+  --line-2:       rgba(255,255,255,0.22);
+  --accent:       #ffffff;
+  --warm:         #ffffff;
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ---------- Strip the serif/italic editorial system ---------- */
+.myrie-marketing h1,
+.myrie-marketing h2,
+.myrie-marketing h3,
+.myrie-marketing h4,
+.myrie-marketing .display,
+.myrie-marketing .headline,
+.myrie-marketing .tropical-h2,
+.myrie-marketing .services-headline,
+.myrie-marketing .app-headline,
+.myrie-marketing .seo-title,
+.myrie-marketing .feature-title,
+.myrie-marketing .svc-title,
+.myrie-marketing .process-title,
+.myrie-marketing .mm-feature h4,
+.myrie-marketing .cinema h2,
+.myrie-marketing .cinema .tropical-h2 {
+  font-family: 'Futura PT', 'Futura', 'ITC Avant Garde Gothic', 'Century Gothic',
+               'Avenir Next', Avenir, -apple-system, sans-serif;
+  font-style: normal !important;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.myrie-marketing .tropical-h2 .accent,
+.myrie-marketing .tropical-h2 .accent.orange,
+.myrie-marketing .tropical-h2 .accent.gold,
+.myrie-marketing em.accent-italic,
+.myrie-marketing .accent-italic,
+.myrie-marketing .script {
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  color: var(--ink) !important;
+}
+
+/* ---------- LV section headline scale ---------- */
+.myrie-marketing .tropical-h2,
+.myrie-marketing .services-headline,
+.myrie-marketing .app-headline,
+.myrie-marketing .cinema h2,
+.myrie-marketing .cinema .tropical-h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  margin: 0 0 24px;
+  max-width: 32ch;
+  font-weight: 400;
+}
+
+/* All-caps tracked eyebrow — the LV signature label */
+.myrie-marketing .eyebrow {
+  font-family: 'Futura PT', 'Futura', 'ITC Avant Garde Gothic', 'Century Gothic', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.myrie-marketing .eyebrow::before { content: none; }
+
+/* Body copy + lead */
+.myrie-marketing .lead,
+.myrie-marketing p,
+.myrie-marketing .testi-quote {
+  font-family: 'Futura PT', 'Futura', 'ITC Avant Garde Gothic', 'Century Gothic',
+               'Avenir Next', Avenir, sans-serif;
+  font-style: normal !important;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  color: var(--ink-2);
+}
+.myrie-marketing .lead {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+/* ---------- LV-style hero — full-bleed image, tiny caption ---------- */
+.myrie-marketing .hero-cinematic {
+  min-height: 92vh;
+  background: #000;
+  padding: 0;
+  margin-top: -64px;
+}
+.myrie-marketing .hero-cinematic .hero-bg-veil {
+  background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.55) 100%);
+}
+.myrie-marketing .hero-cinematic-grid {
+  max-width: none;
+  padding: 0 0 48px;
+  grid-template-rows: 1fr auto auto auto;
+  align-items: end;
+  text-align: center;
+  gap: 0;
+}
+.myrie-marketing .hero-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 18px;
+  line-height: 1;
+}
+.myrie-marketing .hero-display-1,
+.myrie-marketing .hero-display-2 {
+  font-family: 'Futura PT', 'Futura', 'ITC Avant Garde Gothic', 'Century Gothic',
+               'Avenir Next', Avenir, sans-serif;
+  font-style: normal !important;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: none;
+}
+.myrie-marketing .hero-roles {
+  display: none;            /* LV doesn't list services on hero */
+}
+.myrie-marketing .hero-desc {
+  display: none;            /* LV doesn't have body copy on hero */
+}
+.myrie-marketing .hero-cta-row {
+  margin: 0 0 20px;
+  justify-content: center;
+  gap: 24px;
+}
+.myrie-marketing .hero-coords {
+  display: none;            /* LV doesn't put coords on hero */
+}
+
+/* LV-style minimal pill links → flat uppercase text with underline */
+.myrie-marketing .hero-cinematic .ti-btn,
+.myrie-marketing .hero-cinematic .ti-btn.primary,
+.myrie-marketing .hero-cinematic .ti-btn.outline {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #ffffff !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  padding: 2px 0 4px !important;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  height: auto;
+  line-height: 1.5;
+}
+.myrie-marketing .hero-cinematic .ti-btn:hover {
+  background: transparent !important;
+  border-bottom-color: rgba(255,255,255,0.5) !important;
+}
+
+/* ---------- Nav — LV-minimal ---------- */
+.myrie-marketing .site-nav.is-scrolled,
+.myrie-marketing .site-nav {
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.myrie-marketing .site-nav-links {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  gap: 28px;
+  box-shadow: none !important;
+}
+.myrie-marketing .site-nav-links a {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 6px 0;
+  background: transparent !important;
+}
+.myrie-marketing .site-nav-links a:hover {
+  background: transparent !important;
+  color: var(--muted);
+}
+.myrie-marketing .brand-mark {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-radius: 0;
+  border: 0;
+}
+.myrie-marketing .brand-word,
+.myrie-marketing .brand-myrie,
+.myrie-marketing .brand-hq {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink) !important;
+}
+.myrie-marketing .site-nav-cta {
+  background: var(--ink) !important;
+  color: var(--bg) !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 10px 18px !important;
+}
+.myrie-marketing .site-nav-cta:hover {
+  background: var(--muted) !important;
+}
+
+/* ---------- Buttons everywhere → LV underline links ---------- */
+.myrie-marketing .ti-btn,
+.myrie-marketing .ti-btn.primary,
+.myrie-marketing .ti-btn.outline,
+.myrie-marketing .ti-btn.gold {
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 2px 0 4px;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.myrie-marketing .ti-btn:hover {
+  background: transparent;
+  color: var(--muted);
+  border-bottom-color: var(--muted);
+}
+
+/* The site-wide "Discover the collection" arrow link */
+.myrie-marketing .feature-arrow,
+.myrie-marketing .svc-arrow {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* ---------- Cards → flat editorial tiles, no rounded ---------- */
+.myrie-marketing .feature-card,
+.myrie-marketing .testi-card,
+.myrie-marketing .svc-card,
+.myrie-marketing .ti-card {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+}
+.myrie-marketing .feature-card:hover,
+.myrie-marketing .testi-card:hover,
+.myrie-marketing .svc-card:hover,
+.myrie-marketing .ti-card:hover {
+  border-color: transparent !important;
+  transform: none !important;
+}
+.myrie-marketing .feature-card .thumb,
+.myrie-marketing .feature-card .thumb-carousel {
+  aspect-ratio: 4/5;
+  border-radius: 0 !important;
+}
+.myrie-marketing .feature-body {
+  padding: 18px 0 0;
+  text-align: left;
+}
+.myrie-marketing .feature-tag {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.myrie-marketing .feature-title {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+/* ---------- Cinema dark sections → clean black, no glow ---------- */
+.myrie-marketing .cinema {
+  background: #000 !important;
+  padding: 80px 0;
+}
+.myrie-marketing .cinema h2,
+.myrie-marketing .cinema .tropical-h2 {
+  color: #ffffff !important;
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400;
+}
+.myrie-marketing .cinema p,
+.myrie-marketing .cinema .lead,
+.myrie-marketing .cinema .testi-quote {
+  color: rgba(255,255,255,0.78) !important;
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+}
+.myrie-marketing .cinema .feature-title,
+.myrie-marketing .cinema .testi-card strong { color: #ffffff !important; }
+
+/* Cinema cards → flat dark tiles, no border, no shadow */
+.myrie-marketing .cinema .feature-card,
+.myrie-marketing .cinema .testi-card,
+.myrie-marketing .cinema .ti-card {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- Services grid → LV product grid ---------- */
+.myrie-marketing .services-section {
+  background: var(--bg) !important;
+  border: 0 !important;
+  padding: 80px 0;
+}
+.myrie-marketing .services-grid {
+  border-top: 1px solid var(--line);
+}
+.myrie-marketing .svc-card {
+  padding: 32px 24px 32px 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-right: 1px solid var(--line);
+}
+.myrie-marketing .svc-num {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  color: var(--muted) !important;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+/* ---------- Process grid ---------- */
+.myrie-marketing .process-title {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+/* ---------- Hairlines + dividers, simpler ---------- */
+.myrie-marketing .hairline {
+  background: var(--line);
+}
+
+/* ---------- Scroll CTA + mobile bottom CTA — LV minimal ---------- */
+.myrie-marketing .scroll-cta,
+.scroll-cta {
+  background: var(--ink) !important;
+  color: var(--bg) !important;
+  border-radius: 0 !important;
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+}
+
+/* ---------- Disable old decorative effects ---------- */
+.myrie-marketing .hero-bg-image,
+.myrie-marketing .hero-bg-video {
+  filter: saturate(1.0) brightness(0.92) contrast(1.02);
+  animation: none;
+}
+
+/* Stats strip → restrained */
+.myrie-marketing .stat-num {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.005em !important;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem) !important;
+}
+.myrie-marketing .stat-label {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-size: 10px !important;
+  letter-spacing: 0.22em !important;
+}
+
+/* SEO landing pages */
+.myrie-marketing .seo-title {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.005em !important;
+}
+.myrie-marketing .seo-italic {
+  font-family: 'Futura PT', Futura, sans-serif !important;
+  font-style: normal !important;
+  color: var(--muted) !important;
+}
+
+/* ---------- Footer ---------- */
+.myrie-marketing .ti-footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   LV EDITORIAL COMPONENTS — full-bleed photography tiles, tiny captions
+   ========================================================================== */
+
+/* Generic underline link — the LV "Discover" treatment */
+.myrie-marketing .lv-link {
+  display: inline-block;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 0 6px;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity .35s ease;
+}
+.myrie-marketing .lv-link-light { color: #ffffff; }
+.myrie-marketing .lv-link-dark  { color: #000000; }
+.myrie-marketing .lv-link:hover { opacity: 0.7; }
+
+/* Eyebrow — used by all tiles + pairs + contact */
+.myrie-marketing .lv-eyebrow {
+  display: block;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 14px;
+}
+.myrie-marketing .lv-tile--dark .lv-eyebrow,
+.myrie-marketing .lv-pair-caption .lv-eyebrow,
+.myrie-marketing .lv-contact .lv-eyebrow { color: var(--muted); }
+
+/* ---------- HERO ---------- */
+.myrie-marketing .lv-hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  background: #000;
+  margin-top: -64px;     /* tuck under nav */
+  isolation: isolate;
+}
+.myrie-marketing .lv-hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.myrie-marketing .lv-hero-veil {
+  position: absolute; inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.0) 22%, rgba(0,0,0,0.0) 55%, rgba(0,0,0,0.65) 100%);
+}
+.myrie-marketing .lv-hero-stack {
+  position: absolute;
+  left: 0; right: 0; bottom: 64px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  gap: 18px;
+}
+.myrie-marketing .lv-hero-title {
+  font-family: 'Futura PT', Futura, 'ITC Avant Garde Gothic', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+}
+.myrie-marketing .lv-hero-sub {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ---------- EDITORIAL TILE ---------- */
+.myrie-marketing .lv-tile {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+}
+.myrie-marketing .lv-tile--tall   { height: 92vh; min-height: 720px; }
+.myrie-marketing .lv-tile--medium { height: 72vh; min-height: 560px; }
+.myrie-marketing .lv-tile--short  { height: 52vh; min-height: 420px; }
+.myrie-marketing .lv-tile-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.myrie-marketing .lv-tile-veil {
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(0,0,0,0.22) 0%,
+    rgba(0,0,0,0.0) 30%,
+    rgba(0,0,0,0.0) 60%,
+    rgba(0,0,0,0.58) 100%);
+}
+.myrie-marketing .lv-tile--dark .lv-tile-veil {
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 55%, rgba(0,0,0,0.45) 100%);
+}
+.myrie-marketing .lv-tile--dark .lv-tile-title { color: #ffffff; }
+.myrie-marketing .lv-tile--dark .lv-eyebrow    { color: rgba(255,255,255,0.78); }
+.myrie-marketing .lv-tile-stack {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: flex-end;
+  pointer-events: auto;
+}
+.myrie-marketing .lv-tile--center .lv-tile-stack { align-items: center; text-align: center; }
+.myrie-marketing .lv-tile--left .lv-tile-stack   { align-items: flex-start; text-align: left; }
+.myrie-marketing .lv-tile--right .lv-tile-stack  { align-items: flex-end; text-align: right; }
+
+.myrie-marketing .lv-tile-title {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  margin: 0 0 8px;
+  max-width: 28ch;
+}
+.myrie-marketing .lv-tile--dark .lv-tile-title { color: var(--ink); }
+
+/* ---------- EDITORIAL PAIR ---------- */
+.myrie-marketing .lv-pair {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: var(--bg);
+}
+.myrie-marketing .lv-pair-item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 56px 48px 72px;
+  background: var(--bg);
+}
+.myrie-marketing .lv-pair-bg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center;
+  background: #111;
+}
+.myrie-marketing .lv-pair-caption {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.myrie-marketing .lv-pair-title {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.myrie-marketing .lv-pair-item:hover .lv-pair-bg { opacity: 0.92; }
+.myrie-marketing .lv-pair-bg { transition: opacity .4s ease; }
+
+/* ---------- CONTACT ---------- */
+.myrie-marketing .lv-contact {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 120px 24px 140px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.myrie-marketing .lv-contact-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.myrie-marketing .lv-contact-title {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-weight: 400;
+  font-style: normal !important;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+.myrie-marketing .lv-contact-line {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.myrie-marketing .lv-contact-line a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.myrie-marketing .lv-contact-line a:hover { border-bottom-color: var(--ink); }
+
+/* ---------- TYPOGRAPHY PANEL — pure-type editorial moment, no photo ---------- */
+.myrie-marketing .lv-type-panel {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 140px 24px;
+  background: var(--bg);
+  color: var(--ink);
+}
+.myrie-marketing .lv-type-panel--dark {
+  background: #000000;
+  color: #ffffff;
+}
+.myrie-marketing .lv-type-panel--dark .lv-eyebrow { color: rgba(255,255,255,0.7); }
+.myrie-marketing .lv-type-panel-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+.myrie-marketing .lv-type-panel-title {
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-weight: 400;
+  font-style: normal !important;
+  font-size: clamp(1.7rem, 2.6vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: inherit;
+  margin: 0;
+  max-width: 26ch;
+}
+.myrie-marketing .lv-type-panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  font-family: 'Futura PT', Futura, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: inherit;
+}
+.myrie-marketing .lv-type-panel--dark .lv-type-panel-list { color: rgba(255,255,255,0.78); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+  .myrie-marketing .lv-type-panel { padding: 96px 24px; }
+  .myrie-marketing .lv-type-panel-list { gap: 14px 22px; }
+  .myrie-marketing .lv-hero { height: 92vh; min-height: 600px; }
+  .myrie-marketing .lv-hero-stack { bottom: 40px; gap: 14px; }
+  .myrie-marketing .lv-tile--tall   { height: 78vh; min-height: 560px; }
+  .myrie-marketing .lv-tile--medium { height: 64vh; min-height: 480px; }
+  .myrie-marketing .lv-tile--short  { height: 48vh; min-height: 360px; }
+  .myrie-marketing .lv-tile-stack { padding: 36px 24px; }
+  .myrie-marketing .lv-pair { grid-template-columns: 1fr; }
+  .myrie-marketing .lv-pair-item { padding: 36px 24px 56px; }
+  .myrie-marketing .lv-contact { padding: 80px 24px 100px; }
+}

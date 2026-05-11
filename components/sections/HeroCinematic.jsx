@@ -5,55 +5,56 @@ import Magnetic from '../motion/Magnetic';
 import { useT } from '../../lib/i18n';
 
 /**
- * Cinematic hero — real waterfall video background, no canvas overlays.
- *  - Massive sans first word + flowing italic-serif second word, edge-to-edge
- *  - Tagged role subtitles
- *  - Description paragraph + CTAs
- *  - Bottom row coordinate strip
+ * Cinematic hero. Editorial restraint: wordmark + one promise + one primary CTA.
+ * Waterfall video keeps the dark cinematic moment that defines the brand.
  */
 export default function HeroCinematic() {
   const { t } = useT();
   const videoRef = useRef(null);
   const [videoOk, setVideoOk] = useState(true);
 
-  const BASE_RATE = 1.0;
-
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    const apply = () => { try { v.playbackRate = BASE_RATE; } catch {} };
+    const apply = () => { try { v.playbackRate = 1.0; } catch {} };
     apply();
     v.addEventListener('loadedmetadata', apply);
     v.addEventListener('play', apply);
-    v.addEventListener('seeking', apply);
     return () => {
       v.removeEventListener('loadedmetadata', apply);
       v.removeEventListener('play', apply);
-      v.removeEventListener('seeking', apply);
     };
   }, []);
 
   return (
     <section className="hero-cinematic" aria-labelledby="hero-title">
-      <div className="hero-bg" aria-hidden="true">
-        {videoOk ? (
-          <video
-            ref={videoRef}
-            className="hero-bg-video"
-            src="/assets/hero/waterfall-hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            onError={() => setVideoOk(false)}
-          />
-        ) : (
-          <div className="hero-bg-image" />
-        )}
+      <div className="hero-bg hero-bg-3d-scene" aria-hidden="true">
+        <video
+          ref={videoRef}
+          className="hero-bg-3d-scene-video"
+          src="/assets/hero/hero-3d-box.mp4"
+          poster="/assets/hero/hero-3d-box.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={() => setVideoOk(false)}
+        />
         <div className="hero-bg-veil" />
       </div>
 
       <div className="hero-cinematic-grid">
+        <motion.span
+          className="hero-locale"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.05 }}
+        >
+          <span className="hero-locale-rule" aria-hidden="true" />
+          Daytona Beach · Orlando · Florida
+          <span className="hero-locale-rule" aria-hidden="true" />
+        </motion.span>
+
         <h1 id="hero-title" className="hero-display">
           <motion.span
             className="hero-display-1"
@@ -69,24 +70,13 @@ export default function HeroCinematic() {
           >HQ</motion.span>
         </h1>
 
-        <motion.div
-          className="hero-roles"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.85 }}
-        >
-          <p><span className="tag">(WEB)</span> {t('hero.role_web')}</p>
-          <p><span className="tag">(SEO)</span> {t('hero.role_seo')}</p>
-          <p><span className="tag">(ADS)</span> {t('hero.role_ads')}</p>
-        </motion.div>
-
         <motion.p
-          className="hero-desc"
+          className="hero-promise"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
+          transition={{ duration: 0.8, delay: 0.95 }}
         >
-          {t('hero.desc')}
+          {t('hero.promise')}
         </motion.p>
 
         <motion.div
@@ -95,19 +85,14 @@ export default function HeroCinematic() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.15 }}
         >
-          <Magnetic strength={0.14}><a className="ti-btn primary" href="#contact">{t('hero.cta_primary')}</a></Magnetic>
-          <Magnetic strength={0.14}><a className="ti-btn outline" href="/projects">{t('hero.cta_secondary')}</a></Magnetic>
-        </motion.div>
-
-        <motion.div
-          className="hero-coords"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <span className="coord-l">29.2108° N</span>
-          <span className="coord-c">{t('hero.coord_center')}</span>
-          <span className="coord-r">81.0228° W</span>
+          <Magnetic strength={0.14}>
+            <a className="ti-btn primary" href="#contact">
+              {t('hero.cta_primary')}
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </Magnetic>
         </motion.div>
       </div>
     </section>

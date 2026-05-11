@@ -23,7 +23,7 @@ export default function PortfolioGrid() {
           <h2 className="pgrid-h">Hi, I&apos;m O&apos;Neill Myrie!</h2>
           <p className="pgrid-lede">
             A Daytona Beach hospitality operator turned marketing builder. I help restaurants, bars,
-            and local brands look premium and convert — built from a decade running floors and
+            and local brands look premium and convert: built from a decade running floors and
             shipping campaigns that actually move.
           </p>
         </div>
@@ -35,7 +35,7 @@ export default function PortfolioGrid() {
 
       {/* Grid */}
       <div className="pgrid-cols">
-        {/* COL 1 — Background + timeline */}
+        {/* COL 1: Background + timeline */}
         <article className="pgrid-card pgrid-bg">
           <video
             className="pgrid-card-vid" autoPlay loop muted playsInline
@@ -68,7 +68,7 @@ export default function PortfolioGrid() {
           </div>
         </article>
 
-        {/* COL 2 — Client Voice + 50+ */}
+        {/* COL 2: Client Voice + 50+ */}
         <div className="pgrid-stack">
           <article className="pgrid-card pgrid-quote noise-overlay">
             <div className="pgrid-card-content">
@@ -101,7 +101,7 @@ export default function PortfolioGrid() {
           </article>
         </div>
 
-        {/* COL 3 — Daily Software + Reach Me */}
+        {/* COL 3: Daily Software + Reach Me */}
         <div className="pgrid-stack">
           <article className="pgrid-card pgrid-tools">
             <video

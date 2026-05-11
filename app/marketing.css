@@ -325,14 +325,14 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .tropical-h2 {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  line-height: 1.04;
-  letter-spacing: -0.038em;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.06;
+  letter-spacing: -0.032em;
   color: var(--ink);
   text-transform: none;
   text-shadow: none;
   margin: 0 0 14px;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 .myrie-marketing .tropical-h2 .accent {
   font-family: var(--font-body);
@@ -351,7 +351,7 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .tropical-h2 .accent.gold { color: var(--warm); }
 
 .myrie-marketing .lead {
-  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
   line-height: 1.55;
   color: var(--muted);
   max-width: 60ch;
@@ -526,8 +526,8 @@ html.lenis, html.lenis body { height: auto; }
   position: relative;
   background: #000;
   color: #fff;
-  min-height: 100vh;
-  padding: 96px 0 56px;
+  min-height: 92vh;
+  padding: 64px 0 32px;
   overflow: hidden;
   isolation: isolate;
   margin-top: -64px;       /* tuck under sticky nav */
@@ -554,9 +554,77 @@ html.lenis, html.lenis body { height: auto; }
   filter: saturate(1.08) brightness(0.78) contrast(1.05);
 }
 
+/* 3D box hero scene — Grok-generated cinematic video of waterfall inside
+   a neon dimensional vitrine, looping. */
+.myrie-marketing .hero-bg-3d-scene { background: #000; }
+.myrie-marketing .hero-bg-3d-scene-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;       /* show entire video, no cropping */
+  object-position: center;
+  filter: saturate(1.05) brightness(0.95) contrast(1.06);
+  pointer-events: none;
+  background: #000;
+}
+/* Grok's video carries the MYRIE HQ wordmark + promise text rendered in 3D,
+   so hide the HTML duplicates. Keep only the locale tag and the glass CTA. */
+.myrie-marketing .hero-cinematic .hero-display,
+.myrie-marketing .hero-cinematic .hero-promise {
+  display: none;
+}
+/* Hide the locale tag too — the video carries the brand context fully. */
+.myrie-marketing .hero-cinematic .hero-locale { display: none; }
+
+/* Position the real clickable CTA EXACTLY over the painted glass button in
+   the Grok video so users click the button they actually see. Invisible
+   but click-capturing — the video supplies the visual. */
+.myrie-marketing .hero-cinematic-grid {
+  position: absolute !important;
+  inset: 0;
+  max-width: none !important;
+  padding: 0 !important;
+  display: block !important;
+}
+.myrie-marketing .hero-cinematic .hero-cta-row {
+  position: absolute;
+  /* Overlay the painted glass button in the upscaled Grok video (~77% from top) */
+  top: 77%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+/* Make the click target FULLY invisible — the video supplies the visible
+   button. Force every visual property to disappear, only the click area
+   remains. */
+.myrie-marketing .hero-cinematic .ti-btn,
+.myrie-marketing .hero-cinematic .ti-btn.primary {
+  width: 320px !important;
+  height: 88px !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  filter: none !important;
+}
+.myrie-marketing .hero-cinematic .ti-btn::before,
+.myrie-marketing .hero-cinematic .ti-btn::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
+.myrie-marketing .hero-cinematic .ti-btn svg { display: none !important; }
+.myrie-marketing .hero-cinematic .ti-btn:hover {
+  transform: translateY(-1px) !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
 /* Shared SEO landing styles */
 .myrie-marketing .seo-hero { padding: 144px 0 96px; max-width: 1200px; }
-.myrie-marketing .seo-title { font-size: clamp(2.6rem, 6.5vw, 5.4rem); margin: 24px 0 32px; max-width: 16ch; line-height: 1.04; letter-spacing: -0.04em; font-weight: 500; }
+.myrie-marketing .seo-title { font-size: clamp(2rem, 3.8vw, 3rem); margin: 20px 0 24px; max-width: 20ch; line-height: 1.06; letter-spacing: -0.032em; font-weight: 500; }
 .myrie-marketing .seo-italic { font-style: italic; font-weight: 400; color: var(--warm); }
 .myrie-marketing .seo-sub { max-width: 64ch; margin: 0 0 40px; }
 .myrie-marketing .seo-cta { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -584,9 +652,9 @@ html.lenis, html.lenis body { height: auto; }
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 120px 32px 56px;
+  padding: 72px 32px 40px;
   display: grid;
   grid-template-rows: auto auto auto auto auto auto;
   gap: 0;
@@ -606,7 +674,7 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .hero-display-1 {
   font-family: var(--font-body), Inter, -apple-system, sans-serif;
   font-weight: 900;
-  font-size: clamp(4.5rem, 18vw, 18rem);
+  font-size: clamp(3.2rem, 10vw, 11rem);
   letter-spacing: -0.045em;
   color: #fff;
   text-shadow: 0 2px 40px rgba(0,0,0,0.55);
@@ -616,39 +684,44 @@ html.lenis, html.lenis body { height: auto; }
   font-family: var(--font-editorial), Fraunces, Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(4.5rem, 18vw, 18rem);
+  font-size: clamp(3.2rem, 10vw, 11rem);
   letter-spacing: -0.04em;
   color: #fff;
   text-shadow: 0 2px 40px rgba(0,0,0,0.55);
 }
 
-/* Tagged role list — center column under headline */
-.myrie-marketing .hero-roles {
+/* Place tag above the wordmark — luxury hospitality convention */
+.myrie-marketing .hero-locale {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 auto 36px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+}
+.myrie-marketing .hero-locale-rule {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: rgba(255,255,255,0.45);
+}
+
+/* One-line promise — the brand assertion */
+.myrie-marketing .hero-promise {
   margin: 32px auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  text-align: left;
-}
-.myrie-marketing .hero-roles p {
-  margin: 0;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  letter-spacing: -0.012em;
-  color: #fff;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-.myrie-marketing .hero-roles .tag {
-  font-family: var(--font-body);
-  font-weight: 500;
+  max-width: 28ch;
+  font-family: var(--font-editorial), Fraunces, Georgia, serif;
   font-style: italic;
-  font-size: 0.7em;
-  color: rgba(255,255,255,0.68);
-  letter-spacing: 0;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+  line-height: 1.3;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: -0.012em;
 }
 
 /* Play button — clicking pours the waterfall */
@@ -1488,7 +1561,7 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .services-section {
   /* Warm parchment instead of pure white — Apple's #f5f5f7 tone */
   background: var(--canvas-parchment, #f5f5f7);
-  padding: 144px 0;
+  padding: 64px 0;
   width: 100vw;
   margin-left: calc(50% - 50vw);
   position: relative;
@@ -1500,16 +1573,16 @@ html.lenis, html.lenis body { height: auto; }
   margin: 0 auto;
 }
 
-.myrie-marketing .services-head { max-width: 800px; margin: 0 0 80px; }
+.myrie-marketing .services-head { max-width: 800px; margin: 0 0 48px; }
 .myrie-marketing .services-headline {
   font-family: var(--font-editorial), Fraunces, Georgia, serif;
   font-weight: 500;
-  font-size: clamp(2.4rem, 5.4vw, 4.6rem);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.06;
+  letter-spacing: -0.032em;
   color: var(--ink);
-  margin: 24px 0 28px;
-  max-width: 16ch;
+  margin: 20px 0 24px;
+  max-width: 20ch;
 }
 .myrie-marketing .services-headline em.accent-italic {
   font-style: italic;
@@ -1561,9 +1634,9 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .svc-title {
   font-family: var(--font-editorial), Fraunces, Georgia, serif;
   font-weight: 500;
-  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.022em;
   color: var(--ink);
   margin: 8px 0 0;
 }
@@ -1624,7 +1697,7 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .cinema {
   background: #0c0c0c;
   color: #ffffff;
-  padding: 144px 0;
+  padding: 64px 0;
   margin: 0;
   position: relative;
   isolation: isolate;
@@ -1642,10 +1715,10 @@ html.lenis, html.lenis body { height: auto; }
   color: #ffffff;
   font-family: var(--font-editorial), 'Fraunces', Georgia, serif;
   font-weight: 500;
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  line-height: 1.0;
-  letter-spacing: -0.04em;
-  margin: 0 0 24px;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  margin: 0 0 20px;
 }
 .myrie-marketing .cinema h3 { color: #ffffff; font-weight: 500; }
 .myrie-marketing .cinema p,
@@ -1734,4 +1807,216 @@ html.lenis, html.lenis body { height: auto; }
   .myrie-marketing .pt-section { padding-top: 80px; }
   .myrie-marketing .pb-section { padding-bottom: 80px; }
   .myrie-marketing .my-section { margin-top: 80px; margin-bottom: 80px; }
+}
+
+/* ==========================================================================
+   PREMIUM POLISH OVERRIDES (impeccable critique pass)
+   - Kill glassmorphism on nav + buttons + lang toggle (keep play button only)
+   - Convert showcase + testimonials from cinema-dark to light
+   - Add quiet text-link CTA style ".link-arrow" for secondary actions
+   ========================================================================== */
+
+/* Solid nav, no glass */
+.myrie-marketing .site-nav,
+.myrie-marketing .site-nav.is-scrolled {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(255,255,255,0.94);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+}
+html.theme-dark .myrie-marketing .site-nav,
+html.theme-dark .myrie-marketing .site-nav.is-scrolled {
+  background: rgba(20,20,20,0.94);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+.myrie-marketing .site-nav-links {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.myrie-marketing .lang-toggle,
+.myrie-marketing .theme-toggle {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Solid buttons, no glass (keep .hero-play untouched) */
+.myrie-marketing .ti-btn,
+.myrie-marketing .ti-btn.primary,
+.myrie-marketing .ti-btn.outline,
+.myrie-marketing .ti-btn.gold,
+.myrie-marketing .hero-cinematic .ti-btn,
+.myrie-marketing .cinema .ti-btn {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.myrie-marketing .ti-btn {
+  background: var(--ink);
+  color: #fff;
+}
+.myrie-marketing .ti-btn:hover {
+  background: #000;
+}
+.myrie-marketing .hero-cinematic .ti-btn.primary {
+  background: #fff;
+  color: var(--ink);
+  border-color: transparent;
+}
+.myrie-marketing .hero-cinematic .ti-btn.primary:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* ==========================================================================
+   2025 PREMIUM BUTTONS
+   Replaces the pill/glass treatment with a modern editorial CTA system:
+   sharp-ish corners (8px), tracked uppercase label, subtle hairline shadow,
+   inline arrow that slides on hover. Inspired by Linear / Vercel / Aman.
+   ========================================================================== */
+
+.myrie-marketing .ti-btn,
+.myrie-marketing .ti-btn.primary,
+.myrie-marketing .ti-btn.outline,
+.myrie-marketing .ti-btn.gold,
+.myrie-marketing .site-nav-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px 12px 24px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), background .3s ease, box-shadow .4s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 8px 24px rgba(10,30,80,0.10);
+}
+/* Remove the old glassy pseudo-elements */
+.myrie-marketing .ti-btn::before,
+.myrie-marketing .ti-btn::after,
+.myrie-marketing .ti-btn.primary::before,
+.myrie-marketing .ti-btn.gold::before {
+  display: none !important;
+}
+
+/* Default (cream-on-dark hero, button is white) */
+.myrie-marketing .ti-btn {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+.myrie-marketing .ti-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 16px 40px rgba(10,30,80,0.18);
+}
+.myrie-marketing .ti-btn:active { transform: translateY(0); }
+
+/* Primary — solid black, used on light surfaces */
+.myrie-marketing .ti-btn.primary {
+  background: #0a0a0a;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15), 0 12px 32px rgba(0,0,0,0.18);
+}
+.myrie-marketing .ti-btn.primary:hover {
+  background: #000;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 20px 48px rgba(0,0,0,0.28);
+}
+
+/* Hero CTA — Flux-rendered real liquid-glass pill. The glass PNG sits as the
+   sole "skin" of the button; the <a> element itself is fully transparent so
+   nothing renders behind the glass. Mix-blend lives on the image only. */
+/* (Old Flux-glass hero CTA treatment removed — the painted button in the
+   Grok video is now the visible button. The HTML CTA is an invisible
+   overlay sized + positioned in the earlier rule. */
+
+/* Inline arrow icon — slides on hover */
+.myrie-marketing .ti-btn::before,
+.myrie-marketing .site-nav-cta::before {
+  content: '';
+  display: none;
+}
+.myrie-marketing .ti-btn .arrow,
+.myrie-marketing .site-nav-cta .arrow {
+  display: inline-block;
+  width: 12px; height: 1.5px;
+  background: currentColor;
+  position: relative;
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
+}
+.myrie-marketing .ti-btn .arrow::after,
+.myrie-marketing .site-nav-cta .arrow::after {
+  content: '';
+  position: absolute; right: 0; top: 50%;
+  width: 7px; height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translate(1px, -50%) rotate(45deg);
+}
+.myrie-marketing .ti-btn:hover .arrow,
+.myrie-marketing .site-nav-cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Use the existing SVG arrow inside site-nav-cta — animate it on hover */
+.myrie-marketing .site-nav-cta svg {
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
+}
+.myrie-marketing .site-nav-cta:hover svg { transform: translateX(4px); }
+
+/* Site-nav CTA: solid black on light, white on dark theme */
+.myrie-marketing .site-nav-cta {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 10px 18px;
+}
+.myrie-marketing .site-nav-cta:hover {
+  background: #000;
+  transform: translateY(-1px);
+}
+html.theme-dark .myrie-marketing .site-nav-cta {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+html.theme-dark .myrie-marketing .site-nav-cta:hover {
+  background: #f4f4f3;
+}
+
+/* Quiet text-link CTA (replaces outline buttons for secondary actions) */
+.myrie-marketing .link-arrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--ink);
+  transition: opacity .25s ease;
+}
+.myrie-marketing .link-arrow:hover { opacity: 0.6; }
+
+/* Removed the cinema-dark wrap on showcase + testimonials sections by
+   replacing className="cinema" with "shell block" in page.js. Nothing to
+   override here, but if anything inside still inherits cinema dark colors
+   from descendant selectors, force the light tones. */
+.myrie-marketing .showcase-gallery .carousel-frame {
+  background: #ffffff !important;
+  border: 1px solid var(--line) !important;
+}
+.myrie-marketing .showcase-gallery .carousel-thumbs button {
+  background: #f4f4f3 !important;
+  border-color: var(--line) !important;
 }

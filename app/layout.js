@@ -1,4 +1,4 @@
-import { Inter, Fraunces } from "next/font/google";
+import { Manrope, Fraunces } from "next/font/google";
 import "./globals.css";
 import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
@@ -6,7 +6,7 @@ import ScrollCTA from "../components/layout/ScrollCTA";
 import SmoothScroll from "../components/layout/SmoothScroll";
 import { LangProvider } from "../lib/i18n";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap", weight: ["400", "500", "600", "700", "800"] });
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", display: "swap", axes: ["opsz"] });
 
 export const metadata = {
@@ -46,7 +46,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fraunces.variable}`}>
+      <body className={`${manrope.variable} ${fraunces.variable}`}>
         <LangProvider>
           <SmoothScroll />
           <ScrollProgress />

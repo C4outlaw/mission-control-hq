@@ -60,3 +60,7 @@ dev.err
 /public/assets/work/beach-bucket-design/drink-ads/_pre-rembg
 /public/assets/work/beach-bucket-design/drink-ads/_pre-rembg
 /public/assets/work/beach-bucket/
+
+# Local style backups not needed in production
+/app/_archive/
+

@@ -5,7 +5,7 @@ import AboutClient from '../../components/sections/AboutClient';
 export const metadata = {
   title: 'About O’Neill Myrie',
   description:
-    'Founder of Myrie HQ and General Manager at The Beach Bucket — combining real hospitality operations with modern marketing systems for local businesses across Daytona Beach and Orlando.',
+    'Founder of Myrie HQ and General Manager at The Beach Bucket: combining real hospitality operations with modern marketing systems for local businesses across Daytona Beach and Orlando.',
   alternates: { canonical: 'https://www.myriehq.com/about' },
 };
 
