@@ -1,61 +1,15 @@
-import Reveal from '../components/motion/Reveal';
-import { Stagger, StaggerItem } from '../components/motion/Stagger';
-import Counter from '../components/motion/Counter';
-import Magnetic from '../components/motion/Magnetic';
 import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
+import HomeShowcase from '../components/sections/HomeShowcase';
+import HomeFeatured from '../components/sections/HomeFeatured';
+import HomeMagicApp from '../components/sections/HomeMagicApp';
+import HomeTestimonials from '../components/sections/HomeTestimonials';
+import HomeAboutStrip from '../components/sections/HomeAboutStrip';
+import HomeMobileCTA from '../components/sections/HomeMobileCTA';
 import HomeServices from '../components/sections/HomeServices';
 import HomeProcess from '../components/sections/HomeProcess';
 import HomeContact from '../components/sections/HomeContact';
-import Carousel from '../components/motion/Carousel';
-
-const testimonials = [
-  { quote: "Myrie HQ completely transformed our online presence. We saw a 40% increase in online orders.", name: "Restaurant Owner", title: "Daytona Beach, FL" },
-  { quote: "The local SEO work was a game-changer. We went from page 3 to the top of Google Maps. The phone hasn't stopped ringing.", name: "Local Business Owner", title: "Orlando, FL" },
-  { quote: "What sets Myrie apart is the automation. Our marketing runs itself now: social posts, email campaigns, review responses, all on autopilot.", name: "Franchise Operator", title: "Central Florida" },
-];
-
-// Daily-specials carousel: each weekday is a Grok-rendered cinematic motion ad.
-// `video` overrides `src` for playback; `src` is also used as the lightbox poster
-// and the thumbnail-strip preview.
-const showcaseCarousel = [
-  { src: '/assets/work/beach-bucket-design/drinks/monday.png',    video: '/assets/work/beach-bucket-design/drink-ads/monday.mp4',    alt: 'Monday specials motion ad',     section: 'NO. 01 · MONDAY',     headline: 'Monday: Grape Pop · Yuengling' },
-  { src: '/assets/work/beach-bucket-design/drinks/tuesday.png',   video: '/assets/work/beach-bucket-design/drink-ads/tuesday.mp4',   alt: 'Tuesday specials motion ad',    section: 'NO. 02 · TUESDAY',    headline: 'Tuesday: Cucumber Cooler · Ultra Draft' },
-  { src: '/assets/work/beach-bucket-design/drinks/wednesday.png', video: '/assets/work/beach-bucket-design/drink-ads/wednesday.mp4', alt: 'Wednesday specials motion ad',  section: 'NO. 03 · WEDNESDAY',  headline: 'Wednesday: Signature pour' },
-  { src: '/assets/work/beach-bucket-design/drinks/thursday.png',  video: '/assets/work/beach-bucket-design/drink-ads/thursday.mp4',  alt: 'Thursday specials motion ad',   section: 'NO. 04 · THURSDAY',   headline: 'Thursday: Raspberry Lemonade · Coors' },
-  { src: '/assets/work/beach-bucket-design/drinks/friday.png',    video: '/assets/work/beach-bucket-design/drink-ads/friday.mp4',    alt: 'Friday specials motion ad',     section: 'NO. 05 · FRIDAY',     headline: 'Friday: weekend pour' },
-  { src: '/assets/work/beach-bucket-design/drinks/saturday.png',  video: '/assets/work/beach-bucket-design/drink-ads/saturday.mp4',  alt: 'Saturday specials motion ad',   section: 'NO. 06 · SATURDAY',   headline: 'Saturday: Blueberry Bay Breeze · Landshark' },
-  { src: '/assets/work/beach-bucket-design/drinks/sunday.png',    video: '/assets/work/beach-bucket-design/drink-ads/sunday.mp4',    alt: 'Sunday specials motion ad',     section: 'NO. 07 · SUNDAY',     headline: 'Sunday: Brunch Bucket · Bottomless mimosas' },
-  { src: '/assets/work/beach-bucket-design/drinks/blueberry-bay-breeze.png', alt: 'Blueberry Bay Breeze', section: 'NO. 08 · SIGNATURE', headline: 'Blueberry Bay Breeze' },
-  { src: '/assets/work/beach-bucket-design/drinks/cucumber-cooler.png',     alt: 'Cucumber Cooler',      section: 'NO. 09 · SIGNATURE', headline: 'Cucumber Cooler' },
-  { src: '/assets/work/beach-bucket-design/drinks/citrus-seabreeze.png',    alt: 'Citrus Seabreeze',     section: 'NO. 10 · SIGNATURE', headline: 'Citrus Seabreeze' },
-  { src: '/assets/work/beach-bucket-design/drinks/orange-crush.png',        alt: 'Orange Crush',         section: 'NO. 11 · SIGNATURE', headline: 'Orange Crush' },
-];
-
-const featured = [
-  {
-    title: 'Hospitality Brand Designs',
-    tag: 'Brand · Photo · Menus',
-    copy: 'Daily drinks specials, signature cocktail cards, breakfast plate photography, and full menu rebuilds.',
-    href: '/projects/beach-bucket-design',
-    label: 'View design portfolio',
-    image: '/assets/work/beach-bucket-design/drinks/all-drinks.png',
-  },
-  {
-    title: 'Menu Magic: AI-generated outputs',
-    tag: 'SaaS · Real outputs',
-    copy: 'Cocktail cards, dish photography, recipe cards, social posts. Real outputs the app produces in seconds, printed on the bar that night.',
-    href: '/#try-app',
-    label: 'Try the app',
-    carousel: [
-      { src: '/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg',         caption: 'Sunset Spritzer' },
-      { src: '/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg',   caption: 'Mango Tango Margarita' },
-      { src: '/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg',    caption: 'Coconut Cloud Colada' },
-      { src: '/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg',      caption: 'Blue Lagoon Breeze' },
-    ],
-  },
-];
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -75,189 +29,29 @@ export default function HomePage() {
 
       <HeroCinematic />
 
-      <section id="showcase" className="shell block">
-        <Reveal><span className="eyebrow">Selected work</span></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="tropical-h2">A gallery of designs we&apos;ve shipped.</h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="lead block-sub">
-            Daily drinks promos, signature cocktail cards, social graphics. Production-ready, brand-consistent, printed on the bar tomorrow morning.
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="showcase-gallery">
-            <Carousel
-              images={showcaseCarousel.map(p => ({ src: p.src, video: p.video, alt: p.alt, caption: p.headline }))}
-              autoplay={5000}
-              aspect="16/10"
-              showThumbs
-              rounded={8}
-              className="showcase-carousel"
-            />
-          </div>
-        </Reveal>
-        <Reveal delay={0.4}>
-          <div className="showcase-cta">
-            <a className="link-arrow" href="/projects/beach-bucket-design">View the full design portfolio →</a>
-          </div>
-        </Reveal>
-      </section>
+      <HomeShowcase />
 
-      <section className="shell block">
-        <Reveal><span className="eyebrow">Featured projects</span></Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="tropical-h2">Real brands. Real results.</h2>
-        </Reveal>
-        <Stagger className="featured-grid" stagger={0.1}>
-          {featured.map((item) => (
-            <StaggerItem as="article" key={item.title} className="feature-card">
-              {item.carousel ? (
-                <>
-                  <div className="thumb thumb-carousel">
-                    <Carousel
-                      images={item.carousel}
-                      autoplay={4500}
-                      aspect="16/10"
-                      rounded={0}
-                      className="feature-carousel"
-                    />
-                  </div>
-                  <a href={item.href} className="feature-link feature-link-body">
-                    <div className="feature-body">
-                      <span className="feature-tag">{item.tag}</span>
-                      <h3 className="feature-title">{item.title}</h3>
-                      <p>{item.copy}</p>
-                      <span className="feature-arrow">{item.label} →</span>
-                    </div>
-                  </a>
-                </>
-              ) : (
-                <a href={item.href} className="feature-link">
-                  <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
-                  <div className="feature-body">
-                    <span className="feature-tag">{item.tag}</span>
-                    <h3 className="feature-title">{item.title}</h3>
-                    <p>{item.copy}</p>
-                    <span className="feature-arrow">{item.label} →</span>
-                  </div>
-                </a>
-              )}
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
+      <HomeFeatured />
 
       <hr className="hairline" />
 
-      <section id="try-app" className="app-section">
-        <div className="shell">
-          <Reveal><span className="eyebrow">The application</span></Reveal>
-          <Reveal delay={0.1}>
-            <h2 className="app-headline display">Menu Magic. <em className="accent-italic">A restaurant studio in one app.</em></h2>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="lead app-sub">
-              Generate dishes, paired drinks, recipe cards, cookbooks, food-cost tables, and ready-to-post social content. Try it live below.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div className="app-frame">
-              <div className="app-bar">
-                <span className="dot red" /><span className="dot amber" /><span className="dot green" />
-                <span className="url">savory-studio.vercel.app/dashboard</span>
-                <a className="open-tab" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Open ↗</a>
-              </div>
-              <iframe
-                src="https://savory-studio.vercel.app/dashboard"
-                title="Menu Magic app"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allow="clipboard-read; clipboard-write"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.4}>
-            <div className="app-actions">
-              <Magnetic strength={0.14}><a className="ti-btn primary" href="https://savory-studio.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">Try the app ↗</a></Magnetic>
-            </div>
-          </Reveal>
-          <Reveal delay={0.5}>
-            <div className="mm-outputs-head">
-              <span className="eyebrow">What the app creates</span>
-              <h3 className="mm-outputs-h">Real outputs, generated in seconds.</h3>
-            </div>
-          </Reveal>
-          <Reveal delay={0.6}>
-            <div className="mm-outputs-grid">
-              <figure className="mm-output">
-                <img src="/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg" alt="Sunset Spritzer cocktail card generated by Menu Magic" loading="lazy" />
-                <figcaption>Sunset Spritzer</figcaption>
-              </figure>
-              <figure className="mm-output">
-                <img src="/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg" alt="Mango Tango Margarita cocktail card generated by Menu Magic" loading="lazy" />
-                <figcaption>Mango Tango Margarita</figcaption>
-              </figure>
-              <figure className="mm-output">
-                <img src="/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg" alt="Coconut Cloud Colada cocktail card generated by Menu Magic" loading="lazy" />
-                <figcaption>Coconut Cloud Colada</figcaption>
-              </figure>
-              <figure className="mm-output">
-                <img src="/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg" alt="Blue Lagoon Breeze cocktail card generated by Menu Magic" loading="lazy" />
-                <figcaption>Blue Lagoon Breeze</figcaption>
-              </figure>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <HomeMagicApp />
 
       <HomeServices />
 
-      <section className="shell block">
-        <Reveal><span className="eyebrow">Client love</span></Reveal>
-        <Reveal delay={0.1}><h2 className="tropical-h2">What our clients say.</h2></Reveal>
-        <Stagger className="testimonials-grid" stagger={0.1}>
-          {testimonials.map((t, i) => (
-            <StaggerItem as="article" key={i} className="testi-card">
-              <p className="testi-quote">&ldquo;{t.quote}&rdquo;</p>
-              <div className="testi-author">
-                <strong>{t.name}</strong>
-                <span>{t.title}</span>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </section>
+      <HomeTestimonials />
 
       <HomeProcess />
 
       <hr className="hairline" />
 
-      <section id="about" className="shell block about-block">
-        <Reveal><span className="eyebrow">About</span></Reveal>
-        <div className="about-grid">
-          <Reveal>
-            <h2 className="tropical-h2">O&apos;Neill Myrie.</h2>
-            <p className="lead about-lead">
-              General Manager at The Beach Bucket. Founder of Myrie HQ. Hospitality operator turned
-              marketing builder: combining real GM experience with modern marketing systems for local
-              businesses across Florida.
-            </p>
-            <a className="link-arrow" href="/about">Read the full story →</a>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" />
-          </Reveal>
-        </div>
-      </section>
+      <HomeAboutStrip />
 
       <HomeContact />
 
       <Footer />
 
-      <div className="mobile-cta">
-        <a className="ti-btn primary" href="#contact">Book a call</a>
-      </div>
+      <HomeMobileCTA />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
 
