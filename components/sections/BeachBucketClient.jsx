@@ -111,6 +111,39 @@ export default function BeachBucketClient() {
           </Reveal>
         </div>
       </section>
+
+      <section className="cinema live-site">
+        <div className="shell live-grid">
+          <Reveal>
+            <div className="live-copy">
+              <span className="eyebrow live-pulse"><span className="live-dot" aria-hidden="true" />{t('bb.live_eyebrow')}</span>
+              <h2 className="tropical-h2 live-h">{t('bb.live_h')}</h2>
+              <p className="lead live-lede">{t('bb.live_lede')}</p>
+              <div className="cta-actions live-cta">
+                <Magnetic><a className="ti-btn primary" href="/beach-bucket-live" target="_blank" rel="noopener">{t('bb.cta_live')} →</a></Magnetic>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <a className="live-frame" href="/beach-bucket-live" target="_blank" rel="noopener" aria-label={t('bb.cta_live')}>
+              <div className="live-frame-bar" aria-hidden="true">
+                <span className="dot r" /><span className="dot y" /><span className="dot g" />
+                <span className="live-frame-url">thebeachbucket.com</span>
+              </div>
+              <video
+                className="live-frame-video"
+                src="/beach-bucket-live/assets/hero-video.mp4"
+                poster="/beach-bucket-live/assets/hero-beachbucket-premium.jpg"
+                muted
+                loop
+                autoPlay
+                playsInline
+                preload="metadata"
+              />
+            </a>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

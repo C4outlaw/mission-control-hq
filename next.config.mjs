@@ -12,6 +12,12 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      // Serve the static Beach Bucket Vite build under /beach-bucket-live
+      { source: '/beach-bucket-live', destination: '/beach-bucket-live/index.html' },
+    ];
+  },
 };
 
 export default nextConfig;
