@@ -2,3 +2,7 @@
 dist
 .env
 .DS_Store
+
+# Beach Bucket local backup of original hero video
+/beachbucket-site/public/assets/hero-video.orig.mp4
+
