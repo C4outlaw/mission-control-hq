@@ -256,6 +256,35 @@ const featuredItemImages = {
   'Chocolate Peanut Butter Pie':          withBase('/assets/menu/chocolate-peanut-butter-pie.jpg'),
   'Key Lime Pie':                         withBase('/assets/menu/key-lime-pie.jpg'),
   'Salted Caramel Cheesecake':            withBase('/assets/menu/salted-caramel-cheesecake.jpg'),
+  // Breakfast Beverages
+  'Coffee':                               withBase('/assets/menu/coffee.jpg'),
+  'Hot Tea':                              withBase('/assets/menu/hot-tea.jpg'),
+  'Fresh Squeezed Orange Juice (Small/Large)': withBase('/assets/menu/fresh-squeezed-orange-juice.jpg'),
+  'Iced Tea':                             withBase('/assets/menu/iced-tea.jpg'),
+  'Sweet Tea':                            withBase('/assets/menu/sweet-tea.jpg'),
+  'Pepsi Products':                       withBase('/assets/menu/pepsi-products.jpg'),
+  "Mimosa's":                             withBase('/assets/menu/mimosa.jpg'),
+  "Bloody Mary's":                        withBase('/assets/menu/bloody-mary.jpg'),
+  'Full Bar':                             withBase('/assets/menu/full-bar.jpg'),
+  // Breakfast Sides
+  'Slice of French Toast':                withBase('/assets/menu/slice-of-french-toast.jpg'),
+  'Grits':                                withBase('/assets/menu/grits.jpg'),
+  'Sausage Links (Four)':                 withBase('/assets/menu/sausage-links.jpg'),
+  'Toast':                                withBase('/assets/menu/toast.jpg'),
+  'Home Fries':                           withBase('/assets/menu/home-fries.jpg'),
+  'Sausage Patty (Two)':                  withBase('/assets/menu/sausage-patty.jpg'),
+  'English Muffin':                       withBase('/assets/menu/english-muffin.jpg'),
+  'One Egg':                              withBase('/assets/menu/one-egg.jpg'),
+  'Chorizo Sausage Patty (Two)':          withBase('/assets/menu/chorizo-sausage-patty.jpg'),
+  'Biscuit':                              withBase('/assets/menu/biscuit.jpg'),
+  'Fresh Fruit Cup':                      withBase('/assets/menu/fresh-fruit-cup.jpg'),
+  'Bacon (Four)':                         withBase('/assets/menu/bacon.jpg'),
+  'Sausage Gravy':                        withBase('/assets/menu/sausage-gravy.jpg'),
+  'Fresh Fruit Bowl':                     withBase('/assets/menu/fresh-fruit-bowl.jpg'),
+  'Ham Slice':                            withBase('/assets/menu/ham-slice.jpg'),
+  // Salad add-ons
+  'Add: Grilled Chicken Breast or Tuna Salad':            withBase('/assets/menu/grilled-chicken-breast.jpg'),
+  'Add: Grilled Mahi, Ahi Tuna Steak, or Grilled Shrimp': withBase('/assets/menu/grilled-mahi.jpg'),
 }
 
 const menuNamesEn = menuSections.flatMap(s => s.items.map(i => i[0]))
