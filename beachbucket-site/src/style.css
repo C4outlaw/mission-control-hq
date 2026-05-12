@@ -485,20 +485,46 @@ a:hover { color: var(--ink); }
   row-gap: 0;
 }
 .item-row {
-  display: block;             /* drop the grid; thumbs are hidden */
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 1.1rem;
+  align-items: center;
   background: transparent;
   border: 0;
   border-radius: 0;
-  padding: 1.4rem 0;
+  padding: 1.1rem 0;
   box-shadow: none;
   transition: none;
 }
 .item-row + .item-row { border-top: 1px solid var(--line); }
 .item-row:hover { transform: none; box-shadow: none; background: transparent; }
 
-/* Hide inline thumbnails for the editorial look. Images still exist in data
-   for the lightbox + future section-header collages. */
-.item-thumb-btn { display: none; }
+/* Editorial thumbnail: small square, hairline border, subtle hover lift */
+.item-thumb-btn {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: opacity .25s ease;
+}
+.item-thumb-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease;
+}
+.item-thumb-btn:hover img,
+.item-thumb-btn:focus-visible img { transform: scale(1.06); }
+.item-thumb-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 .item-head {
   display: flex;
