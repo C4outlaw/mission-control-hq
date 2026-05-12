@@ -608,48 +608,185 @@ a:hover { color: var(--ink); }
 .menu-notes p { margin: .1rem 0; color: var(--muted); font-size: 14px; }
 
 /* ==========================================================================
-   GIFT CARDS — cleaner, single-line forms
+   GIFT CARDS — editorial 2-col layout with real clickable amount cards
    ========================================================================== */
-.giftcard-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.section-lead {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin: .5rem 0 2.5rem;
+  max-width: 60ch;
+  line-height: 1.55;
+}
+.section-eyebrow {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.giftcard-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.giftcard-preview {
+  position: sticky;
+  top: 6rem;
+}
 .giftcard-link {
   display: block;
-  background: var(--ivory);
-  border: 1px solid var(--line);
-  border-radius: 0;
-  padding: 1rem;
-  box-shadow: none;
-  transition: opacity .25s ease;
-}
-.giftcard-link:hover { opacity: 0.92; }
-.giftcard-link img { width: 100%; height: auto; border-radius: 0; display: block; }
-.gift-amounts { display: flex; gap: .6rem; flex-wrap: wrap; margin: 1rem 0 0; }
-.gift-amounts span {
   background: transparent;
-  color: var(--ink);
-  padding: .35rem .8rem;
-  border: 1px solid var(--line-2);
+  border: 0;
   border-radius: 0;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 24px 60px rgba(20,30,60,0.10);
+  transition: transform .35s ease, box-shadow .35s ease;
+  overflow: hidden;
 }
+.giftcard-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 32px 72px rgba(20,30,60,0.14);
+}
+.giftcard-link img { width: 100%; height: auto; display: block; }
+.giftcard-fineprint {
+  margin: 1.25rem 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.giftcard-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Clickable amount cards — 2x2 grid */
+.gift-amounts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0;
+  flex-wrap: initial;
+}
+.gift-amount-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: .25rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--ink);
+  transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+.gift-amount-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 10px 24px rgba(20,30,60,0.08);
+}
+.gift-amount-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 10px 28px rgba(20,30,60,0.18);
+}
+.gift-amount-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.gift-amount-btn .amount {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.gift-amount-btn .amount-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.gift-amount-btn.is-active .amount-label { color: rgba(255,255,255,0.7); }
+
+/* Form */
 .gift-form {
-  background: var(--ivory);
-  border: 1px solid var(--line);
+  background: transparent;
+  border: 0;
   border-radius: 0;
-  padding: 1.5rem;
-  display: grid; gap: .6rem;
+  padding: 0;
+  display: grid;
+  gap: .25rem;
   box-shadow: none;
 }
-.gift-form input, .gift-form select {
-  width: 100%;
-  padding: .8rem;
-  border: 1px solid var(--line-2);
-  border-radius: 0;
-  background: var(--surface);
+.gift-form label {
   font-family: 'Manrope', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1.1rem;
+}
+.gift-form input,
+.gift-form textarea {
+  width: 100%;
+  padding: .85rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-2);
+  border-radius: 0;
+  background: transparent;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  resize: none;
+}
+.gift-form input:focus,
+.gift-form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+.gift-form input::placeholder,
+.gift-form textarea::placeholder { color: var(--muted-2); }
+.gift-form .btn.gift-submit {
+  margin-top: 2rem;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 1.1rem 1.5rem;
+}
+.gift-form .btn.gift-submit svg { flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .giftcard-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .giftcard-preview { position: static; }
+  .gift-amounts { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+@media (max-width: 480px) {
+  .gift-amount-btn { padding: 1rem; }
+  .gift-amount-btn .amount { font-size: 1.5rem; }
 }
 
 /* ==========================================================================

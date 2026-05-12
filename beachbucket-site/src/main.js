@@ -493,31 +493,51 @@ document.querySelector('#app').innerHTML = `
     <section id="giftcards" class="section" aria-labelledby="giftcards-heading">
       <div class="container">
         <h2 id="giftcards-heading" data-i18n="gift.title">Gift Cards</h2>
-        <p class="muted">Give the gift of The Beach Bucket. Click the card below to purchase an e-gift card.</p>
-        <div class="giftcard-wrap">
-          <a class="giftcard-link" href="#" aria-label="Buy Beach Bucket gift card">
-            <img src="/assets/gift-card.jpg" alt="The Beach Bucket E-Gift Card" loading="lazy" />
-          </a>
-          <div class="gift-amounts" aria-label="Gift card amount options">
-            <span>$15</span>
-            <span>$25</span>
-            <span>$50</span>
-            <span>$100</span>
+        <p class="section-lead">A piece of the beach for anyone you love. Choose an amount, write a note, send instantly by email.</p>
+
+        <div class="giftcard-layout">
+          <div class="giftcard-preview">
+            <a class="giftcard-link" href="#giftcards" aria-label="Buy a Beach Bucket gift card">
+              <img src="/assets/gift-card.jpg" alt="The Beach Bucket gift card preview" loading="lazy" />
+            </a>
+            <p class="giftcard-fineprint">Delivered by email · valid at The Beach Bucket Bar &amp; Grill, Ormond Beach</p>
           </div>
-          <form class="gift-form" aria-label="Gift card request form">
-            <label for="giftName">Recipient Name</label>
-            <input id="giftName" type="text" placeholder="Recipient full name" />
-            <label for="giftEmail">Recipient Email</label>
-            <input id="giftEmail" type="email" placeholder="name@example.com" />
-            <label for="giftAmount">Gift Amount</label>
-            <select id="giftAmount">
-              <option>$15</option>
-              <option>$25</option>
-              <option>$50</option>
-              <option>$100</option>
-            </select>
-            <button class="btn" type="submit">Continue to Purchase</button>
-          </form>
+
+          <div class="giftcard-side">
+            <span class="section-eyebrow">Choose an amount</span>
+            <div class="gift-amounts" role="radiogroup" aria-label="Gift card amount">
+              <button type="button" class="gift-amount-btn" data-amount="15" role="radio" aria-checked="false">
+                <span class="amount">$15</span>
+                <span class="amount-label">Treat</span>
+              </button>
+              <button type="button" class="gift-amount-btn is-active" data-amount="25" role="radio" aria-checked="true">
+                <span class="amount">$25</span>
+                <span class="amount-label">Lunch</span>
+              </button>
+              <button type="button" class="gift-amount-btn" data-amount="50" role="radio" aria-checked="false">
+                <span class="amount">$50</span>
+                <span class="amount-label">Date night</span>
+              </button>
+              <button type="button" class="gift-amount-btn" data-amount="100" role="radio" aria-checked="false">
+                <span class="amount">$100</span>
+                <span class="amount-label">Celebration</span>
+              </button>
+            </div>
+
+            <form class="gift-form" aria-label="Gift card request">
+              <label for="giftName">Recipient name</label>
+              <input id="giftName" type="text" placeholder="Their full name" autocomplete="name" />
+              <label for="giftEmail">Recipient email</label>
+              <input id="giftEmail" type="email" placeholder="name@example.com" autocomplete="email" />
+              <label for="giftMessage">Personal note <span class="muted">(optional)</span></label>
+              <textarea id="giftMessage" rows="2" placeholder="Add a short message..."></textarea>
+              <input id="giftAmount" type="hidden" value="25" />
+              <button class="btn primary gift-submit" type="submit" id="giftSubmit">
+                Purchase $25 Gift Card
+                <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -859,6 +879,49 @@ chips.forEach((chip) => {
 
 closeLightbox.addEventListener('click', () => (lightbox.hidden = true))
 lightbox.addEventListener('click', (e) => { if (e.target.dataset.close === 'true') lightbox.hidden = true })
+
+// Gift-card amount selector: clicking a price card highlights it, updates
+// the hidden amount field, and rewrites the primary CTA label.
+const giftAmountBtns = document.querySelectorAll('.gift-amount-btn')
+const giftAmountField = document.getElementById('giftAmount')
+const giftSubmitBtn = document.getElementById('giftSubmit')
+
+function selectGiftAmount(amount) {
+  if (giftAmountField) giftAmountField.value = String(amount)
+  giftAmountBtns.forEach((b) => {
+    const isMatch = b.dataset.amount === String(amount)
+    b.classList.toggle('is-active', isMatch)
+    b.setAttribute('aria-checked', isMatch ? 'true' : 'false')
+  })
+  if (giftSubmitBtn) {
+    const labelText = `Purchase $${amount} Gift Card`
+    const arrowSvg = giftSubmitBtn.querySelector('svg')
+    giftSubmitBtn.textContent = labelText + ' '
+    if (arrowSvg) giftSubmitBtn.appendChild(arrowSvg)
+  }
+}
+
+giftAmountBtns.forEach((btn) => {
+  btn.addEventListener('click', () => selectGiftAmount(btn.dataset.amount))
+})
+
+const giftForm = document.querySelector('.gift-form')
+if (giftForm) {
+  giftForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const amount = giftAmountField?.value || '25'
+    const name = document.getElementById('giftName')?.value || ''
+    const email = document.getElementById('giftEmail')?.value || ''
+    const message = document.getElementById('giftMessage')?.value || ''
+    // Placeholder until a real payment processor is wired up — opens an
+    // email pre-populated with the gift details.
+    const subject = encodeURIComponent(`Beach Bucket gift card — $${amount}`)
+    const body = encodeURIComponent(
+      `Recipient: ${name}\nEmail: ${email}\nAmount: $${amount}\nMessage: ${message}\n`
+    )
+    window.location.href = `mailto:beachbucketob@gmail.com?subject=${subject}&body=${body}`
+  })
+}
 
 
 
