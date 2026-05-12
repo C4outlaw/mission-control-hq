@@ -8,8 +8,9 @@ import { useT } from '../../lib/i18n';
 export default function ProjectsClient() {
   const { t } = useT();
   const featured = {
-    href: '/projects/beach-bucket-design',
-    image: '/assets/work/beach-bucket-design/drinks/all-drinks.png',
+    href: '/projects/beach-bucket-website',
+    image: '/beach-bucket-live/assets/hero-beachbucket-premium.jpg',
+    video: '/beach-bucket-live/assets/hero-video.mp4',
     metrics: [
       { num: t('proj.metric1_num'), label: t('proj.metric1_label') },
       { num: t('proj.metric2_num'), label: t('proj.metric2_label') },
@@ -17,6 +18,7 @@ export default function ProjectsClient() {
     ],
   };
   const rest = [
+    { slug: 'beach-bucket-design',  title: t('proj.r0_title'), tag: t('proj.r0_tag'), blurb: t('proj.r0_blurb'), href: '/projects/beach-bucket-design',       image: '/assets/work/beach-bucket-design/drinks/all-drinks.png' },
     { slug: 'magic-menu',           title: t('proj.r1_title'), tag: t('proj.r1_tag'), blurb: t('proj.r1_blurb'), href: '/magic-menu',                          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80' },
     { slug: 'daytona-marketing',    title: t('proj.r2_title'), tag: t('proj.r2_tag'), blurb: t('proj.r2_blurb'), href: '/daytona-beach-marketing-agency',     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80' },
     { slug: 'local-seo-orlando',    title: t('proj.r3_title'), tag: t('proj.r3_tag'), blurb: t('proj.r3_blurb'), href: '/local-seo-orlando',                  image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80' },
