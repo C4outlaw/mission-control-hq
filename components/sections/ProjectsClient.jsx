@@ -18,6 +18,7 @@ export default function ProjectsClient() {
     ],
   };
   const rest = [
+    { slug: 'beach-bucket-2',       title: 'The Beach Bucket #2',  tag: 'Restaurant Website',  blurb: 'A refreshed oceanfront site for The Beach Bucket Bar & Grill — luxury typographic menu with menu-engineering, video features, gallery lightbox, and full phone-to-4K optimization.', href: '/beach-bucket-2/index.html', image: '/beach-bucket-2/assets/venue/patio-dusk.jpg' },
     { slug: 'beach-bucket-design',  title: t('proj.r0_title'), tag: t('proj.r0_tag'), blurb: t('proj.r0_blurb'), href: '/projects/beach-bucket-design',       image: '/assets/work/beach-bucket-design/drinks/all-drinks.png' },
     { slug: 'magic-menu',           title: t('proj.r1_title'), tag: t('proj.r1_tag'), blurb: t('proj.r1_blurb'), href: '/magic-menu',                          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80' },
     { slug: 'daytona-marketing',    title: t('proj.r2_title'), tag: t('proj.r2_tag'), blurb: t('proj.r2_blurb'), href: '/daytona-beach-marketing-agency',     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80' },
