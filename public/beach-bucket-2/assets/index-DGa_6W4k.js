@@ -42,6 +42,11 @@
         <a class="social-icon social-tk" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="Beach Bucket on TikTok"><img src="https://cdn.simpleicons.org/tiktok/000000" alt="" aria-hidden="true" /></a>
         <a class="social-icon social-x" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Beach Bucket on X"><img src="https://cdn.simpleicons.org/x/0c3c49" alt="" aria-hidden="true" /></a>
       </div>
+      <nav class="mobile-tabs" aria-label="Quick tabs">
+        <a href="#main-content">Home</a>
+        <a href="#menu">Breakfast</a>
+        <a href="#lunch-dinner">Lunch/Dinner</a>
+      </nav>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
       <nav class="quick-nav" aria-label="Quick links">
         <a href="#main-content" data-i18n="nav.home">Home</a>
