@@ -3,6 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Ensure relative asset URLs resolve from the deploy subpath, even if the page URL omits the trailing slash.
+      (function () {
+        var p = location.pathname
+        var i = p.indexOf('/beach-bucket-2')
+        if (i >= 0) {
+          var base = p.substring(0, i + '/beach-bucket-2/'.length)
+          var b = document.createElement('base')
+          b.href = base
+          document.head.appendChild(b)
+        }
+      })()
+    </script>
 
     <title>The Beach Bucket | Oceanfront Breakfast & Lunch in Ormond Beach, FL</title>
     <meta name="description" content="The Beach Bucket is an oceanfront restaurant in Ormond Beach, Florida serving breakfast, lunch, seafood favorites, tropical drinks, and family-friendly dining with beach views." />
