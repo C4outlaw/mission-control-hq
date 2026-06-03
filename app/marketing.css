@@ -2185,6 +2185,97 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
 /* The clean waterfall video is mobile-only; hide it on desktop. */
 .myrie-marketing .hero-bg-mobile-video { display: none; }
 
+/* ==========================================================================
+   COVERFLOW — premium 3D carousel on a seamless white stage (shared by the
+   plates gallery + the design gallery). Posters/plates float in space and you
+   skip page by page. No dark box.
+   ========================================================================== */
+.myrie-marketing .cf-section {
+  background: #ffffff;
+  padding: 88px 0 80px;
+  border-top: 1px solid rgba(10,10,10,0.06);
+  border-bottom: 1px solid rgba(10,10,10,0.06);
+  overflow: hidden;
+}
+.myrie-marketing .cf-head { text-align: center; position: relative; z-index: 2; }
+.myrie-marketing .cf-eyebrow {
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: #b08a3e;
+}
+.myrie-marketing .cf-h2 {
+  font-family: var(--font-editorial), Fraunces, Georgia, serif;
+  font-weight: 500; color: #0a0a0a;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  letter-spacing: -0.03em; line-height: 1.05;
+  margin: 10px auto 0; max-width: 20ch;
+}
+.myrie-marketing .cf-sub {
+  color: #5b5b60; font-size: 16px; line-height: 1.55;
+  max-width: 54ch; margin: 14px auto 0;
+}
+
+.myrie-marketing .cf-stage {
+  position: relative;
+  height: clamp(360px, 56vh, 540px);
+  margin: 56px auto 8px;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  --cf-step: clamp(150px, 24vw, 320px);
+}
+.myrie-marketing .cf-card {
+  position: absolute; left: 50%; top: 50%; margin: 0;
+  height: 100%; max-width: 86vw;
+  transition: transform .55s cubic-bezier(.22,1,.36,1), opacity .55s ease;
+  will-change: transform, opacity;
+}
+.myrie-marketing .cf-card img {
+  height: 100%; width: auto; max-width: 86vw; display: block;
+  border-radius: 14px; object-fit: contain;
+  box-shadow: 0 30px 60px rgba(10,20,40,0.22), 0 8px 18px rgba(10,20,40,0.12);
+}
+.myrie-marketing .cf-card.is-active img {
+  box-shadow: 0 44px 90px rgba(10,20,40,0.30), 0 12px 26px rgba(10,20,40,0.16);
+}
+
+.myrie-marketing .cf-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 22px; margin-top: 18px;
+}
+.myrie-marketing .cf-arrow {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid rgba(10,10,10,0.14); background: #fff;
+  color: #0a0a0a; font-size: 26px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(10,20,40,0.10);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.myrie-marketing .cf-arrow:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(10,20,40,0.16); background: #0a0a0a; color: #fff; }
+.myrie-marketing .cf-meta { text-align: center; min-width: 220px; }
+.myrie-marketing .cf-cap {
+  display: block; font-family: var(--font-editorial), Fraunces, serif;
+  font-style: italic; font-size: 17px; color: #0a0a0a; letter-spacing: -0.01em;
+}
+.myrie-marketing .cf-count {
+  display: block; margin-top: 4px; font-family: var(--font-body);
+  font-size: 11px; letter-spacing: 0.2em; color: #8a8a8f; font-weight: 600;
+}
+.myrie-marketing .cf-cta { text-align: center; margin-top: 40px; }
+.myrie-marketing .cf-link {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: #0a0a0a; text-decoration: none;
+  border-bottom: 1px solid rgba(10,10,10,0.25); padding-bottom: 2px;
+  transition: border-color .2s ease;
+}
+.myrie-marketing .cf-link:hover { border-color: #0a0a0a; }
+
+@media (max-width: 760px) {
+  .myrie-marketing .cf-section { padding: 64px 0 60px; }
+  .myrie-marketing .cf-stage { --cf-step: 120px; height: clamp(300px, 48vh, 420px); margin-top: 44px; }
+  .myrie-marketing .cf-meta { min-width: 150px; }
+  .myrie-marketing .cf-controls { gap: 12px; }
+  .myrie-marketing .cf-arrow { width: 46px; height: 46px; }
+}
+
 @media (max-width: 920px) {
   /* Swap the wide 3D-vitrine video (wordmark/promise/button baked in, which
      crops badly on phones) for the clean text-free waterfall video full-bleed,
