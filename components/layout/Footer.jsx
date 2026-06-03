@@ -18,7 +18,7 @@ export default function Footer() {
   ];
   const company = [
     { label: t('footer.co_about'),    href: '/about' },
-    { label: t('footer.co_services'), href: '/#services' },
+    { label: t('footer.co_services'), href: '/#bundle' },
     { label: t('footer.co_work'),     href: '/#showcase' },
     { label: t('footer.co_contact'),  href: '/#contact' },
   ];
