@@ -196,7 +196,7 @@ html.lenis, html.lenis body { height: auto; }
   --bg-card:      #ffffff;
   --ink:          #0a0a0a;     /* near-black for headlines */
   --ink-2:        #1d1d1f;     /* body text */
-  --muted:        #6e6e73;     /* secondary text */
+  --muted:        #57575d;     /* secondary text — darkened for AA contrast on white */
   --muted-2:      #a3a3a8;     /* tertiary text */
   --line:         rgba(10,10,10,0.08);
   --line-2:       rgba(10,10,10,0.12);
@@ -217,6 +217,19 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 .myrie-marketing * { box-sizing: border-box; }
+
+/* Accessibility — visible keyboard focus for all interactive elements.
+   Uses :focus-visible so it only shows for keyboard users, not mouse clicks. */
+.myrie-marketing a:focus-visible,
+.myrie-marketing button:focus-visible,
+.myrie-marketing input:focus-visible,
+.myrie-marketing textarea:focus-visible,
+.myrie-marketing select:focus-visible,
+.myrie-marketing [tabindex]:focus-visible {
+  outline: 2px solid var(--warm);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 /* TYPE SYSTEM — Inter (body) + Fraunces (editorial display) for hospitality luxury */
 .myrie-marketing .display {

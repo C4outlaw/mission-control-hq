@@ -19,11 +19,11 @@ export default function HomeFeatured() {
       image: '/assets/work/beach-bucket-design/breakfast/the-big-beach.jpg',
     },
     {
-      title: 'The Beach Bucket Website',
-      tag:   'Web Design · Build',
-      copy:  'A full oceanfront-restaurant website we designed and built end to end — menu, gallery, hours, and a mobile-first layout. Live and running in Ormond Beach.',
+      title: t('featured.web_title'),
+      tag:   t('featured.web_tag'),
+      copy:  t('featured.web_copy'),
       href:  '/projects/beach-bucket-website',
-      label: 'See the website',
+      label: t('featured.web_label'),
       image: '/assets/work/beach-bucket/poster.jpg',
     },
   ];
