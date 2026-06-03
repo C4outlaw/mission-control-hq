@@ -2276,6 +2276,19 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
 }
 .myrie-marketing .cf-group-label + .cf-stage { margin-top: 26px; }
 
+/* Dark-section variant — light captions/arrows so the coverflow reads on the
+   dark "cinema" sections of the case study (cards float the same). */
+.myrie-marketing .cf-dark .cf-cap { color: #f5f5f5; }
+.myrie-marketing .cf-dark .cf-count { color: #9aa3b2; }
+.myrie-marketing .cf-dark .cf-arrow {
+  background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.28); color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.myrie-marketing .cf-dark .cf-arrow:hover { background: #fff; color: #0a0a0a; border-color: #fff; }
+.myrie-marketing .cf-dark .cf-card img {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 8px 18px rgba(0,0,0,0.4);
+}
+
 .myrie-marketing .cf-cta { text-align: center; margin-top: 40px; }
 .myrie-marketing .cf-link {
   font-family: var(--font-body); font-size: 13px; font-weight: 600;

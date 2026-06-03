@@ -7,9 +7,9 @@ import { useState, useCallback, useRef } from 'react';
  * arrows, swipe, or by clicking a side card. Styling lives in marketing.css
  * (.cf-*). Shared by the plates gallery and the design gallery.
  *
- * Props: slides = [{ src, cap, alt? }]
+ * Props: slides = [{ src, cap, alt? }], dark (light captions/arrows for dark sections)
  */
-export default function Coverflow({ slides = [] }) {
+export default function Coverflow({ slides = [], dark = false }) {
   const [active, setActive] = useState(0);
   const n = slides.length;
   const touch = useRef(null);
@@ -20,7 +20,7 @@ export default function Coverflow({ slides = [] }) {
   if (!n) return null;
 
   return (
-    <>
+    <div className={`cf-wrap${dark ? ' cf-dark' : ''}`}>
       <div
         className="cf-stage"
         onTouchStart={(e) => { touch.current = e.touches[0].clientX; }}
@@ -66,6 +66,6 @@ export default function Coverflow({ slides = [] }) {
         </div>
         <button className="cf-arrow" onClick={() => go(1)} aria-label="Next">›</button>
       </div>
-    </>
+    </div>
   );
 }

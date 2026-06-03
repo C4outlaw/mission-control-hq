@@ -1,7 +1,7 @@
 'use client';
 import Reveal from '../motion/Reveal';
 import Magnetic from '../motion/Magnetic';
-import Carousel from '../motion/Carousel';
+import Coverflow from '../motion/Coverflow';
 import { useT } from '../../lib/i18n';
 
 export default function BeachBucketClient() {
@@ -67,9 +67,7 @@ export default function BeachBucketClient() {
             <p className="lead block-sub">{t('bb.s1_lede')}</p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="port-carousel-wrap product-frame">
-              <Carousel images={drinks} autoplay={4000} aspect="4/5" showThumbs className="port-carousel" />
-            </div>
+            <Coverflow dark slides={drinks.map((d) => ({ src: d.src, cap: d.caption }))} />
           </Reveal>
         </div>
       </section>
@@ -83,9 +81,7 @@ export default function BeachBucketClient() {
           <p className="lead block-sub">{t('bb.s2_lede')}</p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="port-carousel-wrap">
-            <Carousel images={breakfast} autoplay={4500} aspect="3/2" showThumbs className="port-carousel" />
-          </div>
+          <Coverflow dark slides={breakfast.map((d) => ({ src: d.src, cap: d.caption }))} />
         </Reveal>
       </section>
 
@@ -99,9 +95,7 @@ export default function BeachBucketClient() {
             <p className="lead block-sub">{t('bb.s3_lede')}</p>
           </Reveal>
           <Reveal delay={0.3}>
-            <div className="port-carousel-wrap product-frame">
-              <Carousel images={menus} autoplay={5000} aspect="4/5" showThumbs className="port-carousel" />
-            </div>
+            <Coverflow dark slides={menus.map((d) => ({ src: d.src, cap: d.caption }))} />
           </Reveal>
           <Reveal delay={0.4}>
             <div className="cta-actions" style={{ marginTop: 56 }}>
