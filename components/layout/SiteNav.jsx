@@ -27,10 +27,10 @@ export default function SiteNav({ links }) {
   }, [menuOpen]);
 
   const items = links || [
-    { href: '/#services',  label: t('nav.services') },
     { href: '/#showcase',  label: t('nav.work') },
-    { href: '/projects',   label: t('nav.portfolio') },
     { href: '/#try-app',   label: t('nav.magic_menu') },
+    { href: '/#bundle',    label: t('nav.services') },
+    { href: '/projects',   label: t('nav.portfolio') },
     { href: '/about',      label: t('nav.about') },
   ];
 

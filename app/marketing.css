@@ -2185,6 +2185,9 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
 /* The clean waterfall video is mobile-only; hide it on desktop. */
 .myrie-marketing .hero-bg-mobile-video { display: none; }
 
+/* Anchored sections clear the sticky nav when jumped to from the menu. */
+.myrie-marketing section[id] { scroll-margin-top: 76px; }
+
 /* ==========================================================================
    COVERFLOW — premium 3D carousel on a seamless white stage (shared by the
    plates gallery + the design gallery). Posters/plates float in space and you
