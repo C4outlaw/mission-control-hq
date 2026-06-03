@@ -3,7 +3,6 @@ import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
 import HomeShowcase from '../components/sections/HomeShowcase';
 import HomeMotionAds from '../components/sections/HomeMotionAds';
-import HomeFoodGallery from '../components/sections/HomeFoodGallery';
 import HomeFeatured from '../components/sections/HomeFeatured';
 import HomeMagicApp from '../components/sections/HomeMagicApp';
 import HomeTestimonials from '../components/sections/HomeTestimonials';
@@ -30,14 +29,13 @@ export default function HomePage() {
 
       <HeroCinematic />
 
-      {/* Food & menu design first — the most visual proof, right under the hero. */}
-      <HomeFoodGallery />
+      {/* Food transformation first — the strongest "what we do" proof. */}
+      <HomeShowcase />
 
       {/* Menu Magic app next. The app itself is intentionally left untouched. */}
       <HomeMagicApp />
 
-      <HomeShowcase />
-
+      {/* Daily drinks in motion (the single drinks section — no static repeat). */}
       <HomeMotionAds />
 
       <HomeFeatured />

@@ -9,27 +9,26 @@ import { Stagger, StaggerItem } from '../motion/Stagger';
 const BASE = '/assets/work/beach-bucket-design/drink-ads';
 const POSTER = '/assets/work/beach-bucket-design/drinks';
 const ADS = [
-  { day: 'monday',    label: 'Monday' },
-  { day: 'tuesday',   label: 'Tuesday' },
-  { day: 'wednesday', label: 'Wednesday' },
-  { day: 'thursday',  label: 'Thursday' },
   { day: 'friday',    label: 'Friday' },
   { day: 'saturday',  label: 'Saturday' },
   { day: 'sunday',    label: 'Sunday' },
+  { day: 'monday',    label: 'Monday' },
+  { day: 'wednesday', label: 'Wednesday' },
 ];
 
 export default function HomeMotionAds() {
   return (
     <section id="motion" className="motion-ads">
       <div className="shell motion-head">
-        <Reveal><span className="motion-eyebrow">Motion &amp; Automation</span></Reveal>
+        <Reveal><span className="motion-eyebrow">Daily Content · Automated</span></Reveal>
         <Reveal delay={0.1}>
-          <h2 className="motion-h2">Daily content, on autopilot.</h2>
+          <h2 className="motion-h2">Daily drinks, designed and auto-posted.</h2>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="motion-sub">
-            Every daily special, rendered as a looping motion ad and scheduled to
-            post itself each morning — design and distribution, handled.
+            We design each day&rsquo;s special, animate it into a motion ad, and
+            schedule it to post itself every morning — content and distribution,
+            fully handled.
           </p>
         </Reveal>
       </div>
@@ -70,8 +69,8 @@ export default function HomeMotionAds() {
         }
         .motion-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 18px;
+          grid-template-columns: repeat(5, 1fr);
+          gap: 16px;
           margin-top: 44px;
         }
         .motion-card {
