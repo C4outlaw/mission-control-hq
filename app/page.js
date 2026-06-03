@@ -4,6 +4,7 @@ import HeroCinematic from '../components/sections/HeroCinematic';
 import HomeShowcase from '../components/sections/HomeShowcase';
 import HomeMotionAds from '../components/sections/HomeMotionAds';
 import HomeFeatured from '../components/sections/HomeFeatured';
+import HomeBundle from '../components/sections/HomeBundle';
 import HomeMagicApp from '../components/sections/HomeMagicApp';
 import HomeTestimonials from '../components/sections/HomeTestimonials';
 import HomeAboutStrip from '../components/sections/HomeAboutStrip';
@@ -39,6 +40,8 @@ export default function HomePage() {
       <HomeMotionAds />
 
       <HomeFeatured />
+
+      <HomeBundle />
 
       <HomeProcess />
 
