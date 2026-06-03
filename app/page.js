@@ -2,6 +2,7 @@ import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
 import HomeShowcase from '../components/sections/HomeShowcase';
+import HomeFoodGallery from '../components/sections/HomeFoodGallery';
 import HomeFeatured from '../components/sections/HomeFeatured';
 import HomeMagicApp from '../components/sections/HomeMagicApp';
 import HomeTestimonials from '../components/sections/HomeTestimonials';
@@ -29,19 +30,21 @@ export default function HomePage() {
 
       <HeroCinematic />
 
-      <HomeShowcase />
-
-      <HomeFeatured />
-
-      <hr className="hairline" />
-
+      {/* Menu Magic app — surfaced near the top so visitors see the product
+          right away. The app itself is intentionally left untouched. */}
       <HomeMagicApp />
 
       <HomeServices />
 
-      <HomeTestimonials />
+      <HomeShowcase />
+
+      <HomeFoodGallery />
+
+      <HomeFeatured />
 
       <HomeProcess />
+
+      <HomeTestimonials />
 
       <hr className="hairline" />
 

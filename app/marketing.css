@@ -2150,3 +2150,120 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
   background: #f4f4f3 !important;
   border-color: var(--line) !important;
 }
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION
+   ========================================================================== */
+
+/* CRITICAL — touch scroll fix.
+   The embedded Menu Magic iframe is ~70vh tall. On touch devices a swipe
+   that starts on the iframe gets captured by the iframe and the page can't
+   scroll past it. Lenis normally sets pointer-events:none on iframes while
+   scrolling, but Lenis is disabled on touch devices, so that never fires.
+   Disable iframe interaction on touch so the page scrolls; users open the
+   live app via the "Open ↗" and "Try the app" buttons. */
+@media (hover: none) and (pointer: coarse) {
+  .myrie-marketing .app-frame iframe { pointer-events: none; }
+}
+/* Width-based safety net for the same trap (covers phones in the mobile
+   layout regardless of pointer-media support). Buttons remain interactive. */
+@media (max-width: 768px) {
+  .myrie-marketing .app-frame iframe { pointer-events: none; }
+}
+
+/* Fixed background attachment causes scroll jank / repaint stutter on iOS
+   Safari. Use normal scroll attachment on small screens. */
+@media (max-width: 920px) {
+  html, body { background-attachment: scroll; }
+}
+
+/* MOBILE HERO.
+   The wide Grok hero video bakes in the wordmark / promise / button, and on
+   phones object-fit:cover crops it to the center (only "rie" of MYRIE shows)
+   while the HTML fallbacks are hidden. Restore a crisp, fully-legible HTML
+   hero over the video used as a dimmed background. Desktop is unaffected. */
+/* The clean waterfall video is mobile-only; hide it on desktop. */
+.myrie-marketing .hero-bg-mobile-video { display: none; }
+
+@media (max-width: 920px) {
+  /* Swap the wide 3D-vitrine video (wordmark/promise/button baked in, which
+     crops badly on phones) for the clean text-free waterfall video full-bleed,
+     so phones keep real waterfall motion while the crisp HTML wordmark +
+     button sit legibly on top. */
+  .myrie-marketing .hero-bg-3d-scene-video { display: none; }
+  .myrie-marketing .hero-bg-mobile-video {
+    display: block;
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.55) saturate(1.05) contrast(1.02);
+  }
+  .myrie-marketing .hero-bg-3d-scene { background: #05070d !important; }
+  /* Darken just enough for white text to read over the falling water. */
+  .myrie-marketing .hero-bg-veil {
+    background: linear-gradient(180deg,
+      rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%,
+      rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 100%);
+  }
+
+  /* Re-show the HTML brand content (hidden globally for the desktop video) */
+  .myrie-marketing .hero-cinematic .hero-display { display: flex; }
+  .myrie-marketing .hero-cinematic .hero-promise { display: block; }
+  .myrie-marketing .hero-cinematic .hero-locale  { display: inline-flex; }
+
+  /* Grid back to normal centered flow (undo the absolute click-overlay) */
+  .myrie-marketing .hero-cinematic-grid {
+    position: relative !important;
+    inset: auto !important;
+    display: grid !important;
+    place-content: center;
+    gap: 16px;
+    padding: 104px 22px 56px !important;
+    max-width: 640px !important;
+    margin: 0 auto !important;
+    text-align: center;
+  }
+
+  /* Keep the wordmark on one line and safely inside the viewport */
+  .myrie-marketing .hero-cinematic .hero-display-1,
+  .myrie-marketing .hero-cinematic .hero-display-2 {
+    font-size: clamp(2.6rem, 15vw, 5rem);
+  }
+
+  /* Promise text legible over the video */
+  .myrie-marketing .hero-cinematic .hero-promise {
+    color: rgba(255,255,255,0.92);
+    font-size: 1.05rem;
+    line-height: 1.4;
+    max-width: 34ch;
+    margin: 6px auto 0;
+  }
+
+  /* CTA row back to static flow + a real, visible button */
+  .myrie-marketing .hero-cinematic .hero-cta-row {
+    position: static !important;
+    transform: none !important;
+    top: auto !important; left: auto !important;
+    display: flex !important;
+    justify-content: center;
+    margin: 14px 0 0 !important;
+  }
+  .myrie-marketing .hero-cinematic .ti-btn,
+  .myrie-marketing .hero-cinematic .ti-btn.primary {
+    width: auto !important;
+    height: auto !important;
+    padding: 16px 30px !important;
+    background: #fff !important;
+    color: #0a0a0a !important;   /* always dark on the white pill, theme-proof */
+    border: 0 !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.38) !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+  .myrie-marketing .hero-cinematic .ti-btn svg { display: inline-block !important; }
+}

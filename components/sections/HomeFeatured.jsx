@@ -1,12 +1,14 @@
 'use client';
 import Reveal from '../motion/Reveal';
 import { Stagger, StaggerItem } from '../motion/Stagger';
-import Carousel from '../motion/Carousel';
 import { useT } from '../../lib/i18n';
 
 export default function HomeFeatured() {
   const { t } = useT();
 
+  // Two facets of the same flagship client — the brand/creative system and the
+  // website we designed + built. The Menu Magic app lives in its own section up
+  // top, so it's intentionally not duplicated here.
   const featured = [
     {
       title: t('featured.brand_title'),
@@ -14,20 +16,15 @@ export default function HomeFeatured() {
       copy:  t('featured.brand_copy'),
       href:  '/projects/beach-bucket-design',
       label: t('featured.brand_label'),
-      image: '/assets/work/beach-bucket-design/drinks/all-drinks.png',
+      image: '/assets/work/beach-bucket-design/breakfast/the-big-beach.jpg',
     },
     {
-      title: t('featured.app_title'),
-      tag:   t('featured.app_tag'),
-      copy:  t('featured.app_copy'),
-      href:  '/#try-app',
-      label: t('featured.app_label'),
-      carousel: [
-        { src: '/assets/work/magic-menu/cards/cocktail-1-sunset-spritzer.jpg',         caption: 'Sunset Spritzer' },
-        { src: '/assets/work/magic-menu/cards/cocktail-2-mango-tango-margarita.jpg',   caption: 'Mango Tango Margarita' },
-        { src: '/assets/work/magic-menu/cards/cocktail-3-coconut-cloud-colada.jpg',    caption: 'Coconut Cloud Colada' },
-        { src: '/assets/work/magic-menu/cards/cocktail-4-blue-lagoon-breeze.jpg',      caption: 'Blue Lagoon Breeze' },
-      ],
+      title: 'The Beach Bucket Website',
+      tag:   'Web Design · Build',
+      copy:  'A full oceanfront-restaurant website we designed and built end to end — menu, gallery, hours, and a mobile-first layout. Live and running in Ormond Beach.',
+      href:  '/projects/beach-bucket-website',
+      label: 'See the website',
+      image: '/assets/work/beach-bucket/poster.jpg',
     },
   ];
 
@@ -40,37 +37,15 @@ export default function HomeFeatured() {
       <Stagger className="featured-grid" stagger={0.1}>
         {featured.map((item) => (
           <StaggerItem as="article" key={item.title} className="feature-card">
-            {item.carousel ? (
-              <>
-                <div className="thumb thumb-carousel">
-                  <Carousel
-                    images={item.carousel}
-                    autoplay={4500}
-                    aspect="16/10"
-                    rounded={0}
-                    className="feature-carousel"
-                  />
-                </div>
-                <a href={item.href} className="feature-link feature-link-body">
-                  <div className="feature-body">
-                    <span className="feature-tag">{item.tag}</span>
-                    <h3 className="feature-title">{item.title}</h3>
-                    <p>{item.copy}</p>
-                    <span className="feature-arrow">{item.label} →</span>
-                  </div>
-                </a>
-              </>
-            ) : (
-              <a href={item.href} className="feature-link">
-                <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
-                <div className="feature-body">
-                  <span className="feature-tag">{item.tag}</span>
-                  <h3 className="feature-title">{item.title}</h3>
-                  <p>{item.copy}</p>
-                  <span className="feature-arrow">{item.label} →</span>
-                </div>
-              </a>
-            )}
+            <a href={item.href} className="feature-link">
+              <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
+              <div className="feature-body">
+                <span className="feature-tag">{item.tag}</span>
+                <h3 className="feature-title">{item.title}</h3>
+                <p>{item.copy}</p>
+                <span className="feature-arrow">{item.label} →</span>
+              </div>
+            </a>
           </StaggerItem>
         ))}
       </Stagger>

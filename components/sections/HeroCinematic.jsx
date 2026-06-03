@@ -40,6 +40,19 @@ export default function HeroCinematic() {
           playsInline
           onError={() => setVideoOk(false)}
         />
+        {/* Mobile-only clean waterfall (no baked-in text), so phones get the
+            waterfall motion full-bleed while the crisp HTML wordmark + button
+            sit legibly on top. Hidden on desktop via CSS. */}
+        <video
+          className="hero-bg-mobile-video"
+          src="/assets/hero/waterfall-hero.mp4"
+          poster="/assets/hero/waterfall-hero.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
         <div className="hero-bg-veil" />
       </div>
 
