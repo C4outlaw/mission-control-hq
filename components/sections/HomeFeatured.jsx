@@ -16,7 +16,7 @@ export default function HomeFeatured() {
       copy:  t('featured.brand_copy'),
       href:  '/projects/beach-bucket-design',
       label: t('featured.brand_label'),
-      image: '/assets/work/beach-bucket-design/breakfast/the-big-beach.jpg',
+      image: '/assets/work/beach-bucket-design/featured-deck.jpg',
     },
     {
       title: t('featured.web_title'),
@@ -24,7 +24,7 @@ export default function HomeFeatured() {
       copy:  t('featured.web_copy'),
       href:  '/projects/beach-bucket-website',
       label: t('featured.web_label'),
-      image: '/assets/work/beach-bucket/poster.jpg',
+      image: '/assets/work/beach-bucket-design/bb-website.jpg',
     },
   ];
 

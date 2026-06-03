@@ -131,7 +131,7 @@ export default function HomePage() {
         .feature-card { background: var(--bg-card); border-radius: 24px; border: 1px solid var(--line); overflow: hidden; transition: border-color .25s ease, transform .35s ease; }
         .feature-card:hover { border-color: var(--line-2); transform: translateY(-4px); }
         .feature-link { display: block; text-decoration: none; color: inherit; }
-        .feature-card .thumb { aspect-ratio: 16/10; background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #0f0f12; }
+        .feature-card .thumb { aspect-ratio: 16/10; background-size: cover; background-repeat: no-repeat; background-position: center; background-color: #0f0f12; }
         .feature-card .thumb-carousel { aspect-ratio: 16/10; background: #0c0c0c; padding: 0; overflow: hidden; }
         .feature-card .thumb-carousel .carousel-frame {
           background: #0c0c0c !important;
