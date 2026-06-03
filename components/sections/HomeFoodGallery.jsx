@@ -30,7 +30,6 @@ const PLATES = [
   { src: 'healthy-surfer-breakfast.jpg',    cap: 'Healthy Surfer Breakfast' },
   { src: 'early-bird-breakfast.jpg',        cap: 'Early Bird Breakfast' },
   { src: 'french-toast-three-slices.jpg',   cap: 'French Toast' },
-  { src: 'biscuits-and-gravy.jpg',          cap: 'Biscuits & Gravy' },
   { src: 'chorizo-omelet.jpg',              cap: 'Chorizo Omelet' },
   { src: 'seafood-omelet.jpg',              cap: 'Seafood Omelet' },
   { src: 'veggie-omelet.jpg',               cap: 'Veggie Omelet' },
