@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Magic Menu App',
-  description: 'Magic Menu app by Myrie HQ.',
+  title: 'Menu Magic App',
+  description: 'Menu Magic app by Myrie HQ.',
   alternates: { canonical: 'https://www.myriehq.com/magic-menu' },
 };
 
@@ -31,7 +31,7 @@ export default function MagicMenuPage() {
 
         <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: '260px 1fr', gap: 14 }}>
           <aside style={{ border: '1px solid #233047', borderRadius: 14, background: '#0f1625', padding: 14 }}>
-            <p style={{ margin: 0, fontSize: 11, letterSpacing: '.12em', color: '#93a5c3', textTransform: 'uppercase' }}>Magic Menu</p>
+            <p style={{ margin: 0, fontSize: 11, letterSpacing: '.12em', color: '#93a5c3', textTransform: 'uppercase' }}>Menu Magic</p>
             <h2 style={{ margin: '8px 0 12px', fontSize: 22, letterSpacing: '-.02em' }}>App Navigation</h2>
             <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9, color: '#d3def1' }}>
               <li>Dashboard</li>
@@ -45,7 +45,7 @@ export default function MagicMenuPage() {
 
           <div style={{ border: '1px solid #233047', borderRadius: 14, background: '#0f1625', padding: 16 }}>
             <p style={{ margin: 0, textTransform: 'uppercase', letterSpacing: '.12em', color: '#93a5c3', fontSize: 11 }}>Live Product Preview</p>
-            <h1 style={{ margin: '10px 0 10px', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '-.03em' }}>Magic Menu App</h1>
+            <h1 style={{ margin: '10px 0 10px', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', letterSpacing: '-.03em' }}>Menu Magic App</h1>
             <p style={{ margin: 0, color: '#c4d2ea', lineHeight: 1.65, maxWidth: 760 }}>
               This is the same app product from your Lovable-to-GitHub build path, presented publicly without exposing repo access.
               Visitors can see what you are building and how the platform is structured.
@@ -67,7 +67,7 @@ export default function MagicMenuPage() {
                 rel="noopener noreferrer"
                 style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, background: '#fff', color: '#111', fontWeight: 700 }}
               >
-                Open Live Magic Menu App
+                Open Live Menu Magic App
               </a>
               <a href="/" style={{ textDecoration: 'none', padding: '11px 14px', borderRadius: 10, border: '1px solid #5f7aa8', color: '#dbe8ff', fontWeight: 700 }}>
                 Back To MyrieHQ

@@ -35,11 +35,13 @@ export const metadata = {
     title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
     description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
     siteName: 'Myrie HQ',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Myrie HQ — websites, menus & marketing for restaurants and bars' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
     description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
+    images: ['/og-image.jpg'],
   },
 };
 

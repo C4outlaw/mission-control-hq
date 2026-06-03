@@ -8,6 +8,11 @@ function unauthorizedResponse() {
 }
 
 export function proxy(req) {
+  // Public endpoints that must bypass the Mission Control auth gate.
+  // The homepage lead form posts here; it has its own honeypot + validation.
+  const pathname = req.nextUrl?.pathname || '';
+  if (pathname === '/api/contact') return NextResponse.next();
+
   const user = process.env.MISSION_CONTROL_USER;
   const pass = process.env.MISSION_CONTROL_PASS;
 
