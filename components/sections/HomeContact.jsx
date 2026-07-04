@@ -86,6 +86,10 @@ export default function HomeContact() {
                 <a className="cf-direct" href="mailto:myriework@gmail.com">myriework@gmail.com</a>
                 <a className="cf-direct" href="tel:+13867958727">(386) 795-8727</a>
               </div>
+              <div className="cf-vcard">
+                <img src="/assets/qr-vcard.svg" alt="QR code to save O'Neill Myrie's contact details" className="cf-vcard-qr" width="88" height="88" loading="lazy" />
+                <span className="cf-vcard-label">Scan to save<br /><em>my contact</em></span>
+              </div>
               {status === 'invalid' && (
                 <p className="cf-err" role="alert">Please add your name and a phone or email so we can reach you.</p>
               )}
@@ -127,6 +131,23 @@ export default function HomeContact() {
         .cf-direct:hover { color: var(--ink); }
         .cf-err { color: #ff7a7a; font-size: 13px; margin: 14px 0 0; }
         .cf-err a { color: #ff7a7a; }
+
+        /* Scan-to-save-contact vCard QR */
+        .cf-vcard {
+          display: flex; align-items: center; gap: 14px;
+          margin-top: 22px; padding-top: 20px;
+          border-top: 1px solid var(--line);
+        }
+        .cf-vcard-qr {
+          width: 88px; height: 88px; display: block;
+          background: #fff; border-radius: 12px; padding: 8px;
+          box-shadow: 0 0 0 1px rgba(176,138,62,0.35), 0 10px 28px rgba(0,0,0,0.10);
+        }
+        .cf-vcard-label {
+          font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+          color: var(--muted); font-weight: 600; line-height: 1.5; text-align: left;
+        }
+        .cf-vcard-label em { color: var(--warm); font-style: normal; }
 
         .contact-success { max-width: 560px; margin: 28px auto 0; }
         .contact-success-check {
