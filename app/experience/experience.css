@@ -1,0 +1,168 @@
+/* MyrieHQ Experience — design tokens & utilities (scoped under .xp) */
+
+.xp {
+  --xp-beige: #f5e3cd;
+  --xp-red: #f91814;
+  --xp-mustard: #ffd750;
+  --xp-gold: #f4a804;
+  --xp-ink: #1b1b1b;
+  --xp-white: #ffffff;
+
+  background: var(--xp-beige);
+  color: var(--xp-ink);
+  font-family: var(--font-mouse), "Comic Sans MS", cursive;
+  overflow-x: clip;
+  position: relative;
+  min-height: 100vh;
+}
+
+.xp * { box-sizing: border-box; }
+.xp img { max-width: 100%; display: block; }
+.xp a { color: inherit; text-decoration: none; }
+.xp p { margin: 0; }
+.xp h1, .xp h2, .xp h3 { margin: 0; font-weight: 400; }
+
+/* ---------- Display type ---------- */
+.xp-display {
+  font-family: var(--font-mouse), cursive;
+  text-transform: uppercase;
+  line-height: 0.78;
+  letter-spacing: 0.01em;
+  position: relative;
+  display: block;
+}
+.xp-display .xp-display-stroke {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  z-index: 0;
+  user-select: none;
+}
+.xp-display .xp-display-fill { position: relative; z-index: 1; }
+
+.xp-modak { font-family: var(--font-modak), cursive; }
+
+/* ---------- Section shells ---------- */
+.xp-section { position: relative; width: 100%; }
+.xp-bg-beige { background: var(--xp-beige); }
+.xp-bg-red { background: var(--xp-red); }
+.xp-bg-mustard { background: var(--xp-mustard); }
+
+/* ---------- Wave dividers ---------- */
+.xp-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9;
+  pointer-events: none;
+  line-height: 0;
+}
+.xp-wave svg { display: block; width: 100%; height: 11vw; }
+.xp-wave-top { top: 1px; transform: translateY(-99%); }
+.xp-wave-bottom { bottom: 1px; transform: translateY(99%); }
+
+/* ---------- Pill button ---------- */
+.xp-pill {
+  display: inline-block;
+  font-family: var(--font-mouse), cursive;
+  text-transform: uppercase;
+  background: var(--xp-red);
+  color: var(--xp-beige);
+  font-size: clamp(18px, 1.7vw, 30px);
+  letter-spacing: 0.04em;
+  padding: 1.1em 2.6em;
+  border-radius: 50%;
+  border: 0.22em solid var(--xp-white);
+  box-shadow: 0 0.35em 0 rgba(27, 27, 27, 0.18);
+  transform: rotate(-2deg);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.xp-pill:hover { transform: rotate(2deg) scale(1.06); }
+.xp-pill-gold { background: var(--xp-gold); color: var(--xp-ink); }
+
+/* ---------- Sticker labels ---------- */
+.xp-sticker {
+  display: inline-block;
+  font-family: var(--font-mouse), cursive;
+  text-transform: uppercase;
+  line-height: 0.9;
+  filter: drop-shadow(0.15vw 0.25vw 0 rgba(27, 27, 27, 0.2));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.xp-sticker:hover { transform: scale(1.08) rotate(3deg) !important; }
+
+/* ---------- Tilted photo cards ---------- */
+.xp-card {
+  border-radius: clamp(14px, 1.6vw, 28px);
+  overflow: hidden;
+  box-shadow: 0 1.2vw 3vw rgba(27, 27, 27, 0.25);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.xp-card img, .xp-card video { width: 100%; height: 100%; object-fit: cover; }
+.xp-card:hover { transform: rotate(0deg) scale(1.03) !important; }
+
+/* ---------- Body copy ---------- */
+.xp-copy {
+  font-size: clamp(17px, 1.35vw, 26px);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Floating dock ---------- */
+.xp-dock {
+  position: fixed;
+  bottom: 2vw;
+  left: 50%;
+  z-index: 997;
+  background: rgba(252, 246, 236, 0.96);
+  border-radius: 999px;
+  box-shadow: 0 0.6vw 2.5vw rgba(27, 27, 27, 0.28);
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 26px);
+  padding: 0.7vw 0.9vw 0.7vw 2.2vw;
+}
+.xp-dock a {
+  font-family: var(--font-mouse), cursive;
+  text-transform: uppercase;
+  font-size: clamp(15px, 1.15vw, 21px);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.xp-dock a:hover { opacity: 1; }
+.xp-dock .xp-dock-cta {
+  background: var(--xp-red);
+  color: var(--xp-beige);
+  border-radius: 999px;
+  padding: 0.75em 1.7em;
+  opacity: 1;
+  border: 0.16em solid var(--xp-white);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.xp-dock .xp-dock-cta:hover { transform: scale(1.07) rotate(-2deg); }
+
+/* ---------- Mouse trail ---------- */
+.xp-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+}
+.xp-trail-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  font-size: clamp(26px, 2.6vw, 48px);
+  filter: drop-shadow(0.1vw 0.2vw 0 rgba(27, 27, 27, 0.25));
+}
+
+@media (max-width: 768px) {
+  .xp-trail { display: none; }
+  .xp-dock { display: none; }
+  .xp-wave svg { height: 16vw; }
+}
