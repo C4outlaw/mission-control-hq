@@ -1,5 +1,5 @@
 {
-  "name": "mission-control",
+  "name": "marvin-room",
   "version": "0.1.0",
   "private": true,
   "main": "electron-main.js",
@@ -14,8 +14,8 @@
     "quality:gate": "powershell -ExecutionPolicy Bypass -File .\\scripts\\quality-gate.ps1"
   },
   "build": {
-    "appId": "ai.myrie.missioncontrol",
-    "productName": "Mission Control",
+    "appId": "ai.myrie.marvinroom",
+    "productName": "Marvin Room",
     "files": [
       "app/**/*",
       "public/**/*",

@@ -1,10 +1,10 @@
 param(
-  [string]$Caption = "Mission Control local automation test ✅",
-  [string]$LogPath = "C:\Users\email\.openclaw\workspace\mission-control\automation\facebook-post-test.log"
+  [string]$Caption = "Marvin Room local automation test ✅",
+  [string]$LogPath = "C:\Users\email\.openclaw\workspace\marvin-room\automation\facebook-post-test.log"
 )
 
 $ErrorActionPreference = 'Stop'
-$py = "C:\Users\email\.openclaw\workspace\mission-control\automation\tmp_fb_post_test.py"
+$py = "C:\Users\email\.openclaw\workspace\marvin-room\automation\tmp_fb_post_test.py"
 
 @"
 import time, subprocess, importlib.util, pyperclip

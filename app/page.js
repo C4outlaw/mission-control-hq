@@ -247,6 +247,7 @@ export default function HomePage() {
         /* TESTIMONIALS */
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
         .testi-card { padding: 36px 32px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 22px; transition: border-color .25s ease, transform .35s ease; }
+        .testi-card::before { content: '\\201C'; display: block; font-family: var(--font-editorial), Fraunces, Georgia, serif; font-size: 44px; line-height: 1; color: var(--warm); margin-bottom: 14px; }
         .testi-card:hover { border-color: var(--line-2); transform: translateY(-2px); }
         .testi-quote { color: var(--ink-2); line-height: 1.55; font-size: 17px; margin: 0 0 22px; letter-spacing: -0.012em; }
         .testi-author strong { color: var(--ink); display: block; font-size: 14px; font-weight: 600; }
@@ -256,7 +257,7 @@ export default function HomePage() {
         .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
         .process-step { padding: 36px 28px; border-left: 1px solid var(--line); transition: border-color .2s; }
         .process-step:first-child { border-left: 0; padding-left: 0; }
-        .process-num { font-family: var(--font-body); font-size: 13px; color: var(--muted); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 12px; }
+        .process-num { font-family: var(--font-body); font-size: 13px; color: var(--warm); font-weight: 700; letter-spacing: 0.2em; margin-bottom: 12px; }
         .process-title { font-size: 22px; color: var(--ink); font-weight: 700; letter-spacing: -0.025em; margin: 0 0 10px; }
         .process-step p { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.55; }
 

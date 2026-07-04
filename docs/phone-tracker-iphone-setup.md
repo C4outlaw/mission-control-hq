@@ -21,7 +21,7 @@ Create a Shortcut named **MissionControl Location Ping**:
 
 1. Action: **Get Current Location**
 2. Action: **Get Contents of URL**
-   - URL: `https://<your-mission-control-domain>/api/phone-tracker`
+   - URL: `https://<your-marvin-room-domain>/api/phone-tracker`
    - Method: `POST`
    - Headers:
      - `x-device-token: <same token>`

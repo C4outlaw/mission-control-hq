@@ -16,6 +16,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Run With Docker
+
+Build and start the site in a container:
+
+```bash
+docker compose up --build
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
+
+Useful commands:
+
+```bash
+docker compose ps
+docker compose logs -f web
+docker compose down
+```
+
+Docker is using `Dockerfile` to build a production Next.js server and `compose.yml` to publish the container's port `3000` to your computer's port `3000`.
+
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

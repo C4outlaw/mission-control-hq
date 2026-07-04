@@ -1,5 +1,5 @@
 /* MARKETING THEME — Apple-luxury minimal.
-   Scoped to .myrie-marketing. Mission Control electron pages keep their own theme.
+   Scoped to .myrie-marketing. Marvin Room electron pages keep their own theme.
 
    Design language:
    - Massive whitespace
@@ -334,31 +334,37 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow: none;
 }
 
-/* DISPLAY HEADLINES — calm Apple-grade scale */
+/* DISPLAY HEADLINES — one editorial voice for every section heading */
 .myrie-marketing .tropical-h2 {
-  font-family: var(--font-body);
-  font-weight: 700;
+  font-family: var(--font-editorial), 'Fraunces', 'GT Sectra', 'Playfair Display', Georgia, serif;
+  font-weight: 500;
   font-size: clamp(1.9rem, 3.6vw, 2.9rem);
   line-height: 1.06;
-  letter-spacing: -0.032em;
+  letter-spacing: -0.03em;
   color: var(--ink);
   text-transform: none;
   text-shadow: none;
   margin: 0 0 14px;
-  max-width: 22ch;
+  max-width: 24ch;
 }
 .myrie-marketing .tropical-h2 .accent {
-  font-family: var(--font-body);
+  font-family: var(--font-editorial), serif;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1em;
-  color: var(--muted);
+  color: var(--warm);
   text-transform: none;
   text-shadow: none;
   display: inline;
   transform: none;
   margin-left: 0;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
+}
+/* Gold italic accent — usable inside any display heading */
+.myrie-marketing .accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--warm);
 }
 .myrie-marketing .tropical-h2 .accent.orange,
 .myrie-marketing .tropical-h2 .accent.gold { color: var(--warm); }

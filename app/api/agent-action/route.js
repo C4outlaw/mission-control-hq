@@ -31,6 +31,26 @@ async function fetchJsonIfSet(envKey) {
   }
 }
 
+function pickTitles(xml, limit = 4) {
+  const titles = [];
+  const re = /<title>(.*?)<\/title>/gims;
+  let match;
+  while ((match = re.exec(xml)) && titles.length < limit + 1) {
+    const title = (match[1] || '')
+      .replace(/<!\[CDATA\[|\]\]>/g, '')
+      .replace(/&amp;/g, '&')
+      .trim();
+    if (title && !/rss|news|top stories|latest/i.test(title)) titles.push(title);
+  }
+  return titles.slice(0, limit);
+}
+
+async function fetchText(url) {
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`fetch failed ${url}`);
+  return await res.text();
+}
+
 async function runEmailTriage() {
   const fallback = {
     inbox: [
@@ -55,6 +75,61 @@ async function runEmailTriage() {
     ...urgent.slice(0, 5).map((m) => `- URGENT: ${m.subject} (${m.from})`),
     ...today.slice(0, 5).map((m) => `- TODAY: ${m.subject} (${m.from})`),
     `Source: ${live ? 'Live URL (MISSION_EMAIL_SOURCE_URL)' : 'Local file data/email.inbox.json'}`,
+  ].join('\n');
+}
+
+async function runNewsBrief() {
+  try {
+    const [nprXml, abcXml, foxXml, localXml] = await Promise.all([
+      fetchText('https://feeds.npr.org/1001/rss.xml'),
+      fetchText('https://feeds.abcnews.com/abcnews/topstories'),
+      fetchText('https://moxie.foxnews.com/google-publisher/latest.xml'),
+      fetchText('https://www.wesh.com/topstories-rss'),
+    ]);
+
+    const sections = {
+      npr: pickTitles(nprXml, 3),
+      abc: pickTitles(abcXml, 3),
+      fox: pickTitles(foxXml, 3),
+      local: pickTitles(localXml, 3),
+    };
+
+    await ensureJson('news.brief.json', { sections });
+
+    return [
+      `[${stamp()}] News Brief Agent`,
+      'Daily Brief (NPR/ABC/FOX/Local)',
+      '',
+      ...Object.entries(sections).flatMap(([name, items]) => [
+        name.toUpperCase(),
+        ...items.map((title) => `- ${title}`),
+        '',
+      ]),
+      'Source: live RSS feeds',
+    ].join('\n');
+  } catch {
+    // Fall through to the local fallback when a feed is unavailable.
+  }
+
+  const fallback = await ensureJson('news.brief.json', {
+    sections: {
+      npr: ['Run live news brief when the dev server is available.'],
+      abc: [],
+      fox: [],
+      local: [],
+    },
+  });
+
+  const sections = fallback?.sections || {};
+  return [
+    `[${stamp()}] News Brief Agent`,
+    'Live news route unavailable; using local fallback.',
+    ...Object.entries(sections).flatMap(([name, items]) => [
+      '',
+      name.toUpperCase(),
+      ...(Array.isArray(items) ? items : []).map((t) => `- ${t}`),
+    ]),
+    'Source: data/news.brief.json',
   ].join('\n');
 }
 
@@ -129,7 +204,8 @@ export async function POST(req) {
     const { id } = await req.json();
     let text = `[${stamp()}] Agent activated.`;
 
-    if (id === 'email-triage-agent') text = await runEmailTriage();
+    if (id === 'news-brief-agent') text = await runNewsBrief();
+    else if (id === 'email-triage-agent') text = await runEmailTriage();
     else if (id === 'calendar-concierge-agent') text = await runCalendarConcierge();
     else if (id === 'social-ops-agent') text = await runSocialOps();
     else if (id === 'revenue-agent') text = await runRevenue();

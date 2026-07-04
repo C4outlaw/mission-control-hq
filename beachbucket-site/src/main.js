@@ -30,14 +30,94 @@ const itemImagePool = [
   '/assets/facebook/all/1019508686850358.jpg'
 ]
 
+// === Lunch dish carousel — branded "Daily Lunch Special" promo cards in a 3D stacked deck ===
+const dishCarouselItems = [
+  { name: 'Bucket Burger',           img: '/assets/dishes/lunch-cards/Bucket Burger.png' },
+  { name: 'Buffalo Shrimp',          img: '/assets/dishes/lunch-cards/Buffalo Shrimp.png' },
+  { name: 'Fried Calamari',          img: '/assets/dishes/lunch-cards/Fried Calamari.png' },
+  { name: 'Loaded Chicken Panini',   img: '/assets/dishes/lunch-cards/Loaded Chicken Panini.png' },
+  { name: 'Chicken Tenders',         img: '/assets/dishes/lunch-cards/Chicken Tenders.png' },
+  { name: 'Wings',                   img: '/assets/dishes/lunch-cards/Wings.png' },
+  { name: 'Conch Fritters',          img: '/assets/dishes/lunch-cards/Conch Fritters.png' },
+  { name: 'Corn Nuggets',            img: '/assets/dishes/lunch-cards/Corn Nuggets.png' },
+  { name: 'Crab Cakes',              img: '/assets/dishes/lunch-cards/Crab Cakes.png' },
+  { name: 'Smoked Fish Dip',         img: '/assets/dishes/lunch-cards/Smoked Fish Dip.png' },
+  { name: 'Fried Shrimp',            img: '/assets/dishes/lunch-cards/Fried Shrimp.png' },
+  { name: 'Key West Chicken',        img: '/assets/dishes/lunch-cards/Key West Chicken.png' },
+  { name: 'Mahi Sandwich',           img: '/assets/dishes/lunch-cards/Mahi Sandwich.png' },
+  { name: 'Mahi Tacos',              img: '/assets/dishes/lunch-cards/Mahi Tacos.png' },
+  { name: 'Mozzarella Sticks',       img: '/assets/dishes/lunch-cards/Mozzarella Sticks.png' },
+  { name: 'Onion Rings',             img: '/assets/dishes/lunch-cards/Onion Rings.png' },
+  { name: 'Pulled Pork Tacos',       img: '/assets/dishes/lunch-cards/Pulled Pork Tacos.png' },
+  { name: 'Shrimp & Bacon Panini',   img: '/assets/dishes/lunch-cards/Shrimp & Bacon Panini.png' },
+  { name: 'Caesar Salad',            img: '/assets/dishes/lunch-cards/Caesar Salad.png' },
+  { name: 'House Salad',             img: '/assets/dishes/lunch-cards/House Salad.png' },
+  { name: 'Steak Panini',            img: '/assets/dishes/lunch-cards/Steak Panini.png' },
+  { name: 'Tuna Melt',               img: '/assets/dishes/lunch-cards/Tuna Melt.png' },
+  { name: 'Ahi Tuna Wrap',           img: '/assets/dishes/lunch-cards/Ahi Tuna Wrap.png' },
+  { name: 'Shrimp Tacos',            img: '/assets/dishes/lunch-cards/Shrimp Tacos.png' }
+]
+
+// === Drink Specials stacked-card carousel (same 3D accordion style as dishes) ===
+const drinkCarouselItems = [
+  { name: 'Monday Specials',     img: '/assets/dishes/drinks-cards/Monday.png' },
+  { name: 'Tuesday Specials',    img: '/assets/dishes/drinks-cards/Tuesday.png' },
+  { name: 'Wednesday Specials',  img: '/assets/dishes/drinks-cards/Wednesday.png' },
+  { name: 'Thursday Specials',   img: '/assets/dishes/drinks-cards/Thursday.png' },
+  { name: 'Friday Specials',     img: '/assets/dishes/drinks-cards/Friday.png' },
+  { name: 'Saturday Specials',   img: '/assets/dishes/drinks-cards/Saturday.png' },
+  { name: 'Sunday Specials',     img: '/assets/dishes/drinks-cards/Sunday.png' },
+  { name: 'Cucumber Cooler',     img: '/assets/dishes/drinks-cards/Cucumber Cooler.png' },
+  { name: 'Orange Crush',        img: '/assets/dishes/drinks-cards/Orange Crush.png' },
+  { name: 'Cherry Lemonade',     img: '/assets/dishes/drinks-cards/Cherry Lemonade.png' },
+  { name: 'Raspberry Lemonade',  img: '/assets/dishes/drinks-cards/Rapsberry Lemonade.png' },
+  { name: 'Grape Pop',           img: '/assets/dishes/drinks-cards/Grape Pop.png' },
+  { name: 'Blueberry Bay Breeze',img: '/assets/dishes/drinks-cards/Blueberry Bay Breeze.png' },
+  { name: 'Citrus Seabreeze',    img: '/assets/dishes/drinks-cards/Citrus Seabreeze.png' },
+  { name: 'All Drinks Menu',     img: '/assets/dishes/drinks-cards/All Drinks.png' }
+]
+
 const galleryItems = [
-  { category: 'breakfast', label: 'Seafood Omelet Style', img: '/assets/facebook/all/1022110573256836.jpg' },
-  { category: 'breakfast', label: 'Morning Brunch Favorite', img: '/assets/facebook/all/1013958157405411.jpg' },
-  { category: 'lunch', label: 'Fresh Lunch Plate', img: '/assets/facebook/all/1015235283944365.jpg' },
-  { category: 'lunch', label: 'Coastal Seafood Lunch', img: '/assets/facebook/all/1013949587406268.jpg' },
-  { category: 'drinks', label: 'Signature Beach Cocktail', img: '/assets/facebook/all/1020445076756719.jpg' },
-  { category: 'drinks', label: 'Bar Feature Drink', img: '/assets/facebook/all/1008387387962488.jpg' },
-  { category: 'atmosphere', label: 'Sunset Patio Vibe', img: '/assets/atmosphere-sunset-1.jpg' },
+  // === Breakfast — Daily Breakfast Special branded cards ===
+  { category: 'breakfast', label: 'The Big Beach',         img: '/assets/dishes/breakfast-cards/The Big Beach.png' },
+  { category: 'breakfast', label: 'Early Bird',            img: '/assets/dishes/breakfast-cards/Early Bird.png' },
+  { category: 'breakfast', label: 'The Sunrise',           img: '/assets/dishes/breakfast-cards/The Sunrise.png' },
+  { category: 'breakfast', label: 'Biscuits and Gravy',    img: '/assets/dishes/breakfast-cards/Biscuits and Gravy.png' },
+  { category: 'breakfast', label: 'Seafood Omelet',        img: '/assets/dishes/breakfast-cards/Seafood Omelet.png' },
+  { category: 'breakfast', label: 'Chorizo Omelet',        img: '/assets/dishes/breakfast-cards/Chorizo Omelet.png' },
+  { category: 'breakfast', label: 'Veggie Omelet',         img: '/assets/dishes/breakfast-cards/Veggie Omelet.png' },
+  { category: 'breakfast', label: 'French Toast',          img: '/assets/dishes/breakfast-cards/French Toast.png' },
+  { category: 'breakfast', label: 'Healthy Surfer',        img: '/assets/dishes/breakfast-cards/Healthy Surfer.png' },
+  { category: 'breakfast', label: 'Classic Eggs Benedict', img: '/assets/dishes/breakfast-cards/Classic Eggs Benedict.png' },
+
+  // === Lunch — Daily Lunch Special branded cards ===
+  { category: 'lunch', label: 'Bucket Burger',          img: '/assets/dishes/lunch-cards/Bucket Burger.png' },
+  { category: 'lunch', label: 'Buffalo Shrimp',         img: '/assets/dishes/lunch-cards/Buffalo Shrimp.png' },
+  { category: 'lunch', label: 'Fried Calamari',         img: '/assets/dishes/lunch-cards/Fried Calamari.png' },
+  { category: 'lunch', label: 'Loaded Chicken Panini',  img: '/assets/dishes/lunch-cards/Loaded Chicken Panini.png' },
+  { category: 'lunch', label: 'Chicken Tenders',        img: '/assets/dishes/lunch-cards/Chicken Tenders.png' },
+  { category: 'lunch', label: 'Wings',                  img: '/assets/dishes/lunch-cards/Wings.png' },
+  { category: 'lunch', label: 'Conch Fritters',         img: '/assets/dishes/lunch-cards/Conch Fritters.png' },
+  { category: 'lunch', label: 'Corn Nuggets',           img: '/assets/dishes/lunch-cards/Corn Nuggets.png' },
+  { category: 'lunch', label: 'Crab Cakes',             img: '/assets/dishes/lunch-cards/Crab Cakes.png' },
+  { category: 'lunch', label: 'Smoked Fish Dip',        img: '/assets/dishes/lunch-cards/Smoked Fish Dip.png' },
+  { category: 'lunch', label: 'Fried Shrimp',           img: '/assets/dishes/lunch-cards/Fried Shrimp.png' },
+  { category: 'lunch', label: 'Key West Chicken',       img: '/assets/dishes/lunch-cards/Key West Chicken.png' },
+  { category: 'lunch', label: 'Mahi Sandwich',          img: '/assets/dishes/lunch-cards/Mahi Sandwich.png' },
+  { category: 'lunch', label: 'Mahi Tacos',             img: '/assets/dishes/lunch-cards/Mahi Tacos.png' },
+  { category: 'lunch', label: 'Mozzarella Sticks',      img: '/assets/dishes/lunch-cards/Mozzarella Sticks.png' },
+  { category: 'lunch', label: 'Onion Rings',            img: '/assets/dishes/lunch-cards/Onion Rings.png' },
+  { category: 'lunch', label: 'Pulled Pork Tacos',      img: '/assets/dishes/lunch-cards/Pulled Pork Tacos.png' },
+  { category: 'lunch', label: 'Shrimp & Bacon Panini',  img: '/assets/dishes/lunch-cards/Shrimp & Bacon Panini.png' },
+  { category: 'lunch', label: 'Caesar Salad',           img: '/assets/dishes/lunch-cards/Caesar Salad.png' },
+  { category: 'lunch', label: 'House Salad',            img: '/assets/dishes/lunch-cards/House Salad.png' },
+  { category: 'lunch', label: 'Steak Panini',           img: '/assets/dishes/lunch-cards/Steak Panini.png' },
+  { category: 'lunch', label: 'Tuna Melt',              img: '/assets/dishes/lunch-cards/Tuna Melt.png' },
+  { category: 'lunch', label: 'Ahi Tuna Wrap',          img: '/assets/dishes/lunch-cards/Ahi Tuna Wrap.png' },
+  { category: 'lunch', label: 'Shrimp Tacos',           img: '/assets/dishes/lunch-cards/Shrimp Tacos.png' },
+
+  // === Atmosphere — existing photos kept ===
+  { category: 'atmosphere', label: 'Sunset Patio Vibe',           img: '/assets/atmosphere-sunset-1.jpg' },
   { category: 'atmosphere', label: 'Guests & Oceanfront Seating', img: '/assets/atmosphere-sunset-2.jpg' }
 ]
 
@@ -361,10 +441,12 @@ document.querySelector('#app').innerHTML = `
           <li><a href="#main-content" aria-current="page" data-i18n="nav.home">Home</a></li>
           <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
           <li><a href="#hours" data-i18n="nav.hours">Hours</a></li>
+          <li><a href="#our-dishes">Our Dishes</a></li>
           <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
           <li><a href="#giftcards" data-i18n="nav.giftcards">Gift Cards</a></li>
           <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a class="nav-download-menus" href="#menu-pdfs" aria-label="Print or download our menus" title="Print or download our menus"><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="4" y="9" width="16" height="8" rx="1"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg><svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg></a></li>
         </ul>
       </nav>
       <a class="btn btn-small" href="https://order.online/business/The%20Beach%20Bucket-185350" target="_blank" rel="noopener noreferrer">Order Online</a>
@@ -451,29 +533,71 @@ document.querySelector('#app').innerHTML = `
           <p><strong>Breakfast Combos:</strong> Served with choice of home fries, grits, or tomato slices (substitute fresh fruit $2.99) and choice of toast (substitute biscuit or English muffin for $1.99). Substitute scrambled egg whites for $2.49.</p>
           <p><strong>Toast Choices:</strong> White, Wheat, Rye, Sourdough (English Muffin or Buttermilk Biscuit add $0.99)</p>
           <p><strong>Cheese Choices:</strong> American, Swiss, Provolone, or Cheddar</p>
-          <p><em>*Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.</em></p>
+          <p class="foodborne-warning"><em>*Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.</em></p>
         </div>
 
-        <div class="pdf-links">
-          <h3>Full Official Menu PDFs</h3>
-          <a href="/assets/menu/BREAKFAST%2520MENU%2520FRONT%2520%252011%2520by%252017%2520inches%25202023-pag.pdf" target="_blank">Breakfast Menu Front (PDF)</a>
-          <a href="/assets/menu/BREAKFAST%2520MENU%2520BACK%252011%2520by%252017%2520inches%25202023-pages.pdf" target="_blank">Breakfast Menu Back (PDF)</a>
-          <a href="/assets/menu/DINNER%2520MENU%2520FRONT%2520%252011%2520by%252017%2520inches%25202025.pdf" target="_blank">Lunch & Dinner Menu Front (PDF)</a>
-          <a href="/assets/menu/DINNER%2520MENU%2520%2520BACK%252011%2520by%252017%2520inches%25202025.pdf" target="_blank">Lunch & Dinner Menu Back (PDF)</a>
+        <div id="menu-pdfs" class="pdf-links">
+          <h3>Full Official Menu PDFs (2026)</h3>
+          <p class="muted">View on screen or download &amp; print. Each menu is the latest 11&times;17 official PDF.</p>
+          <div class="pdf-link-row">
+            <div class="pdf-card">
+              <span class="pdf-card-title">Breakfast Menu (Front &amp; Back)</span>
+              <div class="pdf-card-actions">
+                <a class="pdf-action pdf-view" href="/assets/menu/breakfast-menu-2026.pdf" target="_blank" rel="noopener" aria-label="View Breakfast Menu">View</a>
+                <a class="pdf-action pdf-download" href="/assets/menu/breakfast-menu-2026.pdf" download="Beach Bucket Breakfast Menu 2026.pdf" aria-label="Download Breakfast Menu">⬇ Download</a>
+              </div>
+            </div>
+            <div class="pdf-card">
+              <span class="pdf-card-title">Lunch &amp; Dinner Menu (Front &amp; Back)</span>
+              <div class="pdf-card-actions">
+                <a class="pdf-action pdf-view" href="/assets/menu/lunch-dinner-menu-2026.pdf" target="_blank" rel="noopener" aria-label="View Lunch &amp; Dinner Menu">View</a>
+                <a class="pdf-action pdf-download" href="/assets/menu/lunch-dinner-menu-2026.pdf" download="Beach Bucket Lunch &amp; Dinner Menu 2026.pdf" aria-label="Download Lunch &amp; Dinner Menu">⬇ Download</a>
+              </div>
+            </div>
+            <div class="pdf-card">
+              <span class="pdf-card-title">Kids Menu</span>
+              <div class="pdf-card-actions">
+                <a class="pdf-action pdf-view" href="/assets/menu/KIDS%20MENU%202023%20%208.5%20by%2014.pdf" target="_blank" rel="noopener" aria-label="View Kids Menu">View</a>
+                <a class="pdf-action pdf-download" href="/assets/menu/KIDS%20MENU%202023%20%208.5%20by%2014.pdf" download="Beach Bucket Kids Menu.pdf" aria-label="Download Kids Menu">⬇ Download</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="our-dishes" class="section dish-stack-section" aria-labelledby="our-dishes-heading">
+      <video class="cloud-video" data-rate="1" autoplay muted loop playsinline preload="metadata" poster="/assets/textures/dream-clouds.jpg" aria-hidden="true">
+        <source src="/assets/videos/clouds-loop.mp4" type="video/mp4" />
+      </video>
+      <button class="cloud-video-toggle" type="button" aria-label="Pause background clouds" title="Pause background clouds">⏸</button>
+      <div class="container">
+        <h2 id="our-dishes-heading">Our Dishes</h2>
+        <p class="muted">Flip through our full lunch lineup &mdash; Daily Specials, sandwiches, paninis, tacos &amp; salads.</p>
+        <div class="dish-stack-stage" id="dishStackStage" role="region" aria-roledescription="carousel" aria-label="Beach Bucket lunch dishes">
+          <button class="ds-arrow ds-prev" aria-label="Previous dish" type="button">&#10094;</button>
+          <div class="dish-stack" id="dishStack">
+            ${dishCarouselItems.map((d, i) => `
+              <figure class="ds-card" data-i="${i}" role="group" aria-roledescription="slide" aria-label="${i+1} of ${dishCarouselItems.length}: ${d.name}">
+                <img src="${withBase(d.img)}" alt="${d.name}" loading="lazy" draggable="false" />
+              </figure>
+            `).join('')}
+          </div>
+          <button class="ds-arrow ds-next" aria-label="Next dish" type="button">&#10095;</button>
+        </div>
+        <div class="ds-meta" id="dishStackMeta" aria-live="polite"></div>
       </div>
     </section>
 
     <section id="gallery" class="section alt" aria-labelledby="gallery-heading">
       <div class="container">
         <h2 id="gallery-heading" data-i18n="gallery.title">Gallery</h2>
-        <p class="muted">Browse by category: Breakfast, Lunch, Drinks, and Atmosphere.</p>
+        <p class="muted">Browse by category: Breakfast, Lunch, Drink Specials, and Atmosphere.</p>
 
         <div class="gallery-filters" role="tablist" aria-label="Gallery categories">
           <button class="chip is-active" data-filter="all">All</button>
           <button class="chip" data-filter="breakfast">Breakfast</button>
           <button class="chip" data-filter="lunch">Lunch</button>
-          <button class="chip" data-filter="drinks">Drinks</button>
           <button class="chip" data-filter="atmosphere">Atmosphere</button>
         </div>
 
@@ -486,6 +610,30 @@ document.querySelector('#app').innerHTML = `
               <figcaption>${g.label}</figcaption>
             </figure>
           `).join('')}
+        </div>
+
+      </div>
+
+      <div class="drink-clouds-wrap">
+        <video class="cloud-video" autoplay muted loop playsinline preload="metadata" poster="/assets/textures/dream-clouds.jpg" aria-hidden="true">
+          <source src="/assets/videos/clouds-loop.mp4" type="video/mp4" />
+        </video>
+        <button class="cloud-video-toggle" type="button" aria-label="Pause background clouds" title="Pause background clouds">⏸</button>
+        <div class="drink-clouds-inner">
+          <h3 class="drink-stack-heading">Drink Specials</h3>
+          <p class="muted" style="text-align:center">Flip through our weekday combos &amp; signature drinks &mdash; full cards, no cropping.</p>
+          <div class="dish-stack-stage" id="drinkStackStage" role="region" aria-roledescription="carousel" aria-label="Beach Bucket drink specials">
+            <button class="ds-arrow ds-prev" data-stack="drink" aria-label="Previous drink" type="button">&#10094;</button>
+            <div class="dish-stack" id="drinkStack">
+              ${drinkCarouselItems.map((d, i) => `
+                <figure class="ds-card" data-i="${i}" role="group" aria-roledescription="slide" aria-label="${i+1} of ${drinkCarouselItems.length}: ${d.name}">
+                  <img src="${withBase(d.img)}" alt="${d.name}" loading="lazy" draggable="false" />
+                </figure>
+              `).join('')}
+            </div>
+            <button class="ds-arrow ds-next" data-stack="drink" aria-label="Next drink" type="button">&#10095;</button>
+          </div>
+          <div class="ds-meta" id="drinkStackMeta" aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -838,8 +986,100 @@ const langSelect = document.getElementById('langSelect')
 langSelect?.addEventListener('change', async (e) => applyLanguage(e.target.value))
 applyLanguage('en')
 
+// Cloud video playback rate (per-video via data-rate attribute, default 1.0 = native speed)
+document.querySelectorAll('video.cloud-video').forEach((v) => {
+  const rate = parseFloat(v.dataset.rate || '1')
+  v.playbackRate = rate
+  v.addEventListener('loadedmetadata', () => { v.playbackRate = rate })
+})
+
+// Pause/play toggle for cloud videos — toggles the video in the same section
+document.querySelectorAll('.cloud-video-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest('.dish-stack-section, .drink-clouds-wrap')
+    const video = container?.querySelector('video.cloud-video')
+    if (!video) return
+    if (video.paused) {
+      video.play().catch(() => {})
+      btn.textContent = '⏸'
+      btn.classList.remove('is-paused')
+      btn.setAttribute('aria-label', 'Pause background clouds')
+      btn.setAttribute('title', 'Pause background clouds')
+    } else {
+      video.pause()
+      btn.textContent = '▶'
+      btn.classList.add('is-paused')
+      btn.setAttribute('aria-label', 'Play background clouds')
+      btn.setAttribute('title', 'Play background clouds')
+    }
+  })
+})
+
+// === 3D accordion/page-flip stacked-card carousel (reusable for dish + drink stacks) ===
+function initStack(stageEl, stackEl, metaEl) {
+  if (!stackEl) return
+  const cards = [...stackEl.querySelectorAll('.ds-card')]
+  if (cards.length === 0) return
+  const N = cards.length
+  const prev = stageEl.querySelector('.ds-prev')
+  const next = stageEl.querySelector('.ds-next')
+  const names = cards.map(c => c.querySelector('img')?.alt || '')
+  let active = 0
+  // Shortest signed distance from active to i on a ring of length N.
+  // Result is in (-N/2, N/2] so the carousel wraps endlessly.
+  const ringDist = (i) => {
+    let d = i - active
+    const half = N / 2
+    if (d > half) d -= N
+    else if (d <= -half) d += N
+    return d
+  }
+  const applyStates = () => {
+    cards.forEach((card, i) => {
+      const d = ringDist(i)
+      card.classList.remove('is-active','is-near-left','is-near-right','is-far-left','is-far-right','is-deep-left','is-deep-right','is-hidden')
+      if (d === 0) card.classList.add('is-active')
+      else if (d === -1) card.classList.add('is-near-left')
+      else if (d === 1)  card.classList.add('is-near-right')
+      else if (d === -2) card.classList.add('is-far-left')
+      else if (d === 2)  card.classList.add('is-far-right')
+      else if (d === -3) card.classList.add('is-deep-left')
+      else if (d === 3)  card.classList.add('is-deep-right')
+      else card.classList.add('is-hidden')
+      card.setAttribute('aria-hidden', d === 0 ? 'false' : 'true')
+    })
+    if (metaEl) metaEl.textContent = `${active + 1} / ${N}  ·  ${names[active]}`
+  }
+  const go = (delta) => { active = ((active + delta) % N + N) % N; applyStates() }
+  prev?.addEventListener('click', () => go(-1))
+  next?.addEventListener('click', () => go(1))
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const i = Number(card.dataset.i)
+      if (i !== active) { active = i; applyStates() }
+    })
+  })
+  document.addEventListener('keydown', (e) => {
+    const rect = stackEl.getBoundingClientRect()
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1) }
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1) }
+  })
+  let touchStartX = null
+  stackEl.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
+  stackEl.addEventListener('touchend',   (e) => {
+    if (touchStartX == null) return
+    const dx = (e.changedTouches[0].clientX - touchStartX)
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1)
+    touchStartX = null
+  }, { passive: true })
+  applyStates()
+}
+initStack(document.querySelector('.dish-stack-section .dish-stack-stage'), document.getElementById('dishStack'),  document.getElementById('dishStackMeta'))
+initStack(document.getElementById('drinkStackStage'),                       document.getElementById('drinkStack'), document.getElementById('drinkStackMeta'))
+
 // subtle futuristic motion: reveal-on-scroll
-const revealTargets = document.querySelectorAll('.menu-section, .item-row, .gallery-card, .feature-grid article, .pdf-links, .contact')
+const revealTargets = document.querySelectorAll('.menu-section, .item-row, .gallery-card, .dish-slide, .feature-grid article, .pdf-links, .contact')
 revealTargets.forEach(el => el.classList.add('reveal'))
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
