@@ -20,7 +20,7 @@ export default function PortfolioGrid() {
       {/* Header */}
       <div className="pgrid-head">
         <div className="pgrid-head-copy">
-          <h2 className="pgrid-h">Hi, I&apos;m O&apos;Neill Myrie!</h2>
+          <h2 className="pgrid-h">Hi, I&apos;m O&apos;Neil Myrie!</h2>
           <p className="pgrid-lede">
             A Daytona Beach hospitality operator turned marketing builder. I help restaurants, bars,
             and local brands look premium and convert: built from a decade running floors and

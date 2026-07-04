@@ -17,7 +17,7 @@ export default function HomeAboutStrip() {
         </Reveal>
         <Parallax speed={0.18}>
           <Reveal delay={0.15}>
-            <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" loading="lazy" decoding="async" />
+            <img src="/assets/profile/myrie.jpg" alt="O'Neil Myrie" className="about-photo" loading="lazy" decoding="async" />
           </Reveal>
         </Parallax>
       </div>

@@ -87,7 +87,7 @@ export default function HomeContact() {
                 <a className="cf-direct" href="tel:+13867958727">(386) 795-8727</a>
               </div>
               <div className="cf-vcard">
-                <img src="/assets/qr-vcard.svg" alt="QR code to save O'Neill Myrie's contact details" className="cf-vcard-qr" width="88" height="88" loading="lazy" />
+                <img src="/assets/qr-vcard.svg" alt="QR code to save O'Neil Myrie's contact details" className="cf-vcard-qr" width="88" height="88" loading="lazy" />
                 <span className="cf-vcard-label">Scan to save<br /><em>my contact</em></span>
               </div>
               {status === 'invalid' && (

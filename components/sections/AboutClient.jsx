@@ -43,7 +43,7 @@ export default function AboutClient() {
 
           <Reveal delay={0.2} className="about-photo-wrap">
             <Parallax speed={0.12}>
-              <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" />
+              <img src="/assets/profile/myrie.jpg" alt="O'Neil Myrie" className="about-photo" />
             </Parallax>
           </Reveal>
         </div>
