@@ -67,8 +67,30 @@ export default function Footer() {
         <span className="ti-foot-bottom-r">{t('footer.bottom_r')}</span>
       </div>
 
+      <div className="ti-foot-watermark" aria-hidden="true">Myrie<em>HQ</em></div>
+
       <style>{`
-        .ti-footer { padding: 0; background: var(--bg-soft); }
+        .ti-footer { padding: 0; background: var(--bg-soft); overflow: hidden; }
+
+        /* Giant sign-off watermark — outlined editorial serif, half-sunk below the fold */
+        .ti-foot-watermark {
+          font-family: var(--font-editorial), Fraunces, Georgia, serif;
+          font-weight: 500;
+          font-size: clamp(4.5rem, 16vw, 15rem);
+          line-height: 0.78;
+          letter-spacing: -0.04em;
+          text-align: center;
+          user-select: none;
+          pointer-events: none;
+          margin-bottom: -0.16em;
+          color: transparent;
+          -webkit-text-stroke: 1px var(--line-2);
+        }
+        .ti-foot-watermark em {
+          font-style: italic;
+          font-weight: 400;
+          -webkit-text-stroke: 1px rgba(176,138,62,0.45);
+        }
         .ti-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.4fr; gap: 48px; padding: 96px 0 64px; }
         .ti-foot-brand-mark { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); transition: opacity .2s ease; }
         .ti-foot-brand-mark:hover { opacity: 0.82; }

@@ -1,6 +1,7 @@
 'use client';
 import Reveal from '../motion/Reveal';
 import { Stagger, StaggerItem } from '../motion/Stagger';
+import TextReveal from '../motion/TextReveal';
 import { useT } from '../../lib/i18n';
 
 export default function HomeProcess() {
@@ -14,7 +15,7 @@ export default function HomeProcess() {
   return (
     <section className="shell block">
       <Reveal><span className="eyebrow">{t('process.eyebrow')}</span></Reveal>
-      <Reveal delay={0.1}><h2 className="tropical-h2">{t('process.headline')}</h2></Reveal>
+      <TextReveal as="h2" inView text={t('process.headline')} className="tropical-h2" />
       <Stagger className="process-grid" stagger={0.08}>
         {processSteps.map((s) => (
           <StaggerItem key={s.step} className="process-step">

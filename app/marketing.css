@@ -10,7 +10,8 @@
    - Clean sans-serif typography. Tight letter-spacing on display. Generous line-height on body.
    - Hairline dividers (1px @ 8% black) instead of decorative wood planks. */
 
-html, body { overflow-x: clip; }
+html, body { overflow-x: clip; margin: 0; padding: 0; }
+html.theme-dark body { background: #0a0a0a; }
 
 /* ==========================================================================
    THEME — light (default) + dark (.theme-dark on <html>)

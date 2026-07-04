@@ -55,7 +55,7 @@ export default function HomeMotionAds() {
         .motion-head { text-align: center; }
         .motion-eyebrow {
           font-family: var(--font-body); font-size: 12px; font-weight: 700;
-          letter-spacing: 0.2em; text-transform: uppercase; color: #7ad0ff;
+          letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm);
         }
         .motion-h2 {
           font-family: var(--font-editorial), Fraunces, Georgia, serif;

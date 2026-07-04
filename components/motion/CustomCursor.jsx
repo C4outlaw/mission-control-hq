@@ -44,7 +44,7 @@ export default function CustomCursor() {
           width: hovering ? 56 : 28,
           height: hovering ? 56 : 28,
           borderRadius: '50%',
-          border: hovering ? '1.5px solid rgba(10,99,255,.7)' : '1.5px solid rgba(15,23,42,.45)',
+          border: hovering ? '1.5px solid rgba(200,158,81,.85)' : '1.5px solid rgba(245,245,245,.5)',
           position: 'fixed', top: 0, left: 0, translateX: '-50%', translateY: '-50%',
           pointerEvents: 'none', zIndex: 99,
           mixBlendMode: 'difference',
@@ -56,7 +56,7 @@ export default function CustomCursor() {
           x, y,
           width: 6, height: 6,
           borderRadius: '50%',
-          background: '#0a63ff',
+          background: '#b08a3e',
           position: 'fixed', top: 0, left: 0, translateX: '-50%', translateY: '-50%',
           pointerEvents: 'none', zIndex: 99,
         }}

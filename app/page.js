@@ -3,7 +3,6 @@ import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
 import HomeShowcase from '../components/sections/HomeShowcase';
 import HomeMotionAds from '../components/sections/HomeMotionAds';
-import HomeFeatured from '../components/sections/HomeFeatured';
 import HomeBundle from '../components/sections/HomeBundle';
 import HomeStats from '../components/sections/HomeStats';
 import HomeMagicApp from '../components/sections/HomeMagicApp';
@@ -12,6 +11,10 @@ import HomeAboutStrip from '../components/sections/HomeAboutStrip';
 import HomeMobileCTA from '../components/sections/HomeMobileCTA';
 import HomeProcess from '../components/sections/HomeProcess';
 import HomeContact from '../components/sections/HomeContact';
+import HomeMarquee from '../components/sections/HomeMarquee';
+import HomePhotoWall from '../components/sections/HomePhotoWall';
+import Atmosphere from '../components/motion/Atmosphere';
+import CustomCursor from '../components/motion/CustomCursor';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
@@ -27,6 +30,8 @@ const localBusinessSchema = {
 export default function HomePage() {
   return (
     <main className="myrie-marketing site">
+      <Atmosphere />
+      <CustomCursor />
       <SiteNav />
 
       <HeroCinematic />
@@ -37,13 +42,16 @@ export default function HomePage() {
       {/* Food transformation first — the strongest "what we do" proof. */}
       <HomeShowcase />
 
+      {/* Proof the photography is ours — parallax wall of raw plate shots. */}
+      <HomePhotoWall />
+
       {/* Menu Magic app next. The app itself is intentionally left untouched. */}
       <HomeMagicApp />
 
       {/* Daily drinks in motion (the single drinks section — no static repeat). */}
       <HomeMotionAds />
 
-      <HomeFeatured />
+      <HomeMarquee />
 
       <HomeBundle />
 

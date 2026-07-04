@@ -1,5 +1,4 @@
 import { Manrope, Fraunces } from "next/font/google";
-import "./globals.css";
 import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
 import ScrollCTA from "../components/layout/ScrollCTA";

@@ -5,19 +5,21 @@ import { motion, useReducedMotion } from 'motion/react';
  * Word-by-word reveal for headline-grade typography.
  * Splits on whitespace; each word is its own motion.span.
  */
-export default function TextReveal({ as: Tag = 'h1', text, delay = 0, stagger = 0.05, className, style }) {
+export default function TextReveal({ as: Tag = 'h1', text, delay = 0, stagger = 0.05, inView = false, className, style }) {
   const reduce = useReducedMotion();
   if (reduce) {
     const Static = Tag;
     return <Static className={className} style={style}>{text}</Static>;
   }
   const MotionTag = motion[Tag] || motion.h1;
+  const trigger = inView
+    ? { initial: 'hidden', whileInView: 'show', viewport: { once: true, amount: 0.6 } }
+    : { initial: 'hidden', animate: 'show' };
   return (
     <MotionTag
       className={className}
       style={{ display: 'inline-block', ...style }}
-      initial="hidden"
-      animate="show"
+      {...trigger}
       variants={{ hidden: {}, show: { transition: { staggerChildren: stagger, delayChildren: delay } } }}
     >
       {String(text).split(' ').map((w, i) => (

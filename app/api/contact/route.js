@@ -28,6 +28,38 @@ export async function POST(req) {
     const to = process.env.CONTACT_TO || 'myriework@gmail.com';
 
     if (!host || !user || !pass) {
+      // No SMTP configured — relay through FormSubmit so inquiries still reach
+      // the inbox. (One-time: FormSubmit emails an activation link to `to` on
+      // the first submission; after that clicks-through automatically.)
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            // FormSubmit requires a web origin; identify as the live site.
+            Origin: 'https://www.myriehq.com',
+            Referer: 'https://www.myriehq.com/',
+          },
+          body: JSON.stringify({
+            _subject: `New website lead — ${name}${restaurant ? ' · ' + restaurant : ''}`,
+            _template: 'table',
+            _captcha: 'false',
+            Name: name,
+            Restaurant: restaurant || '—',
+            Phone: phone || '—',
+            Email: email || '—',
+            Message: message || '—',
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && (data.success === 'true' || data.success === true)) {
+          return Response.json({ ok: true }, { status: 200 });
+        }
+        console.error('[contact] FormSubmit relay declined:', res.status, data.message || data);
+      } catch (err) {
+        console.error('[contact] FormSubmit relay failed:', err?.message);
+      }
       return Response.json({ ok: false, error: 'email-unavailable' }, { status: 200 });
     }
 

@@ -1,6 +1,6 @@
 'use client';
 import { useRef, useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import Magnetic from '../motion/Magnetic';
 import { useT } from '../../lib/i18n';
 
@@ -11,7 +11,16 @@ import { useT } from '../../lib/i18n';
 export default function HeroCinematic() {
   const { t } = useT();
   const videoRef = useRef(null);
+  const sectionRef = useRef(null);
   const [videoOk, setVideoOk] = useState(true);
+  const reduce = useReducedMotion();
+
+  // Scroll-linked depth: the scene slowly pushes in and sinks as you leave it,
+  // so the hero feels like a physical room you scroll out of.
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+  const bgScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 1.08]);
+  const bgY = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['0%', '10%']);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.65, 1], reduce ? [1, 1, 1] : [1, 1, 0.5]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -27,8 +36,12 @@ export default function HeroCinematic() {
   }, []);
 
   return (
-    <section className="hero-cinematic" aria-labelledby="hero-title">
-      <div className="hero-bg hero-bg-3d-scene" aria-hidden="true">
+    <section ref={sectionRef} className="hero-cinematic" aria-labelledby="hero-title">
+      <motion.div
+        className="hero-bg hero-bg-3d-scene"
+        aria-hidden="true"
+        style={{ scale: bgScale, y: bgY, opacity: bgOpacity, willChange: 'transform' }}
+      >
         <video
           ref={videoRef}
           className="hero-bg-3d-scene-video"
@@ -54,7 +67,7 @@ export default function HeroCinematic() {
           aria-hidden="true"
         />
         <div className="hero-bg-veil" />
-      </div>
+      </motion.div>
 
       <div className="hero-cinematic-grid">
         <motion.span

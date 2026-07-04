@@ -45,6 +45,23 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.85,
     },
-
+    {
+      url: `${base}/projects`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/projects/beach-bucket-design`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${base}/projects/beach-bucket-website`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
   ];
 }

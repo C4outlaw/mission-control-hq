@@ -1,5 +1,7 @@
 'use client';
 import Reveal from '../motion/Reveal';
+import TextReveal from '../motion/TextReveal';
+import Parallax from '../motion/Parallax';
 import { useT } from '../../lib/i18n';
 
 export default function HomeAboutStrip() {
@@ -9,13 +11,15 @@ export default function HomeAboutStrip() {
       <Reveal><span className="eyebrow">{t('home_about.eyebrow')}</span></Reveal>
       <div className="about-grid">
         <Reveal>
-          <h2 className="tropical-h2">{t('home_about.headline')}</h2>
+          <TextReveal as="h2" inView text={t('home_about.headline')} className="tropical-h2" />
           <p className="lead about-lead">{t('home_about.lede')}</p>
           <a className="link-arrow" href="/about">{t('home_about.cta')}</a>
         </Reveal>
-        <Reveal delay={0.15}>
-          <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" />
-        </Reveal>
+        <Parallax speed={0.18}>
+          <Reveal delay={0.15}>
+            <img src="/assets/profile/myrie.jpg" alt="O'Neill Myrie" className="about-photo" loading="lazy" decoding="async" />
+          </Reveal>
+        </Parallax>
       </div>
     </section>
   );

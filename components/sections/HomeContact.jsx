@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Reveal from '../motion/Reveal';
 import Magnetic from '../motion/Magnetic';
+import TextReveal from '../motion/TextReveal';
 import { useT } from '../../lib/i18n';
 
 export default function HomeContact() {
@@ -34,7 +35,7 @@ export default function HomeContact() {
   return (
     <section id="contact" className="contact-block">
       <div className="shell contact-inner">
-        <Reveal><h2 className="tropical-h2 contact-title">{t('contact.headline')}</h2></Reveal>
+        <TextReveal as="h2" inView text={t('contact.headline')} className="tropical-h2 contact-title" />
         <Reveal delay={0.1}><p className="lead contact-sub">{t('contact.sub')}</p></Reveal>
         <Reveal delay={0.15}>
           <p className="contact-reassure">Free strategy call · No contracts · First results in 30 days</p>

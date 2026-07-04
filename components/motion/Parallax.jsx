@@ -12,7 +12,7 @@ export default function Parallax({ children, speed = 0.25, className, style, ...
   const reduce = useReducedMotion();
   const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [speed * 80, -speed * 80]);
   return (
-    <motion.div ref={ref} style={{ y, ...style }} className={className} {...rest}>
+    <motion.div ref={ref} style={{ position: 'relative', y, ...style }} className={className} {...rest}>
       {children}
     </motion.div>
   );

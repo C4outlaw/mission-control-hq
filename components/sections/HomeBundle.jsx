@@ -85,8 +85,20 @@ export default function HomeBundle() {
           background: var(--bg-card);
           padding: 30px 30px 34px;
           transition: background .25s ease;
+          position: relative;
+        }
+        .bundle-item::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, var(--warm), rgba(200,158,81,0.35));
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform .5s cubic-bezier(.22,1,.36,1);
         }
         .bundle-item:hover { background: var(--bg-soft); }
+        .bundle-item:hover::before { transform: scaleX(1); }
         .bundle-num {
           font-family: var(--font-body); font-size: 12px; font-weight: 700;
           letter-spacing: 0.2em; color: var(--warm);

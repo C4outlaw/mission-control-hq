@@ -1,6 +1,8 @@
 'use client';
 import Reveal from '../motion/Reveal';
 import { Stagger, StaggerItem } from '../motion/Stagger';
+import TextReveal from '../motion/TextReveal';
+import Tilt from '../motion/Tilt';
 import { useT } from '../../lib/i18n';
 
 export default function HomeFeatured() {
@@ -31,21 +33,23 @@ export default function HomeFeatured() {
   return (
     <section className="shell block">
       <Reveal><span className="eyebrow">{t('featured.eyebrow')}</span></Reveal>
-      <Reveal delay={0.1}>
-        <h2 className="tropical-h2">{t('featured.headline')}</h2>
-      </Reveal>
+      <TextReveal as="h2" inView text={t('featured.headline')} className="tropical-h2" />
       <Stagger className="featured-grid" stagger={0.1}>
         {featured.map((item) => (
-          <StaggerItem as="article" key={item.title} className="feature-card">
-            <a href={item.href} className="feature-link">
-              <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
-              <div className="feature-body">
-                <span className="feature-tag">{item.tag}</span>
-                <h3 className="feature-title">{item.title}</h3>
-                <p>{item.copy}</p>
-                <span className="feature-arrow">{item.label} →</span>
-              </div>
-            </a>
+          <StaggerItem as="div" key={item.title}>
+            <Tilt max={5} radius={24} style={{ height: '100%' }}>
+              <article className="feature-card">
+                <a href={item.href} className="feature-link">
+                  <div className="thumb" style={{ backgroundImage: `url(${item.image})` }} />
+                  <div className="feature-body">
+                    <span className="feature-tag">{item.tag}</span>
+                    <h3 className="feature-title">{item.title}</h3>
+                    <p>{item.copy}</p>
+                    <span className="feature-arrow">{item.label} →</span>
+                  </div>
+                </a>
+              </article>
+            </Tilt>
           </StaggerItem>
         ))}
       </Stagger>
