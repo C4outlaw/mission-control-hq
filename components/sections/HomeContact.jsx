@@ -19,14 +19,27 @@ export default function HomeContact() {
       setStatus('invalid'); return;
     }
     setStatus('sending');
+    // Submit straight from the visitor's browser to Web3Forms (delivers to
+    // myriework@gmail.com). Client-side by design — Web3Forms blocks server
+    // relays, and the access key is a public key meant for client code.
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '1f2bdd1e-cf15-499f-9e78-1d3895dbcd12',
+          subject: `New website lead — ${form.name}${form.restaurant ? ' · ' + form.restaurant : ''}`,
+          from_name: 'MyrieHQ.com',
+          botcheck: form.company, // honeypot: Web3Forms drops if filled
+          name: form.name,
+          restaurant: form.restaurant || '—',
+          phone: form.phone || '—',
+          email: form.email || '—',
+          message: form.message || '—',
+        }),
       });
-      const data = await res.json().catch(() => ({ ok: false }));
-      setStatus(data.ok ? 'done' : 'failed');
+      const data = await res.json().catch(() => ({ success: false }));
+      setStatus(data.success ? 'done' : 'failed');
     } catch {
       setStatus('failed');
     }
