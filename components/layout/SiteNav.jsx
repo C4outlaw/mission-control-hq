@@ -32,6 +32,7 @@ export default function SiteNav({ links }) {
     { href: '/#bundle',    label: t('nav.services') },
     { href: '/projects',   label: t('nav.portfolio') },
     { href: '/about',      label: t('nav.about') },
+    { href: '/schedule',   label: t('nav.schedule') },
   ];
 
   return (
