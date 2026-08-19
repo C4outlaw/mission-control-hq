@@ -64,3 +64,7 @@ dev.err
 # Local style backups not needed in production
 /app/_archive/
 
+
+# Paid pack files — must never be committed or served from public/
+private/
+.env.local
