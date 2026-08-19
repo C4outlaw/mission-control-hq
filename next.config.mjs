@@ -1,7 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   poweredByHeader: false,
   compress: true,
+  // Serverless functions must not drag the whole repo into their bundle: the
+  // Beach Bucket build and public assets alone are ~3 GB, which blew past
+  // Vercel's 250 MB function limit. Only the download/webhook routes need the
+  // (tiny) paid pack files.
+  outputFileTracingExcludes: {
+    '*': ['beachbucket-site/**', 'public/**', 'branding/**', 'posts/**', '.git/**'],
+  },
+  outputFileTracingIncludes: {
+    '/api/download': ['packs-enc/**'],
+  },
   async headers() {
     return [
       {
