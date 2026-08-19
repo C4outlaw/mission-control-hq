@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { BASE, byId } from '../../../lib/prompt-packs';
+import { BASE, byId, packById, PACKS } from '../../../lib/prompt-packs';
 
 export const runtime = 'nodejs';
 
@@ -9,7 +9,8 @@ export async function POST(req) {
     if (!key) return Response.json({ error: 'Stripe is not configured' }, { status: 500 });
     const stripe = new Stripe(key);
 
-    const { addons = [], amount } = await req.json().catch(() => ({}));
+    const { addons = [], amount, packId } = await req.json().catch(() => ({}));
+    const pack = packById(packId) || PACKS[0];
     const origin =
       process.env.NEXT_PUBLIC_SITE_URL || req.headers.get('origin') || 'https://myriehq.com';
 
@@ -24,7 +25,7 @@ export async function POST(req) {
         price_data: {
           currency: 'usd',
           unit_amount: unit,
-          product_data: { name: BASE.name, description: BASE.blurb.slice(0, 300) },
+          product_data: { name: pack.name, description: pack.blurb.slice(0, 300) },
         },
       },
     ];
@@ -49,7 +50,7 @@ export async function POST(req) {
       line_items,
       // Stripe collects the email; fulfilment mails the download link there.
       customer_creation: 'always',
-      metadata: { addons: picked.join(','), product: 'prompt-pack' },
+      metadata: { addons: picked.join(','), product: 'prompt-pack', packId: pack.id },
       success_url: `${origin}/prompts/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/prompts?cancelled=1`,
     });

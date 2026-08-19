@@ -2,7 +2,7 @@ import Stripe from 'stripe';
 import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
-import { BASE, byId, signGrant } from '../../../lib/prompt-packs';
+import { byId, packById, PACKS, signGrant } from '../../../lib/prompt-packs';
 
 export const runtime = 'nodejs';
 // Stripe signs the raw body, so it must not be parsed or re-encoded before verification.
@@ -58,7 +58,8 @@ export async function POST(req) {
   }
 
   // One signed link per file so each download stands alone.
-  const files = [BASE.file, ...addons.map((id) => byId(id)?.file).filter(Boolean)];
+  const pack = packById(session.metadata?.packId) || PACKS[0];
+  const files = [pack.file, ...addons.map((id) => byId(id)?.file).filter(Boolean)];
   const links = files.map((file) => ({
     file,
     url: `${origin}/api/download?t=${encodeURIComponent(signGrant({ sid: session.id, file, email }))}`,
