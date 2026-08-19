@@ -56,7 +56,7 @@ export default function PromptsPage() {
         .gr-buy:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #000!important}
         .gr-addon{transition:transform .15s,box-shadow .15s,background .15s;cursor:pointer}
         .gr-addon:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #000!important}
-        .pk{transition:transform .15s,box-shadow .15s;cursor:pointer;scroll-snap-align:start;flex:0 0 232px}
+        .pk{transition:transform .15s,box-shadow .15s;cursor:pointer;scroll-snap-align:start;flex:0 0 208px}
         .pk:hover{transform:translate(-3px,-3px)}
         .rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;-webkit-overflow-scrolling:touch}
         .rail::-webkit-scrollbar{height:10px}
@@ -99,7 +99,7 @@ export default function PromptsPage() {
                   boxShadow: on ? '6px 6px 0 #FF90E8' : '4px 4px 0 #000', overflow: 'hidden', font: 'inherit',
                 }}
               >
-                <img src={p.cover} alt={`${p.subject} prompt pack cover`} width={600} height={536}
+                <img src={p.cover} alt={`${p.subject} prompt pack cover`} width={540} height={960}
                      style={{ display: 'block', width: '100%', height: 'auto', borderBottom: '3px solid #000' }} />
                 <div style={{ padding: '10px 12px 12px' }}>
                   <div style={{ fontWeight: 900, fontSize: 17 }}>{p.subject}</div>
