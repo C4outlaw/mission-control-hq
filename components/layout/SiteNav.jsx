@@ -30,6 +30,7 @@ export default function SiteNav({ links }) {
     { href: '/#showcase',  label: t('nav.work') },
     { href: '/#try-app',   label: t('nav.magic_menu') },
     { href: '/#bundle',    label: t('nav.services') },
+    { href: '/prompts',    label: 'Prompt Packs' },
     { href: '/projects',   label: t('nav.portfolio') },
     { href: '/about',      label: t('nav.about') },
   ];

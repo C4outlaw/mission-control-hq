@@ -2,6 +2,7 @@ import Footer from '../components/layout/Footer';
 import SiteNav from '../components/layout/SiteNav';
 import HeroCinematic from '../components/sections/HeroCinematic';
 import HomeShowcase from '../components/sections/HomeShowcase';
+import HomePromptPacks from '../components/sections/HomePromptPacks';
 import HomeMotionAds from '../components/sections/HomeMotionAds';
 import HomeFeatured from '../components/sections/HomeFeatured';
 import HomeBundle from '../components/sections/HomeBundle';
@@ -36,6 +37,9 @@ export default function HomePage() {
 
       {/* Food transformation first — the strongest "what we do" proof. */}
       <HomeShowcase />
+
+      {/* Prompt Packs digital product promo */}
+      <HomePromptPacks />
 
       {/* Menu Magic app next. The app itself is intentionally left untouched. */}
       <HomeMagicApp />
