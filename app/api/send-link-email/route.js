@@ -26,8 +26,8 @@ export async function POST(req) {
     await transporter.sendMail({
       from,
       to,
-      subject: 'Mission Control Link',
-      text: `Here is your Mission Control link:\n\n${link}`,
+      subject: 'Marvin Room Link',
+      text: `Here is your Marvin Room link:\n\n${link}`,
     });
 
     return Response.json({ ok: true, to, link }, { status: 200 });

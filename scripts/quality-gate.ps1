@@ -1,5 +1,5 @@
 param(
-  [string]$ProjectPath = "C:\Users\email\.openclaw\workspace\mission-control"
+  [string]$ProjectPath = "C:\Users\email\.openclaw\workspace\marvin-room"
 )
 
 $ErrorActionPreference = 'Stop'

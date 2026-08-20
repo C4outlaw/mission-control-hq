@@ -3,7 +3,7 @@ const path = require('path');
 const { spawn } = require('child_process');
 
 const isDev = !app.isPackaged;
-const PORT = process.env.MISSION_CONTROL_PORT || 3002;
+const PORT = process.env.MARVIN_ROOM_PORT || 3002;
 let serverProcess;
 
 function startNextServer() {
@@ -49,7 +49,7 @@ app.whenReady().then(async () => {
     await startNextServer();
     createWindow();
   } catch (e) {
-    console.error('Failed to start Mission Control app:', e);
+    console.error('Failed to start Marvin Room app:', e);
     app.quit();
   }
 });

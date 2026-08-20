@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arepita Beach — concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --teal:#0e6b6b; --coral:#ff6b3d; --sun:#ffb43d; --cream:#fff8ef; --ink:#1d2424; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,.brand{font-family:Poppins,sans-serif}
+  /* NAV */
+  nav{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 36px}
+  .brand{font-weight:800;font-size:23px;color:#fff;letter-spacing:-.01em}
+  .brand b{color:var(--sun)}
+  .links{display:flex;gap:26px;align-items:center}
+  .links a{color:rgba(255,255,255,.92);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.04em}
+  .order{background:var(--coral);color:#fff;padding:11px 20px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  /* HERO */
+  .hero{position:relative;height:86vh;min-height:580px;display:flex;align-items:center;overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,46,46,.9) 0%,rgba(14,46,46,.62) 50%,rgba(14,46,46,.2) 100%)}
+  .hero-c{position:relative;z-index:2;color:#fff}
+  .ddd{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:#3a2400;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:999px}
+  h1{font-weight:800;font-size:clamp(38px,5.8vw,72px);line-height:1.03;letter-spacing:-.02em;margin:18px 0 16px;max-width:15ch}
+  .sub{font-size:18px;color:rgba(255,255,255,.9);max-width:46ch;line-height:1.55}
+  .cta{display:flex;gap:14px;margin-top:32px}
+  .btn{padding:16px 30px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none}
+  .btn.p{background:var(--coral);color:#fff}
+  .btn.s{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+  .strip{display:flex;gap:38px;margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
+  .strip b{display:block;font-family:Poppins;font-size:24px;color:#fff;font-weight:700}
+  .strip div{font-size:13px;color:rgba(255,255,255,.8)}
+  /* MENU */
+  .sec{padding:78px 0}
+  .shead{text-align:center;margin-bottom:40px}
+  .shead .eye{color:var(--coral);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:13px}
+  .shead h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.02em;margin-top:8px;color:var(--teal)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border:1px solid rgba(14,107,107,.12);border-radius:20px;overflow:hidden;box-shadow:0 18px 40px rgba(14,46,46,.08)}
+  .card img{width:100%;height:200px;object-fit:cover;display:block}
+  .card .b{padding:20px 22px 24px}
+  .card h3{font-size:21px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+  .card p{color:#5b6565;font-size:14px;line-height:1.5}
+  .tag{display:inline-block;margin-top:14px;background:rgba(255,107,61,.12);color:var(--coral);font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px}
+  /* BAND */
+  .band{background:var(--teal);color:#fff;text-align:center;padding:64px 0}
+  .band h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.01em}
+  .band p{color:rgba(255,255,255,.85);margin:14px auto 26px;max-width:52ch;font-size:17px}
+  .ribbon{position:fixed;top:14px;right:14px;background:#1f6feb;color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 14px;border-radius:8px;z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+</style>
+</head>
+<body>
+  <div class="ribbon">CONCEPT MOCKUP · Myrie HQ</div>
+  <nav>
+    <div class="brand">Arepita <b>Beach</b></div>
+    <div class="links">
+      <a href="#">Menu</a><a href="#">Arepas</a><a href="#">Empanadas</a><a href="#">Catering</a><a href="#">Visit</a>
+      <a href="#" class="order">Order Online</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <img src="hero.jpg" alt="">
+    <div class="wrap hero-c">
+      <span class="ddd">★ As seen on Diners, Drive-Ins &amp; Dives</span>
+      <h1>A taste of Venezuela on Beach Street.</h1>
+      <p class="sub">Hand-pressed arepas, golden empanadas, and tequeños — 100% gluten-free, made fresh daily in the heart of downtown Daytona.</p>
+      <div class="cta">
+        <a href="#" class="btn p">Order Online</a>
+        <a href="#" class="btn s">See the Menu</a>
+      </div>
+      <div class="strip">
+        <div><b>★ DDD</b> Featured on Food Network</div>
+        <div><b>100%</b> gluten-free arepas</div>
+        <div><b>Beach St</b> Downtown Daytona</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="shead"><div class="eye">Fan Favorites</div><h2>Straight from the griddle</h2></div>
+      <div class="grid">
+        <div class="card"><img src="d1.jpg" alt=""><div class="b"><h3>Pabellón Arepa</h3><p>Shredded beef, black beans, sweet plantain &amp; queso.</p><span class="tag">Most popular</span></div></div>
+        <div class="card"><img src="d2.jpg" alt=""><div class="b"><h3>Empanadas</h3><p>Crispy corn pockets — beef, cheese, or chicken.</p><span class="tag">Gluten-free</span></div></div>
+        <div class="card"><img src="d3.jpg" alt=""><div class="b"><h3>Tequeños</h3><p>Golden cheese sticks wrapped in house dough.</p><span class="tag">Guy's pick</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Order ahead. Skip the line.</h2>
+      <p>Your own online ordering — no third-party fees eating your margin. Plus daily specials that post themselves to Instagram &amp; Facebook every morning.</p>
+      <a href="#" class="btn p" style="display:inline-block;background:var(--sun);color:#3a2400">Start an Order</a>
+    </div>
+  </section>
+</body>
+</html>

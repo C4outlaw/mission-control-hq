@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/mission-control', '/api/'],
+        disallow: ['/marvin-room', '/api/'],
       },
     ],
     sitemap: 'https://www.myriehq.com/sitemap.xml',
