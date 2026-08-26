@@ -150,14 +150,17 @@ export default function StoreClient() {
   const welcomeRef = useRef(null);
 
   function toggleWelcome() {
-    let a = welcomeRef.current;
-    if (!a) {
-      a = new Audio('/store/welcome.m4a');
-      a.onended = () => setWelcomePlaying(false);
-      welcomeRef.current = a;
+    const v = document.querySelector('.tls-hero-media video');
+    if (!v) return;
+    if (v.muted) {
+      v.muted = false;
+      v.currentTime = 0;
+      v.play();
+      setWelcomePlaying(true);
+    } else {
+      v.muted = true;
+      setWelcomePlaying(false);
     }
-    if (welcomePlaying) { a.pause(); a.currentTime = 0; setWelcomePlaying(false); }
-    else { a.play(); setWelcomePlaying(true); }
   }
 
   const f = FILTERS.find((x) => x.id === filter) || FILTERS[0];
@@ -239,7 +242,7 @@ export default function StoreClient() {
           <div className="tls-hero-foot" style={{ marginTop: 'clamp(220px, 38vh, 420px)' }}>
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
-                {welcomePlaying ? '◼ Playing…' : '🔊 Hear di welcome'}
+                {welcomePlaying ? '🔇 Mute' : '🔊 Hear di welcome'}
               </button>
               <a href="#collection" className="tls-link">The Collection</a>
               <a href="#courses" className="tls-link">The Courses</a>
