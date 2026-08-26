@@ -4,7 +4,7 @@
     "neverlose-tee": {
       "id": "6a8e9d2ac8bbfbf73f07306f",
       "title": "NEVER LOSE Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "neverlose",
       "variants": [
@@ -33,7 +33,7 @@
     "neverlose-wtee": {
       "id": "6a8e9d3216ce1e80170f98d5",
       "title": "NEVER LOSE Women's Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "wtee",
       "design": "neverlose",
       "variants": [
@@ -62,7 +62,7 @@
     "neverlose-tank": {
       "id": "6a8e9d3516ce1e80170f98d9",
       "title": "NEVER LOSE Tank",
-      "price": 2699,
+      "price": 2299,
       "kind": "tank",
       "design": "neverlose",
       "variants": [
@@ -91,7 +91,7 @@
     "neverlose-wtank": {
       "id": "6a8e9d38c8bbfbf73f073087",
       "title": "NEVER LOSE Women's Racerback Tank",
-      "price": 3999,
+      "price": 3699,
       "kind": "wtank",
       "design": "neverlose",
       "variants": [
@@ -112,7 +112,7 @@
     "neverlose-hoodie": {
       "id": "6a8e9d3a16ce1e80170f98df",
       "title": "NEVER LOSE Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "neverlose",
       "variants": [
@@ -141,7 +141,7 @@
     "neverlose-crew": {
       "id": "6a8e9d3ec8bbfbf73f073093",
       "title": "NEVER LOSE Crewneck",
-      "price": 3699,
+      "price": 2699,
       "kind": "crew",
       "design": "neverlose",
       "variants": [
@@ -170,7 +170,7 @@
     "neverlose-mug": {
       "id": "6a8e9d437c093e4a9f0ecb7b",
       "title": "NEVER LOSE Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "neverlose",
       "variants": [
@@ -183,7 +183,7 @@
     "money-tee": {
       "id": "6a8e9d456b81fb3d9109fb37",
       "title": "More Money Than Last Year Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "money",
       "variants": [
@@ -212,7 +212,7 @@
     "money-wtee": {
       "id": "6a8e9d4dc8bbfbf73f07309a",
       "title": "More Money Than Last Year Women's Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "wtee",
       "design": "money",
       "variants": [
@@ -241,7 +241,7 @@
     "money-hoodie": {
       "id": "6a8e9d50c8aa551d1005d78c",
       "title": "More Money Than Last Year Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "money",
       "variants": [
@@ -270,7 +270,7 @@
     "money-crew": {
       "id": "6a8e9d5316ce1e80170f98f8",
       "title": "More Money Than Last Year Crewneck",
-      "price": 3699,
+      "price": 2699,
       "kind": "crew",
       "design": "money",
       "variants": [
@@ -299,7 +299,7 @@
     "money-mug": {
       "id": "6a8e9d577c093e4a9f0ecb96",
       "title": "More Money Than Last Year Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "money",
       "variants": [
@@ -312,7 +312,7 @@
     "wahgwaan-tee": {
       "id": "6a8e9d59c8bbfbf73f0730bd",
       "title": "Wah Gwaan Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "wahgwaan",
       "variants": [
@@ -341,7 +341,7 @@
     "wahgwaan-wtee": {
       "id": "6a8e9d61c8aa551d1005d7c3",
       "title": "Wah Gwaan Women's Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "wtee",
       "design": "wahgwaan",
       "variants": [
@@ -370,7 +370,7 @@
     "wahgwaan-hoodie": {
       "id": "6a8e9d647c093e4a9f0ecbb5",
       "title": "Wah Gwaan Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "wahgwaan",
       "variants": [
@@ -399,7 +399,7 @@
     "wahgwaan-mug": {
       "id": "6a8e9d6816ce1e80170f9937",
       "title": "Wah Gwaan Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "wahgwaan",
       "variants": [
@@ -412,7 +412,7 @@
     "notperfect-tee": {
       "id": "6a8e9d6a7c093e4a9f0ecbc2",
       "title": "Not Perfect But Jamaican Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "notperfect",
       "variants": [
@@ -441,7 +441,7 @@
     "notperfect-wtee": {
       "id": "6a8e9d727c093e4a9f0ecbca",
       "title": "Not Perfect But Jamaican Women's Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "wtee",
       "design": "notperfect",
       "variants": [
@@ -470,7 +470,7 @@
     "notperfect-hoodie": {
       "id": "6a8e9d75dce354694c0e1fa9",
       "title": "Not Perfect But Jamaican Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "notperfect",
       "variants": [
@@ -499,7 +499,7 @@
     "notperfect-mug": {
       "id": "6a8e9d787c093e4a9f0ecbce",
       "title": "Not Perfect But Jamaican Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "notperfect",
       "variants": [
@@ -512,7 +512,7 @@
     "tallawah-tee": {
       "id": "6a8e9d7bdce354694c0e1fac",
       "title": "Likkle But Tallawah Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "tallawah",
       "variants": [
@@ -541,7 +541,7 @@
     "tallawah-wtee": {
       "id": "6a8e9d837c093e4a9f0ecbd9",
       "title": "Likkle But Tallawah Women's Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "wtee",
       "design": "tallawah",
       "variants": [
@@ -570,7 +570,7 @@
     "tallawah-hoodie": {
       "id": "6a8e9d867c093e4a9f0ecbde",
       "title": "Likkle But Tallawah Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "tallawah",
       "variants": [
@@ -599,7 +599,7 @@
     "tallawah-mug": {
       "id": "6a8e9d8a16ce1e80170f9951",
       "title": "Likkle But Tallawah Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "tallawah",
       "variants": [
@@ -612,7 +612,7 @@
     "area876-tee": {
       "id": "6a8e9d8c7c093e4a9f0ecbe8",
       "title": "876 Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "area876",
       "variants": [
@@ -641,7 +641,7 @@
     "area876-hoodie": {
       "id": "6a8e9d94c8bbfbf73f07310f",
       "title": "876 Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "area876",
       "variants": [
@@ -670,7 +670,7 @@
     "area876-mug": {
       "id": "6a8e9d977c093e4a9f0ecbee",
       "title": "876 Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "area876",
       "variants": [
@@ -683,7 +683,7 @@
     "xmark-tee": {
       "id": "6a8e9d9ac8aa551d1005d7f4",
       "title": "The Lost Jamaican X Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "xmark",
       "variants": [
@@ -712,7 +712,7 @@
     "xmark-hoodie": {
       "id": "6a8e9da1dce354694c0e1fc2",
       "title": "The Lost Jamaican X Hoodie",
-      "price": 4499,
+      "price": 2999,
       "kind": "hoodie",
       "design": "xmark",
       "variants": [
@@ -741,7 +741,7 @@
     "xmark-mug": {
       "id": "6a8e9da57c093e4a9f0ecbfd",
       "title": "The Lost Jamaican X Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "xmark",
       "variants": [
@@ -754,7 +754,7 @@
     "believe-mug": {
       "id": "6a8e9da7c8bbfbf73f07312d",
       "title": "Believe Inna Yuhself Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "believe",
       "variants": [
@@ -767,7 +767,7 @@
     "canthear-mug": {
       "id": "6a8e9da9c8bbfbf73f07312e",
       "title": "Who Can't Hear Will Feel Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "canthear",
       "variants": [
@@ -780,7 +780,7 @@
     "bomboclaat-mug": {
       "id": "6a8e9dabc8aa551d1005d807",
       "title": "Bomboclaat Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "bomboclaat",
       "variants": [
@@ -793,7 +793,7 @@
     "cho-tee": {
       "id": "6a8ea3777c093e4a9f0ed11f",
       "title": "Cho! Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "cho",
       "variants": [
@@ -822,7 +822,7 @@
     "cho-mug": {
       "id": "6a8ea37ec8bbfbf73f0735e6",
       "title": "Cho! Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "cho",
       "variants": [
@@ -835,7 +835,7 @@
     "rhaatid-tee": {
       "id": "6a8ea3836b81fb3d9109ff29",
       "title": "Rhaatid! Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "rhaatid",
       "variants": [
@@ -864,7 +864,7 @@
     "rhaatid-mug": {
       "id": "6a8ea38a16ce1e80170f9de0",
       "title": "Rhaatid! Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "rhaatid",
       "variants": [
@@ -877,7 +877,7 @@
     "sooncome-tee": {
       "id": "6a8ea38f16ce1e80170f9de6",
       "title": "Soon Come Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "sooncome",
       "variants": [
@@ -906,7 +906,7 @@
     "sooncome-mug": {
       "id": "6a8ea397dce354694c0e23ef",
       "title": "Soon Come Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "sooncome",
       "variants": [
@@ -919,7 +919,7 @@
     "dunkno-tee": {
       "id": "6a8ea39cc8bbfbf73f0735fc",
       "title": "Dun Kno Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "dunkno",
       "variants": [
@@ -948,7 +948,7 @@
     "dunkno-mug": {
       "id": "6a8ea3a27c093e4a9f0ed154",
       "title": "Dun Kno Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "dunkno",
       "variants": [
@@ -961,7 +961,7 @@
     "kissmiteeth-tee": {
       "id": "6a8ea3a76b81fb3d9109ff4b",
       "title": "Kiss Mi Teeth Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "kissmiteeth",
       "variants": [
@@ -990,7 +990,7 @@
     "kissmiteeth-mug": {
       "id": "6a8ea3ae16ce1e80170f9dfc",
       "title": "Kiss Mi Teeth Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "kissmiteeth",
       "variants": [
@@ -1003,7 +1003,7 @@
     "walkgood-tee": {
       "id": "6a8ea3b27c093e4a9f0ed15c",
       "title": "Walk Good Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "walkgood",
       "variants": [
@@ -1032,7 +1032,7 @@
     "walkgood-mug": {
       "id": "6a8ea3b9c8aa551d1005dc23",
       "title": "Walk Good Mug",
-      "price": 1899,
+      "price": 1299,
       "kind": "mug",
       "design": "walkgood",
       "variants": [
@@ -1045,7 +1045,7 @@
     "believe-tee": {
       "id": "6a8ecd486b81fb3d910a294e",
       "title": "Believe Inna Yuhself Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "believe",
       "variants": [
@@ -1074,7 +1074,7 @@
     "canthear-tee": {
       "id": "6a8ecd556b81fb3d910a2957",
       "title": "Who Can't Hear Will Feel Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "canthear",
       "variants": [
@@ -1103,7 +1103,7 @@
     "bomboclaat-tee": {
       "id": "6a8ecd5f16ce1e80170fc823",
       "title": "Bomboclaat Tee",
-      "price": 2999,
+      "price": 1999,
       "kind": "tee",
       "design": "bomboclaat",
       "variants": [

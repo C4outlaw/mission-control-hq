@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path');
 const map = require('../lib/printify-map.json');
 const H = { Authorization: 'Bearer ' + process.env.PRINTIFY_API_TOKEN, 'Content-Type': 'application/json' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-const PRICE = { tee: 2999, wtee: 2999, tank: 2699, wtank: 3999, crew: 3699, hoodie: 4499, mug: 1899 };
+const PRICE = { tee: 1999, wtee: 1999, tank: 2299, wtank: 3699, crew: 2699, hoodie: 2999, mug: 1299 };
 (async () => {
   for (const [key, p] of Object.entries(map.products)) {
     const want = PRICE[p.kind];
