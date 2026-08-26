@@ -265,7 +265,7 @@ export default function StoreClient() {
             <div>
               <span className="tls-mono">( 01 — The Flagships )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                More money. <em>Never lose.</em>
+                More money than last year. <em>We never lose.</em>
               </h2>
             </div>
             <span className="tls-mono">The pieces we stand on</span>
