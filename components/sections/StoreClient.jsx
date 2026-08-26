@@ -235,10 +235,6 @@ export default function StoreClient() {
           )}
         </div>
         <div className="tls-shell tls-hero-inner">
-          <div className="tls-hero-top">
-            <span className="tls-mono">( The Lost Jamaican )</span>
-            <span className="tls-mono">Kingston / Daytona — {new Date().getFullYear()}</span>
-          </div>
           <div className="tls-hero-foot" style={{ marginTop: 'clamp(220px, 38vh, 420px)' }}>
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
