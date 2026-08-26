@@ -26,9 +26,6 @@ export const metadata = {
     'local SEO Orlando',
     'Myrie HQ',
   ],
-  alternates: {
-    canonical: 'https://www.myriehq.com',
-  },
   openGraph: {
     type: 'website',
     url: 'https://www.myriehq.com',

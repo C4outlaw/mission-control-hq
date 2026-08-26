@@ -8,6 +8,5 @@ export default function robots() {
       },
     ],
     sitemap: 'https://www.myriehq.com/sitemap.xml',
-    host: 'https://www.myriehq.com',
   };
 }

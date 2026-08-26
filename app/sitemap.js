@@ -45,6 +45,30 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.85,
     },
+    {
+      url: `${base}/store`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/prompts`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${base}/projects`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${base}/agency`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
 
   ];
 }
