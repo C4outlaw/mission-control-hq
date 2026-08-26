@@ -27,9 +27,9 @@ export default function SiteNav({ links }) {
   }, [menuOpen]);
 
   const items = links || [
-    { href: '/#showcase',  label: t('nav.work') },
-    { href: '/#try-app',   label: t('nav.magic_menu') },
-    { href: '/#bundle',    label: t('nav.services') },
+    { href: '/agency#showcase',  label: t('nav.work') },
+    { href: '/agency#try-app',   label: t('nav.magic_menu') },
+    { href: '/agency#bundle',    label: t('nav.services') },
     { href: '/store',      label: 'THE STORE', className: 'nav-store' },
     { href: '/prompts',    label: 'Prompt Packs' },
     { href: '/projects',   label: t('nav.portfolio') },
