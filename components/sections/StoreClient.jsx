@@ -236,16 +236,7 @@ export default function StoreClient() {
             <span className="tls-mono">( The Lost Jamaican )</span>
             <span className="tls-mono">Kingston / Daytona — {new Date().getFullYear()}</span>
           </div>
-          <Reveal>
-            <h1 className="tls-display">
-              Anybody can print a shirt. We prefer <em>meaning</em>.
-            </h1>
-          </Reveal>
-          <div className="tls-hero-foot">
-            <p className="tls-lede">
-              Every piece carries a phrase Jamaicans actually live by, set in type worth keeping.
-              Black on black, gold where it counts — printed to order and shipped worldwide.
-            </p>
+          <div className="tls-hero-foot" style={{ marginTop: 'clamp(220px, 38vh, 420px)' }}>
             <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
                 {welcomePlaying ? '◼ Playing…' : '🔊 Hear di welcome'}
