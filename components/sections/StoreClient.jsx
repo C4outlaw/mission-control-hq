@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { PRODUCTS, GROUPS, money } from '../../lib/store-products';
+import { DESIGN_GROUPS, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 
 const pad = (n) => String(n).padStart(2, '0');
@@ -11,8 +11,15 @@ const PHRASES = [
   'Wah Gwaan',
   'Likkle But Tallawah',
   "Who Can't Hear Will Feel",
-  'Believe Inna Yuhself',
+  'Walk Good',
+  'Dun Kno',
   '876 · Land We Love',
+];
+
+// Editorial interludes that break the grid so the scroll never feels repetitive.
+const INTERLUDES = [
+  { small: 'A Jamaican proverb', big: 'Every mickle mek a muckle.', sub: 'Every little bit adds up.' },
+  { small: 'The house rule', big: 'Wi likkle but wi tallawah.', sub: 'Small, but mighty.' },
 ];
 
 /* Reveal-on-scroll wrapper (IntersectionObserver, reduced-motion safe via CSS). */
@@ -42,56 +49,96 @@ function Reveal({ children, as: Tag = 'div', className = '', ...rest }) {
   );
 }
 
-function BuyControls({ p, onAdd, big = false }) {
-  const [variantId, setVariantId] = useState(p.variants[0]?.id);
+/* One card per DESIGN: garment switcher + size + add. No duplicate cards. */
+function DesignCard({ g, index, onAdd, preferKind }) {
+  const initial = g.items.find((i) => i.kind === preferKind) || g.items[0];
+  const [active, setActive] = useState(initial.key);
+  const [variantId, setVariantId] = useState(initial.variants[0]?.id);
   const [added, setAdded] = useState(false);
-  const hasSizes = p.variants.length > 1;
+
+  useEffect(() => {
+    const want = g.items.find((i) => i.kind === preferKind);
+    if (want && want.key !== active) {
+      setActive(want.key);
+      setVariantId(want.variants[0]?.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preferKind]);
+
+  const item = g.items.find((i) => i.key === active) || g.items[0];
+  const hasSizes = item.variants.length > 1;
+
+  function pick(key) {
+    const it = g.items.find((i) => i.key === key);
+    setActive(key);
+    setVariantId(it.variants[0]?.id);
+  }
 
   function add() {
-    const size = p.variants.find((v) => String(v.id) === String(variantId))?.size;
-    onAdd({ key: p.key, variantId, qty: 1, name: p.name, price: p.price, image: p.image, size });
+    const size = item.variants.find((v) => String(v.id) === String(variantId))?.size;
+    onAdd({ key: item.key, variantId, qty: 1, name: item.name, price: item.price, image: item.image, size });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   }
 
   return (
-    <div className="tls-card-buy">
-      {hasSizes && (
-        <select
-          className="tls-size"
-          value={variantId}
-          onChange={(e) => setVariantId(e.target.value)}
-          aria-label={`Size for ${p.name}`}
-        >
-          {p.variants.map((v) => (
-            <option key={v.id} value={v.id}>{v.size}</option>
-          ))}
-        </select>
-      )}
-      <button className="tls-btn" onClick={add}>
-        {added ? 'Added' : big ? 'Add to cart' : 'Add to cart'}
-      </button>
-    </div>
-  );
-}
-
-function ProductCard({ p, index, onAdd }) {
-  return (
     <Reveal as="article" className="tls-card">
       <div className="tls-card-img">
         <span className="tls-card-index">({pad(index + 1)})</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.image} alt={p.name} loading="lazy" />
+        <img src={item.image} alt={item.name} loading="lazy" />
       </div>
       <div className="tls-card-meta">
-        <h3 className="tls-card-name">{p.name}</h3>
-        <span className="tls-card-price">{money(p.price)}</span>
+        <h3 className="tls-card-name">{g.label}</h3>
+        <span className="tls-card-price">{money(item.price)}</span>
       </div>
-      <p className="tls-card-blurb">{p.blurb}</p>
-      <BuyControls p={p} onAdd={onAdd} />
+      <p className="tls-card-blurb">{g.blurb}</p>
+      <div className="tls-kinds" role="group" aria-label={`Choose product for ${g.label}`}>
+        {g.items.map((i) => (
+          <button
+            key={i.key}
+            className={`tls-kind${i.key === active ? ' is-on' : ''}`}
+            onClick={() => pick(i.key)}
+          >
+            {KIND[i.kind]?.name || i.kind}
+          </button>
+        ))}
+      </div>
+      <div className="tls-card-buy">
+        {hasSizes && (
+          <select
+            className="tls-size"
+            value={variantId}
+            onChange={(e) => setVariantId(e.target.value)}
+            aria-label={`Size for ${item.name}`}
+          >
+            {item.variants.map((v) => (
+              <option key={v.id} value={v.id}>{v.size}</option>
+            ))}
+          </select>
+        )}
+        <button className="tls-btn" onClick={add}>{added ? 'Added' : 'Add to cart'}</button>
+      </div>
     </Reveal>
   );
 }
+
+function Interlude({ it }) {
+  return (
+    <Reveal className="tls-interlude">
+      <span className="tls-mono">( {it.small} )</span>
+      <p className="tls-interlude-big">{it.big}</p>
+      <span className="tls-mono">{it.sub}</span>
+    </Reveal>
+  );
+}
+
+const FILTERS = [
+  { id: 'All', label: 'All', kind: null },
+  { id: 'Tees', label: 'Tees', kind: 'tee' },
+  { id: 'Hoodies', label: 'Hoodies & Sweats', kind: 'hoodie' },
+  { id: 'Mugs', label: 'Mugs', kind: 'mug' },
+];
 
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
@@ -100,18 +147,13 @@ export default function StoreClient() {
   const [filter, setFilter] = useState('All');
   const [heroVideoOk, setHeroVideoOk] = useState(true);
 
-  // Flagship hero pieces, pulled to the front of the store.
-  const featured = useMemo(
-    () => ['money-tee', 'neverlose-hoodie', 'money-mug'].map((k) => PRODUCTS.find((p) => p.key === k)).filter(Boolean),
-    []
-  );
-  const featuredKeys = new Set(featured.map((p) => p.key));
-
-  const shown = useMemo(() => {
-    const base = filter === 'All' ? PRODUCTS.filter((p) => !featuredKeys.has(p.key)) : PRODUCTS.filter((p) => p.group === filter);
-    return base;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter]);
+  const f = FILTERS.find((x) => x.id === filter) || FILTERS[0];
+  const featured = DESIGN_GROUPS.slice(0, 2); // money, neverlose
+  const rest = useMemo(() => {
+    const tail = DESIGN_GROUPS.slice(2);
+    if (!f.kind) return tail;
+    return tail.filter((g) => g.kinds.includes(f.kind) || (f.kind === 'hoodie' && g.kinds.includes('crew')));
+  }, [f.kind]);
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
@@ -155,23 +197,25 @@ export default function StoreClient() {
 
   const marqueeRun = [...PHRASES, ...PHRASES];
 
+  // Interleave interludes into the grid: one after every 6 design cards.
+  const gridBlocks = [];
+  rest.forEach((g, i) => {
+    gridBlocks.push({ type: 'card', g, i });
+    if ((i + 1) % 6 === 0 && INTERLUDES[(i + 1) / 6 - 1]) {
+      gridBlocks.push({ type: 'interlude', it: INTERLUDES[(i + 1) / 6 - 1] });
+    }
+  });
+
   return (
     <main className="tls">
       {/* ---------- Hero ---------- */}
       <section className="tls-hero">
         <div className="tls-hero-media" aria-hidden="true">
           {heroVideoOk ? (
-            <video
-              src="/store/hero.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onError={() => setHeroVideoOk(false)}
-            />
+            <video src="/store/hero.mp4" autoPlay muted loop playsInline onError={() => setHeroVideoOk(false)} />
           ) : (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img src="/store/neverlose-hoodie.jpg" alt="" />
+            <img src="/store/neverlose-hoodie.jpg?v=6" alt="" />
           )}
         </div>
         <div className="tls-shell tls-hero-inner">
@@ -207,7 +251,7 @@ export default function StoreClient() {
         </div>
       </section>
 
-      {/* ---------- Collection ---------- */}
+      {/* ---------- Flagships ---------- */}
       <section id="collection" className="tls-section">
         <div className="tls-shell">
           <div className="tls-head">
@@ -221,49 +265,44 @@ export default function StoreClient() {
           </div>
 
           <div className="tls-featured">
-            {featured.map((p) => (
-              <Reveal as="article" className="tls-feature" key={p.key}>
-                <div className="tls-feature-img">
-                  <span className="tls-feature-tag">Flagship</span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.image} alt={p.name} />
-                </div>
-                <div className="tls-feature-meta">
-                  <h3 className="tls-feature-name">{p.name}</h3>
-                  <span className="tls-card-price">{money(p.price)}</span>
-                </div>
-                <p className="tls-card-blurb">{p.blurb}</p>
-                <BuyControls p={p} onAdd={addItem} big />
+            {featured.map((g) => (
+              <Reveal as="div" className="tls-feature" key={g.design}>
+                <DesignCard g={g} index={DESIGN_GROUPS.indexOf(g)} onAdd={addItem} preferKind="tee" />
               </Reveal>
             ))}
           </div>
 
+          {/* ---------- The Slang Collection ---------- */}
           <div className="tls-head">
             <div>
               <span className="tls-mono">( 02 — The Collection )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                Wear the culture.
+                Every piece, <em>every slang.</em>
               </h2>
             </div>
-            <span className="tls-mono">({pad(shown.length)}) pieces</span>
+            <span className="tls-mono">({pad(rest.length)}) designs</span>
           </div>
 
           <div className="tls-filters">
-            {['All', ...GROUPS].map((g) => (
+            {FILTERS.map((x) => (
               <button
-                key={g}
-                className={`tls-filter${filter === g ? ' is-on' : ''}`}
-                onClick={() => setFilter(g)}
+                key={x.id}
+                className={`tls-filter${filter === x.id ? ' is-on' : ''}`}
+                onClick={() => setFilter(x.id)}
               >
-                {g}
+                {x.label}
               </button>
             ))}
           </div>
 
           <div className="tls-grid">
-            {shown.map((p, i) => (
-              <ProductCard key={p.key} p={p} index={i} onAdd={addItem} />
-            ))}
+            {gridBlocks.map((b, idx) =>
+              b.type === 'card' ? (
+                <DesignCard key={b.g.design} g={b.g} index={b.i} onAdd={addItem} preferKind={f.kind || 'tee'} />
+              ) : (
+                <Interlude key={'int' + idx} it={b.it} />
+              )
+            )}
           </div>
         </div>
       </section>
@@ -288,8 +327,8 @@ export default function StoreClient() {
                 <h3>{c.name}</h3>
                 <p className="tls-tier-blurb">{c.blurb}</p>
                 <ul>
-                  {c.features.map((f) => (
-                    <li key={f}>{f}</li>
+                  {c.features.map((x) => (
+                    <li key={x}>{x}</li>
                   ))}
                 </ul>
                 <span className="tls-mono" style={{ marginTop: 18 }}>Coming soon</span>

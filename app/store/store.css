@@ -267,3 +267,37 @@
   .tls-grid { gap: 44px 20px; }
   .tls-featured { margin-bottom: 70px; }
 }
+
+/* Garment-type switcher pills (one card per design, no duplicates) */
+.tls-kinds { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 13px; }
+.tls-kind {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 7px 11px; cursor: pointer;
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tls-kind:hover { color: var(--ink); border-color: var(--ink); }
+.tls-kind.is-on { color: var(--ink); border-color: var(--gold); background: rgba(161, 98, 7, 0.06); }
+
+/* Editorial interludes inside the grid */
+.tls-interlude {
+  grid-column: 1 / -1;
+  padding: 88px 24px;
+  margin: 8px 0;
+  background: var(--ink);
+  color: #f5f2ea;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 18px; align-items: center;
+}
+.tls-interlude .tls-mono { color: #8f8a7c; }
+.tls-interlude-big {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(26px, 4vw, 48px);
+  color: var(--gold-soft);
+  margin: 0; line-height: 1.2; max-width: 24ch;
+}
+
+/* Featured wrapper reuses design cards at larger scale */
+.tls-featured .tls-card-img { aspect-ratio: 4/4.4; }
+.tls-featured .tls-card-name { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; text-transform: none; letter-spacing: -0.01em; }
