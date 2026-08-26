@@ -146,6 +146,19 @@ export default function StoreClient() {
   const [err, setErr] = useState('');
   const [filter, setFilter] = useState('All');
   const [heroVideoOk, setHeroVideoOk] = useState(true);
+  const [welcomePlaying, setWelcomePlaying] = useState(false);
+  const welcomeRef = useRef(null);
+
+  function toggleWelcome() {
+    let a = welcomeRef.current;
+    if (!a) {
+      a = new Audio('/store/welcome.m4a');
+      a.onended = () => setWelcomePlaying(false);
+      welcomeRef.current = a;
+    }
+    if (welcomePlaying) { a.pause(); a.currentTime = 0; setWelcomePlaying(false); }
+    else { a.play(); setWelcomePlaying(true); }
+  }
 
   const f = FILTERS.find((x) => x.id === filter) || FILTERS[0];
   const featured = DESIGN_GROUPS.slice(0, 2); // money, neverlose
@@ -233,7 +246,10 @@ export default function StoreClient() {
               Every piece carries a phrase Jamaicans actually live by, set in type worth keeping.
               Black on black, gold where it counts — printed to order and shipped worldwide.
             </p>
-            <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+              <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
+                {welcomePlaying ? '◼ Playing…' : '🔊 Hear di welcome'}
+              </button>
               <a href="#collection" className="tls-link">The Collection</a>
               <a href="#courses" className="tls-link">The Courses</a>
               <a href="/prompts" className="tls-link">Prompt Packs</a>

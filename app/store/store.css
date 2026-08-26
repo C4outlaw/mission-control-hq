@@ -301,3 +301,7 @@
 /* Featured wrapper reuses design cards at larger scale */
 .tls-featured .tls-card-img { aspect-ratio: 4/4.4; }
 .tls-featured .tls-card-name { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; text-transform: none; letter-spacing: -0.01em; }
+
+/* Welcome audio button */
+.tls-sound { color: var(--gold-soft); border-color: var(--gold-soft); }
+.tls-sound:hover { color: #fff; border-color: #fff; }
