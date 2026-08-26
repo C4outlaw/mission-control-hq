@@ -305,3 +305,14 @@
 /* Welcome audio button */
 .tls-sound { color: var(--gold-soft); border-color: var(--gold-soft); }
 .tls-sound:hover { color: #fff; border-color: #fff; }
+
+/* The Mantra — monument type */
+.tls-mantra {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(44px, 7.2vw, 104px);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 18px 0 0;
+}
+.tls-mantra em { font-style: italic; font-weight: 500; color: var(--gold); }

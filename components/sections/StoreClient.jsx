@@ -260,14 +260,13 @@ export default function StoreClient() {
       {/* ---------- Flagships ---------- */}
       <section id="collection" className="tls-section">
         <div className="tls-shell">
-          <div className="tls-head">
-            <div>
-              <span className="tls-mono">( 01 — The Flagships )</span>
-              <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                More money than last year. <em>We never lose.</em>
-              </h2>
-            </div>
-            <span className="tls-mono">The pieces we stand on</span>
+          <div style={{ marginBottom: 64 }}>
+            <span className="tls-mono">( 01 — The Mantra )</span>
+            <h2 className="tls-mantra">
+              More money than last year.
+              <br />
+              <em>We never lose.</em>
+            </h2>
           </div>
 
           <div className="tls-featured">
@@ -278,10 +277,26 @@ export default function StoreClient() {
             ))}
           </div>
 
+          {/* ---------- The Hoodies ---------- */}
+          <div className="tls-head">
+            <div>
+              <span className="tls-mono">( 02 — The Hoodies )</span>
+              <h2 className="tls-h2" style={{ marginTop: 16 }}>
+                Heavyweight. <em>Head to toe black.</em>
+              </h2>
+            </div>
+            <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).length)}) hoodies</span>
+          </div>
+          <div className="tls-grid" style={{ marginBottom: 110 }}>
+            {DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).map((g, i) => (
+              <DesignCard key={'h-' + g.design} g={g} index={i} onAdd={addItem} preferKind="hoodie" />
+            ))}
+          </div>
+
           {/* ---------- The Slang Collection ---------- */}
           <div className="tls-head">
             <div>
-              <span className="tls-mono">( 02 — The Collection )</span>
+              <span className="tls-mono">( 03 — The Collection )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
                 Every piece, <em>every slang.</em>
               </h2>
@@ -318,7 +333,7 @@ export default function StoreClient() {
         <div className="tls-shell">
           <div className="tls-head">
             <div>
-              <span className="tls-mono">( 03 — The Courses )</span>
+              <span className="tls-mono">( 04 — The Courses )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
                 The system behind <em>the shorts.</em>
               </h2>
@@ -348,7 +363,7 @@ export default function StoreClient() {
       <section className="tls-section">
         <div className="tls-shell tls-packs-inner">
           <div>
-            <span className="tls-mono">( 04 — The Prompt Packs )</span>
+            <span className="tls-mono">( 05 — The Prompt Packs )</span>
             <h2 className="tls-h2" style={{ marginTop: 16 }}>
               Every prompt behind <em>the videos.</em>
             </h2>
