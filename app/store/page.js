@@ -11,10 +11,10 @@ export const metadata = {
 
 export default function StorePage() {
   return (
-    <>
+    <div className="myrie-marketing site">
       <SiteNav />
       <StoreClient />
       <Footer />
-    </>
+    </div>
   );
 }
