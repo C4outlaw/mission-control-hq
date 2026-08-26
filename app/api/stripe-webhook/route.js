@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 import { byId, packById, PACKS, signGrant } from '../../../lib/prompt-packs';
+import { createPrintifyOrder } from '../../../lib/printify-order';
 
 export const runtime = 'nodejs';
 // Stripe signs the raw body, so it must not be parsed or re-encoded before verification.
@@ -29,6 +30,20 @@ export async function POST(req) {
 
   const session = event.data.object;
   if (session.payment_status !== 'paid') return new Response('unpaid', { status: 200 });
+
+  // Physical merch: hand the paid order to Printify for production and shipping.
+  // Digital-pack fulfilment below is untouched.
+  if (session.metadata?.type === 'merch') {
+    try {
+      const order = await createPrintifyOrder(session);
+      return new Response('merch order ' + (order.id || 'created'), { status: 200 });
+    } catch (err) {
+      // Return 500 so Stripe retries; the payment already succeeded and the
+      // order must not be silently dropped.
+      console.error('printify order failed', err.message);
+      return new Response('printify failed: ' + err.message, { status: 500 });
+    }
+  }
 
   const email = session.customer_details?.email || session.customer_email;
   const addons = (session.metadata?.addons || '').split(',').filter(Boolean);

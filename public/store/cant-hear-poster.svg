@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#ddd6c9"/>
+  <rect x="150" y="90" width="300" height="420" fill="#f6f1e7" stroke="#0b0b0b" stroke-width="10"/>
+  <text x="300" y="242" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="40" fill="#0b0b0b">WHO CAN&#39;T</text><text x="300" y="292" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="40" fill="#0b0b0b">HEAR WILL</text><text x="300" y="342" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="40" fill="#0b0b0b">FEEL</text>
+  <rect x="270" y="440" width="60" height="8" rx="4" fill="#F5C518"/>
+  <text x="300" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#555">A JAMAICAN PROVERB</text>
+</svg>

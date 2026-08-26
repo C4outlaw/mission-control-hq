@@ -30,6 +30,7 @@ export default function SiteNav({ links }) {
     { href: '/#showcase',  label: t('nav.work') },
     { href: '/#try-app',   label: t('nav.magic_menu') },
     { href: '/#bundle',    label: t('nav.services') },
+    { href: '/store',      label: 'THE STORE', className: 'nav-store' },
     { href: '/prompts',    label: 'Prompt Packs' },
     { href: '/projects',   label: t('nav.portfolio') },
     { href: '/about',      label: t('nav.about') },
@@ -47,7 +48,7 @@ export default function SiteNav({ links }) {
 
         <nav className="site-nav-links" aria-label="Primary">
           {items.map((item) => (
-            <a key={item.href} href={item.href}>{item.label}</a>
+            <a key={item.href} href={item.href} className={item.className}>{item.label}</a>
           ))}
         </nav>
 
@@ -74,7 +75,7 @@ export default function SiteNav({ links }) {
       <div className={`site-nav-drawer${menuOpen ? ' is-open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!menuOpen}>
         <nav className="site-nav-drawer-links" aria-label="Mobile navigation">
           {items.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>
+            <a key={item.href} href={item.href} className={item.className} onClick={() => setMenuOpen(false)}>{item.label}</a>
           ))}
         </nav>
         <a className="site-nav-drawer-cta" href="/#contact" onClick={() => setMenuOpen(false)}>

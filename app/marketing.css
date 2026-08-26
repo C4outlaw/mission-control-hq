@@ -2401,3 +2401,11 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
   }
   .myrie-marketing .hero-cinematic .ti-btn svg { display: inline-block !important; }
 }
+
+/* THE STORE nav tab — big, bold, gold (The Lost Jamaican store) */
+.site-nav-links a.nav-store,
+.site-nav-drawer-links a.nav-store {
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #b8860b;
+}

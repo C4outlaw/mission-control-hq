@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#f6f1e7"/>
+  <path d="M430 220 q80 10 0 140" fill="none" stroke="#0b0b0b" stroke-width="26"/>
+  <rect x="140" y="170" width="290" height="260" rx="26" fill="#0b0b0b" stroke="#00000022" stroke-width="3"/>
+  <text x="285" y="292" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="30" fill="#F5C518">More money than</text><text x="285" y="329.5" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="30" fill="#F5C518">last year</text>
+  <rect x="255" y="395" width="60" height="7" rx="3.5" fill="#009B3A"/>
+</svg>

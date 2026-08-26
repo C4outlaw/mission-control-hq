@@ -14,7 +14,7 @@ export function proxy(req) {
   // store page, stripe-webhook is authenticated by Stripe's signature, and
   // download is authenticated by its own signed expiring grant token.
   const pathname = req.nextUrl?.pathname || '';
-  const publicPaths = ['/api/contact', '/api/checkout', '/api/stripe-webhook', '/api/download'];
+  const publicPaths = ['/api/contact', '/api/checkout', '/api/stripe-webhook', '/api/download', '/api/store-notify', '/api/store-checkout'];
   if (publicPaths.includes(pathname)) return NextResponse.next();
 
   const user = process.env.MARVIN_ROOM_USER;
