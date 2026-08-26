@@ -1128,6 +1128,267 @@
           "size": "2XL"
         }
       ]
+    },
+    "cho-hoodie": {
+      "id": "6a8f2dc7ffd89d136008cc15",
+      "title": "Cho! Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "cho",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "rhaatid-hoodie": {
+      "id": "6a8f2dcdffd89d136008cc1b",
+      "title": "Rhaatid! Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "rhaatid",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "sooncome-hoodie": {
+      "id": "6a8f2dd25bd7b1a011025200",
+      "title": "Soon Come Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "sooncome",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "dunkno-hoodie": {
+      "id": "6a8f2dd86e100cbb5306839f",
+      "title": "Dun Kno Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "dunkno",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "kissmiteeth-hoodie": {
+      "id": "6a8f2ddff60b9533410d00b4",
+      "title": "Kiss Mi Teeth Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "kissmiteeth",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "walkgood-hoodie": {
+      "id": "6a8f2de5ecea373cf90cda4f",
+      "title": "Walk Good Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "walkgood",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "believe-hoodie": {
+      "id": "6a8f2deb6e100cbb530683b0",
+      "title": "Believe Inna Yuhself Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "believe",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "canthear-hoodie": {
+      "id": "6a8f2df0ecea373cf90cda5a",
+      "title": "Who Can't Hear Will Feel Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "canthear",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
+    },
+    "bomboclaat-hoodie": {
+      "id": "6a8f2df6ffd89d136008cc58",
+      "title": "Bomboclaat Hoodie",
+      "price": 2999,
+      "kind": "hoodie",
+      "design": "bomboclaat",
+      "variants": [
+        {
+          "id": 32918,
+          "size": "S"
+        },
+        {
+          "id": 32919,
+          "size": "M"
+        },
+        {
+          "id": 32920,
+          "size": "L"
+        },
+        {
+          "id": 32921,
+          "size": "XL"
+        },
+        {
+          "id": 32922,
+          "size": "2XL"
+        }
+      ]
     }
   }
 }

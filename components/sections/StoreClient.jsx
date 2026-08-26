@@ -293,10 +293,29 @@ export default function StoreClient() {
             ))}
           </div>
 
+          {/* ---------- Bad Wud Dem (the spicy ones) ---------- */}
+          <div className="tls-head">
+            <div>
+              <span className="tls-mono">( 03 — Bad Wud Dem )</span>
+              <h2 className="tls-h2" style={{ marginTop: 16 }}>
+                The spicy ones. <em>Done tasteful.</em>
+              </h2>
+            </div>
+            <span className="tls-mono">18+ energy, gallery finish</span>
+          </div>
+          <div className="tls-grid" style={{ marginBottom: 110 }}>
+            {['bomboclaat', 'rhaatid', 'cho', 'kissmiteeth']
+              .map((d) => DESIGN_GROUPS.find((g) => g.design === d))
+              .filter(Boolean)
+              .map((g, i) => (
+                <DesignCard key={'bw-' + g.design} g={g} index={i} onAdd={addItem} preferKind="tee" />
+              ))}
+          </div>
+
           {/* ---------- The Slang Collection ---------- */}
           <div className="tls-head">
             <div>
-              <span className="tls-mono">( 03 — The Collection )</span>
+              <span className="tls-mono">( 04 — The Collection )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
                 Every piece, <em>every slang.</em>
               </h2>
@@ -333,7 +352,7 @@ export default function StoreClient() {
         <div className="tls-shell">
           <div className="tls-head">
             <div>
-              <span className="tls-mono">( 04 — The Courses )</span>
+              <span className="tls-mono">( 05 — The Courses )</span>
               <h2 className="tls-h2" style={{ marginTop: 16 }}>
                 The system behind <em>the shorts.</em>
               </h2>
@@ -363,7 +382,7 @@ export default function StoreClient() {
       <section className="tls-section">
         <div className="tls-shell tls-packs-inner">
           <div>
-            <span className="tls-mono">( 05 — The Prompt Packs )</span>
+            <span className="tls-mono">( 06 — The Prompt Packs )</span>
             <h2 className="tls-h2" style={{ marginTop: 16 }}>
               Every prompt behind <em>the videos.</em>
             </h2>
