@@ -136,8 +136,10 @@ function Interlude({ it }) {
 const FILTERS = [
   { id: 'All', label: 'All', kind: null },
   { id: 'Tees', label: 'Tees', kind: 'tee' },
+  { id: 'Heavyweight', label: 'Heavyweight Tees', kind: 'gdtee' },
   { id: 'Hoodies', label: 'Hoodies & Sweats', kind: 'hoodie' },
   { id: 'Mugs', label: 'Mugs', kind: 'mug' },
+  { id: 'Caps', label: 'Caps', kind: 'cap' },
 ];
 
 export default function StoreClient() {
