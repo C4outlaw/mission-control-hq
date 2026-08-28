@@ -85,8 +85,22 @@ function DesignCard({ g, index, onAdd, preferKind }) {
     <Reveal as="article" className="tls-card">
       <div className="tls-card-img">
         <span className="tls-card-index">({pad(index + 1)})</span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={item.image} alt={item.name} loading="lazy" />
+        {g.video ? (
+          <video
+            src={g.video}
+            poster={item.image}
+            muted
+            loop
+            autoPlay
+            playsInline
+            preload="metadata"
+            controls
+            aria-label={`${g.label} worn on camera`}
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={item.image} alt={item.name} loading="lazy" />
+        )}
       </div>
       <div className="tls-card-meta">
         <h3 className="tls-card-name">{g.label}</h3>
