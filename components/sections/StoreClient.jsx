@@ -117,6 +117,16 @@ function DesignCard({ g, index, onAdd, preferKind }) {
             {KIND[i.kind]?.name || i.kind}
           </button>
         ))}
+        {(g.spin || g.video) && (
+          <button
+            className={`tls-kind tls-kind-360${playing ? ' is-on' : ''}`}
+            onClick={() => setPlaying((p) => !p)}
+            aria-pressed={playing}
+            title={`See the ${g.label} in motion`}
+          >
+            360°
+          </button>
+        )}
       </div>
       <div className="tls-card-buy">
         {hasSizes && (
