@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:luna": "node --test tests/luna-knowledge.test.mjs",
     "electron:dev": "concurrently \"npm run dev -- --port 3002\" \"wait-on tcp:3002 && electron .\"",
     "electron:prod": "npm run build && electron .",
     "dist:win": "npm run build && electron-builder --win portable",

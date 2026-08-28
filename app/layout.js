@@ -6,6 +6,7 @@ import ScrollCTA from "../components/layout/ScrollCTA";
 import SmoothScroll from "../components/layout/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next";
 import { LangProvider } from "../lib/i18n";
+import LunaAssistant from "../components/luna/LunaAssistant";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap", weight: ["400", "500", "600", "700", "800"] });
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", display: "swap", axes: ["opsz"] });
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           <ScrollProgress />
           {children}
           <ScrollCTA />
+          <LunaAssistant />
           <Analytics />
         </LangProvider>
       </body>
