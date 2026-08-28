@@ -4,6 +4,8 @@ import "./marketing.css";
 import ScrollProgress from "../components/motion/ScrollProgress";
 import ScrollCTA from "../components/layout/ScrollCTA";
 import SmoothScroll from "../components/layout/SmoothScroll";
+import GoatCounter from "../components/layout/GoatCounter";
+import { Analytics } from "@vercel/analytics/next";
 import { LangProvider } from "../lib/i18n";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap", weight: ["400", "500", "600", "700", "800"] });
@@ -51,6 +53,8 @@ export default function RootLayout({ children }) {
           <ScrollProgress />
           {children}
           <ScrollCTA />
+          <GoatCounter />
+          <Analytics />
         </LangProvider>
       </body>
     </html>
