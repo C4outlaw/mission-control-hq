@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
-import ProductViewer from './ProductViewer';
 
 const pad = (n) => String(n).padStart(2, '0');
 const PHRASES = [
@@ -56,7 +55,7 @@ function DesignCard({ g, index, onAdd, preferKind }) {
   const [active, setActive] = useState(initial.key);
   const [variantId, setVariantId] = useState(initial.variants[0]?.id);
   const [added, setAdded] = useState(false);
-  const [viewer, setViewer] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
     const want = g.items.find((i) => i.kind === preferKind);
@@ -85,29 +84,23 @@ function DesignCard({ g, index, onAdd, preferKind }) {
 
   return (
     <Reveal as="article" className="tls-card">
-      <div className={`tls-card-img${g.video || g.spin ? ' is-interactive' : ''}`}
-           onClick={() => (g.video || g.spin) && setViewer(true)}
-           role={g.video || g.spin ? 'button' : undefined}
-           tabIndex={g.video || g.spin ? 0 : undefined}
-           onKeyDown={(e) => (g.video || g.spin) && (e.key === 'Enter' || e.key === ' ') && setViewer(true)}>
+      <div
+        className={`tls-card-img${g.spin || g.video ? ' is-interactive' : ''}`}
+        onClick={() => (g.spin || g.video) && setPlaying((p) => !p)}
+        role={g.spin || g.video ? 'button' : undefined}
+        tabIndex={g.spin || g.video ? 0 : undefined}
+        aria-label={g.spin || g.video ? `See the ${g.label} shirt in motion` : undefined}
+        onKeyDown={(e) => (g.spin || g.video) && (e.key === 'Enter' || e.key === ' ') && setPlaying((p) => !p)}
+      >
         <span className="tls-card-index">({pad(index + 1)})</span>
-        {(g.video || g.spin) && <span className="tls-card-cue">{g.spin ? '360° · watch' : '▶ watch'}</span>}
-        {g.video ? (
-          <video
-            src={g.video}
-            poster={item.image}
-            muted
-            loop
-            autoPlay
-            playsInline
-            preload="metadata"
-            controls
-            aria-label={`${g.label} worn on camera`}
-          />
+        {playing && (g.spin || g.video) ? (
+          /* eslint-disable-next-line jsx-a11y/media-has-caption */
+          <video src={g.spin || g.video} poster={item.image} autoPlay loop muted playsInline />
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img src={item.image} alt={item.name} loading="lazy" />
         )}
+        {(g.spin || g.video) && !playing && <span className="tls-card-cue">360° view</span>}
       </div>
       <div className="tls-card-meta">
         <h3 className="tls-card-name">{g.label}</h3>
@@ -140,14 +133,6 @@ function DesignCard({ g, index, onAdd, preferKind }) {
         )}
         <button className="tls-btn" onClick={add}>{added ? 'Added' : 'Add to cart'}</button>
       </div>
-      <ProductViewer
-        open={viewer}
-        onClose={() => setViewer(false)}
-        label={g.label}
-        spin={g.spin}
-        video={g.video}
-        poster={item.image}
-      />
     </Reveal>
   );
 }
