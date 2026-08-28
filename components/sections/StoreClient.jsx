@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
+import ProductViewer from './ProductViewer';
 
 const pad = (n) => String(n).padStart(2, '0');
 const PHRASES = [
@@ -55,6 +56,7 @@ function DesignCard({ g, index, onAdd, preferKind }) {
   const [active, setActive] = useState(initial.key);
   const [variantId, setVariantId] = useState(initial.variants[0]?.id);
   const [added, setAdded] = useState(false);
+  const [viewer, setViewer] = useState(false);
 
   useEffect(() => {
     const want = g.items.find((i) => i.kind === preferKind);
@@ -83,8 +85,13 @@ function DesignCard({ g, index, onAdd, preferKind }) {
 
   return (
     <Reveal as="article" className="tls-card">
-      <div className="tls-card-img">
+      <div className={`tls-card-img${g.video || g.spin ? ' is-interactive' : ''}`}
+           onClick={() => (g.video || g.spin) && setViewer(true)}
+           role={g.video || g.spin ? 'button' : undefined}
+           tabIndex={g.video || g.spin ? 0 : undefined}
+           onKeyDown={(e) => (g.video || g.spin) && (e.key === 'Enter' || e.key === ' ') && setViewer(true)}>
         <span className="tls-card-index">({pad(index + 1)})</span>
+        {(g.video || g.spin) && <span className="tls-card-cue">{g.spin ? '360° · watch' : '▶ watch'}</span>}
         {g.video ? (
           <video
             src={g.video}
@@ -133,6 +140,14 @@ function DesignCard({ g, index, onAdd, preferKind }) {
         )}
         <button className="tls-btn" onClick={add}>{added ? 'Added' : 'Add to cart'}</button>
       </div>
+      <ProductViewer
+        open={viewer}
+        onClose={() => setViewer(false)}
+        label={g.label}
+        spin={g.spin}
+        video={g.video}
+        poster={item.image}
+      />
     </Reveal>
   );
 }
