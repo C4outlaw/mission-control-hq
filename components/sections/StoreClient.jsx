@@ -94,8 +94,12 @@ function DesignCard({ g, index, onAdd, preferKind }) {
       >
         <span className="tls-card-index">({pad(index + 1)})</span>
         {playing && (g.spin || g.video) ? (
-          /* eslint-disable-next-line jsx-a11y/media-has-caption */
-          <video src={g.spin || g.video} poster={item.image} autoPlay loop muted playsInline />
+          <>
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video className="tls-card-vid-bg" src={g.spin || g.video} autoPlay loop muted playsInline aria-hidden="true" />
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video className="tls-card-vid" src={g.spin || g.video} poster={item.image} autoPlay loop muted playsInline />
+          </>
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img src={item.image} alt={item.name} loading="lazy" />

@@ -323,10 +323,17 @@
 
 /* ---- One-click 360 in the product card --------------------------------- */
 .tls-card-img.is-interactive { cursor: pointer; }
-/* contain, not cover — the 9:16 clip must fit the square card uncropped */
-.tls-card-img video {
+/* contain, not cover — the 9:16 clip must fit the square card uncropped.
+   A blurred copy of the same clip fills the letterbox so the card doesn't
+   read as two black slabs. */
+.tls-card-img video.tls-card-vid {
+  position: absolute; inset: 0; z-index: 1;
   width: 100%; height: 100%; object-fit: contain; display: block;
-  background: #0c0a09;
+}
+.tls-card-img video.tls-card-vid-bg {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: blur(26px) brightness(.55) saturate(1.1); transform: scale(1.15);
 }
 .tls-kind-360 { letter-spacing: .06em; }
 .tls-kind-360.is-on { background: var(--gold); border-color: var(--gold); color: #fff; }
