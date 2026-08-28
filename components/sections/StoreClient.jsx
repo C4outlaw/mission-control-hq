@@ -316,7 +316,7 @@ export default function StoreClient() {
             </div>
             <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).length)}) hoodies</span>
           </div>
-          <div className="tls-grid" style={{ marginBottom: 110 }}>
+          <div className="tls-rail" style={{ marginBottom: 90 }}>
             {DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).map((g, i) => (
               <DesignCard key={'h-' + g.design} g={g} index={i} onAdd={addItem} preferKind="hoodie" />
             ))}
@@ -332,7 +332,7 @@ export default function StoreClient() {
             </div>
             <span className="tls-mono">18+ energy, gallery finish</span>
           </div>
-          <div className="tls-grid" style={{ marginBottom: 110 }}>
+          <div className="tls-rail" style={{ marginBottom: 90 }}>
             {['bomboclaat', 'rhaatid', 'cho', 'kissmiteeth']
               .map((d) => DESIGN_GROUPS.find((g) => g.design === d))
               .filter(Boolean)
@@ -364,7 +364,8 @@ export default function StoreClient() {
             ))}
           </div>
 
-          <div className="tls-grid">
+          <span className="tls-rail-hint">Swipe sideways to see more →</span>
+          <div className="tls-rail">
             {gridBlocks.map((b, idx) =>
               b.type === 'card' ? (
                 <DesignCard key={b.g.design} g={b.g} index={b.i} onAdd={addItem} preferKind={f.kind || 'tee'} />
@@ -373,6 +374,44 @@ export default function StoreClient() {
               )
             )}
           </div>
+
+          {/* ---------- Mugs ---------- */}
+          {DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).length > 0 && (
+            <>
+              <div className="tls-head" style={{ marginTop: 100 }}>
+                <div>
+                  <span className="tls-mono">( 05 — The Mugs )</span>
+                  <h2 className="tls-h2" style={{ marginTop: 16 }}>Morning tea, <em>Jamaican style.</em></h2>
+                </div>
+                <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).length)}) mugs</span>
+              </div>
+              <span className="tls-rail-hint">Swipe sideways to see more →</span>
+              <div className="tls-rail" style={{ marginBottom: 90 }}>
+                {DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).map((g, i) => (
+                  <DesignCard key={'mug-' + g.design} g={g} index={i} onAdd={addItem} preferKind="mug" />
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* ---------- Caps ---------- */}
+          {DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).length > 0 && (
+            <>
+              <div className="tls-head">
+                <div>
+                  <span className="tls-mono">( 06 — The Caps )</span>
+                  <h2 className="tls-h2" style={{ marginTop: 16 }}>Crown it. <em>Wear di culture.</em></h2>
+                </div>
+                <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).length)}) caps</span>
+              </div>
+              <span className="tls-rail-hint">Swipe sideways to see more →</span>
+              <div className="tls-rail">
+                {DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).map((g, i) => (
+                  <DesignCard key={'cap-' + g.design} g={g} index={i} onAdd={addItem} preferKind="cap" />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 

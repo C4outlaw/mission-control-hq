@@ -330,3 +330,21 @@
   text-transform: uppercase; padding: 6px 11px; border-radius: 999px;
   background: rgba(12,10,9,.74); color: #f5f2ea; pointer-events: none;
 }
+
+/* ---- Horizontal rails: swipe sideways through a category ---------------- */
+.tls-rail {
+  display: flex; gap: 26px; overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  padding: 4px 4px 22px; margin: 0 -4px;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.tls-rail > * { flex: 0 0 288px; scroll-snap-align: start; }
+.tls-rail::-webkit-scrollbar { height: 6px; }
+.tls-rail::-webkit-scrollbar-track { background: transparent; }
+.tls-rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+.tls-rail::-webkit-scrollbar-thumb:hover { background: var(--gold-soft); }
+.tls-rail-hint {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); display: block; margin: -8px 0 14px;
+}
+@media (max-width: 640px) { .tls-rail > * { flex-basis: 76vw; } }
