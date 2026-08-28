@@ -208,7 +208,9 @@
   font-family: 'IBM Plex Mono', monospace; font-size: 11.5px;
   letter-spacing: 0.08em; white-space: nowrap;
 }
-.tls-card-blurb { font-size: 13.5px; line-height: 1.55; color: var(--muted-strong); margin: 8px 0 0; font-weight: 400; }
+/* `.myrie-marketing p` (dark-theme --ink-2) outranks a bare class here, so this
+   needs the extra class to win and keep the blurb readable on the white card. */
+.tls-card .tls-card-blurb { font-size: 13.5px; line-height: 1.55; color: var(--muted-strong); margin: 8px 0 0; font-weight: 400; }
 .tls-card-buy { display: flex; gap: 10px; align-items: stretch; margin-top: 15px; }
 .tls-size {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
