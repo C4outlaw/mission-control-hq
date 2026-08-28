@@ -152,14 +152,24 @@ export default function StoreClient() {
   function toggleWelcome() {
     const v = document.querySelector('.tls-hero-media video');
     if (!v) return;
+    const stop = () => {
+      v.muted = true;
+      if (welcomeRef.current) { v.removeEventListener('timeupdate', welcomeRef.current); welcomeRef.current = null; }
+      setWelcomePlaying(false);
+    };
     if (v.muted) {
       v.muted = false;
       v.currentTime = 0;
       v.play();
       setWelcomePlaying(true);
+      // The video loops forever, but the welcome should play ONCE: when the
+      // loop wraps back to the start, go silent again.
+      let last = 0;
+      const onTime = () => { if (v.currentTime < last) stop(); else last = v.currentTime; };
+      welcomeRef.current = onTime;
+      v.addEventListener('timeupdate', onTime);
     } else {
-      v.muted = true;
-      setWelcomePlaying(false);
+      stop();
     }
   }
 
