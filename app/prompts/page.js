@@ -75,11 +75,11 @@ export default function PromptsPage() {
 
       <main className="gr-main" style={{ maxWidth: 1100, margin: '0 auto', padding: '38px 20px 100px' }}>
         <h1 style={{ fontSize: 'clamp(26px,4.4vw,40px)', lineHeight: 1.12, margin: '0 0 8px', fontWeight: 900, letterSpacing: -0.6 }}>
-          Pick your artist. Get the exact prompts.
+          Pick your pack. Get the exact prompts.
         </h1>
         <p style={{ fontSize: 16, lineHeight: 1.6, color: '#333', margin: '0 0 22px', maxWidth: 640 }}>
-          Every episode we release ships its own pack — every prompt, model setting and quality
-          gate that produced that video. Name your price, from {money(BASE.minAmount)}.
+          Every pack gives you a complete production method — the prompts, decisions and quality
+          gates needed to build the work. Name your price, from {money(BASE.minAmount)}.
         </p>
 
         {/* ——— artist carousel ——— */}
@@ -103,7 +103,7 @@ export default function PromptsPage() {
                      style={{ display: 'block', width: '100%', height: 'auto', borderBottom: '3px solid #000' }} />
                 <div style={{ padding: '10px 12px 12px' }}>
                   <div style={{ fontWeight: 900, fontSize: 17 }}>{p.subject}</div>
-                  <div style={{ fontSize: 12.5, color: '#555', fontWeight: 600 }}>{p.tagline} · {p.shots} shots</div>
+                  <div style={{ fontSize: 12.5, color: '#555', fontWeight: 600 }}>{p.tagline} · {p.metric || `${p.shots} shots`}</div>
                   <div style={{ marginTop: 8, display: 'inline-block', fontSize: 12, fontWeight: 800, background: on ? '#FF90E8' : '#FFC900', border: '2px solid #000', borderRadius: 999, padding: '3px 10px' }}>
                     {on ? 'SELECTED' : `from ${money(BASE.minAmount)}`}
                   </div>
@@ -120,7 +120,7 @@ export default function PromptsPage() {
               <p style={{ fontSize: 15, lineHeight: 1.6, color: '#333', margin: '0 0 14px' }}>{pack.blurb}</p>
               <h3 style={{ margin: '0 0 10px', fontSize: 15, fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1.2 }}>What&rsquo;s inside</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 9 }}>
-                {INCLUDED.map((l) => (
+                {(pack.includes || INCLUDED).map((l) => (
                   <li key={l} style={{ display: 'flex', gap: 10, fontSize: 14.5, lineHeight: 1.55 }}><Check /><span>{l}</span></li>
                 ))}
               </ul>

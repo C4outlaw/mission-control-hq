@@ -16,7 +16,15 @@ const src = path.join(root, 'private', 'packs');
 const dst = path.join(root, 'packs-enc');
 fs.mkdirSync(dst, { recursive: true });
 
-for (const f of fs.readdirSync(src)) {
+const requested = new Set(process.argv.slice(2));
+const available = fs.readdirSync(src).filter((f) => !f.endsWith('.json'));
+if (requested.size) {
+  const missing = [...requested].filter((f) => !available.includes(f));
+  if (missing.length) throw new Error(`Pack file not found: ${missing.join(', ')}`);
+}
+
+for (const f of available) {
+  if (requested.size && !requested.has(f)) continue;
   if (f.endsWith('.json')) continue; // the ledger is not a product
   const iv = crypto.randomBytes(12);
   const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
