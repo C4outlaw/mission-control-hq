@@ -16,165 +16,450 @@ const PHRASES = [
   '876 · Land We Love',
 ];
 
-// Editorial interludes that break the grid so the scroll never feels repetitive.
-const INTERLUDES = [
-  { small: 'A Jamaican proverb', big: 'Every mickle mek a muckle.', sub: 'Every little bit adds up.' },
-  { small: 'The house rule', big: 'Wi likkle but wi tallawah.', sub: 'Small, but mighty.' },
+/* Garments a person actually wears — these get the house-model photography.
+   Mugs and caps show their own product shot instead. */
+const APPAREL = new Set(['tee', 'wtee', 'tank', 'wtank', 'crew', 'hoodie', 'gdtee']);
+
+/* ------------------------------------------------------------------ *
+ * Flatten the design groups into one listing per product — an Etsy
+ * results page shows one card per listing, not one card per design.
+ * ------------------------------------------------------------------ */
+const LISTINGS = DESIGN_GROUPS.flatMap((g) =>
+  g.items.map((item, i) => ({
+    ...item,
+    // Our own house-model shot leads the card — but only for apparel. A mug or
+    // a cap must show the actual product, not someone wearing a tee.
+    modelShot: APPAREL.has(item.kind) ? g.models?.[i % g.models.length] || null : null,
+    design: g.design,
+    label: g.label,
+    blurb: g.blurb,
+    spin: g.spin,
+    video: g.video,
+    // Etsy-style keyword title: design + garment + category words.
+    title: `${g.label} ${KIND[item.kind]?.long || item.kind} — Jamaican ${
+      item.kind === 'mug' ? 'Ceramic Mug' : item.kind === 'cap' ? 'Trucker Cap' : 'Graphic Tee'
+    }, The Lost Jamaican`,
+  }))
+);
+
+/* Same groups, but carrying the listings (and their preview art) so the
+   listing modal can show every garment for a design in one gallery. */
+const LISTING_GROUPS = DESIGN_GROUPS.map((g) => ({
+  ...g,
+  items: LISTINGS.filter((l) => l.design === g.design),
+}));
+const groupFor = (design) => LISTING_GROUPS.find((g) => g.design === design);
+
+/* Filter facets, mirroring Etsy's pill row. Every facet is derived from real
+   catalog data — nothing here is decorative. */
+const FACETS = [
+  { id: 'all', label: 'All items', test: () => true },
+  { id: 'tee', label: 'Tees', test: (l) => l.kind === 'tee' || l.kind === 'wtee' },
+  { id: 'gdtee', label: 'Heavyweight', test: (l) => l.kind === 'gdtee' },
+  { id: 'hoodie', label: 'Hoodies & sweats', test: (l) => l.kind === 'hoodie' || l.kind === 'crew' },
+  { id: 'tank', label: 'Tanks', test: (l) => l.kind === 'tank' || l.kind === 'wtank' },
+  { id: 'mug', label: 'Mugs', test: (l) => l.kind === 'mug' },
+  { id: 'cap', label: 'Caps', test: (l) => l.kind === 'cap' },
+  { id: 'under30', label: 'Under $30', test: (l) => l.price < 3000 },
+  { id: 'flag', label: 'Flag', test: (l) => ['flagx', 'xmark', 'mapja', 'vacay'].includes(l.design) },
+  { id: 'onelove', label: 'One Love', test: (l) => ['onelove'].includes(l.design) },
+  { id: 'independence', label: 'Independence', test: (l) => ['crest1962', 'varsity62'].includes(l.design) },
+  { id: 'proverb', label: 'Proverbs & patois', test: (l) => ['tallawah', 'canthear', 'walkgood', 'walkgood2', 'wahgwaan', 'wahgwaan2', 'dunkno', 'sooncome', 'cho', 'rhaatid', 'kissmiteeth', 'believe'].includes(l.design) },
+  { id: 'crew', label: 'Group & crew', test: (l) => ['bdaycrew', 'gyaldem'].includes(l.design) },
 ];
 
-/* Reveal-on-scroll wrapper (IntersectionObserver, reduced-motion safe via CSS). */
-function Reveal({ children, as: Tag = 'div', className = '', ...rest }) {
-  const ref = useRef(null);
+const SORTS = [
+  { id: 'relevant', label: 'Most relevant' },
+  { id: 'lowhigh', label: 'Lowest price' },
+  { id: 'highlow', label: 'Highest price' },
+];
+
+/* ------------------------------------------------------------------ *
+ * Zoom lightbox — Etsy opens this when you click the gallery image.
+ * Overlay rgba(63,63,63,0.9) @ z-80, image contain + 8px radius,
+ * thumbnail strip carried in, 48px round close at top-right.
+ * ------------------------------------------------------------------ */
+function Lightbox({ shots, index, setIndex, onClose }) {
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-in');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') setIndex((i) => (i + 1) % shots.length);
+      if (e.key === 'ArrowLeft') setIndex((i) => (i - 1 + shots.length) % shots.length);
+    };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [shots.length, onClose, setIndex]);
+
+  const shot = shots[index];
+
   return (
-    <Tag ref={ref} className={`tls-reveal ${className}`} {...rest}>
-      {children}
-    </Tag>
+    <div className="etsy-lightbox" role="dialog" aria-modal="true" aria-label="Zoomed image" onClick={onClose}>
+      <button className="etsy-lb-close" onClick={onClose} aria-label="close">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </button>
+
+      <div className="etsy-lb-stage" onClick={(e) => e.stopPropagation()}>
+        {shots.length > 1 && (
+          <button
+            className="etsy-lb-arrow is-prev"
+            aria-label="Previous image"
+            onClick={() => setIndex((i) => (i - 1 + shots.length) % shots.length)}
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        )}
+
+        {shot.video ? (
+          /* eslint-disable-next-line jsx-a11y/media-has-caption */
+          <video className="etsy-lb-img" src={shot.src} autoPlay loop muted playsInline />
+        ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img className="etsy-lb-img" src={shot.src} alt={shot.alt} />
+        )}
+
+        {shots.length > 1 && (
+          <button
+            className="etsy-lb-arrow is-next"
+            aria-label="Next image"
+            onClick={() => setIndex((i) => (i + 1) % shots.length)}
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      <div className="etsy-lb-thumbs" onClick={(e) => e.stopPropagation()}>
+        {shots.map((s, i) => (
+          <button
+            key={s.src + i}
+            className={`etsy-thumb${i === index ? ' is-on' : ''}`}
+            onClick={() => setIndex(i)}
+            aria-label={`Image ${i + 1}`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={s.poster || s.src} alt="" />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
 
-/* One card per DESIGN: garment switcher + size + add. No duplicate cards. */
-function DesignCard({ g, index, onAdd, preferKind }) {
-  const initial = g.items.find((i) => i.kind === preferKind) || g.items[0];
-  const [active, setActive] = useState(initial.key);
-  const [variantId, setVariantId] = useState(initial.variants[0]?.id);
+/* ------------------------------------------------------------------ *
+ * Listing modal — Etsy's product page, opened by clicking a card image.
+ * Left: gallery (main image + arrows + 60px thumbs). Right: buy box.
+ * ------------------------------------------------------------------ */
+function ListingModal({ group, startKey, onAdd, onClose }) {
+  const [activeKey, setActiveKey] = useState(startKey || group.items[0].key);
+  const item = group.items.find((i) => i.key === activeKey) || group.items[0];
+  const [variantId, setVariantId] = useState(item.variants[0]?.id);
+  const [qty, setQty] = useState(1);
+  const [shot, setShot] = useState(0);
+  const [zoom, setZoom] = useState(false);
   const [added, setAdded] = useState(false);
-  const [playing, setPlaying] = useState(false);
+  const [faved, setFaved] = useState(false);
+
+  // Gallery = our model shots first, then every garment mockup, then the clips.
+  const shots = useMemo(() => {
+    const s = [
+      ...(group.models || []).map((src) => ({ src, alt: `${group.label} worn by our model` })),
+      ...group.items.map((i) => ({
+        src: i.image,
+        alt: `${group.label} — ${KIND[i.kind]?.long || i.kind}`,
+        key: i.key,
+      })),
+    ];
+    if (group.spin) s.push({ src: group.spin, poster: group.models?.[0] || group.items[0].image, alt: '360° view', video: true });
+    if (group.video) s.push({ src: group.video, poster: group.models?.[0] || group.items[0].image, alt: 'Worn by our model', video: true });
+    return s;
+  }, [group]);
+
+  // Switching garment resets the variant and jumps the gallery to its shot.
+  function pickGarment(key) {
+    const it = group.items.find((i) => i.key === key);
+    setActiveKey(key);
+    setVariantId(it.variants[0]?.id);
+    const idx = shots.findIndex((s) => s.key === key);
+    if (idx >= 0) setShot(idx);
+  }
 
   useEffect(() => {
-    const want = g.items.find((i) => i.kind === preferKind);
-    if (want && want.key !== active) {
-      setActive(want.key);
-      setVariantId(want.variants[0]?.id);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [preferKind]);
-
-  const item = g.items.find((i) => i.key === active) || g.items[0];
-  const hasSizes = item.variants.length > 1;
-
-  function pick(key) {
-    const it = g.items.find((i) => i.key === key);
-    setActive(key);
-    setVariantId(it.variants[0]?.id);
-  }
+    const onKey = (e) => { if (e.key === 'Escape' && !zoom) onClose(); };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [onClose, zoom]);
 
   function add() {
     const size = item.variants.find((v) => String(v.id) === String(variantId))?.size;
-    onAdd({ key: item.key, variantId, qty: 1, name: item.name, price: item.price, image: item.image, size });
+    onAdd({ key: item.key, variantId, qty, name: item.name, price: item.price, image: item.image, size });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  }
+
+  const cur = shots[shot] || shots[0];
+  const hasSizes = item.variants.length > 1;
+
+  return (
+    <>
+      <div className="etsy-modal-scrim" role="dialog" aria-modal="true" aria-label={group.label} onClick={onClose}>
+        <div className="etsy-modal" onClick={(e) => e.stopPropagation()}>
+          <button className="etsy-modal-close" onClick={onClose} aria-label="close">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </button>
+
+          <div className="etsy-modal-grid">
+            {/* ---------- Gallery ---------- */}
+            <div className="etsy-gallery">
+              <div className="etsy-stage">
+                {shots.length > 1 && (
+                  <button
+                    className="etsy-arrow is-prev"
+                    aria-label="Previous image"
+                    onClick={() => setShot((i) => (i - 1 + shots.length) % shots.length)}
+                  >
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                )}
+
+                <button className="etsy-stage-btn" onClick={() => setZoom(true)} aria-label="Click to zoom">
+                  {cur.video ? (
+                    /* eslint-disable-next-line jsx-a11y/media-has-caption */
+                    <video src={cur.src} poster={cur.poster} autoPlay loop muted playsInline />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={cur.src} alt={cur.alt} />
+                  )}
+                  <span className="etsy-zoomhint">Click to zoom</span>
+                </button>
+
+                {shots.length > 1 && (
+                  <button
+                    className="etsy-arrow is-next"
+                    aria-label="Next image"
+                    onClick={() => setShot((i) => (i + 1) % shots.length)}
+                  >
+                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                      <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              <div className="etsy-thumbs">
+                {shots.map((s, i) => (
+                  <button
+                    key={s.src + i}
+                    className={`etsy-thumb${i === shot ? ' is-on' : ''}`}
+                    onClick={() => setShot(i)}
+                    aria-label={s.alt}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.poster || s.src} alt="" />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* ---------- Buy box ---------- */}
+            <div className="etsy-buybox">
+              <p className="etsy-bb-shop">The Lost Jamaican</p>
+              <h2 className="etsy-bb-title">{item.name}</h2>
+              <p className="etsy-bb-price">{money(item.price)}</p>
+              <p className="etsy-bb-blurb">{group.blurb}</p>
+
+              <label className="etsy-bb-label" htmlFor={`garment-${group.design}`}>Style</label>
+              <select
+                id={`garment-${group.design}`}
+                className="etsy-bb-select"
+                value={activeKey}
+                onChange={(e) => pickGarment(e.target.value)}
+              >
+                {group.items.map((i) => (
+                  <option key={i.key} value={i.key}>
+                    {KIND[i.kind]?.long || i.kind} — {money(i.price)}
+                  </option>
+                ))}
+              </select>
+
+              {hasSizes && (
+                <>
+                  <label className="etsy-bb-label" htmlFor={`size-${item.key}`}>Size</label>
+                  <select
+                    id={`size-${item.key}`}
+                    className="etsy-bb-select"
+                    value={variantId}
+                    onChange={(e) => setVariantId(e.target.value)}
+                  >
+                    {item.variants.map((v) => (
+                      <option key={v.id} value={v.id}>{v.size}</option>
+                    ))}
+                  </select>
+                </>
+              )}
+
+              <label className="etsy-bb-label" htmlFor={`qty-${item.key}`}>Quantity</label>
+              <select
+                id={`qty-${item.key}`}
+                className="etsy-bb-select is-qty"
+                value={qty}
+                onChange={(e) => setQty(Number(e.target.value))}
+              >
+                {Array.from({ length: 10 }, (_, n) => n + 1).map((n) => (
+                  <option key={n} value={n}>{n}</option>
+                ))}
+              </select>
+
+              <div className="etsy-bb-actions">
+                <button className="etsy-bb-add" onClick={add}>{added ? 'Added to cart' : 'Add to cart'}</button>
+                <button
+                  className={`etsy-fav${faved ? ' is-on' : ''}`}
+                  onClick={() => setFaved((f) => !f)}
+                  aria-pressed={faved}
+                  aria-label="Add to Favorites"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <path d="M12 21s-7.5-4.6-9.3-9A5.1 5.1 0 0 1 12 6.5 5.1 5.1 0 0 1 21.3 12c-1.8 4.4-9.3 9-9.3 9z"
+                      fill={faved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+
+              <ul className="etsy-bb-facts">
+                <li>Printed and shipped on demand — nothing sits in a warehouse.</li>
+                <li>Design by The Lost Jamaican. Every piece carries the mark.</li>
+                <li>Secure checkout via Stripe.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {zoom && (
+        <Lightbox shots={shots} index={shot} setIndex={setShot} onClose={() => setZoom(false)} />
+      )}
+    </>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * Etsy-style result card.
+ * Rating / badge / compare-at price slots are built to spec but render
+ * only from real data — we never invent reviews or former prices.
+ * ------------------------------------------------------------------ */
+function ResultCard({ l, onAdd, onOpen }) {
+  const [variantId, setVariantId] = useState(l.variants[0]?.id);
+  const [added, setAdded] = useState(false);
+  const media = l.spin || l.video;
+  const hasSizes = l.variants.length > 1;
+
+  function add() {
+    const size = l.variants.find((v) => String(v.id) === String(variantId))?.size;
+    onAdd({ key: l.key, variantId, qty: 1, name: l.name, price: l.price, image: l.image, size });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   }
 
+  const off =
+    l.compareAt && l.compareAt > l.price
+      ? Math.round(((l.compareAt - l.price) / l.compareAt) * 100)
+      : null;
+
   return (
-    <Reveal as="article" className="tls-card">
-      <div
-        className={`tls-card-img${g.spin || g.video ? ' is-interactive' : ''}`}
-        onClick={() => (g.spin || g.video) && setPlaying((p) => !p)}
-        role={g.spin || g.video ? 'button' : undefined}
-        tabIndex={g.spin || g.video ? 0 : undefined}
-        aria-label={g.spin || g.video ? `See the ${g.label} shirt in motion` : undefined}
-        onKeyDown={(e) => (g.spin || g.video) && (e.key === 'Enter' || e.key === ' ') && setPlaying((p) => !p)}
-      >
-        <span className="tls-card-index">({pad(index + 1)})</span>
-        {playing && (g.spin || g.video) ? (
-          <>
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video className="tls-card-vid-bg" src={g.spin || g.video} autoPlay loop muted playsInline aria-hidden="true" />
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video className="tls-card-vid" src={g.spin || g.video} poster={item.image} autoPlay loop muted playsInline />
-          </>
-        ) : (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img src={item.image} alt={item.name} loading="lazy" />
-        )}
-        {(g.spin || g.video) && !playing && <span className="tls-card-cue">360° view</span>}
+    <li className="etsy-cell">
+      <div className="etsy-card">
+        {/* .etsy-media is the un-clipped anchor: the image box clips its own
+            overflow, while the quick-add floats over it on hover (desktop) or
+            sits below it on touch layouts, where it would otherwise clip. */}
+        <div className="etsy-media">
+        {/* Clicking the image opens the listing view, exactly like Etsy. */}
+        <div
+          className="etsy-card-img is-interactive"
+          onClick={onOpen}
+          role="button"
+          tabIndex={0}
+          aria-label={`View ${l.label}`}
+          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onOpen())}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={l.modelShot || l.image} alt={l.title} loading="lazy" />
+          {l.badge && <span className="etsy-badge">{l.badge}</span>}
+          {media && <span className="etsy-cue">360° view</span>}
+        </div>
+
+        {/* Etsy surfaces a quick add-to-cart on the results card. */}
+        <div className="etsy-quick">
+          {hasSizes && (
+            <select
+              className="etsy-size"
+              value={variantId}
+              onChange={(e) => setVariantId(e.target.value)}
+              aria-label={`Size for ${l.name}`}
+            >
+              {l.variants.map((v) => (
+                <option key={v.id} value={v.id}>{v.size}</option>
+              ))}
+            </select>
+          )}
+          <button className="etsy-add" onClick={add}>{added ? 'Added' : 'Add to cart'}</button>
+        </div>
+        </div>
+
+        <h3 className="etsy-title">{l.title}</h3>
+        <p className="etsy-shop">By The Lost Jamaican</p>
+
+        {/* Rating renders only when real review data exists. */}
+        {l.rating && l.reviews ? (
+          <p className="etsy-rating">
+            <span className="etsy-stars" aria-hidden="true">
+              {'★★★★★'.slice(0, Math.round(l.rating))}
+            </span>
+            <span className="etsy-reviews">({l.reviews.toLocaleString()})</span>
+          </p>
+        ) : null}
+
+        <p className="etsy-price">
+          <span className="etsy-price-now">{money(l.price)}</span>
+          {off ? (
+            <>
+              <span className="etsy-price-was">{money(l.compareAt)}</span>
+              <span className="etsy-price-off">({off}% off)</span>
+            </>
+          ) : null}
+        </p>
+        {l.freeShipping ? <p className="etsy-ship">Free shipping</p> : null}
       </div>
-      <div className="tls-card-meta">
-        <h3 className="tls-card-name">{g.label}</h3>
-        <span className="tls-card-price">{money(item.price)}</span>
-      </div>
-      <p className="tls-card-blurb">{g.blurb}</p>
-      <div className="tls-kinds" role="group" aria-label={`Choose product for ${g.label}`}>
-        {g.items.map((i) => (
-          <button
-            key={i.key}
-            className={`tls-kind${i.key === active ? ' is-on' : ''}`}
-            onClick={() => pick(i.key)}
-          >
-            {KIND[i.kind]?.name || i.kind}
-          </button>
-        ))}
-        {(g.spin || g.video) && (
-          <button
-            className={`tls-kind tls-kind-360${playing ? ' is-on' : ''}`}
-            onClick={() => setPlaying((p) => !p)}
-            aria-pressed={playing}
-            title={`See the ${g.label} in motion`}
-          >
-            360°
-          </button>
-        )}
-      </div>
-      <div className="tls-card-buy">
-        {hasSizes && (
-          <select
-            className="tls-size"
-            value={variantId}
-            onChange={(e) => setVariantId(e.target.value)}
-            aria-label={`Size for ${item.name}`}
-          >
-            {item.variants.map((v) => (
-              <option key={v.id} value={v.id}>{v.size}</option>
-            ))}
-          </select>
-        )}
-        <button className="tls-btn" onClick={add}>{added ? 'Added' : 'Add to cart'}</button>
-      </div>
-    </Reveal>
+    </li>
   );
 }
-
-function Interlude({ it }) {
-  return (
-    <Reveal className="tls-interlude">
-      <span className="tls-mono">( {it.small} )</span>
-      <p className="tls-interlude-big">{it.big}</p>
-      <span className="tls-mono">{it.sub}</span>
-    </Reveal>
-  );
-}
-
-const FILTERS = [
-  { id: 'All', label: 'All', kind: null },
-  { id: 'Tees', label: 'Tees', kind: 'tee' },
-  { id: 'Heavyweight', label: 'Heavyweight Tees', kind: 'gdtee' },
-  { id: 'Hoodies', label: 'Hoodies & Sweats', kind: 'hoodie' },
-  { id: 'Mugs', label: 'Mugs', kind: 'mug' },
-  { id: 'Caps', label: 'Caps', kind: 'cap' },
-];
 
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
-  const [filter, setFilter] = useState('All');
+  const [facet, setFacet] = useState('all');
+  const [sort, setSort] = useState('relevant');
+  const [sortOpen, setSortOpen] = useState(false);
+  const [openListing, setOpenListing] = useState(null);
   const [heroVideoOk, setHeroVideoOk] = useState(true);
   const [welcomePlaying, setWelcomePlaying] = useState(false);
   const welcomeRef = useRef(null);
@@ -203,13 +488,21 @@ export default function StoreClient() {
     }
   }
 
-  const f = FILTERS.find((x) => x.id === filter) || FILTERS[0];
-  const featured = DESIGN_GROUPS.slice(0, 2); // money, neverlose
-  const rest = useMemo(() => {
-    const tail = DESIGN_GROUPS.slice(2);
-    if (!f.kind) return tail;
-    return tail.filter((g) => g.kinds.includes(f.kind) || (f.kind === 'hoodie' && g.kinds.includes('crew')));
-  }, [f.kind]);
+  // Close the sort menu on outside click.
+  useEffect(() => {
+    if (!sortOpen) return;
+    const close = (e) => { if (!e.target.closest('.etsy-sort')) setSortOpen(false); };
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [sortOpen]);
+
+  const results = useMemo(() => {
+    const f = FACETS.find((x) => x.id === facet) || FACETS[0];
+    const list = LISTINGS.filter(f.test);
+    if (sort === 'lowhigh') return [...list].sort((a, b) => a.price - b.price);
+    if (sort === 'highlow') return [...list].sort((a, b) => b.price - a.price);
+    return list;
+  }, [facet, sort]);
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
@@ -252,22 +545,15 @@ export default function StoreClient() {
   }
 
   const marqueeRun = [...PHRASES, ...PHRASES];
-
-  // Interleave interludes into the grid: one after every 6 design cards.
-  const gridBlocks = [];
-  rest.forEach((g, i) => {
-    gridBlocks.push({ type: 'card', g, i });
-    if ((i + 1) % 6 === 0 && INTERLUDES[(i + 1) / 6 - 1]) {
-      gridBlocks.push({ type: 'interlude', it: INTERLUDES[(i + 1) / 6 - 1] });
-    }
-  });
+  const sortLabel = (SORTS.find((s) => s.id === sort) || SORTS[0]).label;
 
   return (
     <main className="tls">
       <h1 style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
         The Lost Jamaican Store — Jamaican slang merch, video-making courses, and AI prompt packs
       </h1>
-      {/* ---------- Hero ---------- */}
+
+      {/* ---------- Hero (UNCHANGED) ---------- */}
       <section className="tls-hero">
         <div className="tls-hero-media" aria-hidden="true">
           {heroVideoOk ? (
@@ -300,211 +586,151 @@ export default function StoreClient() {
         </div>
       </section>
 
-      {/* ---------- Flagships ---------- */}
-      <section id="collection" className="tls-section">
-        <div className="tls-shell">
-          <div style={{ marginBottom: 64 }}>
-            <span className="tls-mono">( 01 — The Mantra )</span>
-            <h2 className="tls-mantra">
-              More money than last year.
-              <br />
-              <em>We never lose.</em>
-            </h2>
-          </div>
-
-          <div className="tls-featured">
-            {featured.map((g) => (
-              <Reveal as="div" className="tls-feature" key={g.design}>
-                <DesignCard g={g} index={DESIGN_GROUPS.indexOf(g)} onAdd={addItem} preferKind="tee" />
-              </Reveal>
-            ))}
-          </div>
-
-          {/* ---------- The Hoodies ---------- */}
-          <div className="tls-head">
-            <div>
-              <span className="tls-mono">( 02 — The Hoodies )</span>
-              <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                Heavyweight. <em>Head to toe black.</em>
-              </h2>
-            </div>
-            <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).length)}) hoodies</span>
-          </div>
-          <div className="tls-rail" style={{ marginBottom: 90 }}>
-            {DESIGN_GROUPS.filter((g) => g.kinds.includes('hoodie')).map((g, i) => (
-              <DesignCard key={'h-' + g.design} g={g} index={i} onAdd={addItem} preferKind="hoodie" />
-            ))}
-          </div>
-
-          {/* ---------- Bad Wud Dem (the spicy ones) ---------- */}
-          <div className="tls-head">
-            <div>
-              <span className="tls-mono">( 03 — Bad Wud Dem )</span>
-              <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                The spicy ones. <em>Done tasteful.</em>
-              </h2>
-            </div>
-            <span className="tls-mono">18+ energy, gallery finish</span>
-          </div>
-          <div className="tls-rail" style={{ marginBottom: 90 }}>
-            {['bomboclaat', 'rhaatid', 'cho', 'kissmiteeth']
-              .map((d) => DESIGN_GROUPS.find((g) => g.design === d))
-              .filter(Boolean)
-              .map((g, i) => (
-                <DesignCard key={'bw-' + g.design} g={g} index={i} onAdd={addItem} preferKind="tee" />
+      {/* ================= Etsy-style search results ================= */}
+      <section id="collection" className="etsy">
+        {/* Filter pill bar — sticky, horizontally scrollable */}
+        <div className="etsy-filterbar">
+          <div className="etsy-container">
+            <div className="etsy-pills" role="group" aria-label="Filter products">
+              {FACETS.map((f) => (
+                <button
+                  key={f.id}
+                  className={`etsy-pill${facet === f.id ? ' is-on' : ''}`}
+                  onClick={() => setFacet(f.id)}
+                  aria-pressed={facet === f.id}
+                >
+                  {f.label}
+                </button>
               ))}
-          </div>
-
-          {/* ---------- The Slang Collection ---------- */}
-          <div className="tls-head">
-            <div>
-              <span className="tls-mono">( 04 — The Collection )</span>
-              <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                Every piece, <em>every slang.</em>
-              </h2>
             </div>
-            <span className="tls-mono">({pad(rest.length)}) designs</span>
           </div>
+        </div>
 
-          <div className="tls-filters">
-            {FILTERS.map((x) => (
+        <div className="etsy-container">
+          {/* Result count + sort */}
+          <div className="etsy-resulthead">
+            <p className="etsy-count">
+              {results.length.toLocaleString()} item{results.length === 1 ? '' : 's'}
+            </p>
+            <div className="etsy-sort">
               <button
-                key={x.id}
-                className={`tls-filter${filter === x.id ? ' is-on' : ''}`}
-                onClick={() => setFilter(x.id)}
+                className="etsy-sortbtn"
+                onClick={() => setSortOpen((o) => !o)}
+                aria-expanded={sortOpen}
+                aria-haspopup="listbox"
               >
-                {x.label}
+                {sortLabel}
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </button>
+              {sortOpen && (
+                <ul className="etsy-sortmenu" role="listbox">
+                  {SORTS.map((s) => (
+                    <li key={s.id}>
+                      <button
+                        role="option"
+                        aria-selected={sort === s.id}
+                        className={sort === s.id ? 'is-on' : ''}
+                        onClick={() => { setSort(s.id); setSortOpen(false); }}
+                      >
+                        {s.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          {/* The results grid */}
+          <ul className="etsy-grid">
+            {results.map((l) => (
+              <ResultCard key={l.key} l={l} onAdd={addItem} onOpen={() => setOpenListing(l)} />
             ))}
-          </div>
+          </ul>
 
-          <span className="tls-rail-hint">Swipe sideways to see more →</span>
-          <div className="tls-rail">
-            {gridBlocks.map((b, idx) =>
-              b.type === 'card' ? (
-                <DesignCard key={b.g.design} g={b.g} index={b.i} onAdd={addItem} preferKind={f.kind || 'tee'} />
-              ) : (
-                <Interlude key={'int' + idx} it={b.it} />
-              )
-            )}
-          </div>
-
-          {/* ---------- Mugs ---------- */}
-          {DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).length > 0 && (
-            <>
-              <div className="tls-head" style={{ marginTop: 100 }}>
-                <div>
-                  <span className="tls-mono">( 05 — The Mugs )</span>
-                  <h2 className="tls-h2" style={{ marginTop: 16 }}>Morning tea, <em>Jamaican style.</em></h2>
-                </div>
-                <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).length)}) mugs</span>
-              </div>
-              <span className="tls-rail-hint">Swipe sideways to see more →</span>
-              <div className="tls-rail" style={{ marginBottom: 90 }}>
-                {DESIGN_GROUPS.filter((g) => g.kinds.includes('mug')).map((g, i) => (
-                  <DesignCard key={'mug-' + g.design} g={g} index={i} onAdd={addItem} preferKind="mug" />
-                ))}
-              </div>
-            </>
-          )}
-
-          {/* ---------- Caps ---------- */}
-          {DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).length > 0 && (
-            <>
-              <div className="tls-head">
-                <div>
-                  <span className="tls-mono">( 06 — The Caps )</span>
-                  <h2 className="tls-h2" style={{ marginTop: 16 }}>Crown it. <em>Wear di culture.</em></h2>
-                </div>
-                <span className="tls-mono">({pad(DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).length)}) caps</span>
-              </div>
-              <span className="tls-rail-hint">Swipe sideways to see more →</span>
-              <div className="tls-rail">
-                {DESIGN_GROUPS.filter((g) => g.kinds.includes('cap')).map((g, i) => (
-                  <DesignCard key={'cap-' + g.design} g={g} index={i} onAdd={addItem} preferKind="cap" />
-                ))}
-              </div>
-            </>
+          {results.length === 0 && (
+            <p className="etsy-empty">No items match that filter yet.</p>
           )}
         </div>
       </section>
 
       {/* ---------- Courses ---------- */}
-      <section id="courses" className="tls-section">
-        <div className="tls-shell">
-          <div className="tls-head">
-            <div>
-              <span className="tls-mono">( 05 — The Courses )</span>
-              <h2 className="tls-h2" style={{ marginTop: 16 }}>
-                The system behind <em>the shorts.</em>
-              </h2>
-            </div>
-            <span className="tls-mono">Enrollment opening</span>
-          </div>
-          <div className="tls-tiers">
+      <section id="courses" className="etsy-section">
+        <div className="etsy-container">
+          <h2 className="etsy-h2">Courses</h2>
+          <p className="etsy-sub">The system behind the shorts.</p>
+          <div className="etsy-tiers">
             {COURSES.map((c) => (
-              <Reveal as="article" className={`tls-tier${c.flagship ? ' is-flagship' : ''}`} key={c.id}>
-                <span className="tls-mono">{c.flagship ? '( The full system )' : '( Tier )'}</span>
-                <p className="tls-tier-price">{c.priceLabel}</p>
+              <article className={`etsy-tier${c.flagship ? ' is-flagship' : ''}`} key={c.id}>
+                <p className="etsy-tier-price">{c.priceLabel}</p>
                 <h3>{c.name}</h3>
-                <p className="tls-tier-blurb">{c.blurb}</p>
+                <p className="etsy-tier-blurb">{c.blurb}</p>
                 <ul>
                   {c.features.map((x) => (
                     <li key={x}>{x}</li>
                   ))}
                 </ul>
-                <span className="tls-mono" style={{ marginTop: 18 }}>Coming soon</span>
-              </Reveal>
+                <span className="etsy-soon">Coming soon</span>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* ---------- Prompt packs ---------- */}
-      <section className="tls-section">
-        <div className="tls-shell tls-packs-inner">
+      <section className="etsy-section">
+        <div className="etsy-container etsy-packs">
           <div>
-            <span className="tls-mono">( 06 — The Prompt Packs )</span>
-            <h2 className="tls-h2" style={{ marginTop: 16 }}>
-              Every prompt behind <em>the videos.</em>
-            </h2>
-            <p className="tls-lede" style={{ marginTop: 18, color: '#57534e' }}>
+            <h2 className="etsy-h2">Prompt packs</h2>
+            <p className="etsy-sub">
               The model settings, the character system and the quality gates — one PDF you can hand
               straight to your own AI. Name your price, from $4.99.
             </p>
           </div>
-          <a href="/prompts" className="tls-btn">Browse the packs</a>
+          <a href="/prompts" className="etsy-add etsy-add-lg">Browse the packs</a>
         </div>
       </section>
 
+      {/* ---------- Listing view (click a card image) ---------- */}
+      {openListing && groupFor(openListing.design) && (
+        <ListingModal
+          group={groupFor(openListing.design)}
+          startKey={openListing.key}
+          onAdd={addItem}
+          onClose={() => setOpenListing(null)}
+        />
+      )}
+
       {/* ---------- Cart ---------- */}
       {cart.length > 0 && (
-        <div className="tls-cart" role="region" aria-label="Cart">
-          <div className="tls-cart-head">
-            <span className="tls-mono">( Bag )</span>
-            <span className="tls-mono">{pad(count)} item{count === 1 ? '' : 's'}</span>
+        <div className="etsy-cart" role="region" aria-label="Cart">
+          <div className="etsy-cart-head">
+            <span>Your cart</span>
+            <span>{pad(count)} item{count === 1 ? '' : 's'}</span>
           </div>
-          <div className="tls-cart-items">
+          <div className="etsy-cart-items">
             {cart.map((i, idx) => (
-              <div key={i.key + i.variantId} className="tls-cart-row">
+              <div key={i.key + i.variantId} className="etsy-cart-row">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={i.image} alt="" />
-                <span className="tls-cart-name">
+                <span className="etsy-cart-name">
                   {i.name}
                   {i.size && i.size !== '11oz' ? ` / ${i.size}` : ''} &times;{i.qty}
                 </span>
-                <span>{money(i.price * i.qty)}</span>
+                <span className="etsy-cart-cost">{money(i.price * i.qty)}</span>
                 <button onClick={() => removeItem(idx)} aria-label="Remove">&times;</button>
               </div>
             ))}
           </div>
-          <div className="tls-cart-foot">
-            <span className="tls-cart-total">Total {money(total)}</span>
-            <button className="tls-btn" onClick={checkout} disabled={busy}>
+          <div className="etsy-cart-foot">
+            <span className="etsy-cart-total">Total {money(total)}</span>
+            <button className="etsy-add" onClick={checkout} disabled={busy}>
               {busy ? 'Opening…' : 'Checkout'}
             </button>
           </div>
-          {err && <p className="tls-err">{err}</p>}
+          {err && <p className="etsy-err">{err}</p>}
         </div>
       )}
     </main>

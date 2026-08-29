@@ -107,257 +107,378 @@
 .tls-marquee span i { font-style: italic; color: var(--gold-soft); }
 @keyframes tls-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ---------- Links / buttons ---------- */
-.tls-link {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: inherit; text-decoration: none; padding-bottom: 4px;
-  border-bottom: 1px solid currentColor; background: none; cursor: pointer;
-}
-.tls-link:hover { color: var(--gold-soft); }
-
-.tls-btn {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 14px 24px; border: 1px solid var(--ink); border-radius: 0;
-  background: var(--ink); color: #fff; cursor: pointer; text-decoration: none;
-  display: inline-block; transition: background 0.2s ease, border-color 0.2s ease;
-}
-.tls-btn:hover { background: var(--gold); border-color: var(--gold); }
-.tls-btn[disabled] { opacity: 0.5; cursor: default; }
-
-/* ---------- Section head ---------- */
-.tls-head {
-  display: flex; justify-content: space-between; align-items: baseline;
-  gap: 24px; margin-bottom: 60px; flex-wrap: wrap;
-}
-.tls-h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(30px, 3.8vw, 52px);
-  line-height: 1.06; letter-spacing: -0.012em; font-weight: 500; margin: 0;
-  max-width: 22ch;
-}
-.tls-h2 em { font-style: italic; color: var(--gold); }
-
-/* ---------- Featured flagships ---------- */
-.tls-featured {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 34px; margin-bottom: 110px;
-}
-.tls-feature { position: relative; display: flex; flex-direction: column; }
-.tls-feature-img { background: #f0ede5; overflow: hidden; aspect-ratio: 4/4.6; position: relative; }
-.tls-feature-img img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
-}
-.tls-feature:hover .tls-feature-img img { transform: scale(1.04); }
-.tls-feature-tag {
-  position: absolute; top: 16px; left: 18px;
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  background: var(--ink); color: var(--gold-soft); padding: 7px 12px;
-}
-.tls-feature-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 18px; gap: 14px; }
-.tls-feature-name {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px; font-weight: 500; margin: 0; letter-spacing: -0.01em;
-}
-.tls-feature .tls-card-buy { margin-top: 16px; }
-
-/* ---------- Filters ---------- */
-.tls-filters { display: flex; gap: 28px; flex-wrap: wrap; margin: 0 0 50px; }
-.tls-filter {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
-  background: none; border: none; padding: 0 0 5px; cursor: pointer;
-  color: var(--muted); border-bottom: 1px solid transparent;
-}
-.tls-filter:hover { color: var(--ink); }
-.tls-filter.is-on { color: var(--ink); border-bottom-color: var(--gold); }
-
-/* ---------- Product grid ---------- */
-.tls-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
-  gap: 64px 36px;
-}
-.tls-card { display: flex; flex-direction: column; }
-.tls-card-img {
-  background: #f0ede5; overflow: hidden; position: relative; aspect-ratio: 1;
-}
-.tls-card-img img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
-}
-.tls-card:hover .tls-card-img img { transform: scale(1.035); }
-.tls-card-index {
-  position: absolute; top: 12px; left: 14px;
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
-  letter-spacing: 0.14em; color: #a49e8e;
-}
-.tls-card-meta {
-  display: flex; justify-content: space-between; align-items: baseline;
-  gap: 14px; margin-top: 18px;
-}
-.tls-card-name {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11.5px;
-  letter-spacing: 0.12em; text-transform: uppercase; margin: 0; font-weight: 500;
-  line-height: 1.5;
-}
-.tls-card-price {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11.5px;
-  letter-spacing: 0.08em; white-space: nowrap;
-}
-/* `.myrie-marketing p` (dark-theme --ink-2) outranks a bare class here, so this
-   needs the extra class to win and keep the blurb readable on the white card. */
-.tls-card .tls-card-blurb { font-size: 13.5px; line-height: 1.55; color: var(--muted-strong); margin: 8px 0 0; font-weight: 400; }
-.tls-card-buy { display: flex; gap: 10px; align-items: stretch; margin-top: 15px; }
-.tls-size {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
-  padding: 11px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
-  border-radius: 0; cursor: pointer;
-}
-.tls-card-buy .tls-btn { flex: 1; text-align: center; }
-
-/* ---------- Courses ---------- */
-.tls-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.tls-tier { background: var(--surface); padding: 44px 36px; display: flex; flex-direction: column; gap: 14px; }
-.tls-tier.is-flagship { background: var(--ink); color: #f5f2ea; }
-.tls-tier.is-flagship .tls-tier-blurb, .tls-tier.is-flagship li { color: #a8a396; }
-.tls-tier h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; margin: 8px 0 0; }
-.tls-tier-price { font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 500; letter-spacing: -0.02em; margin: 0; }
-.tls-tier.is-flagship .tls-tier-price { color: var(--gold-soft); }
-.tls-tier-blurb { font-size: 14px; line-height: 1.6; color: #57534e; margin: 0; font-weight: 300; }
-.tls-tier ul { list-style: none; padding: 0; margin: 6px 0 auto; font-size: 13.5px; line-height: 2.05; color: #57534e; }
-.tls-tier li::before { content: '— '; color: var(--gold); }
-
-/* ---------- Packs strip ---------- */
-.tls-packs-inner {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 40px; flex-wrap: wrap;
+/* =====================================================================
+   ETSY RESULTS-PAGE SYSTEM  (everything below the hero)
+   Cloned from etsy.com/search?q=jamaica+shirt — computed values recorded
+   in docs/research/components/etsy-results.spec.md
+   ===================================================================== */
+.etsy,
+.etsy-section {
+  --e-bg: #faf8f5;        /* rgb(250,248,245) */
+  --e-ink: #312b36;       /* rgb(49,43,54)    */
+  --e-muted: #665e5c;     /* rgb(102,94,92)   */
+  --e-green: #406221;     /* rgb(64,98,33)    */
+  --e-line: #e1dedb;
+  --e-surface: #ffffff;
+  background: var(--e-bg);
+  color: var(--e-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Cart ---------- */
-.tls-cart {
-  position: fixed; right: 24px; bottom: 24px; z-index: 60;
-  width: min(395px, calc(100vw - 48px));
-  background: var(--surface); border: 1px solid var(--ink);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.16); padding: 20px;
-}
-.tls-cart-head {
-  display: flex; justify-content: space-between; margin-bottom: 14px;
-  padding-bottom: 12px; border-bottom: 1px solid var(--line);
-}
-.tls-cart-items { max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-.tls-cart-row { display: flex; align-items: center; gap: 12px; }
-.tls-cart-row img { width: 44px; height: 44px; object-fit: cover; flex-shrink: 0; background: #f0ede5; }
-.tls-cart-name {
-  flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
-  letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.55;
-}
-.tls-cart-row span:last-of-type { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
-.tls-cart-row button { border: none; background: none; font-size: 18px; cursor: pointer; color: var(--muted); line-height: 1; }
-.tls-cart-foot {
-  display: flex; align-items: center; justify-content: space-between; gap: 14px;
-  margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line);
-}
-.tls-cart-total { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; }
-.tls-err { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #b3261e; margin: 10px 0 0; }
+.etsy-container { padding: 0 18px; margin: 0 auto; max-width: 1600px; }
 
-@media (max-width: 720px) {
-  .tls-shell { padding: 0 20px; }
-  .tls-hero { padding: 130px 0 0; }
-  .tls-section { padding: 84px 0; }
-  .tls-grid { gap: 44px 20px; }
-  .tls-featured { margin-bottom: 70px; }
+/* ---------- Filter pill bar (sticky) ---------- */
+/* The site nav is sticky at z-50 and ~69px tall — park the filter bar under it. */
+.etsy-filterbar {
+  position: sticky; top: 68px; z-index: 29;
+  background: var(--e-bg);
+  border-bottom: 1px solid var(--e-line);
+  padding: 12px 0;
+}
+.etsy-pills {
+  display: flex; gap: 8px; align-items: center;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.etsy-pills::-webkit-scrollbar { display: none; }
+.etsy-pill {
+  flex: 0 0 auto;
+  height: 36px; padding: 9px 15px; border-radius: 18px;
+  font-size: 14px; line-height: 18px; font-family: inherit;
+  color: var(--e-ink); background: transparent;
+  border: 1px solid var(--e-line); cursor: pointer; white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.etsy-pill:hover { background: #f0ece7; border-color: #cfcac5; }
+.etsy-pill.is-on { background: var(--e-ink); border-color: var(--e-ink); color: #fff; }
+
+/* ---------- Result count + sort ---------- */
+.etsy-resulthead {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 18px 9px 10px; flex-wrap: wrap;
+}
+.etsy .etsy-count { font-size: 14px; color: var(--e-muted); margin: 0; }
+.etsy-sort { position: relative; }
+.etsy-sortbtn {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 36px; padding: 9px 15px; border-radius: 24px;
+  font-size: 14px; font-family: inherit; color: var(--e-ink);
+  background: transparent; border: 1px solid var(--e-line); cursor: pointer;
+}
+.etsy-sortbtn:hover { background: #f0ece7; }
+.etsy-sortmenu {
+  position: absolute; right: 0; top: 44px; z-index: 40;
+  list-style: none; margin: 0; padding: 6px;
+  background: var(--e-surface); border: 1px solid var(--e-line);
+  border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  min-width: 180px;
+}
+.etsy-sortmenu button {
+  display: block; width: 100%; text-align: left;
+  padding: 10px 12px; border: 0; border-radius: 8px; cursor: pointer;
+  font-size: 14px; font-family: inherit; color: var(--e-ink); background: transparent;
+}
+.etsy-sortmenu button:hover { background: #f5f2ee; }
+.etsy-sortmenu button.is-on { font-weight: 700; }
+
+/* ---------- The grid: flex-wrap, 9px cell padding = 18px gutters ---------- */
+.etsy-grid {
+  display: flex; flex-wrap: wrap;
+  list-style: none; padding: 0; margin: 0 -9px 60px;
+}
+.etsy-cell { flex: 0 0 25%; max-width: 25%; padding: 9px; }
+@media (max-width: 1199px) { .etsy-cell { flex-basis: 33.3333%; max-width: 33.3333%; } }
+@media (max-width: 767px) {
+  .etsy-cell { flex-basis: 50%; max-width: 50%; }
+  /* Two cards per row leaves ~145px of button width — shrink to fit. */
+  .etsy-add { font-size: 13px; padding: 9px 10px; }
+  .etsy-size { font-size: 12px; padding: 8px 8px; max-width: 38%; }
 }
 
-/* Garment-type switcher pills (one card per design, no duplicates) */
-.tls-kinds { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 13px; }
-.tls-kind {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em;
-  text-transform: uppercase; padding: 7px 11px; cursor: pointer;
-  background: transparent; border: 1px solid var(--line); color: var(--muted);
-  transition: color 0.15s ease, border-color 0.15s ease;
+/* ---------- Result card ---------- */
+.etsy-card { position: relative; display: flex; flex-direction: column; }
+.etsy-card-img {
+  position: relative; aspect-ratio: 0.8 / 1;
+  border-radius: 8px; overflow: hidden; background: #f0ece7;
+  transition: box-shadow 0.2s ease-in-out;
 }
-.tls-kind:hover { color: var(--ink); border-color: var(--ink); }
-.tls-kind.is-on { color: var(--ink); border-color: var(--gold); background: rgba(161, 98, 7, 0.06); }
+.etsy-card:hover .etsy-card-img { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); }
+.etsy-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.etsy-card-img.is-interactive { cursor: pointer; }
 
-/* Editorial interludes inside the grid */
-.tls-interlude {
-  grid-column: 1 / -1;
-  padding: 88px 24px;
-  margin: 8px 0;
-  background: var(--ink);
-  color: #f5f2ea;
-  text-align: center;
-  display: flex; flex-direction: column; gap: 18px; align-items: center;
-}
-.tls-interlude .tls-mono { color: #8f8a7c; }
-.tls-interlude-big {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: clamp(26px, 4vw, 48px);
-  color: var(--gold-soft);
-  margin: 0; line-height: 1.2; max-width: 24ch;
-}
-
-/* Featured wrapper reuses design cards at larger scale */
-.tls-featured .tls-card-img { aspect-ratio: 4/4.4; }
-.tls-featured .tls-card-name { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; text-transform: none; letter-spacing: -0.01em; }
-
-/* Welcome audio button */
-.tls-sound { color: var(--gold-soft); border-color: var(--gold-soft); }
-.tls-sound:hover { color: #fff; border-color: #fff; }
-
-/* The Mantra — monument type */
-.tls-mantra {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(44px, 7.2vw, 104px);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  margin: 18px 0 0;
-}
-.tls-mantra em { font-style: italic; font-weight: 500; color: var(--gold); }
-
-/* ---- One-click 360 in the product card --------------------------------- */
-.tls-card-img.is-interactive { cursor: pointer; }
-/* contain, not cover — the 9:16 clip must fit the square card uncropped.
-   A blurred copy of the same clip fills the letterbox so the card doesn't
-   read as two black slabs. */
-.tls-card-img video.tls-card-vid {
+/* 360 / UGC clips: contain the 9:16 clip, blurred copy fills the letterbox. */
+.etsy-vid {
   position: absolute; inset: 0; z-index: 1;
   width: 100%; height: 100%; object-fit: contain; display: block;
 }
-.tls-card-img video.tls-card-vid-bg {
+.etsy-vid-bg {
   position: absolute; inset: 0; z-index: 0;
   width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: blur(26px) brightness(.55) saturate(1.1); transform: scale(1.15);
+  filter: blur(26px) brightness(0.55) saturate(1.1); transform: scale(1.15);
 }
-.tls-kind-360 { letter-spacing: .06em; }
-.tls-kind-360.is-on { background: var(--gold); border-color: var(--gold); color: #fff; }
-.tls-card-cue {
+.etsy-badge {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  font-size: 12px; font-weight: 700; line-height: 1;
+  padding: 6px 10px; border-radius: 999px;
+  background: #fff; color: var(--e-ink); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+}
+.etsy-cue {
   position: absolute; right: 10px; bottom: 10px; z-index: 2;
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .12em;
-  text-transform: uppercase; padding: 6px 11px; border-radius: 999px;
-  background: rgba(12,10,9,.74); color: #f5f2ea; pointer-events: none;
+  font-size: 11px; padding: 5px 10px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7); color: #fff; pointer-events: none;
 }
 
-/* ---- Horizontal rails: swipe sideways through a category ---------------- */
-.tls-rail {
-  display: flex; gap: 26px; overflow-x: auto; overflow-y: hidden;
-  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-  padding: 4px 4px 22px; margin: 0 -4px;
-  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+/* Quick add — Etsy shows an Add to cart on the results card.
+   .etsy-media is the un-clipped anchor so the overlay can float over the
+   image on hover without being cut by the image box's overflow:hidden. */
+.etsy-media { position: relative; }
+.etsy-quick {
+  position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 3;
+  display: flex; gap: 6px; opacity: 0; transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
 }
-.tls-rail > * { flex: 0 0 288px; scroll-snap-align: start; }
-.tls-rail::-webkit-scrollbar { height: 6px; }
-.tls-rail::-webkit-scrollbar-track { background: transparent; }
-.tls-rail::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
-.tls-rail::-webkit-scrollbar-thumb:hover { background: var(--gold-soft); }
-.tls-rail-hint {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--muted); display: block; margin: -8px 0 14px;
+.etsy-card:hover .etsy-quick,
+.etsy-card:focus-within .etsy-quick { opacity: 1; transform: none; }
+/* No hover on touch: drop the row below the image, where it has full width. */
+@media (hover: none), (max-width: 767px) {
+  .etsy-quick { position: static; opacity: 1; transform: none; margin-top: 8px; }
 }
-@media (max-width: 640px) { .tls-rail > * { flex-basis: 76vw; } }
+.etsy-size {
+  flex: 0 0 auto; max-width: 42%; min-width: 0;
+  font-size: 13px; font-family: inherit; padding: 8px 10px;
+  border: 1px solid var(--e-line); border-radius: 999px;
+  background: #fff; color: var(--e-ink); cursor: pointer;
+}
+.etsy-add {
+  flex: 1; min-width: 0; font-size: 14px; font-weight: 700; font-family: inherit;
+  padding: 9px 15px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--e-ink); color: #fff; white-space: nowrap;
+  text-decoration: none; text-align: center;
+  transition: background 0.15s ease;
+}
+.etsy-add:hover { background: #000; }
+.etsy-add[disabled] { opacity: 0.5; cursor: default; }
+.etsy-add-lg { flex: 0 0 auto; display: inline-block; padding: 14px 26px; font-size: 15px; }
+
+/* Card text — exact Etsy metrics */
+.etsy .etsy-title {
+  font-size: 14px; line-height: 22.4px; font-weight: 400; color: var(--e-ink);
+  margin: 6px 0 0;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.etsy .etsy-shop { font-size: 14px; line-height: 18px; color: var(--e-muted); margin: 2px 0 0; }
+.etsy .etsy-rating { display: flex; align-items: center; gap: 5px; margin: 3px 0 0; }
+.etsy-stars { font-size: 13px; color: var(--e-ink); letter-spacing: 1px; }
+.etsy-reviews { font-size: 12px; color: var(--e-muted); }
+.etsy .etsy-price { margin: 4px 0 0; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.etsy-price-now { font-size: 16px; line-height: 25.6px; font-weight: 700; color: var(--e-green); letter-spacing: -0.16px; }
+.etsy-price-was { font-size: 13px; line-height: 20.8px; color: var(--e-ink); text-decoration: line-through; }
+.etsy-price-off { font-size: 13px; line-height: 20.8px; color: var(--e-muted); }
+.etsy .etsy-ship { font-size: 13px; line-height: 16px; letter-spacing: 0.12px; color: var(--e-ink); margin: 3px 0 0; }
+.etsy .etsy-empty { font-size: 14px; color: var(--e-muted); padding: 40px 9px 80px; }
+
+/* ---------- Sections below the grid ---------- */
+.etsy-section { padding: 56px 0; border-top: 1px solid var(--e-line); }
+.etsy-h2 { font-size: 26px; font-weight: 500; line-height: 1.2; margin: 0; color: var(--e-ink); }
+.etsy-section .etsy-sub { font-size: 14px; line-height: 22px; color: var(--e-muted); margin: 8px 0 0; max-width: 60ch; }
+
+.etsy-tiers {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px; margin-top: 28px;
+}
+.etsy-tier {
+  background: var(--e-surface); border: 1px solid var(--e-line); border-radius: 12px;
+  padding: 24px; display: flex; flex-direction: column; gap: 8px;
+}
+.etsy-tier.is-flagship { border-color: var(--e-ink); border-width: 2px; }
+.etsy-tier h3 { font-size: 16px; font-weight: 700; margin: 0; color: var(--e-ink); }
+.etsy-tier-price { font-size: 24px; font-weight: 700; color: var(--e-green); margin: 0; }
+.etsy-section .etsy-tier-blurb { font-size: 14px; line-height: 22px; color: var(--e-muted); margin: 0; }
+.etsy-tier ul { list-style: none; padding: 0; margin: 4px 0 auto; font-size: 14px; line-height: 26px; color: var(--e-muted); }
+.etsy-tier li::before { content: "· "; color: var(--e-green); }
+.etsy-soon { font-size: 13px; color: var(--e-muted); margin-top: 14px; }
+
+.etsy-packs { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+
+/* ---------- Cart ---------- */
+.etsy-cart {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: min(380px, calc(100vw - 36px));
+  background: #fff; border: 1px solid #e1dedb; border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18); padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: #312b36;
+}
+.etsy-cart-head {
+  display: flex; justify-content: space-between; font-size: 14px; font-weight: 700;
+  padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid #e1dedb;
+}
+.etsy-cart-items { max-height: 250px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.etsy-cart-row { display: flex; align-items: center; gap: 10px; }
+.etsy-cart-row img { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; flex-shrink: 0; background: #f0ece7; }
+.etsy-cart-name { flex: 1; font-size: 13px; line-height: 18px; }
+.etsy-cart-cost { font-size: 14px; font-weight: 700; color: #406221; }
+.etsy-cart-row button { border: 0; background: none; font-size: 18px; cursor: pointer; color: #665e5c; line-height: 1; }
+.etsy-cart-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin-top: 14px; padding-top: 12px; border-top: 1px solid #e1dedb;
+}
+.etsy-cart-total { font-size: 14px; font-weight: 700; }
+.etsy-err { font-size: 13px; color: #b3261e; margin: 10px 0 0; }
+
+@media (max-width: 720px) {
+  .tls-hero { padding: 130px 0 0; }
+  .etsy-section { padding: 40px 0; }
+  .etsy-filterbar { top: 58px; }
+}
+
+/* =====================================================================
+   LISTING VIEW + ZOOM LIGHTBOX
+   Cloned from etsy.com/listing/789680039 — values in
+   docs/research/components/etsy-results.spec.md
+   ===================================================================== */
+.etsy-modal-scrim {
+  position: fixed; inset: 0; z-index: 70;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 18px; overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+  color: #312b36;
+}
+.etsy-modal {
+  position: relative;
+  width: min(1100px, 100%);
+  background: #fff; border-radius: 16px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+  padding: 28px;
+}
+.etsy-modal-close {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 48px; height: 48px; border-radius: 24px;
+  display: grid; place-items: center;
+  background: #fff; border: 1px solid #e1dedb; color: #312b36; cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+.etsy-modal-close:hover { background: #f0ece7; }
+
+.etsy-modal-grid {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 32px; align-items: start;
+}
+@media (max-width: 860px) { .etsy-modal-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+/* ---------- Gallery ---------- */
+.etsy-stage {
+  position: relative;
+  background: #f0ece7; border-radius: 8px; overflow: hidden;
+  aspect-ratio: 0.95 / 1;
+}
+.etsy-stage-btn {
+  display: block; width: 100%; height: 100%;
+  padding: 0; border: 0; background: none; cursor: zoom-in;
+}
+.etsy-stage-btn img, .etsy-stage-btn video {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.etsy-zoomhint {
+  position: absolute; left: 12px; bottom: 12px;
+  font-size: 13px; padding: 6px 12px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92); color: #312b36;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14); pointer-events: none;
+}
+/* Etsy's carousel arrows: 48px, fully round, translucent white. */
+.etsy-arrow, .etsy-lb-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 48px; height: 48px; border-radius: 999999px;
+  display: grid; place-items: center; cursor: pointer;
+  background: rgba(255, 255, 255, 0.92); border: 0; color: #312b36;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+.etsy-arrow:hover, .etsy-lb-arrow:hover { background: #fff; }
+.etsy-arrow.is-prev, .etsy-lb-arrow.is-prev { left: 12px; }
+.etsy-arrow.is-next, .etsy-lb-arrow.is-next { right: 12px; }
+
+.etsy-thumbs, .etsy-lb-thumbs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+}
+.etsy-thumb {
+  width: 60px; height: 60px; padding: 0;
+  border-radius: 8px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent; background: #f0ece7;
+}
+.etsy-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.etsy-thumb.is-on { border-color: #000; }
+
+/* ---------- Buy box ---------- */
+.etsy-modal .etsy-bb-shop { font-size: 13px; color: #665e5c; margin: 0 0 6px; }
+.etsy-bb-title { font-size: 20px; line-height: 26px; font-weight: 500; margin: 0; color: #312b36; }
+.etsy-modal .etsy-bb-price { font-size: 26px; font-weight: 700; color: #406221; margin: 12px 0 0; }
+.etsy-modal .etsy-bb-blurb { font-size: 14px; line-height: 22px; color: #665e5c; margin: 10px 0 0; }
+.etsy-bb-label {
+  display: block; font-size: 13px; font-weight: 700;
+  margin: 18px 0 6px; color: #312b36;
+}
+.etsy-bb-select {
+  width: 100%; font-size: 15px; font-family: inherit;
+  padding: 11px 14px; border: 1px solid #312b36; border-radius: 8px;
+  background: #fff; color: #312b36; cursor: pointer;
+}
+.etsy-bb-select.is-qty { width: 110px; }
+
+.etsy-bb-actions { display: flex; gap: 10px; align-items: center; margin-top: 22px; }
+.etsy-bb-add {
+  flex: 1; height: 48px; border-radius: 24px; border: 0; cursor: pointer;
+  font-size: 16px; font-weight: 700; font-family: inherit;
+  padding: 12px 18px; background: #312b36; color: #faf8f5;
+  transition: background 0.15s ease;
+}
+.etsy-bb-add:hover { background: #000; }
+.etsy-fav {
+  width: 42px; height: 42px; border-radius: 24px; flex: 0 0 auto;
+  display: grid; place-items: center; cursor: pointer;
+  background: #fff; border: 1px solid #d6d1cc; color: #312b36;
+}
+.etsy-fav:hover { background: #f0ece7; }
+.etsy-fav.is-on { color: #a61a2b; border-color: #a61a2b; }
+
+.etsy-bb-facts {
+  list-style: none; padding: 0; margin: 22px 0 0;
+  font-size: 13px; line-height: 22px; color: #665e5c;
+  border-top: 1px solid #e1dedb; padding-top: 16px;
+}
+.etsy-bb-facts li::before { content: "· "; color: #406221; }
+
+/* ---------- Zoom lightbox ---------- */
+.etsy-lightbox {
+  position: fixed; inset: 0; z-index: 80;
+  background: rgba(63, 63, 63, 0.9);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 72px 24px 24px; cursor: zoom-out;
+}
+.etsy-lb-stage {
+  position: relative; cursor: default;
+  display: flex; align-items: center; justify-content: center;
+  width: min(1000px, 100%); flex: 1 1 auto; min-height: 0;
+}
+.etsy-lb-img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain; border-radius: 8px; display: block;
+}
+.etsy-lb-close {
+  position: absolute; top: 12px; right: 27px; z-index: 2;
+  width: 48px; height: 48px; border-radius: 24px;
+  display: grid; place-items: center; cursor: pointer;
+  background: rgba(255, 255, 255, 0.92); border: 0; color: #312b36;
+}
+.etsy-lb-close:hover { background: #fff; }
+.etsy-lb-thumbs { flex: 0 0 auto; justify-content: center; cursor: default; }
+.etsy-lb-thumbs .etsy-thumb { background: rgba(255, 255, 255, 0.15); }
+.etsy-lb-thumbs .etsy-thumb.is-on { border-color: #fff; }
+
+@media (max-width: 720px) {
+  .etsy-modal-scrim { padding: 0; }
+  .etsy-modal { border-radius: 0; padding: 20px 16px 32px; min-height: 100vh; }
+  .etsy-lightbox { padding: 64px 12px 16px; }
+}
