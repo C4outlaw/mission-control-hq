@@ -88,6 +88,28 @@
 }
 .tls-lede { max-width: 46ch; line-height: 1.6; font-size: 16.5px; color: #c9c4b6; margin: 0; font-weight: 300; }
 
+/* Hero action links + sound toggle — pill buttons over the video, never raw blue links */
+.tls-link {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid rgba(245, 242, 234, 0.28);
+  border-radius: 999px;
+  color: #f5f2ea;
+  background: rgba(12, 10, 9, 0.45);
+  text-decoration: none;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.tls-link:hover,
+.tls-link:focus-visible {
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+  background: rgba(12, 10, 9, 0.65);
+}
+
 /* Marquee strip */
 .tls-marquee {
   position: relative; z-index: 2;
