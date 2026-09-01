@@ -57,8 +57,8 @@ const orgSchema = {
   areaServed: ['Daytona Beach FL', 'Ormond Beach FL', 'Orlando FL'],
   sameAs: [
     'https://www.facebook.com/100091255320275',
-    'https://www.instagram.com/lumoswonders',
-    'https://www.youtube.com/@LumoWonders',
+    'https://www.instagram.com/thelostjamaican876',
+    'https://www.youtube.com/@Thelostjamaican',
   ],
 };
 
