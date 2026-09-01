@@ -120,7 +120,7 @@ function Lightbox({ shots, index, setIndex, onClose }) {
 
         {shot.video ? (
           /* eslint-disable-next-line jsx-a11y/media-has-caption */
-          <video className="etsy-lb-img" src={shot.src} autoPlay loop muted playsInline />
+          <video className="etsy-lb-img" src={shot.src} poster={shot.poster} autoPlay loop muted playsInline />
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img className="etsy-lb-img" src={shot.src} alt={shot.alt} />
@@ -557,7 +557,7 @@ export default function StoreClient() {
       <section className="tls-hero">
         <div className="tls-hero-media" aria-hidden="true">
           {heroVideoOk ? (
-            <video src="/store/hero.mp4" autoPlay muted loop playsInline onError={() => setHeroVideoOk(false)} />
+            <video src="/store/hero.mp4" poster="/store/neverlose-hoodie.jpg" autoPlay muted loop playsInline onError={() => setHeroVideoOk(false)} />
           ) : (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img src="/store/neverlose-hoodie.jpg?v=6" alt="" />

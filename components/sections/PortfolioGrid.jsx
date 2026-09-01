@@ -40,6 +40,7 @@ export default function PortfolioGrid() {
           <video
             className="pgrid-card-vid" autoPlay loop muted playsInline
             src="/assets/hero/waterfall-hero.mp4"
+            poster="/assets/hero/waterfall-hero.png"
             aria-hidden="true"
           />
           <div className="pgrid-card-veil" />
@@ -91,6 +92,7 @@ export default function PortfolioGrid() {
             <video
               className="pgrid-card-vid" autoPlay loop muted playsInline
               src="/assets/work/beach-bucket-design/drink-ads/saturday.mp4"
+              poster="/assets/work/beach-bucket-design/drinks/saturday.png"
               aria-hidden="true"
             />
             <div className="pgrid-card-veil" />
@@ -107,6 +109,7 @@ export default function PortfolioGrid() {
             <video
               className="pgrid-card-vid" autoPlay loop muted playsInline
               src="/assets/work/beach-bucket-design/drink-ads/wednesday.mp4"
+              poster="/assets/work/beach-bucket-design/drinks/wednesday.png"
               aria-hidden="true"
             />
             <div className="pgrid-card-veil" />
