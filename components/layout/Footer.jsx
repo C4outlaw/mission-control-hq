@@ -29,7 +29,7 @@ export default function Footer() {
     },
     {
       label: 'YouTube',
-      href: 'https://www.youtube.com/@LumoTheLight',
+      href: 'https://www.youtube.com/@LumoWonders',
       path: 'M21.6 8.2a2.5 2.5 0 0 0-1.8-1.8C18.2 6 12 6 12 6s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 9.8 2 12 2 12s0 2.2.4 3.8a2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-3.8.4-3.8s0-2.2-.4-3.8zM10 15V9l5.2 3L10 15z',
     },
   ];

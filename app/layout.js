@@ -58,7 +58,7 @@ const orgSchema = {
   sameAs: [
     'https://www.facebook.com/100091255320275',
     'https://www.instagram.com/lumoswonders',
-    'https://www.youtube.com/@LumoTheLight',
+    'https://www.youtube.com/@LumoWonders',
   ],
 };
 
