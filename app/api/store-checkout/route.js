@@ -5,6 +5,30 @@ export const runtime = 'nodejs';
 
 // Physical-merch checkout. Prices and variant ids are resolved server-side from the
 // Printify-derived catalog, so a tampered request can never set its own price.
+
+// Stripe caps each metadata value at 500 chars; a JSON fulfil list truncates past
+// ~10 items and the webhook can no longer parse it. Compact "p:v:q;..." parts split
+// across up to 4 keys carry every cart size the endpoint accepts.
+function buildFulfilMetadata(fulfil) {
+  const parts = fulfil.map((f) => `${f.p}:${f.v}:${f.q}`);
+  const keys = ['fulfil', 'fulfil2', 'fulfil3', 'fulfil4'];
+  const metadata = { type: 'merch' };
+  let ki = 0;
+  let buf = '';
+  for (const part of parts) {
+    const next = buf ? `${buf};${part}` : part;
+    if (next.length > 480) {
+      metadata[keys[ki]] = buf + ';';
+      ki += 1;
+      if (ki >= keys.length) throw new Error('cart-too-large');
+      buf = part;
+    } else {
+      buf = next;
+    }
+  }
+  if (buf) metadata[keys[ki]] = buf;
+  return metadata;
+}
 export async function POST(req) {
   try {
     const key = process.env.STRIPE_SECRET_KEY;
@@ -60,7 +84,7 @@ export async function POST(req) {
           },
         },
       ],
-      metadata: { type: 'merch', fulfil: JSON.stringify(fulfil).slice(0, 480) },
+      metadata: buildFulfilMetadata(fulfil),
       success_url: `${origin}/store/thank-you?sid={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store`,
     });
