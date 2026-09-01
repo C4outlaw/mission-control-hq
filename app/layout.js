@@ -44,10 +44,32 @@ export const metadata = {
   },
 };
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.myriehq.com/#organization',
+  name: 'Myrie HQ',
+  url: 'https://www.myriehq.com/',
+  logo: 'https://www.myriehq.com/og-image.jpg',
+  description:
+    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants, bars, and local businesses in Daytona Beach and Orlando.',
+  founder: { '@type': 'Person', name: "O'Neill Myrie" },
+  areaServed: ['Daytona Beach FL', 'Ormond Beach FL', 'Orlando FL'],
+  sameAs: [
+    'https://www.facebook.com/100091255320275',
+    'https://www.instagram.com/lumoswonders',
+    'https://www.youtube.com/@LumoTheLight',
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${fraunces.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         <LangProvider>
           <SmoothScroll />
           <ScrollProgress />
