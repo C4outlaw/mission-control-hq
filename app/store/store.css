@@ -548,3 +548,10 @@
   .drop-title { font-size: 17px; }
 }
 @media (max-width: 480px) { .drop-extras.is-grid { grid-template-columns: 1fr; } .drop { padding: 64px 0 80px; } }
+
+/* The marketing site's global type is light-on-dark; pin the drop panels to the store palette. */
+.tls .drop-head h2, .tls .drop-subhead h3, .tls .drop-title, .tls .drop-price { color: var(--ink); }
+.tls .drop-body p, .tls .drop-lede, .tls .drop-label, .tls .drop-fine, .tls .drop-blurb { color: var(--muted-strong); }
+.tls .drop-body .tls-mono, .tls .drop-head .tls-mono, .tls .drop-subhead .tls-mono { color: var(--muted); }
+.tls .drop-size { color: var(--ink); }
+.tls .drop-size.is-on, .tls .drop-buy { color: var(--paper); }
