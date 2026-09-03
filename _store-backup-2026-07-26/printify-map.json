@@ -1,0 +1,2612 @@
+{
+ "shopId": 6904292,
+ "products": {
+  "neverlose-tee": {
+   "id": "6a8e9d2ac8bbfbf73f07306f",
+   "title": "NEVER LOSE Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "neverlose-wtee": {
+   "id": "6a8e9d3216ce1e80170f98d5",
+   "title": "NEVER LOSE Women's Tee",
+   "price": 1999,
+   "kind": "wtee",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 17743,
+     "size": "S"
+    },
+    {
+     "id": 17744,
+     "size": "M"
+    },
+    {
+     "id": 17745,
+     "size": "L"
+    },
+    {
+     "id": 17746,
+     "size": "XL"
+    },
+    {
+     "id": 17747,
+     "size": "2XL"
+    }
+   ]
+  },
+  "neverlose-tank": {
+   "id": "6a8e9d3516ce1e80170f98d9",
+   "title": "NEVER LOSE Tank",
+   "price": 2299,
+   "kind": "tank",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 24639,
+     "size": "L"
+    },
+    {
+     "id": 24640,
+     "size": "M"
+    },
+    {
+     "id": 24641,
+     "size": "S"
+    },
+    {
+     "id": 24642,
+     "size": "XL"
+    },
+    {
+     "id": 24644,
+     "size": "2XL"
+    }
+   ]
+  },
+  "neverlose-wtank": {
+   "id": "6a8e9d38c8bbfbf73f073087",
+   "title": "NEVER LOSE Women's Racerback Tank",
+   "price": 3699,
+   "kind": "wtank",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 11521,
+     "size": "L"
+    },
+    {
+     "id": 11544,
+     "size": "M"
+    },
+    {
+     "id": 11567,
+     "size": "S"
+    }
+   ]
+  },
+  "neverlose-hoodie": {
+   "id": "6a8e9d3a16ce1e80170f98df",
+   "title": "NEVER LOSE Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "neverlose-crew": {
+   "id": "6a8e9d3ec8bbfbf73f073093",
+   "title": "NEVER LOSE Crewneck",
+   "price": 2699,
+   "kind": "crew",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 25397,
+     "size": "S"
+    },
+    {
+     "id": 25428,
+     "size": "M"
+    },
+    {
+     "id": 25459,
+     "size": "L"
+    },
+    {
+     "id": 25490,
+     "size": "XL"
+    },
+    {
+     "id": 25521,
+     "size": "2XL"
+    }
+   ]
+  },
+  "neverlose-mug": {
+   "id": "6a8e9d437c093e4a9f0ecb7b",
+   "title": "NEVER LOSE Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "neverlose",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "money-tee": {
+   "id": "6a8e9d456b81fb3d9109fb37",
+   "title": "More Money Than Last Year Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "money",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "money-wtee": {
+   "id": "6a8e9d4dc8bbfbf73f07309a",
+   "title": "More Money Than Last Year Women's Tee",
+   "price": 1999,
+   "kind": "wtee",
+   "design": "money",
+   "variants": [
+    {
+     "id": 17743,
+     "size": "S"
+    },
+    {
+     "id": 17744,
+     "size": "M"
+    },
+    {
+     "id": 17745,
+     "size": "L"
+    },
+    {
+     "id": 17746,
+     "size": "XL"
+    },
+    {
+     "id": 17747,
+     "size": "2XL"
+    }
+   ]
+  },
+  "money-hoodie": {
+   "id": "6a8e9d50c8aa551d1005d78c",
+   "title": "More Money Than Last Year Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "money",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "money-crew": {
+   "id": "6a8e9d5316ce1e80170f98f8",
+   "title": "More Money Than Last Year Crewneck",
+   "price": 2699,
+   "kind": "crew",
+   "design": "money",
+   "variants": [
+    {
+     "id": 25397,
+     "size": "S"
+    },
+    {
+     "id": 25428,
+     "size": "M"
+    },
+    {
+     "id": 25459,
+     "size": "L"
+    },
+    {
+     "id": 25490,
+     "size": "XL"
+    },
+    {
+     "id": 25521,
+     "size": "2XL"
+    }
+   ]
+  },
+  "money-mug": {
+   "id": "6a8e9d577c093e4a9f0ecb96",
+   "title": "More Money Than Last Year Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "money",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "wahgwaan-tee": {
+   "id": "6a8e9d59c8bbfbf73f0730bd",
+   "title": "Wah Gwaan Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "wahgwaan",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "wahgwaan-wtee": {
+   "id": "6a8e9d61c8aa551d1005d7c3",
+   "title": "Wah Gwaan Women's Tee",
+   "price": 1999,
+   "kind": "wtee",
+   "design": "wahgwaan",
+   "variants": [
+    {
+     "id": 17743,
+     "size": "S"
+    },
+    {
+     "id": 17744,
+     "size": "M"
+    },
+    {
+     "id": 17745,
+     "size": "L"
+    },
+    {
+     "id": 17746,
+     "size": "XL"
+    },
+    {
+     "id": 17747,
+     "size": "2XL"
+    }
+   ]
+  },
+  "wahgwaan-hoodie": {
+   "id": "6a8e9d647c093e4a9f0ecbb5",
+   "title": "Wah Gwaan Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "wahgwaan",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "wahgwaan-mug": {
+   "id": "6a8e9d6816ce1e80170f9937",
+   "title": "Wah Gwaan Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "wahgwaan",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "notperfect-tee": {
+   "id": "6a8e9d6a7c093e4a9f0ecbc2",
+   "title": "Not Perfect But Jamaican Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "notperfect",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "notperfect-wtee": {
+   "id": "6a8e9d727c093e4a9f0ecbca",
+   "title": "Not Perfect But Jamaican Women's Tee",
+   "price": 1999,
+   "kind": "wtee",
+   "design": "notperfect",
+   "variants": [
+    {
+     "id": 17743,
+     "size": "S"
+    },
+    {
+     "id": 17744,
+     "size": "M"
+    },
+    {
+     "id": 17745,
+     "size": "L"
+    },
+    {
+     "id": 17746,
+     "size": "XL"
+    },
+    {
+     "id": 17747,
+     "size": "2XL"
+    }
+   ]
+  },
+  "notperfect-hoodie": {
+   "id": "6a8e9d75dce354694c0e1fa9",
+   "title": "Not Perfect But Jamaican Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "notperfect",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "notperfect-mug": {
+   "id": "6a8e9d787c093e4a9f0ecbce",
+   "title": "Not Perfect But Jamaican Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "notperfect",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "tallawah-tee": {
+   "id": "6a8e9d7bdce354694c0e1fac",
+   "title": "Likkle But Tallawah Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "tallawah",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "tallawah-wtee": {
+   "id": "6a8e9d837c093e4a9f0ecbd9",
+   "title": "Likkle But Tallawah Women's Tee",
+   "price": 1999,
+   "kind": "wtee",
+   "design": "tallawah",
+   "variants": [
+    {
+     "id": 17743,
+     "size": "S"
+    },
+    {
+     "id": 17744,
+     "size": "M"
+    },
+    {
+     "id": 17745,
+     "size": "L"
+    },
+    {
+     "id": 17746,
+     "size": "XL"
+    },
+    {
+     "id": 17747,
+     "size": "2XL"
+    }
+   ]
+  },
+  "tallawah-hoodie": {
+   "id": "6a8e9d867c093e4a9f0ecbde",
+   "title": "Likkle But Tallawah Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "tallawah",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "tallawah-mug": {
+   "id": "6a8e9d8a16ce1e80170f9951",
+   "title": "Likkle But Tallawah Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "tallawah",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "area876-tee": {
+   "id": "6a8e9d8c7c093e4a9f0ecbe8",
+   "title": "876 Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "area876",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "area876-hoodie": {
+   "id": "6a8e9d94c8bbfbf73f07310f",
+   "title": "876 Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "area876",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "area876-mug": {
+   "id": "6a8e9d977c093e4a9f0ecbee",
+   "title": "876 Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "area876",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "xmark-tee": {
+   "id": "6a8e9d9ac8aa551d1005d7f4",
+   "title": "The Lost Jamaican X Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "xmark",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "xmark-hoodie": {
+   "id": "6a8e9da1dce354694c0e1fc2",
+   "title": "The Lost Jamaican X Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "xmark",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "xmark-mug": {
+   "id": "6a8e9da57c093e4a9f0ecbfd",
+   "title": "The Lost Jamaican X Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "xmark",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "believe-mug": {
+   "id": "6a8e9da7c8bbfbf73f07312d",
+   "title": "Believe Inna Yuhself Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "believe",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "canthear-mug": {
+   "id": "6a8e9da9c8bbfbf73f07312e",
+   "title": "Who Can't Hear Will Feel Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "canthear",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "bomboclaat-mug": {
+   "id": "6a8e9dabc8aa551d1005d807",
+   "title": "Bomboclaat Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "bomboclaat",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "cho-tee": {
+   "id": "6a8ea3777c093e4a9f0ed11f",
+   "title": "Cho! Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "cho",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "cho-mug": {
+   "id": "6a8ea37ec8bbfbf73f0735e6",
+   "title": "Cho! Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "cho",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "rhaatid-tee": {
+   "id": "6a8ea3836b81fb3d9109ff29",
+   "title": "Rhaatid! Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "rhaatid",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "rhaatid-mug": {
+   "id": "6a8ea38a16ce1e80170f9de0",
+   "title": "Rhaatid! Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "rhaatid",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "sooncome-tee": {
+   "id": "6a8ea38f16ce1e80170f9de6",
+   "title": "Soon Come Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "sooncome",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "sooncome-mug": {
+   "id": "6a8ea397dce354694c0e23ef",
+   "title": "Soon Come Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "sooncome",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "dunkno-tee": {
+   "id": "6a8ea39cc8bbfbf73f0735fc",
+   "title": "Dun Kno Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "dunkno",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "dunkno-mug": {
+   "id": "6a8ea3a27c093e4a9f0ed154",
+   "title": "Dun Kno Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "dunkno",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "kissmiteeth-tee": {
+   "id": "6a8ea3a76b81fb3d9109ff4b",
+   "title": "Kiss Mi Teeth Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "kissmiteeth",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "kissmiteeth-mug": {
+   "id": "6a8ea3ae16ce1e80170f9dfc",
+   "title": "Kiss Mi Teeth Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "kissmiteeth",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "walkgood-tee": {
+   "id": "6a8ea3b27c093e4a9f0ed15c",
+   "title": "Walk Good Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "walkgood",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "walkgood-mug": {
+   "id": "6a8ea3b9c8aa551d1005dc23",
+   "title": "Walk Good Mug",
+   "price": 1299,
+   "kind": "mug",
+   "design": "walkgood",
+   "variants": [
+    {
+     "id": 65217,
+     "size": "11oz"
+    }
+   ]
+  },
+  "believe-tee": {
+   "id": "6a8ecd486b81fb3d910a294e",
+   "title": "Believe Inna Yuhself Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "believe",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "canthear-tee": {
+   "id": "6a8ecd556b81fb3d910a2957",
+   "title": "Who Can't Hear Will Feel Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "canthear",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "bomboclaat-tee": {
+   "id": "6a8ecd5f16ce1e80170fc823",
+   "title": "Bomboclaat Tee",
+   "price": 1999,
+   "kind": "tee",
+   "design": "bomboclaat",
+   "variants": [
+    {
+     "id": 18100,
+     "size": "S"
+    },
+    {
+     "id": 18101,
+     "size": "M"
+    },
+    {
+     "id": 18102,
+     "size": "L"
+    },
+    {
+     "id": 18103,
+     "size": "XL"
+    },
+    {
+     "id": 18104,
+     "size": "2XL"
+    }
+   ]
+  },
+  "cho-hoodie": {
+   "id": "6a8f2dc7ffd89d136008cc15",
+   "title": "Cho! Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "cho",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "rhaatid-hoodie": {
+   "id": "6a8f2dcdffd89d136008cc1b",
+   "title": "Rhaatid! Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "rhaatid",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "sooncome-hoodie": {
+   "id": "6a8f2dd25bd7b1a011025200",
+   "title": "Soon Come Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "sooncome",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "dunkno-hoodie": {
+   "id": "6a8f2dd86e100cbb5306839f",
+   "title": "Dun Kno Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "dunkno",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "kissmiteeth-hoodie": {
+   "id": "6a8f2ddff60b9533410d00b4",
+   "title": "Kiss Mi Teeth Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "kissmiteeth",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "walkgood-hoodie": {
+   "id": "6a8f2de5ecea373cf90cda4f",
+   "title": "Walk Good Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "walkgood",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "believe-hoodie": {
+   "id": "6a8f2deb6e100cbb530683b0",
+   "title": "Believe Inna Yuhself Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "believe",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "canthear-hoodie": {
+   "id": "6a8f2df0ecea373cf90cda5a",
+   "title": "Who Can't Hear Will Feel Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "canthear",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "bomboclaat-hoodie": {
+   "id": "6a8f2df6ffd89d136008cc58",
+   "title": "Bomboclaat Hoodie",
+   "price": 2999,
+   "kind": "hoodie",
+   "design": "bomboclaat",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    }
+   ]
+  },
+  "flagx-tee": {
+   "id": "6a915a9bcf9d8565d50ed2b8",
+   "title": "Jamaica Flag X Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "flagx",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "flagx-gdtee": {
+   "id": "6a915aa0644f7adf1309cba4",
+   "title": "Jamaica Flag X Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "flagx",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "flagx-hoodie": {
+   "id": "6a915aa49c43e39b5d0807cd",
+   "title": "Jamaica Flag X Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "flagx",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "crest1962-tee": {
+   "id": "6a915aa8cf9d8565d50ed2c5",
+   "title": "Jamaica Est. 1962 Crest Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "crest1962",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "crest1962-gdtee": {
+   "id": "6a915aacfdca556d31039b57",
+   "title": "Jamaica Est. 1962 Crest Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "crest1962",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "crest1962-hoodie": {
+   "id": "6a915ab0fdca556d31039b61",
+   "title": "Jamaica Est. 1962 Crest Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "crest1962",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "onelove-tee": {
+   "id": "6a915ab4fdca556d31039b63",
+   "title": "One Love Hibiscus Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "onelove",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "onelove-gdtee": {
+   "id": "6a915ab8fdca556d31039b66",
+   "title": "One Love Hibiscus Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "onelove",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "onelove-hoodie": {
+   "id": "6a915abd7366aa756f0e1fa8",
+   "title": "One Love Hibiscus Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "onelove",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "mapja-tee": {
+   "id": "6a915ac19c43e39b5d0807ed",
+   "title": "Jamaica Map Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "mapja",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "mapja-gdtee": {
+   "id": "6a915ac67366aa756f0e1fb3",
+   "title": "Jamaica Map Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "mapja",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "mapja-hoodie": {
+   "id": "6a915ac97366aa756f0e1fb6",
+   "title": "Jamaica Map Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "mapja",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "vacay-tee": {
+   "id": "6a915acdfdca556d31039b78",
+   "title": "Vacation Mode Jamaica 2026 Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "vacay",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "vacay-gdtee": {
+   "id": "6a915ad1cf9d8565d50ed2e7",
+   "title": "Vacation Mode Jamaica 2026 Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "vacay",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "vacay-hoodie": {
+   "id": "6a915ad557a8323d0504d3db",
+   "title": "Vacation Mode Jamaica 2026 Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "vacay",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "empress-tee": {
+   "id": "6a915ad8fdca556d31039b7d",
+   "title": "Island Empress Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "empress",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "empress-gdtee": {
+   "id": "6a915adcfdca556d31039b86",
+   "title": "Island Empress Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "empress",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "empress-hoodie": {
+   "id": "6a915ae09c43e39b5d080804",
+   "title": "Island Empress Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "empress",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "land876-tee": {
+   "id": "6a915ae4644f7adf1309cbdc",
+   "title": "876 Land We Love Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "land876",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "land876-gdtee": {
+   "id": "6a915ae9fdca556d31039b97",
+   "title": "876 Land We Love Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "land876",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "land876-hoodie": {
+   "id": "6a915aeccf9d8565d50ed305",
+   "title": "876 Land We Love Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "land876",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "wahgwaan2-tee": {
+   "id": "6a915af0fdca556d31039b9e",
+   "title": "Wah Gwaan Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "wahgwaan2",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "wahgwaan2-gdtee": {
+   "id": "6a915af4fdca556d31039ba1",
+   "title": "Wah Gwaan Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "wahgwaan2",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "wahgwaan2-hoodie": {
+   "id": "6a915af957a8323d0504d3f4",
+   "title": "Wah Gwaan Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "wahgwaan2",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "bdaycrew-tee": {
+   "id": "6a915afd57a8323d0504d3f9",
+   "title": "Di Birthday Crew Jamaica Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "bdaycrew",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "bdaycrew-gdtee": {
+   "id": "6a915b01644f7adf1309cbee",
+   "title": "Di Birthday Crew Jamaica Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "bdaycrew",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "bdaycrew-hoodie": {
+   "id": "6a915b05fdca556d31039bae",
+   "title": "Di Birthday Crew Jamaica Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "bdaycrew",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "walkgood2-tee": {
+   "id": "6a915b08fdca556d31039bb1",
+   "title": "Walk Good Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "walkgood2",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "walkgood2-gdtee": {
+   "id": "6a915b0d7366aa756f0e1fdf",
+   "title": "Walk Good Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "walkgood2",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "walkgood2-hoodie": {
+   "id": "6a915b109c43e39b5d080821",
+   "title": "Walk Good Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "walkgood2",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "varsity62-tee": {
+   "id": "6a915b14fdca556d31039bbe",
+   "title": "Jamaica 62 Varsity Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "varsity62",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "varsity62-gdtee": {
+   "id": "6a915b197366aa756f0e1fe5",
+   "title": "Jamaica 62 Varsity Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "varsity62",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "varsity62-hoodie": {
+   "id": "6a915b1c644f7adf1309cc05",
+   "title": "Jamaica 62 Varsity Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "varsity62",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "gyaldem-tee": {
+   "id": "6a915b20fdca556d31039bc9",
+   "title": "Gyal Dem Trip Jamaica 2026 Tee",
+   "price": 2799,
+   "kind": "tee",
+   "design": "gyaldem",
+   "variants": [
+    {
+     "id": 38164,
+     "size": "S"
+    },
+    {
+     "id": 38178,
+     "size": "M"
+    },
+    {
+     "id": 38192,
+     "size": "L"
+    },
+    {
+     "id": 38206,
+     "size": "XL"
+    },
+    {
+     "id": 38220,
+     "size": "2XL"
+    },
+    {
+     "id": 42122,
+     "size": "3XL"
+    }
+   ]
+  },
+  "gyaldem-gdtee": {
+   "id": "6a915b247366aa756f0e1fef",
+   "title": "Gyal Dem Trip Jamaica 2026 Garment-Dyed Heavyweight Tee",
+   "price": 3299,
+   "kind": "gdtee",
+   "design": "gyaldem",
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S"
+    },
+    {
+     "id": 73200,
+     "size": "M"
+    },
+    {
+     "id": 73204,
+     "size": "L"
+    },
+    {
+     "id": 73208,
+     "size": "XL"
+    },
+    {
+     "id": 73212,
+     "size": "2XL"
+    }
+   ]
+  },
+  "gyaldem-hoodie": {
+   "id": "6a915b28644f7adf1309cc10",
+   "title": "Gyal Dem Trip Jamaica 2026 Hoodie",
+   "price": 4499,
+   "kind": "hoodie",
+   "design": "gyaldem",
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S"
+    },
+    {
+     "id": 32919,
+     "size": "M"
+    },
+    {
+     "id": 32920,
+     "size": "L"
+    },
+    {
+     "id": 32921,
+     "size": "XL"
+    },
+    {
+     "id": 32922,
+     "size": "2XL"
+    },
+    {
+     "id": 32923,
+     "size": "3XL"
+    }
+   ]
+  },
+  "land876-mug": {
+   "id": "6a915b2cfdca556d31039bcf",
+   "title": "876 Land We Love Mug",
+   "price": 1699,
+   "kind": "mug",
+   "design": "land876",
+   "variants": [
+    {
+     "id": 67624,
+     "size": "11oz"
+    }
+   ]
+  },
+  "flagx-mug": {
+   "id": "6a915b2efdca556d31039bd1",
+   "title": "Jamaica Flag X Mug",
+   "price": 1699,
+   "kind": "mug",
+   "design": "flagx",
+   "variants": [
+    {
+     "id": 67624,
+     "size": "11oz"
+    }
+   ]
+  },
+  "crest1962-mug": {
+   "id": "6a915b3057a8323d0504d41b",
+   "title": "Jamaica Est. 1962 Crest Mug",
+   "price": 1699,
+   "kind": "mug",
+   "design": "crest1962",
+   "variants": [
+    {
+     "id": 67624,
+     "size": "11oz"
+    }
+   ]
+  },
+  "onelove-mug": {
+   "id": "6a915b32cf9d8565d50ed332",
+   "title": "One Love Hibiscus Mug",
+   "price": 1699,
+   "kind": "mug",
+   "design": "onelove",
+   "variants": [
+    {
+     "id": 67624,
+     "size": "11oz"
+    }
+   ]
+  },
+  "flagx-cap": {
+   "id": "6a915b35fdca556d31039bd5",
+   "title": "Jamaica Flag X Trucker Cap",
+   "price": 2499,
+   "kind": "cap",
+   "design": "flagx",
+   "variants": [
+    {
+     "id": 84650,
+     "size": "One size"
+    }
+   ]
+  },
+  "land876-cap": {
+   "id": "6a915b377366aa756f0e1ffb",
+   "title": "876 Land We Love Trucker Cap",
+   "price": 2499,
+   "kind": "cap",
+   "design": "land876",
+   "variants": [
+    {
+     "id": 84650,
+     "size": "One size"
+    }
+   ]
+  }
+ }
+}

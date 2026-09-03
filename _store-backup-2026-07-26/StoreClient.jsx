@@ -4,11 +4,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 
-// 2026-07-26: store wiped to the hero only, ahead of the new 40-design
-// collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
-// The old collection / courses / prompt-pack sections stay in code, hidden.
-const SHOW_LEGACY = false;
-
 const pad = (n) => String(n).padStart(2, '0');
 const PHRASES = [
   'More Money Than Last Year',
@@ -574,7 +569,9 @@ export default function StoreClient() {
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
                 {welcomePlaying ? '🔇 Mute' : '🔊 Hear di welcome'}
               </button>
-              <span className="tls-link" aria-live="polite">New collection dropping soon</span>
+              <a href="#collection" className="tls-link">The Collection</a>
+              <a href="#courses" className="tls-link">The Courses</a>
+              <a href="/prompts" className="tls-link">Prompt Packs</a>
             </div>
           </div>
         </div>
@@ -590,7 +587,6 @@ export default function StoreClient() {
       </section>
 
       {/* ================= Etsy-style search results ================= */}
-      {SHOW_LEGACY && (
       <section id="collection" className="etsy">
         {/* Filter pill bar — sticky, horizontally scrollable */}
         <div className="etsy-filterbar">
@@ -659,10 +655,8 @@ export default function StoreClient() {
           )}
         </div>
       </section>
-      )}
 
       {/* ---------- Courses ---------- */}
-      {SHOW_LEGACY && (
       <section id="courses" className="etsy-section">
         <div className="etsy-container">
           <h2 className="etsy-h2">Courses</h2>
@@ -684,10 +678,8 @@ export default function StoreClient() {
           </div>
         </div>
       </section>
-      )}
 
       {/* ---------- Prompt packs ---------- */}
-      {SHOW_LEGACY && (
       <section className="etsy-section">
         <div className="etsy-container etsy-packs">
           <div>
@@ -700,7 +692,6 @@ export default function StoreClient() {
           <a href="/prompts" className="etsy-add etsy-add-lg">Browse the packs</a>
         </div>
       </section>
-      )}
 
       {/* ---------- Listing view (click a card image) ---------- */}
       {openListing && groupFor(openListing.design) && (
