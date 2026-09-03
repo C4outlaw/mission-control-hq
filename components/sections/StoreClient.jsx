@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { DESIGN_GROUPS, KIND, money } from '../../lib/store-products';
+import { DESIGN_GROUPS, DROP_GROUPS, DROP_MUGS, DROP_CAPS, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
@@ -457,6 +457,77 @@ function ResultCard({ l, onAdd, onOpen }) {
   );
 }
 
+
+/* ------------------------------------------------------------------ *
+ * Drop 01 — one product, one big view. Pick a colour, pick a size, buy.
+ * Used large for the lead garment and small for its mug + cap.
+ * ------------------------------------------------------------------ */
+const SWATCH = {
+  Black: '#111111', Pepper: '#4a4744', 'Blue Jean': '#5b7592', 'Blue Spruce': '#2f6f73', Ivory: '#f3ebdc', Butter: '#f1d9a6',
+  White: '#ffffff', Graphite: '#3a3f44', Moss: '#6f7a55', 'Sport Grey': '#c9c9c4', Navy: '#1f2a44', 'Dark Heather': '#4a4a4a',
+  'Dark Green': '#1d4d2b', Pink: '#ff4fa3', Green: '#2fbf3a', Royal: '#2b4cc4', 'Blue/Red': 'linear-gradient(90deg,#2b4cc4 50%,#c8102e 50%)', 'Dark Navy': '#14213d',
+};
+const SIZE_ORDER = ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
+const isRealSize = (sz) => sz && sz !== '11oz' && sz !== 'One size';
+
+function DropPanel({ p, large = false, onAdd }) {
+  const [color, setColor] = useState(p.colors[0] || null);
+  const sizes = useMemo(() => {
+    const vs = p.variants.filter((v) => !color || v.color === color);
+    return [...vs].sort((a, b) => SIZE_ORDER.indexOf(a.size) - SIZE_ORDER.indexOf(b.size));
+  }, [p, color]);
+  const [variantId, setVariantId] = useState(sizes.find((v) => v.size === 'L')?.id || sizes[0]?.id);
+  useEffect(() => { setVariantId(sizes.find((v) => v.size === 'L')?.id || sizes[0]?.id); }, [sizes]);
+  const [added, setAdded] = useState(false);
+  const image = (color && p.images[color]) || p.image;
+  const chosen = sizes.find((v) => String(v.id) === String(variantId)) || sizes[0];
+  const hasSizes = sizes.some((v) => isRealSize(v.size));
+
+  function add() {
+    if (!chosen) return;
+    onAdd({ key: p.key, variantId: chosen.id, qty: 1, name: p.name, price: p.price, image, size: [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / ') });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1400);
+  }
+
+  return (
+    <article className={`drop-panel${large ? ' is-large' : ''}`}>
+      <div className="drop-media">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={image} alt={`${p.name}${color ? ` in ${color}` : ''}`} loading={large ? 'eager' : 'lazy'} decoding="async" />
+      </div>
+      <div className="drop-body">
+        <p className="tls-mono">{p.kindName}</p>
+        <h3 className="drop-title">{p.name.split(' — ')[0]}</h3>
+        {large && p.blurb && <p className="drop-blurb">{p.blurb}</p>}
+        <p className="drop-price">{money(p.price)}</p>
+        {p.colors.length > 0 && (
+          <div className="drop-row" role="group" aria-label="Colour">
+            <span className="drop-label">{color}</span>
+            <div className="drop-swatches">
+              {p.colors.map((c) => (
+                <button key={c} type="button" className={`drop-swatch${c === color ? ' is-on' : ''}`} style={{ background: SWATCH[c] || '#999' }} onClick={() => setColor(c)} aria-label={c} aria-pressed={c === color} title={c} />
+              ))}
+            </div>
+          </div>
+        )}
+        {hasSizes && (
+          <div className="drop-row" role="group" aria-label="Size">
+            <span className="drop-label">Size</span>
+            <div className="drop-sizes">
+              {sizes.map((v) => (
+                <button key={v.id} type="button" className={`drop-size${String(v.id) === String(variantId) ? ' is-on' : ''}`} onClick={() => setVariantId(v.id)} aria-pressed={String(v.id) === String(variantId)}>{v.size}</button>
+              ))}
+            </div>
+          </div>
+        )}
+        <button type="button" className="drop-buy" onClick={add} disabled={!chosen}>{added ? 'Added to cart' : 'Add to cart'}</button>
+        <p className="drop-fine">Printed to order · ships in 3–7 business days · The Lost Jamaican · We Never Lose</p>
+      </div>
+    </article>
+  );
+}
+
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
   const [busy, setBusy] = useState(false);
@@ -574,7 +645,7 @@ export default function StoreClient() {
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
                 {welcomePlaying ? '🔇 Mute' : '🔊 Hear di welcome'}
               </button>
-              <span className="tls-link" aria-live="polite">New collection dropping soon</span>
+              <a href="#drop" className="tls-link">Shop Drop 01</a>
             </div>
           </div>
         </div>
@@ -585,6 +656,35 @@ export default function StoreClient() {
                 <i>{ph}</i> &nbsp;·
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Drop 01 ================= */}
+      <section id="drop" className="drop">
+        <div className="tls-shell">
+          <header className="drop-head">
+            <p className="tls-mono">Drop 01 · {DROP_GROUPS.length + DROP_MUGS.length + DROP_CAPS.length} pieces · printed to order</p>
+            <h2>Jamaican slang, on the shirts that actually sell.</h2>
+            <p className="drop-lede">Every design is an original. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
+          </header>
+          {DROP_GROUPS.map((g) => (
+            <div key={g.design} className="drop-block">
+              <DropPanel p={g.lead} large onAdd={addItem} />
+              {g.extras.length > 0 && (
+                <div className="drop-extras">
+                  {g.extras.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}
+                </div>
+              )}
+            </div>
+          ))}
+          <div className="drop-block">
+            <header className="drop-subhead"><p className="tls-mono">Mugs</p><h3>Fi di morning.</h3></header>
+            <div className="drop-extras is-grid">{DROP_MUGS.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}</div>
+          </div>
+          <div className="drop-block">
+            <header className="drop-subhead"><p className="tls-mono">Trucker caps</p><h3>Loud on purpose.</h3></header>
+            <div className="drop-extras is-grid">{DROP_CAPS.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}</div>
           </div>
         </div>
       </section>
