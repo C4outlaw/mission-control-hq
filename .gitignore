@@ -68,3 +68,5 @@ dev.err
 # Paid pack files — must never be committed or served from public/
 private/
 .env.local
+dev-luna.*.log
+artifacts/
