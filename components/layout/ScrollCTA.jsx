@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 
 /**
@@ -13,6 +14,7 @@ import { motion, AnimatePresence } from 'motion/react';
  *  - Close (X) dismisses for the rest of the session
  */
 export default function ScrollCTA() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -60,6 +62,8 @@ export default function ScrollCTA() {
     window.location.href = `mailto:myriework@gmail.com?subject=${subject}&body=${body}`;
   };
 
+  // The store is a shop, not the agency: no "build something" pitch over the buy path.
+  if (pathname && pathname.startsWith('/store')) return null;
   if (dismissed) return null;
 
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { DESIGN_GROUPS, DROP_GROUPS, DROP_MUGS, DROP_CAPS, KIND, money } from '../../lib/store-products';
+import { DESIGN_GROUPS, DROP_ALL, KIND, money } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
@@ -470,6 +470,18 @@ const SWATCH = {
 const SIZE_ORDER = ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
 const isRealSize = (sz) => sz && sz !== '11oz' && sz !== 'One size';
 
+/* Curated highlights — hand-picked, not invented sales data. */
+const PICKS = new Set(['nuhworry-tee', 'fiyahbun-hoodie', 'goodmorning-mug', 'bumbocap-cap']);
+
+/* Drop 01 facet pills. */
+const DROP_FACETS = [
+  { id: 'all', label: 'All pieces', test: () => true },
+  { id: 'tee', label: 'Tees', test: (p) => p.kind === 'tee' },
+  { id: 'hoodie', label: 'Hoodies', test: (p) => p.kind === 'hoodie' },
+  { id: 'mug', label: 'Mugs', test: (p) => p.kind === 'mug' },
+  { id: 'cap', label: 'Caps', test: (p) => p.kind === 'cap' },
+];
+
 function DropPanel({ p, large = false, onAdd }) {
   const [color, setColor] = useState(p.colors[0] || null);
   const sizes = useMemo(() => {
@@ -482,10 +494,13 @@ function DropPanel({ p, large = false, onAdd }) {
   const image = (color && p.images[color]) || p.image;
   const chosen = sizes.find((v) => String(v.id) === String(variantId)) || sizes[0];
   const hasSizes = sizes.some((v) => isRealSize(v.size));
+  // Oversize variants carry their own price; everything else uses the product price.
+  const priceNow = chosen?.price || p.price;
+  const off = p.compareAt && p.compareAt > priceNow ? Math.round(((p.compareAt - priceNow) / p.compareAt) * 100) : null;
 
   function add() {
     if (!chosen) return;
-    onAdd({ key: p.key, variantId: chosen.id, qty: 1, name: p.name, price: p.price, image, size: [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / ') });
+    onAdd({ key: p.key, variantId: chosen.id, qty: 1, name: p.name, price: priceNow, image, size: [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / ') });
     setAdded(true);
     setTimeout(() => setAdded(false), 1400);
   }
@@ -500,7 +515,15 @@ function DropPanel({ p, large = false, onAdd }) {
         <p className="tls-mono">{p.kindName}</p>
         <h3 className="drop-title">{p.name.split(' — ')[0]}</h3>
         {large && p.blurb && <p className="drop-blurb">{p.blurb}</p>}
-        <p className="drop-price">{money(p.price)}</p>
+        <p className="drop-price">
+          {money(priceNow)}
+          {off ? (
+            <>
+              {' '}<s className="drop-was">{money(p.compareAt)}</s>
+              <span className="drop-off">{off}% off — launch price</span>
+            </>
+          ) : null}
+        </p>
         {p.colors.length > 0 && (
           <div className="drop-row" role="group" aria-label="Colour">
             <span className="drop-label">{color}</span>
@@ -528,6 +551,53 @@ function DropPanel({ p, large = false, onAdd }) {
   );
 }
 
+/* ------------------------------------------------------------------ *
+ * Compact grid card — the whole range scannable in two scrolls.
+ * Clicking anywhere opens the quick-view with colours and sizes.
+ * ------------------------------------------------------------------ */
+function DropCard({ p, onOpen }) {
+  const off = p.compareAt && p.compareAt > p.price ? Math.round(((p.compareAt - p.price) / p.compareAt) * 100) : null;
+  return (
+    <button type="button" className="dropc" onClick={onOpen} aria-label={`View ${p.name}`}>
+      <span className="dropc-media">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+        {PICKS.has(p.key) && <span className="dropc-badge">Drop pick</span>}
+      </span>
+      <span className="dropc-kind tls-mono">{p.kindName}</span>
+      <span className="dropc-title">{p.name.split(' — ')[0]}</span>
+      <span className="dropc-price">
+        {money(p.price)}
+        {off ? <><s>{money(p.compareAt)}</s><em>{off}% off</em></> : null}
+      </span>
+      <span className="dropc-cta">Choose options</span>
+    </button>
+  );
+}
+
+/* Quick-view: the full DropPanel (colour, size, add) in a modal scrim. */
+function DropModal({ p, onAdd, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+  }, [onClose]);
+  return (
+    <div className="etsy-modal-scrim" role="dialog" aria-modal="true" aria-label={p.name} onClick={onClose}>
+      <div className="etsy-modal is-drop" onClick={(e) => e.stopPropagation()}>
+        <button className="etsy-modal-close" onClick={onClose} aria-label="close">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </button>
+        <DropPanel p={p} large onAdd={onAdd} />
+      </div>
+    </div>
+  );
+}
+
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
   const [busy, setBusy] = useState(false);
@@ -536,6 +606,8 @@ export default function StoreClient() {
   const [sort, setSort] = useState('relevant');
   const [sortOpen, setSortOpen] = useState(false);
   const [openListing, setOpenListing] = useState(null);
+  const [dropFacet, setDropFacet] = useState('all');
+  const [openDrop, setOpenDrop] = useState(null);
   const [heroVideoOk, setHeroVideoOk] = useState(true);
   const [welcomePlaying, setWelcomePlaying] = useState(false);
   const welcomeRef = useRef(null);
@@ -579,6 +651,11 @@ export default function StoreClient() {
     if (sort === 'highlow') return [...list].sort((a, b) => b.price - a.price);
     return list;
   }, [facet, sort]);
+
+  const dropResults = useMemo(() => {
+    const f = DROP_FACETS.find((x) => x.id === dropFacet) || DROP_FACETS[0];
+    return DROP_ALL.filter(f.test);
+  }, [dropFacet]);
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
@@ -660,31 +737,49 @@ export default function StoreClient() {
         </div>
       </section>
 
+      {/* ---------- Urgency strip ---------- */}
+      <div className="drop-strip" role="note">
+        <span className="drop-strip-live" aria-hidden="true" />
+        <strong>Drop 01 is live</strong>
+        <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
+      </div>
+
       {/* ================= Drop 01 ================= */}
       <section id="drop" className="drop">
         <div className="tls-shell">
           <header className="drop-head">
-            <p className="tls-mono">Drop 01 · {DROP_GROUPS.length + DROP_MUGS.length + DROP_CAPS.length} pieces · printed to order</p>
+            <p className="tls-mono">Drop 01 · {dropResults.length} pieces · printed to order</p>
             <h2>Jamaican slang, on the shirts that actually sell.</h2>
             <p className="drop-lede">Every design is an original. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
           </header>
-          {DROP_GROUPS.map((g) => (
-            <div key={g.design} className="drop-block">
-              <DropPanel p={g.lead} large onAdd={addItem} />
-              {g.extras.length > 0 && (
-                <div className="drop-extras">
-                  {g.extras.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}
-                </div>
-              )}
-            </div>
-          ))}
-          <div className="drop-block">
-            <header className="drop-subhead"><p className="tls-mono">Mugs</p><h3>Fi di morning.</h3></header>
-            <div className="drop-extras is-grid">{DROP_MUGS.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}</div>
+
+          <div className="drop-pills" role="group" aria-label="Filter the drop">
+            {DROP_FACETS.map((f) => (
+              <button key={f.id} type="button" className={`etsy-pill${dropFacet === f.id ? ' is-on' : ''}`} onClick={() => setDropFacet(f.id)} aria-pressed={dropFacet === f.id}>
+                {f.label}
+              </button>
+            ))}
           </div>
-          <div className="drop-block">
-            <header className="drop-subhead"><p className="tls-mono">Trucker caps</p><h3>Loud on purpose.</h3></header>
-            <div className="drop-extras is-grid">{DROP_CAPS.map((x) => <DropPanel key={x.key} p={x} onAdd={addItem} />)}</div>
+
+          <div className="drop-grid">
+            {dropResults.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- Social proof ---------- */}
+      <section className="drop-proof">
+        <div className="tls-shell drop-proof-inner">
+          <div className="drop-proof-copy">
+            <p className="tls-mono">The Lost Jamaican</p>
+            <h2>As seen on <a href="https://www.tiktok.com/@thelostjamaican" target="_blank" rel="noreferrer">@thelostjamaican</a></h2>
+            <p>41.9k strong on TikTok. Every design comes straight out of the videos — wear what the yard already knows.</p>
+          </div>
+          <div className="drop-proof-shots" aria-hidden="true">
+            {['/store/model/money--m-beard-blk.jpg', '/store/model/neverlose--w-braids-blk.jpg', '/store/model/flagx--w-beach-blk.jpg', '/store/model/wahgwaan--m-dread-blk2.jpg'].map((src) => (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img key={src} src={src} alt="" loading="lazy" decoding="async" />
+            ))}
           </div>
         </div>
       </section>
@@ -801,6 +896,9 @@ export default function StoreClient() {
         </div>
       </section>
       )}
+
+      {/* ---------- Drop quick-view ---------- */}
+      {openDrop && <DropModal p={openDrop} onAdd={addItem} onClose={() => setOpenDrop(null)} />}
 
       {/* ---------- Listing view (click a card image) ---------- */}
       {openListing && groupFor(openListing.design) && (

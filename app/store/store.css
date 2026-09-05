@@ -555,3 +555,83 @@
 .tls .drop-body .tls-mono, .tls .drop-head .tls-mono, .tls .drop-subhead .tls-mono { color: var(--muted); }
 .tls .drop-size { color: var(--ink); }
 .tls .drop-size.is-on, .tls .drop-buy { color: var(--paper); }
+
+/* ================= Drop 01 conversion pass (2026-09-05) ================= */
+
+/* Urgency strip — sits between hero and drop, always honest copy. */
+.drop-strip {
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  padding: 12px 18px; background: var(--ink); color: var(--paper);
+  font-size: 13.5px; letter-spacing: 0.02em; text-align: center;
+}
+.drop-strip strong { color: var(--gold-soft); font-weight: 700; }
+.drop-strip span:not(.drop-strip-live) { color: #c9c4b6; }
+.drop-strip-live {
+  width: 8px; height: 8px; border-radius: 50%; background: #3fbf5a;
+  box-shadow: 0 0 0 0 rgba(63, 191, 90, 0.5); animation: drop-pulse 2s infinite;
+}
+@keyframes drop-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(63, 191, 90, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(63, 191, 90, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(63, 191, 90, 0); }
+}
+
+/* Facet pills row for the drop grid. */
+.drop-pills { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 26px; }
+
+/* The scannable grid — 4-up desktop, 2-up mobile. */
+.drop-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 1100px) { .drop-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 767px) { .drop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
+
+.dropc {
+  display: flex; flex-direction: column; gap: 4px; text-align: left;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 0 0 16px; overflow: hidden; cursor: pointer; font: inherit; color: var(--ink);
+  transition: box-shadow 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+.dropc:hover, .dropc:focus-visible { box-shadow: 0 10px 30px rgba(12, 10, 9, 0.12); transform: translateY(-2px); border-color: #d6d0c4; outline: none; }
+.dropc-media { position: relative; display: block; aspect-ratio: 1 / 1; background: #f0ece7; margin-bottom: 10px; }
+.dropc-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dropc-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--gold); color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px;
+}
+.dropc-kind { display: block; padding: 0 14px; font-size: 11px; }
+.dropc-title { display: block; padding: 0 14px; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 17px; line-height: 1.2; }
+.dropc-price { display: flex; align-items: baseline; gap: 7px; padding: 2px 14px 0; font-weight: 700; font-size: 15.5px; font-variant-numeric: tabular-nums; }
+.dropc-price s { color: var(--muted); font-weight: 400; font-size: 13px; }
+.dropc-price em { color: var(--gold); font-style: normal; font-size: 12px; font-weight: 600; }
+.dropc-cta { display: block; padding: 6px 14px 0; font-size: 13px; font-weight: 600; color: var(--gold); }
+.dropc:hover .dropc-cta { text-decoration: underline; }
+.tls .dropc-title, .tls .dropc-price { color: var(--ink); }
+
+/* Price strike + launch tag inside panels. */
+.drop-was { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: 7px; }
+.drop-off { color: var(--gold); font-size: 12.5px; font-weight: 600; margin-left: 8px; }
+
+/* Quick-view modal wrapper. */
+.etsy-modal.is-drop { width: min(960px, 100%); padding: 0; overflow: hidden; }
+.etsy-modal.is-drop .drop-panel { border: 0; border-radius: 16px; }
+
+/* Gold buy path — the loudest element on the page is Add to cart. */
+.drop-buy { background: var(--gold); }
+.drop-buy:hover, .drop-buy:focus-visible { background: var(--ink); }
+.etsy-cart .etsy-add { background: var(--gold); }
+.etsy-cart .etsy-add:hover { background: #000; }
+
+/* Social proof band. */
+.drop-proof { padding: 84px 0; background: var(--ink); color: var(--paper); }
+.drop-proof-inner { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
+.drop-proof-copy h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.1; margin: 12px 0 14px; }
+.drop-proof-copy h2 a { color: var(--gold-soft); text-decoration: none; border-bottom: 2px solid rgba(201, 162, 75, 0.4); }
+.drop-proof-copy h2 a:hover { border-bottom-color: var(--gold-soft); }
+.drop-proof-copy p:not(.tls-mono) { color: #c9c4b6; line-height: 1.6; font-size: 16px; max-width: 44ch; margin: 0; }
+.drop-proof-shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.drop-proof-shots img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; display: block; }
+@media (max-width: 860px) {
+  .drop-proof { padding: 56px 0; }
+  .drop-proof-inner { grid-template-columns: 1fr; gap: 28px; }
+  .drop-proof-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

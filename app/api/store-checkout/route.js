@@ -54,7 +54,7 @@ export async function POST(req) {
         quantity: qty,
         price_data: {
           currency: 'usd',
-          unit_amount: p.price,
+          unit_amount: variant.price || p.price,
           product_data: {
             name: `${p.name}${[variant.color, variant.size && variant.size !== '11oz' && variant.size !== 'One size' ? variant.size : null].filter(Boolean).length ? ` (${[variant.color, variant.size && variant.size !== '11oz' && variant.size !== 'One size' ? variant.size : null].filter(Boolean).join(' / ')})` : ''}`,
             description: p.blurb.slice(0, 300) || undefined,

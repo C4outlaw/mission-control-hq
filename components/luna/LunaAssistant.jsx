@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { MessageCircle, Send, X } from 'lucide-react';
 import styles from './LunaAssistant.module.css';
 
 const welcome = { role: 'luna', text: 'Hi, I’m Luna. Ask me about MyrieHQ websites, SEO, creative, or automation.' };
 
 export default function LunaAssistant() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([welcome]);
   const [question, setQuestion] = useState('');
@@ -45,6 +47,9 @@ export default function LunaAssistant() {
     } catch { setMessages((items) => [...items, { role: 'luna', text: 'Please call Myrie directly at 386-795-8727.' }]); }
     finally { setSending(false); }
   }
+
+  // Luna is the agency's assistant — she stays off the store's buy path.
+  if (pathname && pathname.startsWith('/store')) return null;
 
   return (
     <aside className={styles.root} aria-label="MyrieHQ assistant">
