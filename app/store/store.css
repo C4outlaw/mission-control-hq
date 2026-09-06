@@ -84,8 +84,9 @@
 .tls-display em { font-style: italic; color: var(--gold-soft); }
 .tls-hero-foot {
   display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 40px; margin: 64px 0 90px; flex-wrap: wrap;
+  gap: 40px; margin: clamp(220px, 38vh, 420px) 0 90px; flex-wrap: wrap;
 }
+.tls-hero-actions { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
 .tls-lede { max-width: 46ch; line-height: 1.6; font-size: 16.5px; color: #c9c4b6; margin: 0; font-weight: 300; }
 
 /* Hero action links + sound toggle — pill buttons over the video, never raw blue links */
@@ -350,9 +351,32 @@
 .etsy-err { font-size: 13px; color: #b3261e; margin: 10px 0 0; }
 
 @media (max-width: 720px) {
-  .tls-hero { padding: 130px 0 0; }
   .etsy-section { padding: 40px 0; }
   .etsy-filterbar { top: 58px; }
+}
+
+/* ---------- Hero on phones ----------
+   Desktop is wide enough that object-fit:cover shows the whole 16:9 frame.
+   A phone is portrait, so covering a tall box scaled the film up and threw the
+   volume stage away — bobsled, sprinter, waterfall, flag all cropped off, just
+   a face left. Here the media sits in flow at its true 16:9, so the phone shows
+   the same picture the desktop does, and the buttons move below it. */
+@media (max-width: 768px) {
+  .tls-hero { padding: 0; }
+  .tls-hero-media {
+    position: relative; inset: auto;
+    width: 100%; aspect-ratio: 16 / 9;
+  }
+  .tls-hero-media video, .tls-hero-media img { height: 100%; }
+  /* No copy sits over the film here, so the heavy bottom fade isn't needed. */
+  .tls-hero-media::after {
+    background: linear-gradient(180deg, rgba(12,10,9,0) 62%, rgba(12,10,9,0.55) 100%);
+  }
+  .tls-hero-foot { margin: 0; padding: 22px 0 26px; justify-content: center; }
+  .tls-hero-actions { width: 100%; justify-content: center; gap: 12px; }
+  .tls-link { font-size: 15px; padding: 12px 20px; }
+  .tls-marquee { padding: 16px 0; }
+  .tls-marquee span { font-size: 17px; margin: 0 20px; }
 }
 
 /* =====================================================================

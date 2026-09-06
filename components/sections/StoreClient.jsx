@@ -613,6 +613,20 @@ export default function StoreClient() {
   const [welcomePlaying, setWelcomePlaying] = useState(false);
   const welcomeRef = useRef(null);
 
+  // Phones get a 2.3MB cut of the same 16:9 film instead of the 8.2MB master —
+  // on cellular the big one leaves the hero blank long enough to look broken.
+  // Starts on the desktop file so the server-rendered markup matches, then
+  // swaps before paint on small screens.
+  const [heroSrc, setHeroSrc] = useState('/store/hero.mp4');
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(max-width: 768px)');
+    const pick = () => setHeroSrc(mq.matches ? '/store/hero-mobile.mp4' : '/store/hero.mp4');
+    pick();
+    mq.addEventListener('change', pick);
+    return () => mq.removeEventListener('change', pick);
+  }, []);
+
   function toggleWelcome() {
     const v = document.querySelector('.tls-hero-media video');
     if (!v) return;
@@ -707,19 +721,24 @@ export default function StoreClient() {
         The Lost Jamaican Store — Jamaican slang merch, video-making courses, and AI prompt packs
       </h1>
 
-      {/* ---------- Hero (UNCHANGED) ---------- */}
+      {/* ---------- Hero ---------- */}
       <section className="tls-hero">
         <div className="tls-hero-media" aria-hidden="true">
           {heroVideoOk ? (
-            <video src="/store/hero.mp4" poster="/store/neverlose-hoodie.jpg" autoPlay muted loop playsInline onError={() => setHeroVideoOk(false)} />
+            <video
+              src={heroSrc}
+              poster="/store/hero-poster.jpg"
+              autoPlay muted loop playsInline preload="metadata"
+              onError={() => setHeroVideoOk(false)}
+            />
           ) : (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img src="/store/neverlose-hoodie.jpg?v=6" alt="" />
+            <img src="/store/hero-poster.jpg" alt="" />
           )}
         </div>
         <div className="tls-shell tls-hero-inner">
-          <div className="tls-hero-foot" style={{ marginTop: 'clamp(220px, 38vh, 420px)' }}>
-            <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="tls-hero-foot">
+            <div className="tls-hero-actions">
               <button className="tls-link tls-sound" onClick={toggleWelcome} aria-pressed={welcomePlaying}>
                 {welcomePlaying ? '🔇 Mute' : '🔊 Hear di welcome'}
               </button>
