@@ -1673,6 +1673,7 @@
    "price": 2999,
    "compareAt": 3499,
    "kind": "cap",
+   "kindName": "Snapback Cap",
    "design": "moremoney",
    "colors": [
     "Black"
@@ -1687,8 +1688,7 @@
      "size": "One size",
      "color": "Black"
     }
-   ],
-   "kindName": "Snapback Cap"
+   ]
   }
  }
 }
