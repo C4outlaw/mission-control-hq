@@ -1516,6 +1516,179 @@
     }
    ],
    "compareAt": 2499
+  },
+  "moremoney-tee": {
+   "id": "6a9cb03d03e119d1bd045c70",
+   "title": "More Money Than Last Year",
+   "price": 1999,
+   "compareAt": 2999,
+   "kind": "tee",
+   "design": "moremoney",
+   "colors": [
+    "Black"
+   ],
+   "images": {
+    "Black": "/store/drop/moremoney-tee--black.jpg"
+   },
+   "gallery": [
+    "/store/drop/moremoney-tee--g1.jpg",
+    "/store/drop/moremoney-tee--g2.jpg"
+   ],
+   "variants": [
+    {
+     "id": 73196,
+     "size": "S",
+     "color": "Black"
+    },
+    {
+     "id": 73200,
+     "size": "M",
+     "color": "Black"
+    },
+    {
+     "id": 73204,
+     "size": "L",
+     "color": "Black"
+    },
+    {
+     "id": 73208,
+     "size": "XL",
+     "color": "Black"
+    },
+    {
+     "id": 73212,
+     "size": "2XL",
+     "color": "Black",
+     "price": 2199
+    },
+    {
+     "id": 79114,
+     "size": "3XL",
+     "color": "Black",
+     "price": 2399
+    }
+   ]
+  },
+  "moremoney-tank": {
+   "id": "6a9cb041fdaf5390260585fd",
+   "title": "More Money Than Last Year",
+   "price": 2199,
+   "compareAt": 2999,
+   "kind": "tank",
+   "design": "moremoney",
+   "colors": [
+    "Black"
+   ],
+   "images": {
+    "Black": "/store/drop/moremoney-tank--black.jpg"
+   },
+   "gallery": [
+    "/store/drop/moremoney-tank--g1.jpg",
+    "/store/drop/moremoney-tank--g2.jpg"
+   ],
+   "variants": [
+    {
+     "id": 24641,
+     "size": "S",
+     "color": "Black"
+    },
+    {
+     "id": 24640,
+     "size": "M",
+     "color": "Black"
+    },
+    {
+     "id": 24639,
+     "size": "L",
+     "color": "Black"
+    },
+    {
+     "id": 24642,
+     "size": "XL",
+     "color": "Black"
+    },
+    {
+     "id": 24644,
+     "size": "2XL",
+     "color": "Black",
+     "price": 2399
+    }
+   ]
+  },
+  "moremoney-hoodie": {
+   "id": "6a9cb09295867a75c30a5cf1",
+   "title": "More Money Than Last Year",
+   "price": 3699,
+   "compareAt": 4499,
+   "kind": "hoodie",
+   "design": "moremoney",
+   "colors": [
+    "Black"
+   ],
+   "images": {
+    "Black": "/store/drop/moremoney-hoodie--black.jpg"
+   },
+   "gallery": [
+    "/store/drop/moremoney-hoodie--g1.jpg",
+    "/store/drop/moremoney-hoodie--g2.jpg"
+   ],
+   "variants": [
+    {
+     "id": 32918,
+     "size": "S",
+     "color": "Black"
+    },
+    {
+     "id": 32919,
+     "size": "M",
+     "color": "Black"
+    },
+    {
+     "id": 32920,
+     "size": "L",
+     "color": "Black"
+    },
+    {
+     "id": 32921,
+     "size": "XL",
+     "color": "Black"
+    },
+    {
+     "id": 32922,
+     "size": "2XL",
+     "color": "Black",
+     "price": 3999
+    },
+    {
+     "id": 32923,
+     "size": "3XL",
+     "color": "Black",
+     "price": 4199
+    }
+   ]
+  },
+  "moremoney-cap": {
+   "id": "6a9cb1c655cbcc89ba043e87",
+   "title": "More Money Than Last Year",
+   "price": 2999,
+   "compareAt": 3499,
+   "kind": "cap",
+   "design": "moremoney",
+   "colors": [
+    "Black"
+   ],
+   "images": {
+    "Black": "/store/drop/moremoney-cap--black.jpg"
+   },
+   "gallery": [],
+   "variants": [
+    {
+     "id": 117048,
+     "size": "One size",
+     "color": "Black"
+    }
+   ],
+   "kindName": "Snapback Cap"
   }
  }
 }

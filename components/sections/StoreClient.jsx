@@ -471,13 +471,14 @@ const SIZE_ORDER = ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
 const isRealSize = (sz) => sz && sz !== '11oz' && sz !== 'One size';
 
 /* Curated highlights — hand-picked, not invented sales data. */
-const PICKS = new Set(['nuhworry-tee', 'fiyahbun-hoodie', 'goodmorning-mug', 'bumbocap-cap']);
+const PICKS = new Set(['moremoney-tee', 'moremoney-hoodie', 'nuhworry-tee', 'goodmorning-mug']);
 
 /* Drop 01 facet pills. */
 const DROP_FACETS = [
   { id: 'all', label: 'All pieces', test: () => true },
   { id: 'tee', label: 'Tees', test: (p) => p.kind === 'tee' },
   { id: 'hoodie', label: 'Hoodies', test: (p) => p.kind === 'hoodie' },
+  { id: 'tank', label: 'Tanks', test: (p) => p.kind === 'tank' },
   { id: 'mug', label: 'Mugs', test: (p) => p.kind === 'mug' },
   { id: 'cap', label: 'Caps', test: (p) => p.kind === 'cap' },
 ];
