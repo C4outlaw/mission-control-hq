@@ -117,7 +117,7 @@ export default function DesignStore() {
         size: it.size,
         qty: it.qty,
       }));
-      const r = await fetch('/api/customcat-checkout', {
+      const r = await fetch('/api/cc-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items }),
