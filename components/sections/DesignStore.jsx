@@ -182,7 +182,7 @@ export default function DesignStore() {
                 {PRODUCT_TYPES.map((pt) => {
                   const sel = selections[pt.key];
                   const blankMap = { tee: 'G500', hoodie: 'G185', mug: 'MUG11', hat: 'HAT' };
-                  const vd = variantData[blankMap[pt.key]];
+                  const vd = VARIANT_DATA[blankMap[pt.key]];
                   return (
                     <div key={pt.key} className={`ds-product ${sel?.checked ? 'checked' : ''}`}>
                       <label className="ds-product-head">
