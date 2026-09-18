@@ -2,6 +2,21 @@ import Stripe from 'stripe';
 import { productByKey } from '../../../lib/store-products';
 
 export const runtime = 'nodejs';
+// CustomCat 40-design collection prices (hardcoded to avoid Vercel 503 on new routes)
+const CC_PRICES = {
+  G500: { price: 2499, name: 'T-Shirt' },
+  G185: { price: 4499, name: 'Hoodie' },
+  MUG11: { price: 1499, name: 'Mug' },
+  HAT: { price: 2499, name: 'Cap' },
+};
+const CC_DESIGN_NAMES = {
+  'c30-08': 'We Never Lose Varsity', 'c30-09': 'We Never Lose Wordmark',
+  'c30-10': 'We Never Lose Hoodie', 'c30-24': 'More Money Retro',
+  'c30-25': 'More Money Hoodie', 'c30-26': 'More Money Mug',
+  'c30-05': 'Dog Hair Is My Glitter', 'c30-22': 'Retired 2026',
+  'c30-30': '876 Land We Love', 'c30-02': 'Dad Dictionary',
+};
+
 
 // Physical-merch checkout. Prices and variant ids are resolved server-side from the
 // Printify-derived catalog, so a tampered request can never set its own price.
@@ -46,6 +61,26 @@ export async function POST(req) {
     const line_items = [];
     const fulfil = [];
     for (const it of items.slice(0, 20)) {
+      // CustomCat 40-design items have 'blank' field
+      if (it.blank && CC_PRICES[it.blank]) {
+        const cc = CC_PRICES[it.blank];
+        const designName = CC_DESIGN_NAMES[it.key] || it.designTitle || it.key;
+        const color = String(it.color || '');
+        const size = String(it.size || '');
+        const qty = Math.min(Math.max(parseInt(it.qty, 10) || 1, 1), 10);
+        line_items.push({
+          quantity: qty,
+          price_data: {
+            currency: 'usd',
+            unit_amount: cc.price,
+            product_data: {
+              name: `${designName} - ${cc.name} (${color} / ${size})`,
+            },
+          },
+        });
+        fulfil.push({ p: `cc-${it.blank}`, v: `${color}|${size}|${it.key}`, q: qty });
+        continue;
+      }
       const p = productByKey(String(it.key || ''));
       if (!p) continue;
       const variant = p.variants.find((v) => String(v.id) === String(it.variantId)) || p.variants[0];
