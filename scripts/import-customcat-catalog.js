@@ -17,23 +17,26 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const MAP_PATH = resolve(__dirname, '../lib/customcat-map.json');
 
 // Blank matchers: CSV product identifiers -> our blank keys.
+// Updated 2026-09-18 to match actual CustomCat Download Catalog product names.
 const BLANK_MATCH = [
-  { key: 'G500', patterns: [/\bG500\b/i, /gildan.*heavy.*cotton.*tee/i] },
-  { key: 'G185', patterns: [/\bG185\b/i, /gildan.*heavy.*blend.*hood/i] },
-  { key: 'G180', patterns: [/\bG180\b/i, /gildan.*heavy.*blend.*crew/i] },
-  { key: 'MUG11', patterns: [/11\s?oz.*ceramic.*mug/i, /white.*ceramic.*mug.*11/i, /\bmug.*11oz/i] },
+  { key: 'G500', patterns: [/\bG500\b/i, /gildan 5\.3 oz\. t-shirt/i] },
+  { key: 'G185', patterns: [/\bG185\b/i, /gildan pullover hoodie/i] },
+  { key: 'G180', patterns: [/\bG180\b/i, /gildan crewneck pullover sweatshirt/i] },
+  { key: 'MUG11', patterns: [/11oz white mug/i] },
 ];
 
 function detectColumns(header) {
   const cols = header.map((h) => h.trim().toLowerCase());
   const find = (...names) => cols.findIndex((c) => names.some((n) => c.includes(n)));
+  // NB: 'product name' must come before 'product id'; exact 'product color'
+  // must beat 'product color id'. Order matters with substring matching.
   return {
-    product: find('style', 'product id', 'productid', 'product name', 'style #'),
-    color: find('color', 'colour'),
+    product: find('product name', 'style', 'productid', 'style #'),
+    color: cols.findIndex((c) => c === 'product color' || c === 'color' || c === 'colour'),
     size: find('size'),
     sku: find('catalog sku', 'catalog_sku', 'sku'),
-    cost: find('cost', 'price', 'your cost'),
-    stock: find('stock', 'availability', 'available', 'qty'),
+    cost: (() => { for (const n of ['your cost', 'lite cost', 'pro cost']) { const i = cols.findIndex((c) => c.includes(n)); if (i >= 0) return i; } return find('cost', 'price'); })(),
+    stock: find('in stock', 'stock', 'availability', 'available', 'qty'),
   };
 }
 
@@ -97,7 +100,8 @@ for (let i = 1; i < rows.length; i++) {
   const size = (col.size >= 0 ? r[col.size] : 'One Size').trim() || 'One Size';
   const sku = (r[col.sku] || '').trim();
   if (!sku) continue;
-  const cost = col.cost >= 0 ? parseFloat(r[col.cost]) || null : null;
+  const costRaw = col.cost >= 0 ? String(r[col.cost] || '').replace(/[^0-9.]/g, '') : '';
+  const cost = costRaw ? parseFloat(costRaw) || null : null;
   const stockRaw = col.stock >= 0 ? (r[col.stock] || '').trim().toLowerCase() : '';
   const inStock = stockRaw ? !/out|0$|no/.test(stockRaw) : null;
 
@@ -118,3 +122,4 @@ for (const k of Object.keys(colors)) {
   console.log(`${k} sizes:`, [...sizes[k]].join(', '));
 }
 console.log('Wrote', MAP_PATH);
+
