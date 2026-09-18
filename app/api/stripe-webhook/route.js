@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { byId, packById, PACKS, signGrant } from '../../../lib/prompt-packs';
 import { createPrintifyOrder } from '../../../lib/printify-order';
+import { createCustomCatOrder } from '../../../lib/customcat-order';
 
 export const runtime = 'nodejs';
 // Stripe signs the raw body, so it must not be parsed or re-encoded before verification.
@@ -42,6 +43,20 @@ export async function POST(req) {
       // order must not be silently dropped.
       console.error('printify order failed', err.message);
       return new Response('printify failed: ' + err.message, { status: 500 });
+    }
+  }
+
+  // CustomCat merch (Everyday Collection, 30 designs): hand the paid order to
+  // CustomCat for print-on-demand production and shipping.
+  if (session.metadata?.type === 'customcat-merch') {
+    try {
+      const order = await createCustomCatOrder(session);
+      return new Response('customcat order ' + (order.order_id || order.id || 'created'), { status: 200 });
+    } catch (err) {
+      // Return 500 so Stripe retries; the payment already succeeded and the
+      // order must not be silently dropped.
+      console.error('customcat order failed', err.message);
+      return new Response('customcat failed: ' + err.message, { status: 500 });
     }
   }
 

@@ -60,6 +60,13 @@
 }
 .tls-hero-media video, .tls-hero-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;
+  /* The hero box is wider than the film's 16:9, so cover crops vertically, and the
+     crop grows with viewport WIDTH (1920: 146px off the top; 2560: ~330px). Centred,
+     that ate the presenter's head, whose crown sits ~16.7% down the source frame.
+     Anchoring at 12% caps the top crop at 12% of the excess at any width, so the head
+     is never cut, while still keeping some studio ceiling in shot. The bottom is a
+     dark stage floor already under a gradient fade, so it is the safe side to lose. */
+  object-position: 50% 12%;
   filter: brightness(1.1) contrast(1.02);
 }
 .tls-hero-media::after {
