@@ -117,7 +117,7 @@ export default function DesignStore() {
         size: it.size,
         qty: it.qty,
       }));
-      const r = await fetch('/api/cc-checkout', {
+      const r = await fetch('/api/pay', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items }),
