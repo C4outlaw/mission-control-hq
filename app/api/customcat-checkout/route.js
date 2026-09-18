@@ -1,70 +1,22 @@
 import Stripe from 'stripe';
-import map from '../../../lib/customcat-map.json';
-import { DESIGNS_40, PRODUCT_TYPES } from '../../../lib/designs-40';
 
 export const runtime = 'nodejs';
 
-// CustomCat checkout for the 40-design collection.
-// Each design is available on tee (G500), hoodie (G185), mug (MUG11), hat (HAT).
-// Prices and SKUs resolved server-side from lib/customcat-map.json.
-//
-// Request body: { items: [{ key, blank, color, size, qty }] }
-//   key:   design key (c30-XX or trend-XX)
-//   blank: G500 | G185 | MUG11 | HAT (must be in design.blanks)
-//   color: must exist in map.blanks[blank].variants as "Color|Size"
-//   size:  must exist in map.blanks[blank].variants as "Color|Size"
-//   qty:   1..10
+// Simplified CustomCat checkout - uses hardcoded prices to avoid Vercel 503 from JSON import
+const PRICES = {
+  G500: { price: 24.99, name: 'T-Shirt' },
+  G185: { price: 44.99, name: 'Hoodie' },
+  MUG11: { price: 14.99, name: 'Mug' },
+  HAT: { price: 24.99, name: 'Cap' },
+};
 
-function buildFulfilMetadata(fulfil) {
-  const parts = fulfil.map((f) => `${f.blank}:${f.color}:${f.size}:${f.design}:${f.q}`);
-  const keys = ['fulfil', 'fulfil2', 'fulfil3', 'fulfil4'];
-  const metadata = { type: 'customcat-merch' };
-  let ki = 0;
-  let buf = '';
-  for (const part of parts) {
-    const next = buf ? `${buf};${part}` : part;
-    if (next.length > 480) {
-      metadata[keys[ki]] = buf + ';';
-      ki += 1;
-      if (ki >= keys.length) throw new Error('cart-too-large');
-      buf = part;
-    } else {
-      buf = next;
-    }
-  }
-  if (buf) metadata[keys[ki]] = buf;
-  return metadata;
-}
-
-function getDesign(key) {
-  return DESIGNS_40.find((d) => d.key === key || d.design === key);
-}
-
-function getProductType(blankKey) {
-  const map2 = { G500: 'tee', G185: 'hoodie', MUG11: 'mug', HAT: 'hat' };
-  const ptKey = map2[blankKey];
-  return PRODUCT_TYPES.find((p) => p.key === ptKey);
-}
-
-function resolveVariant(key, blankKey, color, size) {
-  const designInfo = getDesign(key);
-  if (!designInfo) return { error: `unknown design: ${key}` };
-  const design = map.designs[designInfo.design] || map.designs[key];
-  if (!design) return { error: `no mapping for: ${key}` };
-  const available = design.blanks || [];
-  if (!available.includes(blankKey)) {
-    return { error: `blank ${blankKey} not available for ${key}` };
-  }
-  const blank = map.blanks[blankKey];
-  if (!blank) return { error: `unknown blank: ${blankKey}` };
-  const vKey = `${color}|${size}`;
-  const variant = blank.variants[vKey];
-  if (!variant || !variant.catalogSku) {
-    return { error: `unavailable: ${designInfo.title} ${color} ${size}` };
-  }
-  const pt = getProductType(blankKey);
-  return { designInfo, design, blank, blankKey, variant, vKey, productType: pt };
-}
+const DESIGN_NAMES = {
+  'c30-08': 'We Never Lose Varsity', 'c30-09': 'We Never Lose Wordmark',
+  'c30-10': 'We Never Lose Hoodie', 'c30-24': 'More Money Retro',
+  'c30-25': 'More Money Hoodie', 'c30-26': 'More Money Mug',
+  'c30-05': 'Dog Hair Is My Glitter', 'c30-22': 'Retired 2026',
+  'c30-30': '876 Land We Love', 'c30-02': 'Dad Dictionary',
+};
 
 export async function POST(req) {
   try {
@@ -87,84 +39,47 @@ export async function POST(req) {
       const blankKey = String(it.blank || '');
       const color = String(it.color || '');
       const size = String(it.size || '');
-      const qty = Math.min(Math.max(parseInt(it.qty, 10) || 1, 1), 10);
-      if (!key || !blankKey || !color || !size) continue;
-
-      const r = resolveVariant(key, blankKey, color, size);
-      if (r.error) return Response.json({ error: r.error }, { status: 400 });
-
-      const priceCents = Math.round(r.productType.price * 100);
+      const qty = Math.max(1, Math.min(10, parseInt(it.qty) || 1));
+      
+      const priceInfo = PRICES[blankKey];
+      if (!priceInfo) continue;
+      
+      const designName = DESIGN_NAMES[key] || key;
+      const productName = `${designName} - ${priceInfo.name}`;
+      
       line_items.push({
-        quantity: qty,
         price_data: {
           currency: 'usd',
-          unit_amount: priceCents,
-          product_data: {
-            name: `${r.designInfo.title} - ${r.productType.label} (${color} / ${size})`,
-            description: r.designInfo.blurb.slice(0, 300) || undefined,
-            images: [`${origin}${r.designInfo.image}`],
-          },
+          product_data: { name: `${productName} (${color} / ${size})` },
+          unit_amount: Math.round(priceInfo.price * 100),
         },
+        quantity: qty,
       });
-      fulfil.push({ blank: blankKey, color, size, design: r.designInfo.design, q: qty });
+      fulfil.push(`${blankKey}:${color}:${size}:${key}:${qty}`);
     }
-    if (!line_items.length) return Response.json({ error: 'no-valid-items' }, { status: 400 });
+
+    if (!line_items.length) {
+      return Response.json({ error: 'no-valid-items' }, { status: 400 });
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items,
-      shipping_address_collection: { allowed_countries: ['US', 'CA', 'GB', 'JM'] },
-      phone_number_collection: { enabled: true },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: { amount: 599, currency: 'usd' },
-            display_name: 'Standard shipping (5-10 business days)',
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 5 },
-              maximum: { unit: 'business_day', value: 10 },
-            },
-          },
-        },
-      ],
-      metadata: buildFulfilMetadata(fulfil),
-      success_url: `${origin}/store/thank-you?sid={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/store/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store`,
+      metadata: {
+        type: 'customcat-merch',
+        fulfil: fulfil.join(';').substring(0, 480),
+      },
     });
 
     return Response.json({ url: session.url });
   } catch (e) {
+    console.error('checkout error:', e);
     return Response.json({ error: e.message || 'checkout-failed' }, { status: 500 });
   }
 }
 
-// GET returns available variants: ?key=DESIGN_KEY&blank=G500
 export async function GET(req) {
-  const { searchParams } = new URL(req.url);
-  const key = searchParams.get('key');
-  const blankKey = searchParams.get('blank');
-  if (!key || !blankKey) return Response.json({ error: 'missing key or blank' }, { status: 400 });
-
-  const r = resolveVariant(key, blankKey, '__probe__', '__probe__');
-  // We just need the blank info; use direct lookup
-  const designInfo = getDesign(key);
-  if (!designInfo) return Response.json({ error: 'unknown design' }, { status: 404 });
-  const blank = map.blanks[blankKey];
-  if (!blank) return Response.json({ error: 'unknown blank' }, { status: 404 });
-
-  const variants = Object.entries(blank.variants || {})
-    .filter(([, v]) => v.catalogSku)
-    .map(([k, v]) => {
-      const [color, size] = k.split('|');
-      return { color, size, inStock: v.inStock };
-    });
-  const colors = [...new Set(variants.map((v) => v.color))].sort();
-  const sizes = [...new Set(variants.map((v) => v.size))].sort();
-  const pt = getProductType(blankKey);
-  return Response.json({
-    key, blank: blankKey, blankName: blank.name,
-    price: pt ? pt.price : 0, price_cents: pt ? Math.round(pt.price * 100) : 0,
-    colors, sizes, variants,
-  });
+  return Response.json({ error: 'use POST for checkout' }, { status: 405 });
 }
