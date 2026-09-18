@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { DESIGNS_40, PRODUCT_TYPES, DESIGN_CATEGORIES } from '../../lib/designs-40';
+// Hardcoded variants (CustomCat API route has a Vercel platform 503 issue)
+const VARIANT_DATA = {
+  G500: { colors: ['Black','White','Navy','Red','Royal','Forest','Maroon','Purple','Charcoal','Sport Grey'], sizes: ['S','M','L','XL'], price: 24.99 },
+  G185: { colors: ['Black','White','Navy','Red','Royal','Forest','Maroon','Purple','Charcoal','Sport Grey'], sizes: ['S','M','L','XL'], price: 44.99 },
+  MUG11: { colors: ['White'], sizes: ['One Size'], price: 14.99 },
+  HAT: { colors: ['Black','White','Navy','Red','Royal','Charcoal'], sizes: ['One Size'], price: 24.99 },
+};
+
 
 // Design-first store: pick a design, choose products, add to cart.
 export default function DesignStore() {
@@ -52,27 +60,14 @@ export default function DesignStore() {
       setSelections((s) => ({ ...s, [ptKey]: { ...s[ptKey], checked: false } }));
       return;
     }
-    // Fetch variants for this blank
+    // Use hardcoded variants (API route has Vercel 503 issue)
     const blankMap = { tee: 'G500', hoodie: 'G185', mug: 'MUG11', hat: 'HAT' };
     const blank = blankMap[ptKey];
-    if (!variantData[blank]) {
-      try {
-        const r = await fetch(`/api/customcat-checkout?key=${selected.design}&blank=${blank}`);
-        const j = await r.json();
-        if (j.colors) {
-          setVariantData((v) => ({ ...v, [blank]: j }));
-          setSelections((s) => ({
-            ...s,
-            [ptKey]: { checked: true, color: j.colors[0] || '', size: j.sizes[0] || '', blank },
-          }));
-          return;
-        }
-      } catch {}
-    }
-    const vd = variantData[blank];
+    const vd = VARIANT_DATA[blank];
+    if (!vd) return;
     setSelections((s) => ({
       ...s,
-      [ptKey]: { checked: true, color: vd?.colors?.[0] || '', size: vd?.sizes?.[0] || '', blank },
+      [ptKey]: { checked: true, color: vd.colors[0] || '', size: vd.sizes[0] || '', blank },
     }));
   };
 
