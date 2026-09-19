@@ -4,9 +4,10 @@ import { productByKey } from '../../../lib/store-products';
 export const runtime = 'nodejs';
 // CustomCat 40-design collection prices (hardcoded to avoid Vercel 503 on new routes)
 const CC_PRICES = {
-  G500: { price: 2499, name: 'T-Shirt' },
-  G185: { price: 4499, name: 'Hoodie' },
-  MUG11: { price: 1499, name: 'Mug' },
+  G500: { price: 1999, name: 'T-Shirt' },
+  G185: { price: 3199, name: 'Hoodie' },
+  G180: { price: 2900, name: 'Crewneck' },
+  MUG11: { price: 999, name: 'Mug' },
 };
 const CC_DESIGN_NAMES = {
   'c30-08': 'We Never Lose Varsity', 'c30-09': 'We Never Lose Wordmark',

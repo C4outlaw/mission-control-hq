@@ -4,9 +4,10 @@ export const runtime = 'nodejs';
 
 // Simplified CustomCat checkout - uses hardcoded prices to avoid Vercel 503 from JSON import
 const PRICES = {
-  G500: { price: 24.99, name: 'T-Shirt' },
-  G185: { price: 44.99, name: 'Hoodie' },
-  MUG11: { price: 14.99, name: 'Mug' },
+  G500: { price: 19.99, name: 'T-Shirt' },
+  G185: { price: 31.99, name: 'Hoodie' },
+  G180: { price: 29.00, name: 'Crewneck' },
+  MUG11: { price: 9.99, name: 'Mug' },
 };
 
 const DESIGN_NAMES = {
@@ -64,6 +65,22 @@ export async function POST(req) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items,
+      // The buyer pays shipping, not us. Without this the session carried no
+      // shipping line at all and every CustomCat order ate the postage.
+      shipping_address_collection: { allowed_countries: ['US', 'CA', 'GB', 'JM'] },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: { amount: 599, currency: 'usd' },
+            display_name: 'Standard shipping',
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 5 },
+              maximum: { unit: 'business_day', value: 10 },
+            },
+          },
+        },
+      ],
       success_url: `${origin}/store/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store`,
       metadata: {
