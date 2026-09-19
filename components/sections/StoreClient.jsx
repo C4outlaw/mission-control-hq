@@ -631,10 +631,16 @@ function shotsFor(p, color) {
 }
 
 /* Grid tiles get the small WebP variant when one was generated for them. */
-const gridSrc = (src) =>
-  (typeof src === 'string' && /\/store\/ugc\/.*-1\.jpg$/.test(src))
-    ? src.replace(/-1\.jpg$/, '-1-grid.webp')
-    : src;
+const gridSrc = (src) => {
+  if (typeof src !== 'string') return src;
+  // Every store image has a 760px WebP twin generated beside it; the tile only
+  // ever renders about 340px, so the full plate is pure waste in the grid.
+  if (/\/store\/ugc\/.*-1\.jpg$/.test(src)) return src.replace(/-1\.jpg$/, '-1-grid.webp');
+  if (/\/store\/(catalog-30|premium|model|views)\/[^?]+\.(jpg|webp|png)$/.test(src)) {
+    return src.replace(/\.(jpg|webp|png)$/, '-grid.webp');
+  }
+  return src;
+};
 
 function BBCard({ p, onOpen }) {
   const price = cents(p);
@@ -1251,13 +1257,13 @@ export default function StoreClient() {
           {heroVideoOk ? (
             <video
               src={heroSrc}
-              poster="/store/hero-poster.jpg"
+              poster="/store/hero-poster.webp"
               autoPlay muted loop playsInline preload="metadata"
               onError={() => setHeroVideoOk(false)}
             />
           ) : (
             /* eslint-disable-next-line @next/next/no-img-element */
-            <img src="/store/hero-poster.jpg" alt="" />
+            <img src="/store/hero-poster.webp" alt="" />
           )}
         </div>
         <div className="tls-shell tls-hero-inner">
@@ -1344,7 +1350,7 @@ export default function StoreClient() {
           <div className="drop-proof-shots" aria-hidden="true">
             {['/store/model/money--m-beard-blk.jpg', '/store/model/neverlose--w-braids-blk.jpg', '/store/model/flagx--w-beach-blk.jpg', '/store/model/wahgwaan--m-dread-blk2.jpg'].map((src) => (
               /* eslint-disable-next-line @next/next/no-img-element */
-              <img key={src} src={src} alt="" loading="lazy" decoding="async" />
+              <img key={src} src={gridSrc(src)} alt="" loading="lazy" decoding="async" />
             ))}
           </div>
         </div>
