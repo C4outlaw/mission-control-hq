@@ -7,7 +7,6 @@ const CC_PRICES = {
   G500: { price: 2499, name: 'T-Shirt' },
   G185: { price: 4499, name: 'Hoodie' },
   MUG11: { price: 1499, name: 'Mug' },
-  HAT: { price: 2499, name: 'Cap' },
 };
 const CC_DESIGN_NAMES = {
   'c30-08': 'We Never Lose Varsity', 'c30-09': 'We Never Lose Wordmark',

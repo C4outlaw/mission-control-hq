@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 import { CATALOG30, CAT30_FACETS } from '../../lib/catalog-30';
+import { CATALOGUE, DEPARTMENTS } from '../../lib/store-unified';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
 // collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
@@ -467,6 +468,16 @@ const SWATCH = {
   Black: '#111111', Pepper: '#4a4744', 'Blue Jean': '#5b7592', 'Blue Spruce': '#2f6f73', Ivory: '#f3ebdc', Butter: '#f1d9a6',
   White: '#ffffff', Graphite: '#3a3f44', Moss: '#6f7a55', 'Sport Grey': '#c9c9c4', Navy: '#1f2a44', 'Dark Heather': '#4a4a4a',
   'Dark Green': '#1d4d2b', Pink: '#ff4fa3', Green: '#2fbf3a', Royal: '#2b4cc4', 'Blue/Red': 'linear-gradient(90deg,#2b4cc4 50%,#c8102e 50%)', 'Dark Navy': '#14213d',
+  // CustomCat blank colours, so the swatch row shows the real garment colour
+  // rather than a row of identical grey placeholders.
+  Ash: '#d8dad6', Cardinal: '#8c2232', 'Carolina Blue': '#7ba4db', Daisy: '#f7d94c',
+  'Dark Chocolate': '#3b2b25', 'Electric Green': '#43d34a', Forest: '#22402c',
+  'Forest Green': '#22402c', Garnet: '#6f2233', Gold: '#e2b233', Heliconia: '#e0568f',
+  'Irish Green': '#00a04a', Kiwi: '#9bbf3a', 'Light Blue': '#b7cfe3', 'Light Pink': '#f2c6cf',
+  Lime: '#a6d84a', Maroon: '#5c2231', 'Military Green': '#55583f', Natural: '#ede4d0',
+  'Old Gold': '#c9962f', Orange: '#e4671f', Purple: '#4b2a72', Red: '#c8102e',
+  'Safety Green': '#c8e94b', 'Safety Orange': '#ff6a13', Sand: '#dfd3bb',
+  'Texas Orange': '#a64a1e', 'Turf Green': '#2f6b3a',
 };
 const SIZE_ORDER = ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
 const isRealSize = (sz) => sz && sz !== '11oz' && sz !== 'One size';
@@ -481,7 +492,6 @@ const DROP_FACETS = [
   { id: 'hoodie', label: 'Hoodies', test: (p) => p.kind === 'hoodie' },
   { id: 'tank', label: 'Tanks', test: (p) => p.kind === 'tank' },
   { id: 'mug', label: 'Mugs', test: (p) => p.kind === 'mug' },
-  { id: 'cap', label: 'Caps', test: (p) => p.kind === 'cap' },
 ];
 
 function DropPanel({ p, large = false, onAdd }) {
@@ -656,10 +666,14 @@ function BBProduct({ p, onAdd, onClose }) {
   const [added, setAdded] = useState(false);
   const viewsRef = useRef(null);
 
+  // A Printify piece carries variant rows; a CustomCat piece carries a plain
+  // size list off its blank. Both end up as {id,size} so the rest is identical.
+  const isCC = p.source === 'customcat';
   const sizes = useMemo(() => {
+    if (isCC) return (p.sizes || []).map((sz) => ({ id: sz, size: sz }));
     const vs = (p.variants || []).filter((v) => !color || v.color === color);
     return [...vs].sort((a, b) => SIZE_ORDER.indexOf(a.size) - SIZE_ORDER.indexOf(b.size));
-  }, [p, color]);
+  }, [p, color, isCC]);
   const [variantId, setVariantId] = useState(null);
   useEffect(() => { setVariantId(sizes.find((v) => v.size === 'L')?.id ?? sizes[0]?.id ?? null); }, [sizes]);
 
@@ -691,19 +705,16 @@ function BBProduct({ p, onAdd, onClose }) {
   const hasSizes = sizes.some((v) => isRealSize(v.size));
   const price = chosen?.price || cents(p);
   const off = p.compareAt && p.compareAt > price ? Math.round(((p.compareAt - price) / p.compareAt) * 100) : null;
-  const sellable = Boolean(chosen);
+  const sellable = isCC ? Boolean(p.sellable && chosen) : Boolean(chosen);
 
   function add() {
-    if (!chosen) return;
-    onAdd({
-      key: p.key,
-      variantId: chosen.id,
-      qty: 1,
-      name: p.name,
-      price,
-      image: (color && p.images?.[color]) || p.image,
-      size: [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / '),
-    });
+    if (!sellable || !chosen) return;
+    const label = [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / ');
+    onAdd(isCC
+      ? { key: p.id, source: 'customcat', blank: p.blank, color, size: chosen.size,
+          designTitle: p.name, qty: 1, name: p.name, price, image: p.image, sizeLabel: label }
+      : { key: p.key ?? p.id, source: 'printify', variantId: chosen.id, qty: 1,
+          name: p.name, price, image: (color && p.images?.[color]) || p.image, sizeLabel: label });
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
   }
@@ -1046,6 +1057,8 @@ function Cat30Modal({ p, onClose }) {
 
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
+  const [dept, setDept] = useState('all');
+  const shopResults = useMemo(() => (dept === 'all' ? CATALOGUE : CATALOGUE.filter((i) => i.dept === dept)), [dept]);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
   const [facet, setFacet] = useState('all');
@@ -1129,7 +1142,8 @@ export default function StoreClient() {
 
   function addItem(item) {
     setCart((c) => {
-      const i = c.findIndex((x) => x.key === item.key && x.variantId === item.variantId);
+      const i = c.findIndex((x) => x.key === item.key && x.variantId === item.variantId
+        && x.color === item.color && x.size === item.size);
       if (i >= 0) {
         const n = [...c];
         n[i] = { ...n[i], qty: n[i].qty + 1 };
@@ -1145,11 +1159,25 @@ export default function StoreClient() {
     setBusy(true);
     setErr('');
     try {
-      const r = await fetch('/api/store-checkout', {
+      // Each supplier has its own endpoint, and the endpoint decides which
+      // fulfilment the webhook hands the paid order to. Mixing them in one
+      // session would send CustomCat items to Printify, so a mixed bag is
+      // refused here rather than failing after the customer has paid.
+      const cc = cart.filter((i) => i.source === 'customcat');
+      const pf = cart.filter((i) => i.source !== 'customcat');
+      if (cc.length && pf.length) {
+        setErr('Please check out the Best Sellers separately from the Island Line.');
+        setBusy(false);
+        return;
+      }
+      const useCC = cc.length > 0;
+      const r = await fetch(useCC ? '/api/customcat-checkout' : '/api/store-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          items: cart.map((i) => ({ key: i.key, variantId: i.variantId, qty: i.qty })),
+          items: useCC
+            ? cc.map((i) => ({ key: i.key, blank: i.blank, color: i.color, size: i.size, qty: i.qty, designTitle: i.name }))
+            : pf.map((i) => ({ key: i.key, variantId: i.variantId, qty: i.qty })),
         }),
       });
       const j = await r.json();
@@ -1216,54 +1244,47 @@ export default function StoreClient() {
         <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
       </div>
 
-      {/* ================= Premium Collection ================= */}
-      <section id="premium" className="drop">
+      {/* ============ One shop, one flow ============ *
+        * Three stacked sections with three card styles read as three
+        * different shops. This is a single wall of product: the proven
+        * sellers first, a sticky bar to jump between departments, and only a
+        * thin labelled rule where one department becomes the next.        */}
+      <section id="shop" className="drop">
         <div className="tls-shell">
           <header className="drop-head">
-            <p className="tls-mono">Premium Collection · {PREMIUM_PRODUCTS.length} pieces · luxury blanks</p>
-            <h2>The premium look. Fashion-house quality.</h2>
-            <p className="drop-lede">Every design reimagined in the dark premium aesthetic — heavyweight black tees, luxury hoodies, refined typography. The Lost Jamaican, elevated.</p>
+            <p className="tls-mono">The Lost Jamaican · {shopResults.length} pieces · printed to order</p>
+            <h2>Everything, in one place.</h2>
+            <p className="drop-lede">Scroll the whole shop, or jump to a department. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
           </header>
 
           <nav className="bb-crumb" aria-label="Breadcrumb">
-            The Lost Jamaican<span aria-hidden="true">/</span>Store<span aria-hidden="true">/</span>Premium
+            The Lost Jamaican<span aria-hidden="true">/</span>Store
           </nav>
-          <div className="bb-bar">
-            <p className="bb-bar-count">{PREMIUM_PRODUCTS.length} items</p>
-          </div>
 
-          <div className="bb-grid">
-            {PREMIUM_PRODUCTS.map((p) => <BBCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
-          </div>
-        </div>
-      </section>
-
-      
-      {/* ================= Drop 01 ================= */}
-      <section id="drop" className="drop">
-        <div className="tls-shell">
-          <header className="drop-head">
-            <p className="tls-mono">Drop 01 · {dropResults.length} pieces · printed to order</p>
-            <h2>Jamaican slang, on the shirts that actually sell.</h2>
-            <p className="drop-lede">Every design is an original. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
-          </header>
-
-          <nav className="bb-crumb" aria-label="Breadcrumb">
-            The Lost Jamaican<span aria-hidden="true">/</span>Store<span aria-hidden="true">/</span>Drop 01
-          </nav>
-          <div className="bb-bar">
-            <p className="bb-bar-count">{dropResults.length} {dropResults.length === 1 ? 'item' : 'items'}</p>
-            <div className="drop-pills" role="group" aria-label="Filter the drop">
-              {DROP_FACETS.map((f) => (
-                <button key={f.id} type="button" className={`etsy-pill${dropFacet === f.id ? ' is-on' : ''}`} onClick={() => setDropFacet(f.id)} aria-pressed={dropFacet === f.id}>
-                  {f.label}
+          <div className="bb-bar is-sticky">
+            <p className="bb-bar-count">{shopResults.length} {shopResults.length === 1 ? 'item' : 'items'}</p>
+            <div className="drop-pills" role="group" aria-label="Shop by department">
+              <button type="button" className={`etsy-pill${dept === 'all' ? ' is-on' : ''}`} onClick={() => setDept('all')} aria-pressed={dept === 'all'}>All</button>
+              {DEPARTMENTS.map((d) => (
+                <button key={d.id} type="button" className={`etsy-pill${dept === d.id ? ' is-on' : ''}`} onClick={() => setDept(d.id)} aria-pressed={dept === d.id}>
+                  {d.label}
                 </button>
               ))}
             </div>
           </div>
 
           <div className="bb-grid">
-            {dropResults.map((p) => <BBCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+            {shopResults.map((item, i) => {
+              const prev = shopResults[i - 1];
+              const opensDept = dept === 'all' && (!prev || prev.dept !== item.dept);
+              const label = DEPARTMENTS.find((d) => d.id === item.dept)?.label;
+              return (
+                <Fragment key={item.id}>
+                  {opensDept && <h3 className="bb-dept">{label}</h3>}
+                  <BBCard p={item} onOpen={() => setOpenDrop(item)} />
+                </Fragment>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1451,7 +1472,7 @@ export default function StoreClient() {
                 <img src={i.image} alt="" />
                 <span className="etsy-cart-name">
                   {i.name}
-                  {i.size && i.size !== '11oz' ? ` / ${i.size}` : ''} &times;{i.qty}
+                  {i.sizeLabel ? ` — ${i.sizeLabel}` : ''} &times;{i.qty}
                 </span>
                 <span className="etsy-cart-cost">{money(i.price * i.qty)}</span>
                 <button onClick={() => removeItem(idx)} aria-label="Remove">&times;</button>

@@ -7,7 +7,6 @@ const PRICES = {
   G500: { price: 24.99, name: 'T-Shirt' },
   G185: { price: 44.99, name: 'Hoodie' },
   MUG11: { price: 14.99, name: 'Mug' },
-  HAT: { price: 24.99, name: 'Cap' },
 };
 
 const DESIGN_NAMES = {

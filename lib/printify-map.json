@@ -186,7 +186,8 @@
      "color": "Dark Green"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "wahgwaansun-tee": {
    "id": "6a998098158a2ef8a600667b",
@@ -1260,7 +1261,8 @@
      "color": "Pink"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "gwehcap-cap": {
    "id": "6a9980c703ca0e7cdc0ab6f8",
@@ -1290,7 +1292,8 @@
      "color": "Green"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "bumbocap-cap": {
    "id": "6a9980c94c72cd7149090e75",
@@ -1320,7 +1323,8 @@
      "color": "Royal"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "rudegyal-cap": {
    "id": "6a9980cbdf99c380120593f6",
@@ -1350,7 +1354,8 @@
      "color": "Pink"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "kissmiraas-cap": {
    "id": "6a9980ce03ca0e7cdc0ab6fd",
@@ -1380,7 +1385,8 @@
      "color": "Royal"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "yardieaf-cap": {
    "id": "6a9980d016a9c0eb930b240e",
@@ -1410,7 +1416,8 @@
      "color": "Green"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "yuhtoolie-cap": {
    "id": "6a9980d2df99c380120593fc",
@@ -1440,7 +1447,8 @@
      "color": "Green"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "maddawg-cap": {
    "id": "6a9980d476f0c3a9150cac06",
@@ -1470,7 +1478,8 @@
      "color": "Dark Navy"
     }
    ],
-   "compareAt": 2499
+   "compareAt": 2499,
+   "hidden": true
   },
   "moremoney-tee": {
    "id": "6a9cb03d03e119d1bd045c70",
@@ -1638,7 +1647,8 @@
      "size": "One size",
      "color": "Black"
     }
-   ]
+   ],
+   "hidden": true
   }
  }
 }

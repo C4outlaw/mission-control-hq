@@ -968,3 +968,31 @@
 @media (min-width: 1500px) {
   .bb-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
+
+/* Department label sitting inside the grid — the only separation between one
+   department and the next, so the page still reads as one continuous shop. */
+.bb-dept {
+  grid-column: 1 / -1;
+  margin: 26px 0 2px;
+  padding: 0 14px 12px;
+  border-bottom: 1px solid #ebe7e1;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: #0c0a09;
+}
+.bb-grid > .bb-dept:first-child { margin-top: 0; }
+
+/* The department bar follows the reader down the page. */
+.bb-bar.is-sticky {
+  position: sticky;
+  top: 72px;
+  z-index: 5;
+  background: #ffffff;
+  margin-inline: -8px;
+  padding-inline: 8px;
+}
+@media (max-width: 860px) {
+  .bb-bar.is-sticky { top: 60px; }
+  .bb-bar .drop-pills { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+}
