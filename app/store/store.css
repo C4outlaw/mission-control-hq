@@ -834,7 +834,7 @@
 }
 
 .bb-pdp-rail { overflow-y: auto; border-left: 1px solid #ebe7e1; }
-.bb-rail-inner { padding: 88px 40px 64px; display: flex; flex-direction: column; }
+.bb-rail-inner { padding: 88px 40px 118px; display: flex; flex-direction: column; }
 .bb-rail-kind { margin: 0 0 8px; font-size: 12px; color: #6b6b6b !important; }
 .bb-rail-head {
   display: flex;
@@ -921,7 +921,7 @@
 @media (max-width: 1100px) {
   .bb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .bb-pdp { grid-template-columns: minmax(0, 1fr) 360px; }
-  .bb-rail-inner { padding: 76px 26px 56px; }
+  .bb-rail-inner { padding: 76px 26px 118px; }
 }
 @media (max-width: 860px) {
   /* 1fr carries an auto minimum, so a 1250px view can push the column wider
@@ -1127,7 +1127,31 @@
 
 /* Add and Checkout share one row, so the whole buying decision is in a single
    glance: size, add, pay. */
-.bb-rail-actions { display: flex; gap: 10px; margin: 22px 0 0; }
+/* The buying controls never leave the screen. The rail scrolls past four
+   accordions, which used to carry Add and Checkout away with it; sticky is not
+   enough either, because the bar would ride up once its own content ran out.
+   So it is pinned to the foot of the rail column and stays there all the way
+   down. .bb-rail-inner carries matching bottom padding so the last of the copy
+   is never hidden underneath it. */
+.bb-rail-actions {
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 420px;            /* the rail column */
+  z-index: 6;
+  margin: 0;
+  padding: 14px 40px calc(14px + env(safe-area-inset-bottom, 0px));
+  background: #ffffff;
+  border-top: 1px solid #ebe7e1;
+  box-shadow: 0 -14px 20px -14px rgba(0, 0, 0, 0.16);
+}
+/* Must follow the rule above, not sit in the earlier 1100px block: same
+   specificity, so source order decides and the bar would keep the wide width. */
+@media (max-width: 1100px) {
+  .bb-rail-actions { width: 360px; padding-inline: 26px; }
+}
 .bb-rail-actions .bb-rail-buy,
 .bb-rail-actions .bb-rail-checkout { flex: 1 1 0; margin: 0; }
 @media (max-width: 860px) {
@@ -1139,8 +1163,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 4;
+    width: auto;
+    z-index: 6;
     margin: 0;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(255, 255, 255, 0.97);
     border-top: 1px solid #ebe7e1;
