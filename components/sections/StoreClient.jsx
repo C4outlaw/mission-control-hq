@@ -600,6 +600,202 @@ function DropModal({ p, onAdd, onClose }) {
   );
 }
 
+/* ================================================================== *
+ * Gallery layout (2026-09-19) — the fashion-house listing pattern
+ * Myrie asked for: an edge-to-edge grid of product tiles with the name
+ * and price on one line, and a full-bleed product page where the views
+ * stack down the left and a sticky rail on the right carries colour,
+ * size and Add to Bag. Structure only; the type, colours and copy stay
+ * The Lost Jamaican's own.
+ * ================================================================== */
+
+/* Drop products price in cents; the premium line was authored in dollars.
+   Normalise on read so neither list can render the other's magnitude. */
+const cents = (p) => (p.variants ? p.price : Math.round(p.price * 100));
+
+/* Every view of a product: the chosen colour leads, then its other
+   colourways and any extra gallery shots, de-duplicated. */
+function shotsFor(p, color) {
+  const byColor = (p.colors || []).map((c) => p.images?.[c]).filter(Boolean);
+  const lead = (color && p.images?.[color]) || p.image;
+  return [...new Set([lead, ...(p.gallery || []), ...byColor, p.image].filter(Boolean))];
+}
+
+function BBCard({ p, onOpen }) {
+  const price = cents(p);
+  const off = p.compareAt && p.compareAt > price ? Math.round(((p.compareAt - price) / p.compareAt) * 100) : null;
+  return (
+    <button type="button" className="bb-card" onClick={onOpen} aria-label={`View ${p.name}`}>
+      <span className="bb-card-kind">{p.kindName || KIND[p.kind]?.long || p.kind}</span>
+      <span className="bb-card-media">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+      </span>
+      <span className="bb-card-row">
+        <span className="bb-card-name">{p.name.split(' — ')[0]}</span>
+        <span className="bb-card-price">
+          {money(price)}
+          {off ? <s>{money(p.compareAt)}</s> : null}
+        </span>
+      </span>
+      {(p.colors || []).length > 1 && (
+        <span className="bb-card-swatches">
+          {p.colors.slice(0, 6).map((c) => (
+            <span key={c} className="bb-card-swatch" style={{ background: SWATCH[c] || '#999' }} title={c} />
+          ))}
+        </span>
+      )}
+    </button>
+  );
+}
+
+/* The product page: views down the left, buying rail on the right. */
+function BBProduct({ p, onAdd, onClose }) {
+  const colors = p.colors || [];
+  const [color, setColor] = useState(colors[0] || null);
+  const [shot, setShot] = useState(0);
+  const [added, setAdded] = useState(false);
+  const viewsRef = useRef(null);
+
+  const sizes = useMemo(() => {
+    const vs = (p.variants || []).filter((v) => !color || v.color === color);
+    return [...vs].sort((a, b) => SIZE_ORDER.indexOf(a.size) - SIZE_ORDER.indexOf(b.size));
+  }, [p, color]);
+  const [variantId, setVariantId] = useState(null);
+  useEffect(() => { setVariantId(sizes.find((v) => v.size === 'L')?.id ?? sizes[0]?.id ?? null); }, [sizes]);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+  }, [onClose]);
+
+  const shots = useMemo(() => shotsFor(p, color), [p, color]);
+  useEffect(() => { setShot(0); viewsRef.current?.scrollTo({ top: 0 }); }, [color]);
+
+  /* Which view is in front of the reader, for the 1/N counter. */
+  function onViewsScroll(e) {
+    const el = e.currentTarget;
+    const kids = [...el.querySelectorAll('.bb-view')];
+    // Desktop stacks the views vertically; phones swipe them sideways.
+    const horiz = el.scrollWidth > el.clientWidth;
+    const mid = horiz ? el.scrollLeft + el.clientWidth / 2 : el.scrollTop + el.clientHeight / 2;
+    const i = kids.findIndex((k) => (horiz
+      ? k.offsetLeft <= mid && k.offsetLeft + k.offsetWidth > mid
+      : k.offsetTop <= mid && k.offsetTop + k.offsetHeight > mid));
+    if (i >= 0 && i !== shot) setShot(i);
+  }
+
+  const chosen = sizes.find((v) => String(v.id) === String(variantId)) || sizes[0];
+  const hasSizes = sizes.some((v) => isRealSize(v.size));
+  const price = chosen?.price || cents(p);
+  const off = p.compareAt && p.compareAt > price ? Math.round(((p.compareAt - price) / p.compareAt) * 100) : null;
+  const sellable = Boolean(chosen);
+
+  function add() {
+    if (!chosen) return;
+    onAdd({
+      key: p.key,
+      variantId: chosen.id,
+      qty: 1,
+      name: p.name,
+      price,
+      image: (color && p.images?.[color]) || p.image,
+      size: [color, isRealSize(chosen.size) ? chosen.size : null].filter(Boolean).join(' / '),
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1600);
+  }
+
+  return (
+    <div className="bb-pdp" role="dialog" aria-modal="true" aria-label={p.name}>
+      <button className="bb-pdp-close" onClick={onClose} aria-label="Close">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </button>
+
+      <div className="bb-pdp-views" ref={viewsRef} onScroll={onViewsScroll}>
+        {shots.map((src, i) => (
+          <figure className="bb-view" key={src + i}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={src} alt={`${p.name} — view ${i + 1} of ${shots.length}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+          </figure>
+        ))}
+        <span className="bb-pdp-count" aria-hidden="true">{shot + 1}/{shots.length}</span>
+      </div>
+
+      <aside className="bb-pdp-rail">
+        <div className="bb-rail-inner">
+          <p className="bb-rail-kind">{p.kindName || KIND[p.kind]?.long || p.kind}</p>
+          <h2 className="bb-rail-head">
+            <span className="bb-rail-name">{p.name.split(' — ')[0]}</span>
+            <span className="bb-rail-price">
+              {money(price)}
+              {off ? <s>{money(p.compareAt)}</s> : null}
+            </span>
+          </h2>
+          {p.blurb && <p className="bb-rail-blurb">{p.blurb}</p>}
+
+          {colors.length > 0 && (
+            <div className="bb-rail-colour">
+              <span>{color}</span>
+              <div className="bb-rail-swatches" role="group" aria-label="Colour">
+                {colors.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className={`bb-swatch${c === color ? ' is-on' : ''}`}
+                    style={{ background: SWATCH[c] || '#999' }}
+                    onClick={() => setColor(c)}
+                    aria-pressed={c === color}
+                    aria-label={c}
+                    title={c}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {hasSizes && (
+            <label className="bb-rail-size">
+              <span>Select Size:</span>
+              <select value={variantId ?? ''} onChange={(e) => setVariantId(e.target.value)}>
+                {sizes.map((v) => <option key={v.id} value={v.id}>{v.size}</option>)}
+              </select>
+            </label>
+          )}
+
+          <button type="button" className="bb-rail-buy" onClick={add} disabled={!sellable}>
+            {added ? 'Added to bag' : sellable ? 'Add to Bag' : 'Coming soon'}
+          </button>
+          <p className="bb-rail-fine">
+            {sellable
+              ? 'Printed to order · ships in 3–7 business days · secure checkout via Stripe'
+              : 'This piece is not open for orders yet.'}
+          </p>
+
+          <details className="bb-acc" open>
+            <summary>Product Details</summary>
+            <p>{p.blurb || 'An original Lost Jamaican design.'}</p>
+            <p>{p.kindName || KIND[p.kind]?.long || p.kind}{color ? ` · ${color}` : ''}. Printed to order, one at a time.</p>
+          </details>
+          <details className="bb-acc">
+            <summary>Size &amp; Fit</summary>
+            <p>{hasSizes ? 'Unisex sizing, true to size. Between sizes? Take the larger for a relaxed fit.' : 'One size.'}</p>
+          </details>
+          <details className="bb-acc">
+            <summary>Shipping &amp; Returns</summary>
+            <p>Made and shipped from the print house in 3–7 business days. Faulty or misprinted items are replaced free.</p>
+          </details>
+        </div>
+      </aside>
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ *
  * The Everyday Collection — 30 reviewed designs, notify-me launch.
  * Fulfillment is not connected yet, so cards open a quick-view with a
@@ -1030,8 +1226,15 @@ export default function StoreClient() {
             <p className="drop-lede">Every design reimagined in the dark premium aesthetic — heavyweight black tees, luxury hoodies, refined typography. The Lost Jamaican, elevated.</p>
           </header>
 
-          <div className="drop-grid">
-            {PREMIUM_PRODUCTS.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+          <nav className="bb-crumb" aria-label="Breadcrumb">
+            The Lost Jamaican<span aria-hidden="true">/</span>Store<span aria-hidden="true">/</span>Premium
+          </nav>
+          <div className="bb-bar">
+            <p className="bb-bar-count">{PREMIUM_PRODUCTS.length} items</p>
+          </div>
+
+          <div className="bb-grid">
+            {PREMIUM_PRODUCTS.map((p) => <BBCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
           </div>
         </div>
       </section>
@@ -1046,16 +1249,22 @@ export default function StoreClient() {
             <p className="drop-lede">Every design is an original. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
           </header>
 
-          <div className="drop-pills" role="group" aria-label="Filter the drop">
-            {DROP_FACETS.map((f) => (
-              <button key={f.id} type="button" className={`etsy-pill${dropFacet === f.id ? ' is-on' : ''}`} onClick={() => setDropFacet(f.id)} aria-pressed={dropFacet === f.id}>
-                {f.label}
-              </button>
-            ))}
+          <nav className="bb-crumb" aria-label="Breadcrumb">
+            The Lost Jamaican<span aria-hidden="true">/</span>Store<span aria-hidden="true">/</span>Drop 01
+          </nav>
+          <div className="bb-bar">
+            <p className="bb-bar-count">{dropResults.length} {dropResults.length === 1 ? 'item' : 'items'}</p>
+            <div className="drop-pills" role="group" aria-label="Filter the drop">
+              {DROP_FACETS.map((f) => (
+                <button key={f.id} type="button" className={`etsy-pill${dropFacet === f.id ? ' is-on' : ''}`} onClick={() => setDropFacet(f.id)} aria-pressed={dropFacet === f.id}>
+                  {f.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="drop-grid">
-            {dropResults.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+          <div className="bb-grid">
+            {dropResults.map((p) => <BBCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
           </div>
         </div>
       </section>
@@ -1214,7 +1423,7 @@ export default function StoreClient() {
       )}
 
       {/* ---------- Drop quick-view ---------- */}
-      {openDrop && <DropModal p={openDrop} onAdd={addItem} onClose={() => setOpenDrop(null)} />}
+      {openDrop && <BBProduct p={openDrop} onAdd={addItem} onClose={() => setOpenDrop(null)} />}
 
       {/* ---------- Everyday Collection quick-view ---------- */}
       {openCat30 && <Cat30Modal p={openCat30} onClose={() => setOpenCat30(null)} />}

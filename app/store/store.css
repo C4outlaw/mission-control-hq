@@ -666,3 +666,305 @@
   .drop-proof-inner { grid-template-columns: 1fr; gap: 28px; }
   .drop-proof-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ==================================================================
+   Gallery layout (2026-09-19) — fashion-house listing + product page.
+   The product bands turn light so the garments read as they do in a
+   gallery: tiles edge to edge, name and price on one line, no cards,
+   no shadows, no rounded corners. Scoped to .bb-* so the dark store
+   shell around it is untouched.
+   ================================================================== */
+
+/* The bands that hold the grid go light. */
+.tls .drop:has(.bb-grid) {
+  background: #ffffff;
+  color: #0c0a09;
+}
+.tls .drop:has(.bb-grid) .tls-mono { color: #6b6b6b; }
+.tls .drop:has(.bb-grid) h2 { color: #0c0a09; }
+.tls .drop:has(.bb-grid) .drop-lede { color: #4a4a4a; }
+.tls .drop:has(.bb-grid) .etsy-pill {
+  background: transparent;
+  border: 1px solid #d8d4cd;
+  color: #0c0a09;
+}
+.tls .drop:has(.bb-grid) .etsy-pill.is-on {
+  background: #0c0a09;
+  border-color: #0c0a09;
+  color: #ffffff;
+}
+
+/* ---------- Listing grid ---------- */
+/* Measured off the reference listing: the grid is full-bleed with a ZERO
+   gutter, so the tiles touch and the page reads as one continuous wall of
+   product. Only the text rows are inset. */
+.bb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 0;
+  row-gap: 56px;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+/* The bleed is wider than the shell, so the band clips rather than scrolls. */
+.tls .drop:has(.bb-grid) { overflow-x: clip; }
+
+/* Listing toolbar: count on the left, filters on the right, on one line. */
+.bb-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ebe7e1;
+}
+.bb-bar-count { font-size: 14px; color: #666666 !important; margin: 0; }
+.bb-crumb { margin: 0 0 10px; font-size: 12px; color: #666666 !important; }
+.bb-crumb span { margin: 0 6px; color: #b5b0a8; }
+.bb-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: #0c0a09;
+  text-align: left;
+  cursor: pointer;
+}
+.bb-card-kind {
+  font-size: 12px;
+  line-height: 1.2;
+  color: #6b6b6b;
+  /* Tiles sit edge to edge; their text is inset so a name never runs into the
+     price of the card beside it. */
+  padding: 0 14px 8px;
+}
+.bb-card-media {
+  display: block;
+  /* The reference shoots 5:7 portrait. Our mockups are square, so 4:5 gets the
+     tall fashion rhythm while cropping only ~12% off each end of the garment. */
+  aspect-ratio: 4 / 5;
+  background: #f4f2ef;
+  overflow: hidden;
+}
+.bb-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bb-card:hover .bb-card-media img,
+.bb-card:focus-visible .bb-card-media img { transform: scale(1.035); }
+.bb-card:focus-visible { outline: 2px solid #0c0a09; outline-offset: 3px; }
+.bb-card-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px 0;
+}
+.bb-card-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.bb-card-price {
+  flex: none;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.bb-card-price s { color: #8a8a8a; margin-left: 6px; font-size: 12.5px; }
+.bb-card-swatches { display: flex; gap: 5px; padding: 8px 14px 0; }
+.bb-card-swatch {
+  width: 11px;
+  height: 11px;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+/* ---------- Product page ---------- */
+.bb-pdp {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  background: #ffffff;
+  color: #0c0a09;
+}
+.bb-pdp-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0c0a09;
+  cursor: pointer;
+}
+.bb-pdp-close:hover, .bb-pdp-close:focus-visible { background: #f0ece7; outline: none; }
+
+.bb-pdp-views {
+  position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #f4f2ef;
+  scroll-snap-type: y proximity;
+}
+.bb-view { margin: 0; scroll-snap-align: start; aspect-ratio: 1 / 1; }
+/* The square reserves the view's space before its lazy image arrives, so every
+   view is scrollable (and countable) from the moment the page opens. */
+.bb-view img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bb-pdp-count {
+  position: sticky;
+  bottom: 18px;
+  left: 20px;
+  display: inline-block;
+  margin: -46px 0 18px 20px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: #0c0a09;
+}
+
+.bb-pdp-rail { overflow-y: auto; border-left: 1px solid #ebe7e1; }
+.bb-rail-inner { padding: 88px 40px 64px; display: flex; flex-direction: column; }
+.bb-rail-kind { margin: 0 0 8px; font-size: 12px; color: #6b6b6b !important; }
+.bb-rail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0;
+  font-weight: 400;
+  /* The store shell is dark and its h2/p rules set a near-white colour, which
+     wins over inheritance from .bb-pdp. Every text node on the light product
+     page states its own colour so none of it can wash out. */
+  color: #0c0a09;
+}
+.bb-rail-name {
+  color: #0c0a09;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.bb-rail-price { flex: none; color: #0c0a09; font-size: 18px; font-variant-numeric: tabular-nums; }
+.bb-rail-price s { display: block; color: #8a8a8a; font-size: 13px; }
+.bb-rail-blurb { margin: 14px 0 0; font-size: 14px; line-height: 1.55; color: #4a4a4a !important; }
+
+.bb-rail-colour { display: flex; align-items: center; gap: 12px; margin: 22px 0 0; color: #0c0a09; font-size: 14px; }
+.bb-rail-swatches { display: flex; gap: 7px; }
+.bb-swatch {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.bb-swatch.is-on { outline: 1px solid #0c0a09; outline-offset: 2px; }
+
+.bb-rail-size { display: block; margin: 20px 0 0; color: #0c0a09; font-size: 14px; }
+.bb-rail-size span { display: block; margin-bottom: 7px; }
+.bb-rail-size select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d8d4cd;
+  border-radius: 0;
+  background: #ffffff;
+  color: #0c0a09;
+  font: inherit;
+  font-size: 14px;
+}
+
+.bb-rail-buy {
+  margin: 22px 0 0;
+  min-height: 48px;
+  padding: 14px 20px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: #0c0a09;
+  color: #ffffff;
+  font: inherit;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+.bb-rail-buy:hover:not(:disabled), .bb-rail-buy:focus-visible:not(:disabled) { background: var(--gold); outline: none; }
+.bb-rail-buy:disabled { background: #cfcac2; cursor: not-allowed; }
+.bb-rail-fine { margin: 10px 0 0; font-size: 12px; line-height: 1.5; color: #6b6b6b !important; }
+
+.bb-acc { border-top: 1px solid #ebe7e1; padding: 16px 0; }
+.bb-acc:first-of-type { margin-top: 32px; }
+.bb-acc summary {
+  color: #0c0a09;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+}
+.bb-acc summary::-webkit-details-marker { display: none; }
+.bb-acc summary::after { content: '+'; font-size: 18px; line-height: 1; color: #6b6b6b; }
+.bb-acc[open] summary::after { content: '\2212'; }
+.bb-acc p { margin: 12px 0 0; font-size: 13.5px; line-height: 1.6; color: #4a4a4a !important; }
+
+@media (max-width: 1100px) {
+  .bb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bb-pdp { grid-template-columns: minmax(0, 1fr) 360px; }
+  .bb-rail-inner { padding: 76px 26px 56px; }
+}
+@media (max-width: 860px) {
+  .bb-pdp { grid-template-columns: 1fr; grid-template-rows: auto auto; overflow-y: auto; }
+  /* Phones swipe the views sideways instead of stacking them, so Add to Bag
+     stays one screen down rather than three images down. */
+  .bb-pdp-views {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+  .bb-view { flex: 0 0 100%; scroll-snap-align: center; }
+  .bb-pdp-rail { border-left: 0; border-top: 1px solid #ebe7e1; overflow: visible; }
+  .bb-rail-inner { padding: 28px 20px 48px; }
+  .bb-pdp-count { position: static; margin: 0; padding: 10px 0 14px 20px; }
+}
+@media (max-width: 640px) {
+  .bb-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  .bb-card-name { font-size: 14px; }
+}
+
+/* Keyboard focus must stay obvious on the light gallery surfaces. */
+.bb-rail-buy:focus-visible,
+.bb-swatch:focus-visible,
+.bb-rail-size select:focus-visible,
+.bb-acc summary:focus-visible,
+.bb-pdp-close:focus-visible { outline: 2px solid #0c0a09; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bb-card-media img,
+  .bb-rail-buy { transition: none; }
+  .bb-card:hover .bb-card-media img,
+  .bb-card:focus-visible .bb-card-media img { transform: none; }
+  .bb-pdp-views { scroll-behavior: auto; scroll-snap-type: none; }
+}
+
+/* Wide screens get more columns, the way a real gallery wall scales. */
+@media (min-width: 1500px) {
+  .bb-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
