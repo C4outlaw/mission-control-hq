@@ -8,8 +8,8 @@ const PRICES = {
   G185: { price: 31.99, name: 'Hoodie' },
   G180: { price: 29.00, name: 'Crewneck' },
   MUG11: { price: 9.99, name: 'Mug' },
-  BC_HW: { price: 39.99, name: 'Premium Heavyweight Tee' },
-  LS_PREM: { price: 59.99, name: 'Premium Hoodie' },
+  BC_HW: { price: 31.00, name: 'Premium Heavyweight Tee' },
+  LS_PREM: { price: 45.00, name: 'Premium Hoodie' },
 };
 
 const DESIGN_NAMES = {

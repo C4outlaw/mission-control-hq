@@ -1323,9 +1323,19 @@ export default function StoreClient() {
         * thin labelled rule where one department becomes the next.        */}
       <section id="shop" className="drop">
         <div className="tls-shell">
-          <header className="drop-head">
+          <header className="drop-head is-masthead">
             <p className="tls-mono">The Lost Jamaican · {shopResults.length} pieces · printed to order</p>
-            <h2>Everything, in one place.</h2>
+            <h2 className="shop-masthead">EVERYTHING, IN ONE PLACE</h2>
+            {/* The ask, stated plainly and with some pride. Nobody responds to
+                begging, but people do back something they already watch. */}
+            <div className="shop-cta">
+              <p className="shop-cta-line">Wear it. Back it.</p>
+              <p className="shop-cta-body">
+                Every piece you buy funds the next video, the next drop, the next story.
+                This is a one-man yard and you are the reason it keeps running.
+                <strong> Pick one thing. It goes further than you think.</strong>
+              </p>
+            </div>
             <p className="drop-lede">Scroll the whole shop, or jump to a department. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
           </header>
 
