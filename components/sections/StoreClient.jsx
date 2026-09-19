@@ -739,7 +739,8 @@ function BBProduct({ p, onAdd, onClose }) {
                 loop
                 playsInline
                 autoPlay
-                preload="metadata"
+                // The grid never loads this; only the opened product page does.
+                preload="none"
                 aria-label={`${p.name} — turning to show the back`}
               />
             ) : (
