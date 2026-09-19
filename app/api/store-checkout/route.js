@@ -8,6 +8,8 @@ const CC_PRICES = {
   G185: { price: 3199, name: 'Hoodie' },
   G180: { price: 2900, name: 'Crewneck' },
   MUG11: { price: 999, name: 'Mug' },
+  BC_HW: { price: 3999, name: 'Premium Heavyweight Tee' },
+  LS_PREM: { price: 5999, name: 'Premium Hoodie' },
 };
 const CC_DESIGN_NAMES = {
   'c30-08': 'We Never Lose Varsity', 'c30-09': 'We Never Lose Wordmark',

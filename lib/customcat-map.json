@@ -3741,6 +3741,90 @@
     "MUG11"
    ],
    "file": "29-best-teacher-ever-mug-design.png"
+  },
+  "premium-neverlose-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-neverlose.png"
+  },
+  "premium-money-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-moremoney.png"
+  },
+  "premium-neverlose-hoodie-black": {
+   "blanks": [
+    "LS_PREM"
+   ],
+   "file": "/store/premium-art/pa-neverlose.png"
+  },
+  "premium-money-hoodie-black": {
+   "blanks": [
+    "LS_PREM"
+   ],
+   "file": "/store/premium-art/pa-moremoney.png"
+  },
+  "premium-wahgwaan-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-wahgwaan.png"
+  },
+  "premium-tallawah-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-tallawah.png"
+  },
+  "premium-notperfect-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-notperfect.png"
+  },
+  "premium-cho-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-cho.png"
+  },
+  "premium-rhaatid-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-rhaatid.png"
+  },
+  "premium-sooncome-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-sooncome.png"
+  },
+  "premium-dunkno-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-dunkno.png"
+  },
+  "premium-kissmiteeth-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-kissmiteeth.png"
+  },
+  "premium-walkgood-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-walkgood.png"
+  },
+  "premium-believe-black": {
+   "blanks": [
+    "BC_HW"
+   ],
+   "file": "/store/premium-art/pa-believe.png"
   }
  },
  "shipping_methods": {
