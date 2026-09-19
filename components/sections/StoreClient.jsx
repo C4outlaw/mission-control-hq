@@ -830,14 +830,19 @@ function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false 
             <p className="bb-rail-model">Model wears size M and is 178cm/5ft 10in</p>
           )}
 
-          <button type="button" className="bb-rail-buy" onClick={add} disabled={!sellable}>
-            {added ? 'Added to bag' : sellable ? 'Add to Bag' : 'Coming soon'}
-          </button>
-          {cartCount > 0 && (
-            <button type="button" className="bb-rail-checkout" onClick={onCheckout} disabled={busy}>
-              {busy ? 'Opening…' : `Checkout (${cartCount})`}
+          {/* Add and Checkout sit side by side so buying is two taps from here:
+              pick a size, add, check out. Nothing to scroll for, nothing to
+              close, no trip back to a cart somewhere else on the page. */}
+          <div className="bb-rail-actions">
+            <button type="button" className="bb-rail-buy" onClick={add} disabled={!sellable}>
+              {added ? 'Added to bag' : sellable ? 'Add to Bag' : 'Coming soon'}
             </button>
-          )}
+            {cartCount > 0 && (
+              <button type="button" className="bb-rail-checkout" onClick={onCheckout} disabled={busy}>
+                {busy ? 'Opening…' : `Checkout (${cartCount})`}
+              </button>
+            )}
+          </div>
           <p className="bb-rail-fine">
             {sellable
               ? 'Printed to order · ships in 3–7 business days · secure checkout via Stripe'

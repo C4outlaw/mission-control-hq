@@ -1123,3 +1123,29 @@
 @media (max-width: 860px) {
   .bb-pdp-back { top: 10px; left: 10px; padding: 0 12px; font-size: 13px; }
 }
+
+
+/* Add and Checkout share one row, so the whole buying decision is in a single
+   glance: size, add, pay. */
+.bb-rail-actions { display: flex; gap: 10px; margin: 22px 0 0; }
+.bb-rail-actions .bb-rail-buy,
+.bb-rail-actions .bb-rail-checkout { flex: 1 1 0; margin: 0; }
+@media (max-width: 860px) {
+  /* On a phone the buying controls fall below the fold, which is the whole
+     complaint. Pin them to the bottom of the screen so size, add and pay are
+     always in view and nothing has to be scrolled for. */
+  .bb-rail-actions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    margin: 0;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid #ebe7e1;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.06);
+  }
+  /* Keep the pinned bar from covering the end of the rail. */
+  .bb-rail-inner { padding-bottom: 96px; }
+}
