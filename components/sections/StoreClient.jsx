@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
-import { CATALOG30, CAT30_FACETS } from '../../lib/catalog-30';
 import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
@@ -878,254 +877,6 @@ function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false 
   );
 }
 
-/* ------------------------------------------------------------------ *
- * The Everyday Collection — 30 reviewed designs, notify-me launch.
- * Fulfillment is not connected yet, so cards open a quick-view with a
- * notify-me capture (/api/store-notify) instead of checkout. No fake
- * buy buttons: nothing here claims to be purchasable.
- * ------------------------------------------------------------------ */
-function Cat30Card({ p, onOpen }) {
-  return (
-    <button type="button" className="dropc" onClick={onOpen} aria-label={`View ${p.title}`}>
-      <span className="dropc-media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.mockup} alt={p.title} loading="lazy" decoding="async" />
-        {p.badge && <span className="dropc-badge">{p.badge}</span>}
-      </span>
-      <span className="dropc-kind tls-mono">{p.kindName}</span>
-      <span className="dropc-title">{p.title}</span>
-      <span className="dropc-price">{money(p.price)}</span>
-      <span className="dropc-cta">Shop now</span>
-    </button>
-  );
-}
-
-function Cat30Notify({ p }) {
-  const [email, setEmail] = useState('');
-  const [state, setState] = useState('idle'); // idle | busy | done | error
-  async function submit(e) {
-    e.preventDefault();
-    if (state === 'busy' || state === 'done') return;
-    setState('busy');
-    try {
-      const r = await fetch('/api/store-notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, interest: `Everyday Collection — ${p.title}` }),
-      });
-      const j = await r.json().catch(() => ({}));
-      setState(j.ok ? 'done' : 'error');
-    } catch {
-      setState('error');
-    }
-  }
-  if (state === 'done') {
-    return <p className="drop-fine">You&apos;re on the list — we&apos;ll email you the moment this drops.</p>;
-  }
-  return (
-    <form onSubmit={submit} style={{ display: 'flex', gap: 8, marginTop: 12, flexWrap: 'wrap' }}>
-      <label htmlFor={`notify-${p.key}`} className="drop-fine" style={{ width: '100%' }}>
-        This collection launches soon. Get first dibs:
-      </label>
-      <input
-        id={`notify-${p.key}`}
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@example.com"
-        autoComplete="email"
-        style={{ flex: '1 1 180px', padding: '10px 12px', borderRadius: 8, border: '1px solid #ccc', fontSize: 15 }}
-      />
-      <button type="submit" className="drop-buy" disabled={state === 'busy'} style={{ marginTop: 0 }}>
-        {state === 'busy' ? 'Joining…' : state === 'error' ? 'Try again' : 'Notify me'}
-      </button>
-      {state === 'error' && (
-        <p className="drop-fine" style={{ width: '100%' }}>Something went wrong — try again in a moment.</p>
-      )}
-    </form>
-  );
-}
-
-/* CustomCat buy box for the Everyday Collection (30 designs).
-   Fetches live variants from /api/customcat-checkout?key=... which reads
-   lib/customcat-map.json. Until the Download Catalog CSV is imported the
-   variant list is empty and this falls back to the notify form. */
-function Cat30Buy({ p }) {
-  const [loading, setLoading] = useState(true);
-  const [colors, setColors] = useState([]);
-  const [sizes, setSizes] = useState([]);
-  const [variants, setVariants] = useState([]);
-  const [priceCents, setPriceCents] = useState(p.price);
-  const [blankName, setBlankName] = useState('');
-  const [color, setColor] = useState('');
-  const [size, setSize] = useState('');
-  const [buying, setBuying] = useState(false);
-  const [err, setErr] = useState('');
-
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    fetch(`/api/customcat-checkout?key=${encodeURIComponent(p.key)}`)
-      .then((r) => r.json())
-      .then((j) => {
-        if (cancelled) return;
-        if (j.colors?.length && j.sizes?.length) {
-          setColors(j.colors);
-          setSizes(j.sizes);
-          setVariants(j.variants || []);
-          setPriceCents(j.price_cents || p.price);
-          setBlankName(j.blankName || '');
-          setColor(j.colors[0]);
-          // Default size: M for apparel, One Size for mugs.
-          const defSize = j.sizes.includes('M') ? 'M' : j.sizes[0];
-          setSize(defSize);
-        }
-        setLoading(false);
-      })
-      .catch(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => { cancelled = true; };
-  }, [p.key, p.price]);
-
-  // Sizes available for the selected color.
-  const sizesForColor = useMemo(() => {
-    if (!variants.length || !color) return sizes;
-    const s = variants.filter((v) => v.color === color).map((v) => v.size);
-    return s.length ? s : sizes;
-  }, [variants, color, sizes]);
-
-  useEffect(() => {
-    if (sizesForColor.length && !sizesForColor.includes(size)) {
-      setSize(sizesForColor.includes('M') ? 'M' : sizesForColor[0]);
-    }
-  }, [sizesForColor, size]);
-
-  async function buyNow() {
-    if (buying || !color || !size) return;
-    setBuying(true);
-    setErr('');
-    try {
-      const r = await fetch('/api/customcat-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: [{ key: p.key, color, size, qty: 1 }] }),
-      });
-      const j = await r.json();
-      if (j.url) {
-        window.location.href = j.url;
-      } else {
-        setErr(j.error === 'empty-cart' ? 'Please pick a colour and size.' : (j.error || 'Checkout unavailable right now.'));
-        setBuying(false);
-      }
-    } catch {
-      setErr('Checkout unavailable right now.');
-      setBuying(false);
-    }
-  }
-
-  if (loading) {
-    return <p className="drop-fine">Checking availability…</p>;
-  }
-
-  // No purchasable variants yet — keep the notify capture.
-  if (!colors.length || !sizes.length) {
-    return <Cat30Notify p={p} />;
-  }
-
-  return (
-    <div style={{ marginTop: 12 }}>
-      {blankName && <p className="drop-fine" style={{ marginBottom: 8 }}>Printed on {blankName}</p>}
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
-        <label className="drop-fine" style={{ width: '100%' }} htmlFor={`cc-color-${p.key}`}>
-          Colour
-        </label>
-        <select
-          id={`cc-color-${p.key}`}
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          style={{ flex: '1 1 140px', padding: '10px 12px', borderRadius: 8, border: '1px solid #ccc', fontSize: 15 }}
-        >
-          {colors.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-        <label className="drop-fine" style={{ width: '100%', marginTop: 4 }} htmlFor={`cc-size-${p.key}`}>
-          Size
-        </label>
-        <select
-          id={`cc-size-${p.key}`}
-          value={size}
-          onChange={(e) => setSize(e.target.value)}
-          style={{ flex: '1 1 140px', padding: '10px 12px', borderRadius: 8, border: '1px solid #ccc', fontSize: 15 }}
-        >
-          {sizesForColor.map((s) => (
-            <option key={s} value={s}>{s}</option>
-          ))}
-        </select>
-      </div>
-      <p className="drop-price">{money(priceCents)}</p>
-      <button type="button" className="drop-buy" onClick={buyNow} disabled={buying} style={{ width: '100%' }}>
-        {buying ? 'Taking you to checkout…' : 'Buy now'}
-      </button>
-      {err && <p className="drop-fine" style={{ color: '#b00', marginTop: 8 }}>{err}</p>}
-      <p className="drop-fine" style={{ marginTop: 8 }}>Printed to order · ships in 3–7 business days</p>
-      <Cat30Notify p={p} />
-    </div>
-  );
-}
-
-/* Quick-view: mockup / artwork toggle plus the notify capture. */
-function Cat30Modal({ p, onClose }) {
-  const [view, setView] = useState('mockup');
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
-  }, [onClose]);
-  useEffect(() => { setView('mockup'); }, [p.key]);
-  return (
-    <div className="etsy-modal-scrim" role="dialog" aria-modal="true" aria-label={p.title} onClick={onClose}>
-      <div className="etsy-modal is-drop" onClick={(e) => e.stopPropagation()}>
-        <button className="etsy-modal-close" onClick={onClose} aria-label="close">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-          </svg>
-        </button>
-        <article className="drop-panel is-large">
-          <div className="drop-media">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={view === 'mockup' ? p.mockup : p.design} alt={p.title} decoding="async" />
-            <div className="drop-row" role="group" aria-label="View" style={{ marginTop: 8 }}>
-              {['mockup', 'design'].map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  className={`drop-size${view === v ? ' is-on' : ''}`}
-                  onClick={() => setView(v)}
-                  aria-pressed={view === v}
-                >
-                  {v === 'mockup' ? 'On product' : 'Artwork'}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="drop-body">
-            <p className="tls-mono">{p.kindName}</p>
-            <h3 className="drop-title">{p.title}</h3>
-            {p.badge && <p className="drop-fine">{p.badge}</p>}
-            {p.blurb && <p className="drop-blurb">{p.blurb}</p>}
-            <Cat30Buy p={p} />
-            <p className="drop-fine">The Lost Jamaican · We Never Lose</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  );
-}
 
 export default function StoreClient() {
   const [cart, setCart] = useState([]);
@@ -1139,8 +890,6 @@ export default function StoreClient() {
   const [openListing, setOpenListing] = useState(null);
   const [dropFacet, setDropFacet] = useState('all');
   const [openDrop, setOpenDrop] = useState(null);
-  const [cat30Facet, setCat30Facet] = useState('all');
-  const [openCat30, setOpenCat30] = useState(null);
   const [heroVideoOk, setHeroVideoOk] = useState(true);
   const [welcomePlaying, setWelcomePlaying] = useState(false);
   const welcomeRef = useRef(null);
@@ -1203,11 +952,6 @@ export default function StoreClient() {
     const f = DROP_FACETS.find((x) => x.id === dropFacet) || DROP_FACETS[0];
     return DROP_ALL.filter(f.test);
   }, [dropFacet]);
-
-  const cat30Results = useMemo(() => {
-    const f = CAT30_FACETS.find((x) => x.id === cat30Facet) || CAT30_FACETS[0];
-    return CATALOG30.filter(f.test);
-  }, [cat30Facet]);
 
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const count = cart.reduce((s, i) => s + i.qty, 0);
@@ -1511,8 +1255,6 @@ export default function StoreClient() {
         />
       )}
 
-      {/* ---------- Everyday Collection quick-view ---------- */}
-      {openCat30 && <Cat30Modal p={openCat30} onClose={() => setOpenCat30(null)} />}
 
       {/* ---------- Listing view (click a card image) ---------- */}
       {openListing && groupFor(openListing.design) && (
