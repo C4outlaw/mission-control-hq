@@ -1,6 +1,6 @@
 {
  "shopId": 6904292,
- "drop": "Drop 01 \u2014 2026-09-02",
+ "drop": "Drop 01 — 2026-09-02",
  "products": {
   "nuhworry-tee": {
    "id": "6a99808b55c82affd50ad257",
@@ -1528,11 +1528,11 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/more-money-tee-modern.webp"
+    "Black": "/store/views/moremoney-tee--v1-front.jpg"
    },
    "gallery": [
-    "/store/drop/moremoney-tee--g1.jpg",
-    "/store/drop/moremoney-tee--g2.jpg"
+    "/store/views/moremoney-tee--v2-chest.jpg",
+    "/store/views/moremoney-tee--v3-fabric.jpg"
    ],
    "variants": [
     {
