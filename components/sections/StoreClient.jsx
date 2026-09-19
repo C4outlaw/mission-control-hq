@@ -1256,4 +1256,9 @@ export default function StoreClient() {
               {busy ? 'Opening…' : 'Checkout'}
             </button>
           </div>
-          {err && <p className
+          {err && <p className="etsy-err">{err}</p>}
+        </div>
+      )}
+    </main>
+  );
+}
