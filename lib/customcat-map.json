@@ -1,3844 +1,3856 @@
 {
- "_meta": {
-  "store_id": "282132",
-  "store": "MyrieHQ",
-  "last_updated": "2026-09-18",
-  "note": "Added premium blanks: Lane Seven Premium Hoodie (LS_PREM) + Bella+Canvas Heavyweight Tee (BC_HW) for upscale store. Verify before live orders.",
-  "instructions": "1. In CustomCat dashboard, go to Create Product > Advanced Tools > Download Catalog. 2. Save the CSV. 3. Run: node scripts/import-customcat-catalog.js <path-to-csv>. 4. Verify lib/customcat-map.json has catalogSku for all variants."
- },
- "blanks": {
-  "G500": {
-   "name": "Gildan Heavy Cotton Tee",
-   "style": "G500",
-   "retail_cents": 2499,
-   "cost": 9.58,
-   "presetId": null,
-   "variants": {
-    "Garnet|Small": {
-     "catalogSku": "57305",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|Medium": {
-     "catalogSku": "57306",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|Large": {
-     "catalogSku": "57307",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|X-Large": {
-     "catalogSku": "57308",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|XX-Large": {
-     "catalogSku": "57309",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|XXX-Large": {
-     "catalogSku": "57310",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|4XL": {
-     "catalogSku": "57311",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Garnet|5XL": {
-     "catalogSku": "57312",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|Small": {
-     "catalogSku": "48184",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|Medium": {
-     "catalogSku": "48185",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|Large": {
-     "catalogSku": "48186",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|X-Large": {
-     "catalogSku": "48187",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|XX-Large": {
-     "catalogSku": "48188",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|XXX-Large": {
-     "catalogSku": "48189",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|4XL": {
-     "catalogSku": "48190",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|5XL": {
-     "catalogSku": "48191",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Ash|6XL": {
-     "catalogSku": "58955",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|Small": {
-     "catalogSku": "48144",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|Medium": {
-     "catalogSku": "48145",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|Large": {
-     "catalogSku": "48146",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|X-Large": {
-     "catalogSku": "48147",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|XX-Large": {
-     "catalogSku": "48148",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|XXX-Large": {
-     "catalogSku": "48149",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|4XL": {
-     "catalogSku": "48150",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|5XL": {
-     "catalogSku": "48151",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Black|6XL": {
-     "catalogSku": "58947",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|Small": {
-     "catalogSku": "48308",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|Medium": {
-     "catalogSku": "48309",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|Large": {
-     "catalogSku": "48310",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|X-Large": {
-     "catalogSku": "48311",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|XX-Large": {
-     "catalogSku": "48312",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|XXX-Large": {
-     "catalogSku": "48313",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|4XL": {
-     "catalogSku": "48314",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Cardinal|5XL": {
-     "catalogSku": "48315",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|Small": {
-     "catalogSku": "48160",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|Medium": {
-     "catalogSku": "48161",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|Large": {
-     "catalogSku": "48162",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|X-Large": {
-     "catalogSku": "48163",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|XX-Large": {
-     "catalogSku": "48164",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|XXX-Large": {
-     "catalogSku": "48165",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|4XL": {
-     "catalogSku": "48166",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Carolina Blue|5XL": {
-     "catalogSku": "48167",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|Small": {
-     "catalogSku": "48152",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|Medium": {
-     "catalogSku": "48153",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|Large": {
-     "catalogSku": "48154",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|X-Large": {
-     "catalogSku": "48155",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|XX-Large": {
-     "catalogSku": "48156",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|XXX-Large": {
-     "catalogSku": "48157",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|4XL": {
-     "catalogSku": "48158",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|5XL": {
-     "catalogSku": "48159",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Chocolate|6XL": {
-     "catalogSku": "58953",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|Small": {
-     "catalogSku": "48192",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|Medium": {
-     "catalogSku": "48193",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|Large": {
-     "catalogSku": "48194",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|X-Large": {
-     "catalogSku": "48195",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|XX-Large": {
-     "catalogSku": "48196",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|XXX-Large": {
-     "catalogSku": "48197",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|4XL": {
-     "catalogSku": "48198",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|5XL": {
-     "catalogSku": "48199",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Dark Heather|6XL": {
-     "catalogSku": "58956",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|Small": {
-     "catalogSku": "48208",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|Medium": {
-     "catalogSku": "48209",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|Large": {
-     "catalogSku": "48210",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|X-Large": {
-     "catalogSku": "48211",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|XX-Large": {
-     "catalogSku": "48212",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|XXX-Large": {
-     "catalogSku": "48213",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|4XL": {
-     "catalogSku": "48214",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|5XL": {
-     "catalogSku": "48215",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Forest|6XL": {
-     "catalogSku": "58952",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|Small": {
-     "catalogSku": "48176",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|Medium": {
-     "catalogSku": "48177",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|Large": {
-     "catalogSku": "48178",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|X-Large": {
-     "catalogSku": "48179",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|XX-Large": {
-     "catalogSku": "48180",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|XXX-Large": {
-     "catalogSku": "48181",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|4XL": {
-     "catalogSku": "48182",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|5XL": {
-     "catalogSku": "48183",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Gold|6XL": {
-     "catalogSku": "58950",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|Small": {
-     "catalogSku": "48316",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|Medium": {
-     "catalogSku": "48317",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|Large": {
-     "catalogSku": "48318",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|X-Large": {
-     "catalogSku": "48319",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|XX-Large": {
-     "catalogSku": "48320",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|XXX-Large": {
-     "catalogSku": "48321",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|4XL": {
-     "catalogSku": "48322",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Heliconia|5XL": {
-     "catalogSku": "48323",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|Small": {
-     "catalogSku": "48216",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|Medium": {
-     "catalogSku": "48217",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|Large": {
-     "catalogSku": "48218",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|X-Large": {
-     "catalogSku": "48219",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|XX-Large": {
-     "catalogSku": "48220",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|XXX-Large": {
-     "catalogSku": "48221",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|4XL": {
-     "catalogSku": "48222",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Irish Green|5XL": {
-     "catalogSku": "48223",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|Small": {
-     "catalogSku": "48168",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|Medium": {
-     "catalogSku": "48169",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|Large": {
-     "catalogSku": "48170",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|X-Large": {
-     "catalogSku": "48171",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|XX-Large": {
-     "catalogSku": "48172",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|XXX-Large": {
-     "catalogSku": "48173",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|4XL": {
-     "catalogSku": "48174",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Blue|5XL": {
-     "catalogSku": "48175",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|Small": {
-     "catalogSku": "48224",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|Medium": {
-     "catalogSku": "48225",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|Large": {
-     "catalogSku": "48226",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|X-Large": {
-     "catalogSku": "48227",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|XX-Large": {
-     "catalogSku": "48228",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|XXX-Large": {
-     "catalogSku": "48229",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|4XL": {
-     "catalogSku": "48230",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Light Pink|5XL": {
-     "catalogSku": "48231",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|Small": {
-     "catalogSku": "48232",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|Medium": {
-     "catalogSku": "48233",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|Large": {
-     "catalogSku": "48234",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|X-Large": {
-     "catalogSku": "48235",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|XX-Large": {
-     "catalogSku": "48236",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|XXX-Large": {
-     "catalogSku": "48237",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|4XL": {
-     "catalogSku": "48238",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|5XL": {
-     "catalogSku": "48239",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Lime|6XL": {
-     "catalogSku": "58954",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|Small": {
-     "catalogSku": "48240",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|Medium": {
-     "catalogSku": "48241",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|Large": {
-     "catalogSku": "48242",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|X-Large": {
-     "catalogSku": "48243",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|XX-Large": {
-     "catalogSku": "48244",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|XXX-Large": {
-     "catalogSku": "48245",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|4XL": {
-     "catalogSku": "48246",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|5XL": {
-     "catalogSku": "48247",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Maroon|6XL": {
-     "catalogSku": "58942",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|Small": {
-     "catalogSku": "48248",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|Medium": {
-     "catalogSku": "48249",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|Large": {
-     "catalogSku": "48250",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|X-Large": {
-     "catalogSku": "48251",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|XX-Large": {
-     "catalogSku": "48252",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|XXX-Large": {
-     "catalogSku": "48253",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|4XL": {
-     "catalogSku": "48254",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|5XL": {
-     "catalogSku": "48255",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Navy|6XL": {
-     "catalogSku": "58945",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|Small": {
-     "catalogSku": "48256",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|Medium": {
-     "catalogSku": "48257",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|Large": {
-     "catalogSku": "48258",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|X-Large": {
-     "catalogSku": "48259",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|XX-Large": {
-     "catalogSku": "48260",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Old Gold|XXX-Large": {
-     "catalogSku": "48261",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|Small": {
-     "catalogSku": "48262",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|Medium": {
-     "catalogSku": "48263",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|Large": {
-     "catalogSku": "48264",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|X-Large": {
-     "catalogSku": "48265",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|XX-Large": {
-     "catalogSku": "48266",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|XXX-Large": {
-     "catalogSku": "48267",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|4XL": {
-     "catalogSku": "48268",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|5XL": {
-     "catalogSku": "48269",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Orange|6XL": {
-     "catalogSku": "58951",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|Small": {
-     "catalogSku": "79826",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|Medium": {
-     "catalogSku": "79827",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|Large": {
-     "catalogSku": "79828",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|X-Large": {
-     "catalogSku": "79829",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|XX-Large": {
-     "catalogSku": "79830",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|XXX-Large": {
-     "catalogSku": "79831",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|4XL": {
-     "catalogSku": "79832",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Natural|5XL": {
-     "catalogSku": "79833",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|Small": {
-     "catalogSku": "70766",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|Medium": {
-     "catalogSku": "70767",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|Large": {
-     "catalogSku": "70768",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|X-Large": {
-     "catalogSku": "70769",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|XX-Large": {
-     "catalogSku": "70770",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|XXX-Large": {
-     "catalogSku": "70771",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|4XL": {
-     "catalogSku": "70772",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sand|5XL": {
-     "catalogSku": "70773",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|Small": {
-     "catalogSku": "48270",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|Medium": {
-     "catalogSku": "48271",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|Large": {
-     "catalogSku": "48272",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|X-Large": {
-     "catalogSku": "48273",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|XX-Large": {
-     "catalogSku": "48274",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|XXX-Large": {
-     "catalogSku": "48275",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|4XL": {
-     "catalogSku": "48276",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|5XL": {
-     "catalogSku": "48277",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Purple|6XL": {
-     "catalogSku": "58946",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|Small": {
-     "catalogSku": "48278",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|Medium": {
-     "catalogSku": "48279",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|Large": {
-     "catalogSku": "48280",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|X-Large": {
-     "catalogSku": "48281",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|XX-Large": {
-     "catalogSku": "48282",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|XXX-Large": {
-     "catalogSku": "48283",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|4XL": {
-     "catalogSku": "48284",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|5XL": {
-     "catalogSku": "48285",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Red|6XL": {
-     "catalogSku": "58943",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|Small": {
-     "catalogSku": "48286",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|Medium": {
-     "catalogSku": "48287",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|Large": {
-     "catalogSku": "48288",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|X-Large": {
-     "catalogSku": "48289",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|XX-Large": {
-     "catalogSku": "48290",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|XXX-Large": {
-     "catalogSku": "48291",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|4XL": {
-     "catalogSku": "48292",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|5XL": {
-     "catalogSku": "48293",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Royal|6XL": {
-     "catalogSku": "58944",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|Small": {
-     "catalogSku": "48200",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|Medium": {
-     "catalogSku": "48201",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|Large": {
-     "catalogSku": "48202",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|X-Large": {
-     "catalogSku": "48203",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|XX-Large": {
-     "catalogSku": "48204",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|XXX-Large": {
-     "catalogSku": "48205",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|4XL": {
-     "catalogSku": "48206",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|5XL": {
-     "catalogSku": "48207",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Sport Grey|6XL": {
-     "catalogSku": "58949",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|Small": {
-     "catalogSku": "48294",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|Medium": {
-     "catalogSku": "48295",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|Large": {
-     "catalogSku": "48296",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|X-Large": {
-     "catalogSku": "48297",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|XX-Large": {
-     "catalogSku": "48298",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|XXX-Large": {
-     "catalogSku": "48299",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|4XL": {
-     "catalogSku": "58957",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Texas Orange|5XL": {
-     "catalogSku": "58958",
-     "cost": 9.58,
-     "inStock": false
-    },
-    "Texas Orange|6XL": {
-     "catalogSku": "58959",
-     "cost": 9.58,
-     "inStock": false
-    },
-    "White|Small": {
-     "catalogSku": "48300",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|Medium": {
-     "catalogSku": "48301",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|Large": {
-     "catalogSku": "48302",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|X-Large": {
-     "catalogSku": "48303",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|XX-Large": {
-     "catalogSku": "48304",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|XXX-Large": {
-     "catalogSku": "48305",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|4XL": {
-     "catalogSku": "48306",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|5XL": {
-     "catalogSku": "48307",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "White|6XL": {
-     "catalogSku": "58948",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|Small": {
-     "catalogSku": "48385",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|Medium": {
-     "catalogSku": "48386",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|Large": {
-     "catalogSku": "48387",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|X-Large": {
-     "catalogSku": "48388",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|XX-Large": {
-     "catalogSku": "48389",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|XXX-Large": {
-     "catalogSku": "48390",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|4XL": {
-     "catalogSku": "48391",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Electric Green|5XL": {
-     "catalogSku": "48392",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|Small": {
-     "catalogSku": "48401",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|Medium": {
-     "catalogSku": "48402",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|Large": {
-     "catalogSku": "48403",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|X-Large": {
-     "catalogSku": "48404",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|XX-Large": {
-     "catalogSku": "48405",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Turf Green|XXX-Large": {
-     "catalogSku": "48406",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|Small": {
-     "catalogSku": "48407",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|Medium": {
-     "catalogSku": "48408",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|Large": {
-     "catalogSku": "48409",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|X-Large": {
-     "catalogSku": "48410",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|XX-Large": {
-     "catalogSku": "48411",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|XXX-Large": {
-     "catalogSku": "48412",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|4XL": {
-     "catalogSku": "48413",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Daisy|5XL": {
-     "catalogSku": "48414",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|Small": {
-     "catalogSku": "48393",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|Medium": {
-     "catalogSku": "48394",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|Large": {
-     "catalogSku": "48395",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|X-Large": {
-     "catalogSku": "48396",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|XX-Large": {
-     "catalogSku": "48397",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|XXX-Large": {
-     "catalogSku": "48398",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|4XL": {
-     "catalogSku": "48399",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Kiwi|5XL": {
-     "catalogSku": "48400",
-     "cost": 9.58,
-     "inStock": false
-    },
-    "Military Green|Small": {
-     "catalogSku": "55488",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|Medium": {
-     "catalogSku": "55489",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|Large": {
-     "catalogSku": "55490",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|X-Large": {
-     "catalogSku": "55491",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|XX-Large": {
-     "catalogSku": "55492",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|XXX-Large": {
-     "catalogSku": "55493",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|4XL": {
-     "catalogSku": "55494",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Military Green|5XL": {
-     "catalogSku": "55495",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|Small": {
-     "catalogSku": "70543",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|Medium": {
-     "catalogSku": "70544",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|Large": {
-     "catalogSku": "70545",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|X-Large": {
-     "catalogSku": "70546",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|XX-Large": {
-     "catalogSku": "70547",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|XXX-Large": {
-     "catalogSku": "70548",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|4XL": {
-     "catalogSku": "70549",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Green|5XL": {
-     "catalogSku": "70550",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|Small": {
-     "catalogSku": "70551",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|Medium": {
-     "catalogSku": "70552",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|Large": {
-     "catalogSku": "70553",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|X-Large": {
-     "catalogSku": "70554",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|XX-Large": {
-     "catalogSku": "70555",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|XXX-Large": {
-     "catalogSku": "70556",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|4XL": {
-     "catalogSku": "70557",
-     "cost": 9.58,
-     "inStock": true
-    },
-    "Safety Orange|5XL": {
-     "catalogSku": "70558",
-     "cost": 9.58,
-     "inStock": true
-    }
-   }
+  "_meta": {
+    "store_id": "282132",
+    "store": "MyrieHQ",
+    "last_updated": "2026-09-18",
+    "note": "Added premium blanks: Lane Seven Premium Hoodie (LS_PREM) + Bella+Canvas Heavyweight Tee (BC_HW) for upscale store. Verify before live orders.",
+    "instructions": "1. In CustomCat dashboard, go to Create Product > Advanced Tools > Download Catalog. 2. Save the CSV. 3. Run: node scripts/import-customcat-catalog.js <path-to-csv>. 4. Verify lib/customcat-map.json has catalogSku for all variants."
   },
-  "G185": {
-   "name": "Gildan Heavy Blend Hoodie",
-   "style": "G185",
-   "retail_cents": 4499,
-   "cost": 21.99,
-   "presetId": null,
-   "variants": {
-    "Black|Small": {
-     "catalogSku": "23087",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|Medium": {
-     "catalogSku": "23088",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|Large": {
-     "catalogSku": "23089",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|X-Large": {
-     "catalogSku": "23090",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|XX-Large": {
-     "catalogSku": "23091",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|XXX-Large": {
-     "catalogSku": "23092",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|4XL": {
-     "catalogSku": "23093",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Black|5XL": {
-     "catalogSku": "23094",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|Small": {
-     "catalogSku": "23111",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|Medium": {
-     "catalogSku": "23112",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|Large": {
-     "catalogSku": "23113",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|X-Large": {
-     "catalogSku": "23114",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|XX-Large": {
-     "catalogSku": "23115",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|XXX-Large": {
-     "catalogSku": "23116",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|4XL": {
-     "catalogSku": "23117",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sport Grey|5XL": {
-     "catalogSku": "23118",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|Small": {
-     "catalogSku": "23135",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|Medium": {
-     "catalogSku": "23136",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|Large": {
-     "catalogSku": "23137",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|X-Large": {
-     "catalogSku": "23138",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|XX-Large": {
-     "catalogSku": "23139",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|XXX-Large": {
-     "catalogSku": "23140",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|4XL": {
-     "catalogSku": "23141",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Navy|5XL": {
-     "catalogSku": "23142",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|Small": {
-     "catalogSku": "23183",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|Medium": {
-     "catalogSku": "23184",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|Large": {
-     "catalogSku": "23185",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|X-Large": {
-     "catalogSku": "23186",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|XX-Large": {
-     "catalogSku": "23187",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|XXX-Large": {
-     "catalogSku": "23188",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|4XL": {
-     "catalogSku": "23189",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "White|5XL": {
-     "catalogSku": "23190",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|Small": {
-     "catalogSku": "23023",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|Medium": {
-     "catalogSku": "23024",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|Large": {
-     "catalogSku": "23025",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|X-Large": {
-     "catalogSku": "23026",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|XX-Large": {
-     "catalogSku": "23027",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|XXX-Large": {
-     "catalogSku": "23028",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|4XL": {
-     "catalogSku": "23029",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Heather|5XL": {
-     "catalogSku": "23030",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|Small": {
-     "catalogSku": "23071",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|Medium": {
-     "catalogSku": "23072",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|Large": {
-     "catalogSku": "23073",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|X-Large": {
-     "catalogSku": "23074",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|XX-Large": {
-     "catalogSku": "23075",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|XXX-Large": {
-     "catalogSku": "23076",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|4XL": {
-     "catalogSku": "23077",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Ash|5XL": {
-     "catalogSku": "23078",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|Small": {
-     "catalogSku": "22998",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|Medium": {
-     "catalogSku": "22999",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|Large": {
-     "catalogSku": "23000",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|X-Large": {
-     "catalogSku": "23001",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|XX-Large": {
-     "catalogSku": "23002",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|XXX-Large": {
-     "catalogSku": "23003",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|4XL": {
-     "catalogSku": "23004",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Carolina Blue|5XL": {
-     "catalogSku": "23005",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|Small": {
-     "catalogSku": "23095",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|Medium": {
-     "catalogSku": "23096",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|Large": {
-     "catalogSku": "23097",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|X-Large": {
-     "catalogSku": "23098",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|XX-Large": {
-     "catalogSku": "23099",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|XXX-Large": {
-     "catalogSku": "23100",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|4XL": {
-     "catalogSku": "23101",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Dark Chocolate|5XL": {
-     "catalogSku": "23102",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|Small": {
-     "catalogSku": "23103",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|Medium": {
-     "catalogSku": "23104",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|Large": {
-     "catalogSku": "23105",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|X-Large": {
-     "catalogSku": "23106",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|XX-Large": {
-     "catalogSku": "23107",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|XXX-Large": {
-     "catalogSku": "23108",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|4XL": {
-     "catalogSku": "23109",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Forest Green|5XL": {
-     "catalogSku": "23110",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|Small": {
-     "catalogSku": "23079",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|Medium": {
-     "catalogSku": "23080",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|Large": {
-     "catalogSku": "23081",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|X-Large": {
-     "catalogSku": "23082",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|XX-Large": {
-     "catalogSku": "23083",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|XXX-Large": {
-     "catalogSku": "23084",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|4XL": {
-     "catalogSku": "23085",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Gold|5XL": {
-     "catalogSku": "23086",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|Small": {
-     "catalogSku": "23031",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|Medium": {
-     "catalogSku": "23032",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|Large": {
-     "catalogSku": "23033",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|X-Large": {
-     "catalogSku": "23034",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|XX-Large": {
-     "catalogSku": "23035",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|XXX-Large": {
-     "catalogSku": "23036",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|4XL": {
-     "catalogSku": "23037",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Heliconia|5XL": {
-     "catalogSku": "23038",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|Small": {
-     "catalogSku": "23119",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|Medium": {
-     "catalogSku": "23120",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|Large": {
-     "catalogSku": "23121",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|X-Large": {
-     "catalogSku": "23122",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|XX-Large": {
-     "catalogSku": "23123",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|XXX-Large": {
-     "catalogSku": "23124",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|4XL": {
-     "catalogSku": "23125",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Irish Green|5XL": {
-     "catalogSku": "23126",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|Small": {
-     "catalogSku": "23039",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|Medium": {
-     "catalogSku": "23040",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|Large": {
-     "catalogSku": "23041",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|X-Large": {
-     "catalogSku": "23042",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|XX-Large": {
-     "catalogSku": "23043",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|XXX-Large": {
-     "catalogSku": "23044",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|4XL": {
-     "catalogSku": "23045",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Blue|5XL": {
-     "catalogSku": "23046",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|Small": {
-     "catalogSku": "23151",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|Medium": {
-     "catalogSku": "23152",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|Large": {
-     "catalogSku": "23153",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|X-Large": {
-     "catalogSku": "23154",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|XX-Large": {
-     "catalogSku": "23155",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|XXX-Large": {
-     "catalogSku": "23156",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|4XL": {
-     "catalogSku": "23157",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Light Pink|5XL": {
-     "catalogSku": "23158",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|Small": {
-     "catalogSku": "23127",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|Medium": {
-     "catalogSku": "23128",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|Large": {
-     "catalogSku": "23129",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|X-Large": {
-     "catalogSku": "23130",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|XX-Large": {
-     "catalogSku": "23131",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|XXX-Large": {
-     "catalogSku": "23132",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|4XL": {
-     "catalogSku": "23133",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Maroon|5XL": {
-     "catalogSku": "23134",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|Small": {
-     "catalogSku": "23047",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|Medium": {
-     "catalogSku": "23048",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|Large": {
-     "catalogSku": "23049",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|X-Large": {
-     "catalogSku": "23050",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|XX-Large": {
-     "catalogSku": "23051",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|XXX-Large": {
-     "catalogSku": "23052",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|4XL": {
-     "catalogSku": "23053",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Military Green|5XL": {
-     "catalogSku": "23054",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|Small": {
-     "catalogSku": "23143",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|Medium": {
-     "catalogSku": "23144",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|Large": {
-     "catalogSku": "23145",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|X-Large": {
-     "catalogSku": "23146",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|XX-Large": {
-     "catalogSku": "23147",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|XXX-Large": {
-     "catalogSku": "23148",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|4XL": {
-     "catalogSku": "23149",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Orange|5XL": {
-     "catalogSku": "23150",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|Small": {
-     "catalogSku": "23159",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|Medium": {
-     "catalogSku": "23160",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|Large": {
-     "catalogSku": "23161",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|X-Large": {
-     "catalogSku": "23162",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|XX-Large": {
-     "catalogSku": "23163",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|XXX-Large": {
-     "catalogSku": "23164",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|4XL": {
-     "catalogSku": "23165",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Purple|5XL": {
-     "catalogSku": "23166",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|Small": {
-     "catalogSku": "23167",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|Medium": {
-     "catalogSku": "23168",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|Large": {
-     "catalogSku": "23169",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|X-Large": {
-     "catalogSku": "23170",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|XX-Large": {
-     "catalogSku": "23171",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|XXX-Large": {
-     "catalogSku": "23172",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|4XL": {
-     "catalogSku": "23173",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Red|5XL": {
-     "catalogSku": "23174",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|Small": {
-     "catalogSku": "23175",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|Medium": {
-     "catalogSku": "23176",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|Large": {
-     "catalogSku": "23177",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|X-Large": {
-     "catalogSku": "23178",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|XX-Large": {
-     "catalogSku": "23179",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|XXX-Large": {
-     "catalogSku": "23180",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|4XL": {
-     "catalogSku": "23181",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Royal|5XL": {
-     "catalogSku": "23182",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|Small": {
-     "catalogSku": "23063",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|Medium": {
-     "catalogSku": "23064",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|Large": {
-     "catalogSku": "23065",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|X-Large": {
-     "catalogSku": "23066",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|XX-Large": {
-     "catalogSku": "23067",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|XXX-Large": {
-     "catalogSku": "23068",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|4XL": {
-     "catalogSku": "23069",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Sand|5XL": {
-     "catalogSku": "23070",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|Small": {
-     "catalogSku": "84146",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|Medium": {
-     "catalogSku": "84147",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|Large": {
-     "catalogSku": "84148",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|X-Large": {
-     "catalogSku": "84149",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|XX-Large": {
-     "catalogSku": "84150",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|XXX-Large": {
-     "catalogSku": "84151",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Green|5XL": {
-     "catalogSku": "84145",
-     "cost": 21.99,
-     "inStock": false
-    },
-    "Safety Orange|Small": {
-     "catalogSku": "84152",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Orange|Medium": {
-     "catalogSku": "84153",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Orange|Large": {
-     "catalogSku": "84154",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Orange|X-Large": {
-     "catalogSku": "84155",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Orange|XX-Large": {
-     "catalogSku": "84156",
-     "cost": 21.99,
-     "inStock": true
-    },
-    "Safety Orange|XXX-Large": {
-     "catalogSku": "84157",
-     "cost": 21.99,
-     "inStock": true
+  "blanks": {
+    "G500": {
+      "name": "Gildan Heavy Cotton Tee",
+      "style": "G500",
+      "retail_cents": 2499,
+      "cost": 9.58,
+      "presetId": null,
+      "variants": {
+        "Garnet|Small": {
+          "catalogSku": "57305",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|Medium": {
+          "catalogSku": "57306",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|Large": {
+          "catalogSku": "57307",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|X-Large": {
+          "catalogSku": "57308",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|XX-Large": {
+          "catalogSku": "57309",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|XXX-Large": {
+          "catalogSku": "57310",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|4XL": {
+          "catalogSku": "57311",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Garnet|5XL": {
+          "catalogSku": "57312",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|Small": {
+          "catalogSku": "48184",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|Medium": {
+          "catalogSku": "48185",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|Large": {
+          "catalogSku": "48186",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|X-Large": {
+          "catalogSku": "48187",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|XX-Large": {
+          "catalogSku": "48188",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|XXX-Large": {
+          "catalogSku": "48189",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|4XL": {
+          "catalogSku": "48190",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|5XL": {
+          "catalogSku": "48191",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Ash|6XL": {
+          "catalogSku": "58955",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|Small": {
+          "catalogSku": "48144",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|Medium": {
+          "catalogSku": "48145",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|Large": {
+          "catalogSku": "48146",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|X-Large": {
+          "catalogSku": "48147",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|XX-Large": {
+          "catalogSku": "48148",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|XXX-Large": {
+          "catalogSku": "48149",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|4XL": {
+          "catalogSku": "48150",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|5XL": {
+          "catalogSku": "48151",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Black|6XL": {
+          "catalogSku": "58947",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|Small": {
+          "catalogSku": "48308",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|Medium": {
+          "catalogSku": "48309",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|Large": {
+          "catalogSku": "48310",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|X-Large": {
+          "catalogSku": "48311",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|XX-Large": {
+          "catalogSku": "48312",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|XXX-Large": {
+          "catalogSku": "48313",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|4XL": {
+          "catalogSku": "48314",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Cardinal|5XL": {
+          "catalogSku": "48315",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|Small": {
+          "catalogSku": "48160",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|Medium": {
+          "catalogSku": "48161",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|Large": {
+          "catalogSku": "48162",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|X-Large": {
+          "catalogSku": "48163",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|XX-Large": {
+          "catalogSku": "48164",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|XXX-Large": {
+          "catalogSku": "48165",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|4XL": {
+          "catalogSku": "48166",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Carolina Blue|5XL": {
+          "catalogSku": "48167",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|Small": {
+          "catalogSku": "48152",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|Medium": {
+          "catalogSku": "48153",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|Large": {
+          "catalogSku": "48154",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|X-Large": {
+          "catalogSku": "48155",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|XX-Large": {
+          "catalogSku": "48156",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|XXX-Large": {
+          "catalogSku": "48157",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|4XL": {
+          "catalogSku": "48158",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|5XL": {
+          "catalogSku": "48159",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Chocolate|6XL": {
+          "catalogSku": "58953",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|Small": {
+          "catalogSku": "48192",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|Medium": {
+          "catalogSku": "48193",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|Large": {
+          "catalogSku": "48194",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|X-Large": {
+          "catalogSku": "48195",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|XX-Large": {
+          "catalogSku": "48196",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|XXX-Large": {
+          "catalogSku": "48197",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|4XL": {
+          "catalogSku": "48198",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|5XL": {
+          "catalogSku": "48199",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Dark Heather|6XL": {
+          "catalogSku": "58956",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|Small": {
+          "catalogSku": "48208",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|Medium": {
+          "catalogSku": "48209",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|Large": {
+          "catalogSku": "48210",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|X-Large": {
+          "catalogSku": "48211",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|XX-Large": {
+          "catalogSku": "48212",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|XXX-Large": {
+          "catalogSku": "48213",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|4XL": {
+          "catalogSku": "48214",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|5XL": {
+          "catalogSku": "48215",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Forest|6XL": {
+          "catalogSku": "58952",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|Small": {
+          "catalogSku": "48176",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|Medium": {
+          "catalogSku": "48177",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|Large": {
+          "catalogSku": "48178",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|X-Large": {
+          "catalogSku": "48179",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|XX-Large": {
+          "catalogSku": "48180",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|XXX-Large": {
+          "catalogSku": "48181",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|4XL": {
+          "catalogSku": "48182",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|5XL": {
+          "catalogSku": "48183",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Gold|6XL": {
+          "catalogSku": "58950",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|Small": {
+          "catalogSku": "48316",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|Medium": {
+          "catalogSku": "48317",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|Large": {
+          "catalogSku": "48318",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|X-Large": {
+          "catalogSku": "48319",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|XX-Large": {
+          "catalogSku": "48320",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|XXX-Large": {
+          "catalogSku": "48321",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|4XL": {
+          "catalogSku": "48322",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Heliconia|5XL": {
+          "catalogSku": "48323",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|Small": {
+          "catalogSku": "48216",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|Medium": {
+          "catalogSku": "48217",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|Large": {
+          "catalogSku": "48218",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|X-Large": {
+          "catalogSku": "48219",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|XX-Large": {
+          "catalogSku": "48220",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|XXX-Large": {
+          "catalogSku": "48221",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|4XL": {
+          "catalogSku": "48222",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Irish Green|5XL": {
+          "catalogSku": "48223",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|Small": {
+          "catalogSku": "48168",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|Medium": {
+          "catalogSku": "48169",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|Large": {
+          "catalogSku": "48170",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|X-Large": {
+          "catalogSku": "48171",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|XX-Large": {
+          "catalogSku": "48172",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|XXX-Large": {
+          "catalogSku": "48173",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|4XL": {
+          "catalogSku": "48174",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Blue|5XL": {
+          "catalogSku": "48175",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|Small": {
+          "catalogSku": "48224",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|Medium": {
+          "catalogSku": "48225",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|Large": {
+          "catalogSku": "48226",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|X-Large": {
+          "catalogSku": "48227",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|XX-Large": {
+          "catalogSku": "48228",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|XXX-Large": {
+          "catalogSku": "48229",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|4XL": {
+          "catalogSku": "48230",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Light Pink|5XL": {
+          "catalogSku": "48231",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|Small": {
+          "catalogSku": "48232",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|Medium": {
+          "catalogSku": "48233",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|Large": {
+          "catalogSku": "48234",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|X-Large": {
+          "catalogSku": "48235",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|XX-Large": {
+          "catalogSku": "48236",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|XXX-Large": {
+          "catalogSku": "48237",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|4XL": {
+          "catalogSku": "48238",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|5XL": {
+          "catalogSku": "48239",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Lime|6XL": {
+          "catalogSku": "58954",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|Small": {
+          "catalogSku": "48240",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|Medium": {
+          "catalogSku": "48241",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|Large": {
+          "catalogSku": "48242",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|X-Large": {
+          "catalogSku": "48243",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|XX-Large": {
+          "catalogSku": "48244",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|XXX-Large": {
+          "catalogSku": "48245",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|4XL": {
+          "catalogSku": "48246",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|5XL": {
+          "catalogSku": "48247",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Maroon|6XL": {
+          "catalogSku": "58942",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|Small": {
+          "catalogSku": "48248",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|Medium": {
+          "catalogSku": "48249",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|Large": {
+          "catalogSku": "48250",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|X-Large": {
+          "catalogSku": "48251",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|XX-Large": {
+          "catalogSku": "48252",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|XXX-Large": {
+          "catalogSku": "48253",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|4XL": {
+          "catalogSku": "48254",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|5XL": {
+          "catalogSku": "48255",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Navy|6XL": {
+          "catalogSku": "58945",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|Small": {
+          "catalogSku": "48256",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|Medium": {
+          "catalogSku": "48257",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|Large": {
+          "catalogSku": "48258",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|X-Large": {
+          "catalogSku": "48259",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|XX-Large": {
+          "catalogSku": "48260",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Old Gold|XXX-Large": {
+          "catalogSku": "48261",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|Small": {
+          "catalogSku": "48262",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|Medium": {
+          "catalogSku": "48263",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|Large": {
+          "catalogSku": "48264",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|X-Large": {
+          "catalogSku": "48265",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|XX-Large": {
+          "catalogSku": "48266",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|XXX-Large": {
+          "catalogSku": "48267",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|4XL": {
+          "catalogSku": "48268",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|5XL": {
+          "catalogSku": "48269",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Orange|6XL": {
+          "catalogSku": "58951",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|Small": {
+          "catalogSku": "79826",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|Medium": {
+          "catalogSku": "79827",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|Large": {
+          "catalogSku": "79828",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|X-Large": {
+          "catalogSku": "79829",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|XX-Large": {
+          "catalogSku": "79830",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|XXX-Large": {
+          "catalogSku": "79831",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|4XL": {
+          "catalogSku": "79832",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Natural|5XL": {
+          "catalogSku": "79833",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|Small": {
+          "catalogSku": "70766",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|Medium": {
+          "catalogSku": "70767",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|Large": {
+          "catalogSku": "70768",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|X-Large": {
+          "catalogSku": "70769",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|XX-Large": {
+          "catalogSku": "70770",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|XXX-Large": {
+          "catalogSku": "70771",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|4XL": {
+          "catalogSku": "70772",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sand|5XL": {
+          "catalogSku": "70773",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|Small": {
+          "catalogSku": "48270",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|Medium": {
+          "catalogSku": "48271",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|Large": {
+          "catalogSku": "48272",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|X-Large": {
+          "catalogSku": "48273",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|XX-Large": {
+          "catalogSku": "48274",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|XXX-Large": {
+          "catalogSku": "48275",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|4XL": {
+          "catalogSku": "48276",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|5XL": {
+          "catalogSku": "48277",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Purple|6XL": {
+          "catalogSku": "58946",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|Small": {
+          "catalogSku": "48278",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|Medium": {
+          "catalogSku": "48279",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|Large": {
+          "catalogSku": "48280",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|X-Large": {
+          "catalogSku": "48281",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|XX-Large": {
+          "catalogSku": "48282",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|XXX-Large": {
+          "catalogSku": "48283",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|4XL": {
+          "catalogSku": "48284",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|5XL": {
+          "catalogSku": "48285",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Red|6XL": {
+          "catalogSku": "58943",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|Small": {
+          "catalogSku": "48286",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|Medium": {
+          "catalogSku": "48287",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|Large": {
+          "catalogSku": "48288",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|X-Large": {
+          "catalogSku": "48289",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|XX-Large": {
+          "catalogSku": "48290",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|XXX-Large": {
+          "catalogSku": "48291",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|4XL": {
+          "catalogSku": "48292",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|5XL": {
+          "catalogSku": "48293",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Royal|6XL": {
+          "catalogSku": "58944",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|Small": {
+          "catalogSku": "48200",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|Medium": {
+          "catalogSku": "48201",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|Large": {
+          "catalogSku": "48202",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|X-Large": {
+          "catalogSku": "48203",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|XX-Large": {
+          "catalogSku": "48204",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|XXX-Large": {
+          "catalogSku": "48205",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|4XL": {
+          "catalogSku": "48206",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|5XL": {
+          "catalogSku": "48207",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Sport Grey|6XL": {
+          "catalogSku": "58949",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|Small": {
+          "catalogSku": "48294",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|Medium": {
+          "catalogSku": "48295",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|Large": {
+          "catalogSku": "48296",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|X-Large": {
+          "catalogSku": "48297",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|XX-Large": {
+          "catalogSku": "48298",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|XXX-Large": {
+          "catalogSku": "48299",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|4XL": {
+          "catalogSku": "58957",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Texas Orange|5XL": {
+          "catalogSku": "58958",
+          "cost": 9.58,
+          "inStock": false
+        },
+        "Texas Orange|6XL": {
+          "catalogSku": "58959",
+          "cost": 9.58,
+          "inStock": false
+        },
+        "White|Small": {
+          "catalogSku": "48300",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|Medium": {
+          "catalogSku": "48301",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|Large": {
+          "catalogSku": "48302",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|X-Large": {
+          "catalogSku": "48303",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|XX-Large": {
+          "catalogSku": "48304",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|XXX-Large": {
+          "catalogSku": "48305",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|4XL": {
+          "catalogSku": "48306",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|5XL": {
+          "catalogSku": "48307",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "White|6XL": {
+          "catalogSku": "58948",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|Small": {
+          "catalogSku": "48385",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|Medium": {
+          "catalogSku": "48386",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|Large": {
+          "catalogSku": "48387",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|X-Large": {
+          "catalogSku": "48388",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|XX-Large": {
+          "catalogSku": "48389",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|XXX-Large": {
+          "catalogSku": "48390",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|4XL": {
+          "catalogSku": "48391",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Electric Green|5XL": {
+          "catalogSku": "48392",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|Small": {
+          "catalogSku": "48401",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|Medium": {
+          "catalogSku": "48402",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|Large": {
+          "catalogSku": "48403",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|X-Large": {
+          "catalogSku": "48404",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|XX-Large": {
+          "catalogSku": "48405",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Turf Green|XXX-Large": {
+          "catalogSku": "48406",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|Small": {
+          "catalogSku": "48407",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|Medium": {
+          "catalogSku": "48408",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|Large": {
+          "catalogSku": "48409",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|X-Large": {
+          "catalogSku": "48410",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|XX-Large": {
+          "catalogSku": "48411",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|XXX-Large": {
+          "catalogSku": "48412",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|4XL": {
+          "catalogSku": "48413",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Daisy|5XL": {
+          "catalogSku": "48414",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|Small": {
+          "catalogSku": "48393",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|Medium": {
+          "catalogSku": "48394",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|Large": {
+          "catalogSku": "48395",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|X-Large": {
+          "catalogSku": "48396",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|XX-Large": {
+          "catalogSku": "48397",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|XXX-Large": {
+          "catalogSku": "48398",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|4XL": {
+          "catalogSku": "48399",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Kiwi|5XL": {
+          "catalogSku": "48400",
+          "cost": 9.58,
+          "inStock": false
+        },
+        "Military Green|Small": {
+          "catalogSku": "55488",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|Medium": {
+          "catalogSku": "55489",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|Large": {
+          "catalogSku": "55490",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|X-Large": {
+          "catalogSku": "55491",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|XX-Large": {
+          "catalogSku": "55492",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|XXX-Large": {
+          "catalogSku": "55493",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|4XL": {
+          "catalogSku": "55494",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Military Green|5XL": {
+          "catalogSku": "55495",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|Small": {
+          "catalogSku": "70543",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|Medium": {
+          "catalogSku": "70544",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|Large": {
+          "catalogSku": "70545",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|X-Large": {
+          "catalogSku": "70546",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|XX-Large": {
+          "catalogSku": "70547",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|XXX-Large": {
+          "catalogSku": "70548",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|4XL": {
+          "catalogSku": "70549",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Green|5XL": {
+          "catalogSku": "70550",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|Small": {
+          "catalogSku": "70551",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|Medium": {
+          "catalogSku": "70552",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|Large": {
+          "catalogSku": "70553",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|X-Large": {
+          "catalogSku": "70554",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|XX-Large": {
+          "catalogSku": "70555",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|XXX-Large": {
+          "catalogSku": "70556",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|4XL": {
+          "catalogSku": "70557",
+          "cost": 9.58,
+          "inStock": true
+        },
+        "Safety Orange|5XL": {
+          "catalogSku": "70558",
+          "cost": 9.58,
+          "inStock": true
+        }
+      }
+    },
+    "G185": {
+      "name": "Gildan Heavy Blend Hoodie",
+      "style": "G185",
+      "retail_cents": 4499,
+      "cost": 21.99,
+      "presetId": null,
+      "variants": {
+        "Black|Small": {
+          "catalogSku": "23087",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|Medium": {
+          "catalogSku": "23088",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|Large": {
+          "catalogSku": "23089",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|X-Large": {
+          "catalogSku": "23090",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|XX-Large": {
+          "catalogSku": "23091",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|XXX-Large": {
+          "catalogSku": "23092",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|4XL": {
+          "catalogSku": "23093",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Black|5XL": {
+          "catalogSku": "23094",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|Small": {
+          "catalogSku": "23111",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|Medium": {
+          "catalogSku": "23112",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|Large": {
+          "catalogSku": "23113",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|X-Large": {
+          "catalogSku": "23114",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|XX-Large": {
+          "catalogSku": "23115",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|XXX-Large": {
+          "catalogSku": "23116",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|4XL": {
+          "catalogSku": "23117",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sport Grey|5XL": {
+          "catalogSku": "23118",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|Small": {
+          "catalogSku": "23135",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|Medium": {
+          "catalogSku": "23136",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|Large": {
+          "catalogSku": "23137",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|X-Large": {
+          "catalogSku": "23138",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|XX-Large": {
+          "catalogSku": "23139",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|XXX-Large": {
+          "catalogSku": "23140",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|4XL": {
+          "catalogSku": "23141",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Navy|5XL": {
+          "catalogSku": "23142",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|Small": {
+          "catalogSku": "23183",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|Medium": {
+          "catalogSku": "23184",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|Large": {
+          "catalogSku": "23185",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|X-Large": {
+          "catalogSku": "23186",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|XX-Large": {
+          "catalogSku": "23187",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|XXX-Large": {
+          "catalogSku": "23188",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|4XL": {
+          "catalogSku": "23189",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "White|5XL": {
+          "catalogSku": "23190",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|Small": {
+          "catalogSku": "23023",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|Medium": {
+          "catalogSku": "23024",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|Large": {
+          "catalogSku": "23025",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|X-Large": {
+          "catalogSku": "23026",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|XX-Large": {
+          "catalogSku": "23027",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|XXX-Large": {
+          "catalogSku": "23028",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|4XL": {
+          "catalogSku": "23029",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Heather|5XL": {
+          "catalogSku": "23030",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|Small": {
+          "catalogSku": "23071",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|Medium": {
+          "catalogSku": "23072",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|Large": {
+          "catalogSku": "23073",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|X-Large": {
+          "catalogSku": "23074",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|XX-Large": {
+          "catalogSku": "23075",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|XXX-Large": {
+          "catalogSku": "23076",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|4XL": {
+          "catalogSku": "23077",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Ash|5XL": {
+          "catalogSku": "23078",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|Small": {
+          "catalogSku": "22998",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|Medium": {
+          "catalogSku": "22999",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|Large": {
+          "catalogSku": "23000",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|X-Large": {
+          "catalogSku": "23001",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|XX-Large": {
+          "catalogSku": "23002",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|XXX-Large": {
+          "catalogSku": "23003",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|4XL": {
+          "catalogSku": "23004",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Carolina Blue|5XL": {
+          "catalogSku": "23005",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|Small": {
+          "catalogSku": "23095",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|Medium": {
+          "catalogSku": "23096",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|Large": {
+          "catalogSku": "23097",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|X-Large": {
+          "catalogSku": "23098",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|XX-Large": {
+          "catalogSku": "23099",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|XXX-Large": {
+          "catalogSku": "23100",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|4XL": {
+          "catalogSku": "23101",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Dark Chocolate|5XL": {
+          "catalogSku": "23102",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|Small": {
+          "catalogSku": "23103",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|Medium": {
+          "catalogSku": "23104",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|Large": {
+          "catalogSku": "23105",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|X-Large": {
+          "catalogSku": "23106",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|XX-Large": {
+          "catalogSku": "23107",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|XXX-Large": {
+          "catalogSku": "23108",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|4XL": {
+          "catalogSku": "23109",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Forest Green|5XL": {
+          "catalogSku": "23110",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|Small": {
+          "catalogSku": "23079",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|Medium": {
+          "catalogSku": "23080",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|Large": {
+          "catalogSku": "23081",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|X-Large": {
+          "catalogSku": "23082",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|XX-Large": {
+          "catalogSku": "23083",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|XXX-Large": {
+          "catalogSku": "23084",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|4XL": {
+          "catalogSku": "23085",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Gold|5XL": {
+          "catalogSku": "23086",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|Small": {
+          "catalogSku": "23031",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|Medium": {
+          "catalogSku": "23032",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|Large": {
+          "catalogSku": "23033",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|X-Large": {
+          "catalogSku": "23034",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|XX-Large": {
+          "catalogSku": "23035",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|XXX-Large": {
+          "catalogSku": "23036",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|4XL": {
+          "catalogSku": "23037",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Heliconia|5XL": {
+          "catalogSku": "23038",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|Small": {
+          "catalogSku": "23119",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|Medium": {
+          "catalogSku": "23120",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|Large": {
+          "catalogSku": "23121",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|X-Large": {
+          "catalogSku": "23122",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|XX-Large": {
+          "catalogSku": "23123",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|XXX-Large": {
+          "catalogSku": "23124",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|4XL": {
+          "catalogSku": "23125",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Irish Green|5XL": {
+          "catalogSku": "23126",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|Small": {
+          "catalogSku": "23039",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|Medium": {
+          "catalogSku": "23040",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|Large": {
+          "catalogSku": "23041",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|X-Large": {
+          "catalogSku": "23042",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|XX-Large": {
+          "catalogSku": "23043",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|XXX-Large": {
+          "catalogSku": "23044",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|4XL": {
+          "catalogSku": "23045",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Blue|5XL": {
+          "catalogSku": "23046",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|Small": {
+          "catalogSku": "23151",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|Medium": {
+          "catalogSku": "23152",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|Large": {
+          "catalogSku": "23153",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|X-Large": {
+          "catalogSku": "23154",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|XX-Large": {
+          "catalogSku": "23155",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|XXX-Large": {
+          "catalogSku": "23156",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|4XL": {
+          "catalogSku": "23157",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Light Pink|5XL": {
+          "catalogSku": "23158",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|Small": {
+          "catalogSku": "23127",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|Medium": {
+          "catalogSku": "23128",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|Large": {
+          "catalogSku": "23129",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|X-Large": {
+          "catalogSku": "23130",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|XX-Large": {
+          "catalogSku": "23131",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|XXX-Large": {
+          "catalogSku": "23132",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|4XL": {
+          "catalogSku": "23133",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Maroon|5XL": {
+          "catalogSku": "23134",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|Small": {
+          "catalogSku": "23047",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|Medium": {
+          "catalogSku": "23048",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|Large": {
+          "catalogSku": "23049",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|X-Large": {
+          "catalogSku": "23050",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|XX-Large": {
+          "catalogSku": "23051",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|XXX-Large": {
+          "catalogSku": "23052",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|4XL": {
+          "catalogSku": "23053",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Military Green|5XL": {
+          "catalogSku": "23054",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|Small": {
+          "catalogSku": "23143",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|Medium": {
+          "catalogSku": "23144",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|Large": {
+          "catalogSku": "23145",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|X-Large": {
+          "catalogSku": "23146",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|XX-Large": {
+          "catalogSku": "23147",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|XXX-Large": {
+          "catalogSku": "23148",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|4XL": {
+          "catalogSku": "23149",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Orange|5XL": {
+          "catalogSku": "23150",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|Small": {
+          "catalogSku": "23159",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|Medium": {
+          "catalogSku": "23160",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|Large": {
+          "catalogSku": "23161",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|X-Large": {
+          "catalogSku": "23162",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|XX-Large": {
+          "catalogSku": "23163",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|XXX-Large": {
+          "catalogSku": "23164",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|4XL": {
+          "catalogSku": "23165",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Purple|5XL": {
+          "catalogSku": "23166",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|Small": {
+          "catalogSku": "23167",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|Medium": {
+          "catalogSku": "23168",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|Large": {
+          "catalogSku": "23169",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|X-Large": {
+          "catalogSku": "23170",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|XX-Large": {
+          "catalogSku": "23171",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|XXX-Large": {
+          "catalogSku": "23172",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|4XL": {
+          "catalogSku": "23173",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Red|5XL": {
+          "catalogSku": "23174",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|Small": {
+          "catalogSku": "23175",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|Medium": {
+          "catalogSku": "23176",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|Large": {
+          "catalogSku": "23177",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|X-Large": {
+          "catalogSku": "23178",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|XX-Large": {
+          "catalogSku": "23179",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|XXX-Large": {
+          "catalogSku": "23180",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|4XL": {
+          "catalogSku": "23181",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Royal|5XL": {
+          "catalogSku": "23182",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|Small": {
+          "catalogSku": "23063",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|Medium": {
+          "catalogSku": "23064",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|Large": {
+          "catalogSku": "23065",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|X-Large": {
+          "catalogSku": "23066",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|XX-Large": {
+          "catalogSku": "23067",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|XXX-Large": {
+          "catalogSku": "23068",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|4XL": {
+          "catalogSku": "23069",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Sand|5XL": {
+          "catalogSku": "23070",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|Small": {
+          "catalogSku": "84146",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|Medium": {
+          "catalogSku": "84147",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|Large": {
+          "catalogSku": "84148",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|X-Large": {
+          "catalogSku": "84149",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|XX-Large": {
+          "catalogSku": "84150",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|XXX-Large": {
+          "catalogSku": "84151",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Green|5XL": {
+          "catalogSku": "84145",
+          "cost": 21.99,
+          "inStock": false
+        },
+        "Safety Orange|Small": {
+          "catalogSku": "84152",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Orange|Medium": {
+          "catalogSku": "84153",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Orange|Large": {
+          "catalogSku": "84154",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Orange|X-Large": {
+          "catalogSku": "84155",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Orange|XX-Large": {
+          "catalogSku": "84156",
+          "cost": 21.99,
+          "inStock": true
+        },
+        "Safety Orange|XXX-Large": {
+          "catalogSku": "84157",
+          "cost": 21.99,
+          "inStock": true
+        }
+      }
+    },
+    "G180": {
+      "name": "Gildan Heavy Blend Crewneck",
+      "style": "G180",
+      "retail_cents": 3999,
+      "cost": 17.74,
+      "presetId": null,
+      "variants": {
+        "Gold|Small": {
+          "catalogSku": "25247",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|Medium": {
+          "catalogSku": "25248",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|Large": {
+          "catalogSku": "25249",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|X-Large": {
+          "catalogSku": "25250",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|XX-Large": {
+          "catalogSku": "25251",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|XXX-Large": {
+          "catalogSku": "25252",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Gold|4XL": {
+          "catalogSku": "25253",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Gold|5XL": {
+          "catalogSku": "25254",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Purple|Small": {
+          "catalogSku": "25283",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|Medium": {
+          "catalogSku": "25284",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|Large": {
+          "catalogSku": "25285",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|X-Large": {
+          "catalogSku": "25286",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|XX-Large": {
+          "catalogSku": "25287",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|XXX-Large": {
+          "catalogSku": "25288",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Purple|4XL": {
+          "catalogSku": "25289",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Purple|5XL": {
+          "catalogSku": "25290",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Orange|Small": {
+          "catalogSku": "25274",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|Medium": {
+          "catalogSku": "25191",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|Large": {
+          "catalogSku": "25276",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|X-Large": {
+          "catalogSku": "25193",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|XX-Large": {
+          "catalogSku": "25278",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|XXX-Large": {
+          "catalogSku": "25195",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|4XL": {
+          "catalogSku": "25281",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Orange|5XL": {
+          "catalogSku": "25282",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|Small": {
+          "catalogSku": "25261",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|Medium": {
+          "catalogSku": "25265",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|Large": {
+          "catalogSku": "25266",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|X-Large": {
+          "catalogSku": "25267",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|XX-Large": {
+          "catalogSku": "25269",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|XXX-Large": {
+          "catalogSku": "25270",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|4XL": {
+          "catalogSku": "25272",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Irish Green|5XL": {
+          "catalogSku": "25273",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|Small": {
+          "catalogSku": "25137",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|Medium": {
+          "catalogSku": "25141",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|Large": {
+          "catalogSku": "25142",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|X-Large": {
+          "catalogSku": "25143",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|XX-Large": {
+          "catalogSku": "25144",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|XXX-Large": {
+          "catalogSku": "25145",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Military Green|4XL": {
+          "catalogSku": "25146",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Military Green|5XL": {
+          "catalogSku": "25147",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Dark Heather|Small": {
+          "catalogSku": "24517",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|Medium": {
+          "catalogSku": "24518",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|Large": {
+          "catalogSku": "24519",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|X-Large": {
+          "catalogSku": "24520",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|XX-Large": {
+          "catalogSku": "24521",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|XXX-Large": {
+          "catalogSku": "24522",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|4XL": {
+          "catalogSku": "24523",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Heather|5XL": {
+          "catalogSku": "24524",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|Small": {
+          "catalogSku": "24525",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|Medium": {
+          "catalogSku": "24526",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|Large": {
+          "catalogSku": "24527",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|X-Large": {
+          "catalogSku": "24528",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|XX-Large": {
+          "catalogSku": "24832",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|XXX-Large": {
+          "catalogSku": "24833",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Blue|4XL": {
+          "catalogSku": "24834",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Light Blue|5XL": {
+          "catalogSku": "24835",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Carolina Blue|Small": {
+          "catalogSku": "24493",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|Medium": {
+          "catalogSku": "24494",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|Large": {
+          "catalogSku": "24495",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|X-Large": {
+          "catalogSku": "24496",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|XX-Large": {
+          "catalogSku": "24497",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|XXX-Large": {
+          "catalogSku": "24498",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Carolina Blue|4XL": {
+          "catalogSku": "24499",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Carolina Blue|5XL": {
+          "catalogSku": "24500",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Heliconia|Small": {
+          "catalogSku": "24538",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|Medium": {
+          "catalogSku": "24539",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|Large": {
+          "catalogSku": "24540",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|X-Large": {
+          "catalogSku": "24541",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|XX-Large": {
+          "catalogSku": "24542",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|XXX-Large": {
+          "catalogSku": "24543",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|4XL": {
+          "catalogSku": "24544",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Heliconia|5XL": {
+          "catalogSku": "24545",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|Small": {
+          "catalogSku": "24556",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|Medium": {
+          "catalogSku": "24836",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|Large": {
+          "catalogSku": "24837",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|X-Large": {
+          "catalogSku": "24838",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|XX-Large": {
+          "catalogSku": "24839",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|XXX-Large": {
+          "catalogSku": "24840",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Light Pink|4XL": {
+          "catalogSku": "24841",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Light Pink|5XL": {
+          "catalogSku": "24842",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Sand|Small": {
+          "catalogSku": "25182",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|Medium": {
+          "catalogSku": "25183",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|Large": {
+          "catalogSku": "25184",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|X-Large": {
+          "catalogSku": "25185",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|XX-Large": {
+          "catalogSku": "25186",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|XXX-Large": {
+          "catalogSku": "25187",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sand|4XL": {
+          "catalogSku": "25188",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Sand|5XL": {
+          "catalogSku": "25189",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Safety Green|Small": {
+          "catalogSku": "81466",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Green|Medium": {
+          "catalogSku": "81465",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Green|Large": {
+          "catalogSku": "81464",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Green|X-Large": {
+          "catalogSku": "81463",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Green|XX-Large": {
+          "catalogSku": "81462",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Green|XXX-Large": {
+          "catalogSku": "81461",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|Small": {
+          "catalogSku": "81473",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|Medium": {
+          "catalogSku": "81474",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|Large": {
+          "catalogSku": "81475",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|X-Large": {
+          "catalogSku": "81476",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|XX-Large": {
+          "catalogSku": "81477",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Safety Orange|XXX-Large": {
+          "catalogSku": "81478",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|Small": {
+          "catalogSku": "24485",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|Medium": {
+          "catalogSku": "24486",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|Large": {
+          "catalogSku": "24487",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|X-Large": {
+          "catalogSku": "24488",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|XX-Large": {
+          "catalogSku": "24489",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|XXX-Large": {
+          "catalogSku": "24490",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|4XL": {
+          "catalogSku": "24491",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Black|5XL": {
+          "catalogSku": "24492",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|Small": {
+          "catalogSku": "25190",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|Medium": {
+          "catalogSku": "25275",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|Large": {
+          "catalogSku": "25192",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|X-Large": {
+          "catalogSku": "25277",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|XX-Large": {
+          "catalogSku": "25194",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|XXX-Large": {
+          "catalogSku": "25279",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Maroon|4XL": {
+          "catalogSku": "25196",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Maroon|5XL": {
+          "catalogSku": "25197",
+          "cost": 17.74,
+          "inStock": false
+        },
+        "Navy|Small": {
+          "catalogSku": "25198",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|Medium": {
+          "catalogSku": "25199",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|Large": {
+          "catalogSku": "25200",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|X-Large": {
+          "catalogSku": "25201",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|XX-Large": {
+          "catalogSku": "25202",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|XXX-Large": {
+          "catalogSku": "25203",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|4XL": {
+          "catalogSku": "25204",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Navy|5XL": {
+          "catalogSku": "25205",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|Small": {
+          "catalogSku": "25206",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|Medium": {
+          "catalogSku": "25207",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|Large": {
+          "catalogSku": "25208",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|X-Large": {
+          "catalogSku": "25209",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|XX-Large": {
+          "catalogSku": "25210",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|XXX-Large": {
+          "catalogSku": "25211",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|4XL": {
+          "catalogSku": "25212",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Red|5XL": {
+          "catalogSku": "25213",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|Small": {
+          "catalogSku": "25214",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|Medium": {
+          "catalogSku": "25215",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|Large": {
+          "catalogSku": "25216",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|X-Large": {
+          "catalogSku": "25217",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|XX-Large": {
+          "catalogSku": "25218",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|XXX-Large": {
+          "catalogSku": "25219",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|4XL": {
+          "catalogSku": "25220",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Sport Grey|5XL": {
+          "catalogSku": "25221",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|Small": {
+          "catalogSku": "25299",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|Medium": {
+          "catalogSku": "25300",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|Large": {
+          "catalogSku": "25301",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|X-Large": {
+          "catalogSku": "25302",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|XX-Large": {
+          "catalogSku": "25303",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|XXX-Large": {
+          "catalogSku": "25304",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|4XL": {
+          "catalogSku": "25305",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "White|5XL": {
+          "catalogSku": "25306",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|Small": {
+          "catalogSku": "24477",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|Medium": {
+          "catalogSku": "24478",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|Large": {
+          "catalogSku": "24479",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|X-Large": {
+          "catalogSku": "24480",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|XX-Large": {
+          "catalogSku": "24481",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|XXX-Large": {
+          "catalogSku": "24482",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|4XL": {
+          "catalogSku": "24483",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Ash|5XL": {
+          "catalogSku": "24484",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|Small": {
+          "catalogSku": "25238",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|Medium": {
+          "catalogSku": "25240",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|Large": {
+          "catalogSku": "25241",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|X-Large": {
+          "catalogSku": "25242",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|XX-Large": {
+          "catalogSku": "25243",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|XXX-Large": {
+          "catalogSku": "25244",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|4XL": {
+          "catalogSku": "25245",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Forest Green|5XL": {
+          "catalogSku": "25246",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|Small": {
+          "catalogSku": "25291",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|Medium": {
+          "catalogSku": "25292",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|Large": {
+          "catalogSku": "25293",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|X-Large": {
+          "catalogSku": "25294",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|XX-Large": {
+          "catalogSku": "25295",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|XXX-Large": {
+          "catalogSku": "25296",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|4XL": {
+          "catalogSku": "25297",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Royal|5XL": {
+          "catalogSku": "25298",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|Small": {
+          "catalogSku": "25222",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|Medium": {
+          "catalogSku": "25223",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|Large": {
+          "catalogSku": "25224",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|X-Large": {
+          "catalogSku": "25225",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|XX-Large": {
+          "catalogSku": "25234",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|XXX-Large": {
+          "catalogSku": "25235",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|4XL": {
+          "catalogSku": "25236",
+          "cost": 17.74,
+          "inStock": true
+        },
+        "Dark Chocolate|5XL": {
+          "catalogSku": "25237",
+          "cost": 17.74,
+          "inStock": true
+        }
+      }
+    },
+    "MUG11": {
+      "name": "White Ceramic Mug 11oz",
+      "style": "11oz Ceramic",
+      "retail_cents": 1499,
+      "cost": 6.82,
+      "presetId": null,
+      "variants": {
+        "White|One Size": {
+          "catalogSku": "47417",
+          "cost": 6.82,
+          "inStock": true
+        }
+      }
+    },
+    "LS_PREM": {
+      "name": "Lane Seven Unisex Premium Hoodie",
+      "style": "LS_PREM",
+      "retail_cents": 5999,
+      "cost": 23.81,
+      "presetId": null,
+      "variants": {
+        "Black|Small": {
+          "catalogSku": "73918",
+          "cost": 23.81,
+          "inStock": true
+        },
+        "Black|Medium": {
+          "catalogSku": "73919",
+          "cost": 23.81,
+          "inStock": true
+        },
+        "Black|Large": {
+          "catalogSku": "73920",
+          "cost": 23.81,
+          "inStock": true
+        },
+        "Black|X-Large": {
+          "catalogSku": "73921",
+          "cost": 23.81,
+          "inStock": true
+        }
+      }
+    },
+    "BC_HW": {
+      "name": "Bella + Canvas Unisex Oversized Heavyweight Tee",
+      "style": "BC_HW",
+      "retail_cents": 3999,
+      "cost": 13.95,
+      "presetId": null,
+      "variants": {
+        "Black|Small": {
+          "catalogSku": "86765",
+          "cost": 13.95,
+          "inStock": true
+        },
+        "Black|Medium": {
+          "catalogSku": "86766",
+          "cost": 13.95,
+          "inStock": true
+        },
+        "Black|Large": {
+          "catalogSku": "86767",
+          "cost": 13.95,
+          "inStock": true
+        },
+        "Black|X-Large": {
+          "catalogSku": "86768",
+          "cost": 13.95,
+          "inStock": true
+        }
+      }
     }
-   }
   },
-  "G180": {
-   "name": "Gildan Heavy Blend Crewneck",
-   "style": "G180",
-   "retail_cents": 3999,
-   "cost": 17.74,
-   "presetId": null,
-   "variants": {
-    "Gold|Small": {
-     "catalogSku": "25247",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|Medium": {
-     "catalogSku": "25248",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|Large": {
-     "catalogSku": "25249",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|X-Large": {
-     "catalogSku": "25250",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|XX-Large": {
-     "catalogSku": "25251",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|XXX-Large": {
-     "catalogSku": "25252",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Gold|4XL": {
-     "catalogSku": "25253",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Gold|5XL": {
-     "catalogSku": "25254",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Purple|Small": {
-     "catalogSku": "25283",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|Medium": {
-     "catalogSku": "25284",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|Large": {
-     "catalogSku": "25285",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|X-Large": {
-     "catalogSku": "25286",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|XX-Large": {
-     "catalogSku": "25287",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|XXX-Large": {
-     "catalogSku": "25288",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Purple|4XL": {
-     "catalogSku": "25289",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Purple|5XL": {
-     "catalogSku": "25290",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Orange|Small": {
-     "catalogSku": "25274",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|Medium": {
-     "catalogSku": "25191",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|Large": {
-     "catalogSku": "25276",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|X-Large": {
-     "catalogSku": "25193",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|XX-Large": {
-     "catalogSku": "25278",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|XXX-Large": {
-     "catalogSku": "25195",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|4XL": {
-     "catalogSku": "25281",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Orange|5XL": {
-     "catalogSku": "25282",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|Small": {
-     "catalogSku": "25261",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|Medium": {
-     "catalogSku": "25265",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|Large": {
-     "catalogSku": "25266",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|X-Large": {
-     "catalogSku": "25267",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|XX-Large": {
-     "catalogSku": "25269",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|XXX-Large": {
-     "catalogSku": "25270",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|4XL": {
-     "catalogSku": "25272",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Irish Green|5XL": {
-     "catalogSku": "25273",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|Small": {
-     "catalogSku": "25137",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|Medium": {
-     "catalogSku": "25141",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|Large": {
-     "catalogSku": "25142",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|X-Large": {
-     "catalogSku": "25143",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|XX-Large": {
-     "catalogSku": "25144",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|XXX-Large": {
-     "catalogSku": "25145",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Military Green|4XL": {
-     "catalogSku": "25146",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Military Green|5XL": {
-     "catalogSku": "25147",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Dark Heather|Small": {
-     "catalogSku": "24517",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|Medium": {
-     "catalogSku": "24518",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|Large": {
-     "catalogSku": "24519",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|X-Large": {
-     "catalogSku": "24520",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|XX-Large": {
-     "catalogSku": "24521",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|XXX-Large": {
-     "catalogSku": "24522",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|4XL": {
-     "catalogSku": "24523",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Heather|5XL": {
-     "catalogSku": "24524",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|Small": {
-     "catalogSku": "24525",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|Medium": {
-     "catalogSku": "24526",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|Large": {
-     "catalogSku": "24527",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|X-Large": {
-     "catalogSku": "24528",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|XX-Large": {
-     "catalogSku": "24832",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|XXX-Large": {
-     "catalogSku": "24833",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Blue|4XL": {
-     "catalogSku": "24834",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Light Blue|5XL": {
-     "catalogSku": "24835",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Carolina Blue|Small": {
-     "catalogSku": "24493",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|Medium": {
-     "catalogSku": "24494",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|Large": {
-     "catalogSku": "24495",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|X-Large": {
-     "catalogSku": "24496",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|XX-Large": {
-     "catalogSku": "24497",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|XXX-Large": {
-     "catalogSku": "24498",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Carolina Blue|4XL": {
-     "catalogSku": "24499",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Carolina Blue|5XL": {
-     "catalogSku": "24500",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Heliconia|Small": {
-     "catalogSku": "24538",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|Medium": {
-     "catalogSku": "24539",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|Large": {
-     "catalogSku": "24540",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|X-Large": {
-     "catalogSku": "24541",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|XX-Large": {
-     "catalogSku": "24542",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|XXX-Large": {
-     "catalogSku": "24543",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|4XL": {
-     "catalogSku": "24544",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Heliconia|5XL": {
-     "catalogSku": "24545",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|Small": {
-     "catalogSku": "24556",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|Medium": {
-     "catalogSku": "24836",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|Large": {
-     "catalogSku": "24837",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|X-Large": {
-     "catalogSku": "24838",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|XX-Large": {
-     "catalogSku": "24839",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|XXX-Large": {
-     "catalogSku": "24840",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Light Pink|4XL": {
-     "catalogSku": "24841",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Light Pink|5XL": {
-     "catalogSku": "24842",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Sand|Small": {
-     "catalogSku": "25182",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|Medium": {
-     "catalogSku": "25183",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|Large": {
-     "catalogSku": "25184",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|X-Large": {
-     "catalogSku": "25185",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|XX-Large": {
-     "catalogSku": "25186",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|XXX-Large": {
-     "catalogSku": "25187",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sand|4XL": {
-     "catalogSku": "25188",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Sand|5XL": {
-     "catalogSku": "25189",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Safety Green|Small": {
-     "catalogSku": "81466",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Green|Medium": {
-     "catalogSku": "81465",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Green|Large": {
-     "catalogSku": "81464",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Green|X-Large": {
-     "catalogSku": "81463",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Green|XX-Large": {
-     "catalogSku": "81462",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Green|XXX-Large": {
-     "catalogSku": "81461",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|Small": {
-     "catalogSku": "81473",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|Medium": {
-     "catalogSku": "81474",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|Large": {
-     "catalogSku": "81475",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|X-Large": {
-     "catalogSku": "81476",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|XX-Large": {
-     "catalogSku": "81477",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Safety Orange|XXX-Large": {
-     "catalogSku": "81478",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|Small": {
-     "catalogSku": "24485",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|Medium": {
-     "catalogSku": "24486",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|Large": {
-     "catalogSku": "24487",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|X-Large": {
-     "catalogSku": "24488",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|XX-Large": {
-     "catalogSku": "24489",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|XXX-Large": {
-     "catalogSku": "24490",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|4XL": {
-     "catalogSku": "24491",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Black|5XL": {
-     "catalogSku": "24492",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|Small": {
-     "catalogSku": "25190",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|Medium": {
-     "catalogSku": "25275",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|Large": {
-     "catalogSku": "25192",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|X-Large": {
-     "catalogSku": "25277",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|XX-Large": {
-     "catalogSku": "25194",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|XXX-Large": {
-     "catalogSku": "25279",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Maroon|4XL": {
-     "catalogSku": "25196",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Maroon|5XL": {
-     "catalogSku": "25197",
-     "cost": 17.74,
-     "inStock": false
-    },
-    "Navy|Small": {
-     "catalogSku": "25198",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|Medium": {
-     "catalogSku": "25199",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|Large": {
-     "catalogSku": "25200",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|X-Large": {
-     "catalogSku": "25201",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|XX-Large": {
-     "catalogSku": "25202",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|XXX-Large": {
-     "catalogSku": "25203",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|4XL": {
-     "catalogSku": "25204",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Navy|5XL": {
-     "catalogSku": "25205",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|Small": {
-     "catalogSku": "25206",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|Medium": {
-     "catalogSku": "25207",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|Large": {
-     "catalogSku": "25208",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|X-Large": {
-     "catalogSku": "25209",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|XX-Large": {
-     "catalogSku": "25210",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|XXX-Large": {
-     "catalogSku": "25211",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|4XL": {
-     "catalogSku": "25212",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Red|5XL": {
-     "catalogSku": "25213",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|Small": {
-     "catalogSku": "25214",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|Medium": {
-     "catalogSku": "25215",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|Large": {
-     "catalogSku": "25216",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|X-Large": {
-     "catalogSku": "25217",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|XX-Large": {
-     "catalogSku": "25218",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|XXX-Large": {
-     "catalogSku": "25219",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|4XL": {
-     "catalogSku": "25220",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Sport Grey|5XL": {
-     "catalogSku": "25221",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|Small": {
-     "catalogSku": "25299",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|Medium": {
-     "catalogSku": "25300",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|Large": {
-     "catalogSku": "25301",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|X-Large": {
-     "catalogSku": "25302",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|XX-Large": {
-     "catalogSku": "25303",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|XXX-Large": {
-     "catalogSku": "25304",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|4XL": {
-     "catalogSku": "25305",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "White|5XL": {
-     "catalogSku": "25306",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|Small": {
-     "catalogSku": "24477",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|Medium": {
-     "catalogSku": "24478",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|Large": {
-     "catalogSku": "24479",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|X-Large": {
-     "catalogSku": "24480",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|XX-Large": {
-     "catalogSku": "24481",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|XXX-Large": {
-     "catalogSku": "24482",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|4XL": {
-     "catalogSku": "24483",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Ash|5XL": {
-     "catalogSku": "24484",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|Small": {
-     "catalogSku": "25238",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|Medium": {
-     "catalogSku": "25240",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|Large": {
-     "catalogSku": "25241",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|X-Large": {
-     "catalogSku": "25242",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|XX-Large": {
-     "catalogSku": "25243",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|XXX-Large": {
-     "catalogSku": "25244",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|4XL": {
-     "catalogSku": "25245",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Forest Green|5XL": {
-     "catalogSku": "25246",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|Small": {
-     "catalogSku": "25291",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|Medium": {
-     "catalogSku": "25292",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|Large": {
-     "catalogSku": "25293",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|X-Large": {
-     "catalogSku": "25294",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|XX-Large": {
-     "catalogSku": "25295",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|XXX-Large": {
-     "catalogSku": "25296",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|4XL": {
-     "catalogSku": "25297",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Royal|5XL": {
-     "catalogSku": "25298",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|Small": {
-     "catalogSku": "25222",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|Medium": {
-     "catalogSku": "25223",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|Large": {
-     "catalogSku": "25224",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|X-Large": {
-     "catalogSku": "25225",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|XX-Large": {
-     "catalogSku": "25234",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|XXX-Large": {
-     "catalogSku": "25235",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|4XL": {
-     "catalogSku": "25236",
-     "cost": 17.74,
-     "inStock": true
-    },
-    "Dark Chocolate|5XL": {
-     "catalogSku": "25237",
-     "cost": 17.74,
-     "inStock": true
+  "designs": {
+    "c30-08": {
+      "blanks": [
+        "BC_HW",
+        "MUG11"
+      ],
+      "file": "08-we-never-lose-varsity-tee-design.png"
+    },
+    "c30-09": {
+      "blanks": [
+        "BC_HW",
+        "MUG11"
+      ],
+      "file": "09-we-never-lose-wordmark-tee-design.png"
+    },
+    "c30-10": {
+      "blanks": [
+        "LS_PREM",
+        "MUG11"
+      ],
+      "file": "10-we-never-lose-hoodie-design.png"
+    },
+    "c30-24": {
+      "blanks": [
+        "BC_HW",
+        "MUG11"
+      ],
+      "file": "24-more-money-retro-tee-design.png"
+    },
+    "c30-25": {
+      "blanks": [
+        "LS_PREM",
+        "MUG11"
+      ],
+      "file": "25-more-money-hoodie-design.png"
+    },
+    "c30-26": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "26-more-money-mug-design.png"
+    },
+    "c30-05": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "05-dog-hair-glitter-tee-design.png"
+    },
+    "c30-22": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "22-retired-2026-tee-design.png"
+    },
+    "c30-30": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "30-876-land-we-love-tee-design.png"
+    },
+    "c30-02": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "02-dad-dictionary-tee-design.png"
+    },
+    "trend-01": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-01-nurse-life.png"
+    },
+    "trend-02": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-02-golden-retriever.png"
+    },
+    "trend-03": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-03-dad-jokes.png"
+    },
+    "trend-04": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-04-national-parks.png"
+    },
+    "trend-05": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-05-dachshund.png"
+    },
+    "trend-06": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-06-mom-life.png"
+    },
+    "trend-07": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-07-walking-faith.png"
+    },
+    "trend-08": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-08-back-to-80s.png"
+    },
+    "trend-09": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-09-grumpy-cat.png"
+    },
+    "trend-10": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-10-firefighter.png"
+    },
+    "trend-11": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-11-happy-camper.png"
+    },
+    "trend-12": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-12-highland-cow.png"
+    },
+    "trend-13": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-13-frenchie-mom.png"
+    },
+    "trend-14": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-14-gone-fishing.png"
+    },
+    "trend-15": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-15-but-first-coffee.png"
+    },
+    "trend-16": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-16-made-in-90s.png"
+    },
+    "trend-17": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-17-teacher-mode.png"
+    },
+    "trend-18": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-18-german-shepherd.png"
+    },
+    "trend-19": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-19-blessed.png"
+    },
+    "trend-20": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-20-king-of-road.png"
+    },
+    "trend-21": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-21-hunt-hard.png"
+    },
+    "trend-22": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-22-cat-mom.png"
+    },
+    "trend-23": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-23-family-vacation.png"
+    },
+    "trend-24": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-24-pitbull-mom.png"
+    },
+    "trend-25": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-25-healthcare-hero.png"
+    },
+    "trend-26": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-26-spooky-vibes.png"
+    },
+    "trend-27": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-27-blessed-grandma.png"
+    },
+    "trend-28": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-28-jesus-lover.png"
+    },
+    "trend-29": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-29-chasing-sunsets.png"
+    },
+    "trend-30": {
+      "blanks": [
+        "G500",
+        "G185",
+        "MUG11"
+      ],
+      "file": "/store/trending-30/trend-30-dog-mom.png"
+    },
+    "c30-01": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "01-faith-over-fear-tee-design.png"
+    },
+    "c30-03": {
+      "blanks": [
+        "G180",
+        "MUG11"
+      ],
+      "file": "03-nurse-est-crewneck-design.png"
+    },
+    "c30-04": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "04-first-time-dad-tee-design.png"
+    },
+    "c30-06": {
+      "blanks": [
+        "G185",
+        "MUG11"
+      ],
+      "file": "06-faith-over-fear-hoodie-design.png"
+    },
+    "c30-07": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "07-amazing-grace-tee-design.png"
+    },
+    "c30-11": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "11-worlds-best-teacher-tee-design.png"
+    },
+    "c30-12": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "12-nurse-life-tee-design.png"
+    },
+    "c30-13": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "13-best-nurse-ever-mug-design.png"
+    },
+    "c30-14": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "14-dad-est-tee-design.png"
+    },
+    "c30-15": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "15-worlds-okayest-dad-mug-design.png"
+    },
+    "c30-16": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "16-promoted-to-dad-tee-design.png"
+    },
+    "c30-17": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "17-best-mom-ever-mug-design.png"
+    },
+    "c30-18": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "18-proud-dog-mom-tee-design.png"
+    },
+    "c30-19": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "19-dogs-coffee-mug-design.png"
+    },
+    "c30-20": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "20-dont-talk-coffee-mug-design.png"
+    },
+    "c30-21": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "21-good-vibes-only-tee-design.png"
+    },
+    "c30-23": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "23-you-are-enough-tee-design.png"
+    },
+    "c30-27": {
+      "blanks": [
+        "G500",
+        "MUG11"
+      ],
+      "file": "27-you-vs-you-tee-design.png"
+    },
+    "c30-28": {
+      "blanks": [
+        "G185",
+        "MUG11"
+      ],
+      "file": "28-one-percent-hoodie-design.png"
+    },
+    "c30-29": {
+      "blanks": [
+        "MUG11"
+      ],
+      "file": "29-best-teacher-ever-mug-design.png"
+    },
+    "premium-neverlose-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-neverlose.png"
+    },
+    "premium-money-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-moremoney.png"
+    },
+    "premium-neverlose-hoodie-black": {
+      "blanks": [
+        "LS_PREM"
+      ],
+      "file": "/store/premium-art/pa-neverlose.png"
+    },
+    "premium-money-hoodie-black": {
+      "blanks": [
+        "LS_PREM"
+      ],
+      "file": "/store/premium-art/pa-moremoney.png"
+    },
+    "premium-wahgwaan-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-wahgwaan.png"
+    },
+    "premium-tallawah-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-tallawah.png"
+    },
+    "premium-notperfect-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-notperfect.png"
+    },
+    "premium-cho-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-cho.png"
+    },
+    "premium-rhaatid-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-rhaatid.png"
+    },
+    "premium-sooncome-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-sooncome.png"
+    },
+    "premium-dunkno-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-dunkno.png"
+    },
+    "premium-kissmiteeth-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-kissmiteeth.png"
+    },
+    "premium-walkgood-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-walkgood.png"
+    },
+    "premium-believe-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-believe.png"
+    },
+    "premium-876-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-876.png"
+    },
+    "premium-xmark-black": {
+      "blanks": [
+        "BC_HW"
+      ],
+      "file": "/store/premium-art/pa-xmark.png"
     }
-   }
   },
-  "MUG11": {
-   "name": "White Ceramic Mug 11oz",
-   "style": "11oz Ceramic",
-   "retail_cents": 1499,
-   "cost": 6.82,
-   "presetId": null,
-   "variants": {
-    "White|One Size": {
-     "catalogSku": "47417",
-     "cost": 6.82,
-     "inStock": true
+  "shipping_methods": {
+    "Economy": {
+      "id": 35
+    },
+    "Ground": {
+      "id": 80
+    },
+    "2 Day": {
+      "id": 79
+    },
+    "Standard Overnight": {
+      "id": 60
     }
-   }
-  },
-  "LS_PREM": {
-   "name": "Lane Seven Unisex Premium Hoodie",
-   "style": "LS_PREM",
-   "retail_cents": 5999,
-   "cost": 23.81,
-   "presetId": null,
-   "variants": {
-    "Black|Small": {
-     "catalogSku": "73918",
-     "cost": 23.81,
-     "inStock": true
-    },
-    "Black|Medium": {
-     "catalogSku": "73919",
-     "cost": 23.81,
-     "inStock": true
-    },
-    "Black|Large": {
-     "catalogSku": "73920",
-     "cost": 23.81,
-     "inStock": true
-    },
-    "Black|X-Large": {
-     "catalogSku": "73921",
-     "cost": 23.81,
-     "inStock": true
-    }
-   }
-  },
-  "BC_HW": {
-   "name": "Bella + Canvas Unisex Oversized Heavyweight Tee",
-   "style": "BC_HW",
-   "retail_cents": 3999,
-   "cost": 13.95,
-   "presetId": null,
-   "variants": {
-    "Black|Small": {
-     "catalogSku": "86765",
-     "cost": 13.95,
-     "inStock": true
-    },
-    "Black|Medium": {
-     "catalogSku": "86766",
-     "cost": 13.95,
-     "inStock": true
-    },
-    "Black|Large": {
-     "catalogSku": "86767",
-     "cost": 13.95,
-     "inStock": true
-    },
-    "Black|X-Large": {
-     "catalogSku": "86768",
-     "cost": 13.95,
-     "inStock": true
-    }
-   }
   }
- },
- "designs": {
-  "c30-08": {
-   "blanks": [
-    "BC_HW",
-    "MUG11"
-   ],
-   "file": "08-we-never-lose-varsity-tee-design.png"
-  },
-  "c30-09": {
-   "blanks": [
-    "BC_HW",
-    "MUG11"
-   ],
-   "file": "09-we-never-lose-wordmark-tee-design.png"
-  },
-  "c30-10": {
-   "blanks": [
-    "LS_PREM",
-    "MUG11"
-   ],
-   "file": "10-we-never-lose-hoodie-design.png"
-  },
-  "c30-24": {
-   "blanks": [
-    "BC_HW",
-    "MUG11"
-   ],
-   "file": "24-more-money-retro-tee-design.png"
-  },
-  "c30-25": {
-   "blanks": [
-    "LS_PREM",
-    "MUG11"
-   ],
-   "file": "25-more-money-hoodie-design.png"
-  },
-  "c30-26": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "26-more-money-mug-design.png"
-  },
-  "c30-05": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "05-dog-hair-glitter-tee-design.png"
-  },
-  "c30-22": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "22-retired-2026-tee-design.png"
-  },
-  "c30-30": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "30-876-land-we-love-tee-design.png"
-  },
-  "c30-02": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "02-dad-dictionary-tee-design.png"
-  },
-  "trend-01": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-01-nurse-life.png"
-  },
-  "trend-02": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-02-golden-retriever.png"
-  },
-  "trend-03": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-03-dad-jokes.png"
-  },
-  "trend-04": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-04-national-parks.png"
-  },
-  "trend-05": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-05-dachshund.png"
-  },
-  "trend-06": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-06-mom-life.png"
-  },
-  "trend-07": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-07-walking-faith.png"
-  },
-  "trend-08": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-08-back-to-80s.png"
-  },
-  "trend-09": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-09-grumpy-cat.png"
-  },
-  "trend-10": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-10-firefighter.png"
-  },
-  "trend-11": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-11-happy-camper.png"
-  },
-  "trend-12": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-12-highland-cow.png"
-  },
-  "trend-13": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-13-frenchie-mom.png"
-  },
-  "trend-14": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-14-gone-fishing.png"
-  },
-  "trend-15": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-15-but-first-coffee.png"
-  },
-  "trend-16": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-16-made-in-90s.png"
-  },
-  "trend-17": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-17-teacher-mode.png"
-  },
-  "trend-18": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-18-german-shepherd.png"
-  },
-  "trend-19": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-19-blessed.png"
-  },
-  "trend-20": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-20-king-of-road.png"
-  },
-  "trend-21": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-21-hunt-hard.png"
-  },
-  "trend-22": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-22-cat-mom.png"
-  },
-  "trend-23": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-23-family-vacation.png"
-  },
-  "trend-24": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-24-pitbull-mom.png"
-  },
-  "trend-25": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-25-healthcare-hero.png"
-  },
-  "trend-26": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-26-spooky-vibes.png"
-  },
-  "trend-27": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-27-blessed-grandma.png"
-  },
-  "trend-28": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-28-jesus-lover.png"
-  },
-  "trend-29": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-29-chasing-sunsets.png"
-  },
-  "trend-30": {
-   "blanks": [
-    "G500",
-    "G185",
-    "MUG11"
-   ],
-   "file": "/store/trending-30/trend-30-dog-mom.png"
-  },
-  "c30-01": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "01-faith-over-fear-tee-design.png"
-  },
-  "c30-03": {
-   "blanks": [
-    "G180",
-    "MUG11"
-   ],
-   "file": "03-nurse-est-crewneck-design.png"
-  },
-  "c30-04": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "04-first-time-dad-tee-design.png"
-  },
-  "c30-06": {
-   "blanks": [
-    "G185",
-    "MUG11"
-   ],
-   "file": "06-faith-over-fear-hoodie-design.png"
-  },
-  "c30-07": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "07-amazing-grace-tee-design.png"
-  },
-  "c30-11": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "11-worlds-best-teacher-tee-design.png"
-  },
-  "c30-12": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "12-nurse-life-tee-design.png"
-  },
-  "c30-13": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "13-best-nurse-ever-mug-design.png"
-  },
-  "c30-14": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "14-dad-est-tee-design.png"
-  },
-  "c30-15": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "15-worlds-okayest-dad-mug-design.png"
-  },
-  "c30-16": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "16-promoted-to-dad-tee-design.png"
-  },
-  "c30-17": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "17-best-mom-ever-mug-design.png"
-  },
-  "c30-18": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "18-proud-dog-mom-tee-design.png"
-  },
-  "c30-19": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "19-dogs-coffee-mug-design.png"
-  },
-  "c30-20": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "20-dont-talk-coffee-mug-design.png"
-  },
-  "c30-21": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "21-good-vibes-only-tee-design.png"
-  },
-  "c30-23": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "23-you-are-enough-tee-design.png"
-  },
-  "c30-27": {
-   "blanks": [
-    "G500",
-    "MUG11"
-   ],
-   "file": "27-you-vs-you-tee-design.png"
-  },
-  "c30-28": {
-   "blanks": [
-    "G185",
-    "MUG11"
-   ],
-   "file": "28-one-percent-hoodie-design.png"
-  },
-  "c30-29": {
-   "blanks": [
-    "MUG11"
-   ],
-   "file": "29-best-teacher-ever-mug-design.png"
-  },
-  "premium-neverlose-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-neverlose.png"
-  },
-  "premium-money-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-moremoney.png"
-  },
-  "premium-neverlose-hoodie-black": {
-   "blanks": [
-    "LS_PREM"
-   ],
-   "file": "/store/premium-art/pa-neverlose.png"
-  },
-  "premium-money-hoodie-black": {
-   "blanks": [
-    "LS_PREM"
-   ],
-   "file": "/store/premium-art/pa-moremoney.png"
-  },
-  "premium-wahgwaan-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-wahgwaan.png"
-  },
-  "premium-tallawah-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-tallawah.png"
-  },
-  "premium-notperfect-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-notperfect.png"
-  },
-  "premium-cho-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-cho.png"
-  },
-  "premium-rhaatid-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-rhaatid.png"
-  },
-  "premium-sooncome-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-sooncome.png"
-  },
-  "premium-dunkno-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-dunkno.png"
-  },
-  "premium-kissmiteeth-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-kissmiteeth.png"
-  },
-  "premium-walkgood-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-walkgood.png"
-  },
-  "premium-believe-black": {
-   "blanks": [
-    "BC_HW"
-   ],
-   "file": "/store/premium-art/pa-believe.png"
-  }
- },
- "shipping_methods": {
-  "Economy": {
-   "id": 35
-  },
-  "Ground": {
-   "id": 80
-  },
-  "2 Day": {
-   "id": 79
-  },
-  "Standard Overnight": {
-   "id": 60
-  }
- }
 }

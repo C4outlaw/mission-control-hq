@@ -1331,12 +1331,10 @@ export default function StoreClient() {
             <div className="shop-cta">
               <p className="shop-cta-line">Wear it. Back it.</p>
               <p className="shop-cta-body">
-                Every piece you buy funds the next video, the next drop, the next story.
-                This is a one-man yard and you are the reason it keeps running.
-                <strong> Pick one thing. It goes further than you think.</strong>
+                Every piece funds the next video. <strong>Pick one thing.</strong>
               </p>
             </div>
-            <p className="drop-lede">Scroll the whole shop, or jump to a department. Pick the colour, pick the size, and it ships from the print house in a few days.</p>
+            <p className="drop-lede">Scroll the whole shop, or jump to a department.</p>
           </header>
 
           <nav className="bb-crumb" aria-label="Breadcrumb">

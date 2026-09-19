@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { shippingOptions } from '../../../lib/customcat-shipping';
 
 export const runtime = 'nodejs';
 
@@ -36,6 +37,7 @@ export async function POST(req) {
 
     const line_items = [];
     const fulfil = [];
+    const parcel = [];
     for (const it of items.slice(0, 20)) {
       const key = String(it.key || '');
       const blankKey = String(it.blank || '');
@@ -58,6 +60,7 @@ export async function POST(req) {
         quantity: qty,
       });
       fulfil.push(`${blankKey}:${color}:${size}:${key}:${qty}`);
+      parcel.push({ blank: blankKey, qty });
     }
 
     if (!line_items.length) {
@@ -67,22 +70,11 @@ export async function POST(req) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items,
-      // The buyer pays shipping, not us. Without this the session carried no
-      // shipping line at all and every CustomCat order ate the postage.
-      shipping_address_collection: { allowed_countries: ['US', 'CA', 'GB', 'JM'] },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: 'fixed_amount',
-            fixed_amount: { amount: 599, currency: 'usd' },
-            display_name: 'Standard shipping',
-            delivery_estimate: {
-              minimum: { unit: 'business_day', value: 5 },
-              maximum: { unit: 'business_day', value: 10 },
-            },
-          },
-        },
-      ],
+      // The buyer pays shipping, not us, and at what CustomCat actually
+      // charges for this basket rather than a flat guess. CustomCat quotes US
+      // rates only, so the shop posts within the US.
+      shipping_address_collection: { allowed_countries: ['US'] },
+      shipping_options: await shippingOptions(parcel),
       success_url: `${origin}/store/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/store`,
       metadata: {
