@@ -1224,3 +1224,85 @@
   .drop-head h2.shop-masthead { font-size: clamp(1.9rem, 10.5vw, 3.4rem); }
   .shop-cta { padding-top: 14px; }
 }
+
+/* ==================================================================
+   Order confirmation and order lookup.
+
+   Paying used to land on a 404, so these two pages are the whole of a
+   buyer's after-sale experience: what they just bought, the number that
+   gets them back to it, and a straight answer on whether it is being
+   made. Plain and legible, not merchandised.
+   ================================================================== */
+.ord-page {
+  min-height: 100dvh;
+  padding: 88px 20px 96px;
+  background: #faf8f5;
+  color: #0c0a09;
+}
+.ord-wrap { max-width: 640px; margin: 0 auto; }
+.ord-eyebrow {
+  margin: 0 0 8px; font-size: 12px; letter-spacing: .2em;
+  text-transform: uppercase; color: #6b6b6b;
+}
+.ord-head {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.12;
+  text-wrap: balance;
+  color: #0c0a09;
+}
+.ord-lede { margin: 0 0 26px; line-height: 1.65; color: #4a4a4a; }
+
+.ord-number {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  margin: 0 0 26px; padding: 16px 18px;
+  border: 1px solid #0c0a09;
+}
+.ord-number span { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; }
+.ord-number strong { font-size: 20px; font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+
+.ord-facts { margin: 0 0 22px; display: grid; gap: 12px; }
+.ord-facts > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 14px; }
+.ord-facts dt { font-size: 13px; color: #6b6b6b; }
+.ord-facts dd { margin: 0; font-size: 15px; line-height: 1.5; overflow-wrap: anywhere; }
+
+.ord-note { margin: 0 0 26px; padding: 14px 16px; background: #f1ece4; line-height: 1.6; font-size: 15px; }
+.ord-error { margin: 18px 0 0; color: #8a2f12; font-size: 15px; }
+.ord-help { margin: 16px 0 0; font-size: 13px; color: #6b6b6b; line-height: 1.6; }
+.ord-back { margin: 30px 0 0; font-size: 14px; }
+.ord-back a { color: #0c0a09; }
+
+.ord-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ord-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 13px 22px;
+  border: 1px solid #0c0a09; background: #0c0a09; color: #ffffff;
+  font: inherit; font-size: 15px; text-decoration: none; cursor: pointer;
+}
+.ord-btn:hover:not(:disabled), .ord-btn:focus-visible { background: var(--gold); border-color: var(--gold); color: #0c0a09; outline: none; }
+.ord-btn:disabled { opacity: .55; cursor: progress; }
+.ord-btn.is-quiet { background: transparent; color: #0c0a09; }
+
+.ord-form { display: grid; gap: 16px; margin: 0 0 8px; }
+.ord-form label { display: grid; gap: 6px; }
+.ord-form span { font-size: 13px; color: #4a4a4a; }
+.ord-form input {
+  min-height: 48px; padding: 12px 14px;
+  border: 1px solid #cfc9c0; background: #ffffff; color: #0c0a09;
+  font: inherit; font-size: 16px;   /* 16px so iOS does not zoom the page */
+}
+.ord-form input:focus-visible { outline: 2px solid #0c0a09; outline-offset: 1px; }
+.ord-form .ord-btn { justify-self: start; }
+
+.ord-card { margin: 28px 0 0; padding: 22px; border: 1px solid #e0dad1; background: #ffffff; }
+.ord-card h2 { margin: 0 0 8px; font-size: 20px; font-weight: 600; color: #0c0a09; }
+.ord-items { list-style: none; margin: 18px 0 0; padding: 16px 0 0; border-top: 1px solid #e0dad1; display: grid; gap: 8px; }
+.ord-items li { display: flex; justify-content: space-between; gap: 14px; font-size: 14px; }
+.ord-items li span:last-child { color: #6b6b6b; white-space: nowrap; }
+
+@media (max-width: 520px) {
+  .ord-facts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .ord-number { flex-direction: column; gap: 4px; }
+}

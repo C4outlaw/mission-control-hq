@@ -1,0 +1,87 @@
+/* Orders board. A working screen, not a showpiece: the one thing it has to do
+   is make an unfulfilled paid order impossible to scroll past. */
+
+.mo-page {
+  --ink: #0c0a09;
+  --muted: #5d574f;
+  --line: #e4ded4;
+  --warn: #8a3b12;
+  --warn-bg: #fdf1e7;
+  --good: #1d5c37;
+  min-height: 100dvh;
+  padding: 56px 24px 96px;
+  background: #faf8f5;
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  .mo-page:not([data-theme='light']) {
+    --ink: #f4f1ec; --muted: #a8a096; --line: #302b26;
+    --warn: #f0a97a; --warn-bg: #2b1a0e; --good: #6ec894;
+    background: #15120f;
+  }
+}
+
+.mo-head { max-width: 62ch; margin: 0 auto 32px; }
+.mo-eyebrow {
+  margin: 0 0 6px; font-size: 12px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted);
+}
+.mo-head h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 40px); font-weight: 600; }
+.mo-lede { margin: 0; color: var(--muted); line-height: 1.6; }
+.mo-muted { max-width: 62ch; margin: 0 auto; color: var(--muted); }
+.mo-error { max-width: 62ch; margin: 0 auto; color: var(--warn); }
+.mo-note {
+  max-width: 62ch; margin: 0 auto 20px; padding: 12px 14px;
+  background: var(--warn-bg); border: 1px solid var(--line); border-radius: 8px;
+}
+
+.mo-summary {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px; max-width: 900px; margin: 0 auto 28px;
+}
+.mo-summary > div {
+  padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: transparent;
+}
+.mo-summary > div.is-warn { border-color: var(--warn); background: var(--warn-bg); }
+.mo-summary strong {
+  display: block; font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.mo-summary span { font-size: 13px; color: var(--muted); }
+
+.mo-list { list-style: none; max-width: 900px; margin: 0 auto; padding: 0; display: grid; gap: 10px; }
+.mo-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px;
+  padding: 16px; border: 1px solid var(--line); border-radius: 10px;
+}
+/* The whole point of the page: an unfulfilled paid order carries a stripe. */
+.mo-row.is-pending { border-left: 4px solid var(--warn); background: var(--warn-bg); }
+
+.mo-main { min-width: 0; }
+.mo-num { margin: 0 0 4px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mo-who { margin: 0 0 6px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.mo-items { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+.mo-err { margin: 8px 0 0; font-size: 13px; color: var(--warn); overflow-wrap: anywhere; }
+
+.mo-meta { text-align: right; display: grid; gap: 4px; align-content: start; justify-items: end; }
+.mo-when { margin: 0; font-size: 13px; color: var(--muted); }
+.mo-total { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mo-state { margin: 0; font-size: 13px; }
+.mo-state.is-pending { color: var(--warn); font-weight: 600; }
+.mo-state.is-in_production { color: var(--good); }
+.mo-ref { margin: 0; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.mo-meta button {
+  margin-top: 6px; min-height: 44px; padding: 10px 16px;
+  border: 0; border-radius: 8px; background: var(--ink); color: #fff;
+  font: inherit; font-size: 14px; cursor: pointer;
+}
+.mo-meta button:hover:not(:disabled) { opacity: .88; }
+.mo-meta button:disabled { opacity: .5; cursor: progress; }
+.mo-meta button:focus-visible { outline: 2px solid var(--warn); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  .mo-summary { grid-template-columns: 1fr; }
+  .mo-row { grid-template-columns: minmax(0, 1fr); }
+  .mo-meta { text-align: left; justify-items: start; }
+}

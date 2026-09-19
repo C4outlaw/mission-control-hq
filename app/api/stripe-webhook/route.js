@@ -10,6 +10,23 @@ export const runtime = 'nodejs';
 // Stripe signs the raw body, so it must not be parsed or re-encoded before verification.
 export const dynamic = 'force-dynamic';
 
+/* Stamp the outcome on the payment intent.
+ *
+ * Stripe knows the money went through; only we know whether the print house
+ * took the job. Writing that back here means the buyer's order page and the
+ * admin list can both read one source of truth, with no orders database to
+ * keep in sync -- and a failure leaves its reason behind instead of vanishing
+ * into a log. Never allowed to fail the webhook.
+ */
+async function stamp(stripe, session, fields) {
+  try {
+    const pi = typeof session.payment_intent === 'string' ? session.payment_intent : session.payment_intent?.id;
+    if (pi) await stripe.paymentIntents.update(pi, { metadata: fields });
+  } catch (err) {
+    console.error('could not stamp fulfilment on payment intent', err.message);
+  }
+}
+
 export async function POST(req) {
   const key = process.env.STRIPE_SECRET_KEY;
   const whSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -37,8 +54,10 @@ export async function POST(req) {
   if (session.metadata?.type === 'merch') {
     try {
       const order = await createPrintifyOrder(session);
+      await stamp(stripe, session, { printify_order_id: String(order.id || 'created'), fulfil_error: '' });
       return new Response('merch order ' + (order.id || 'created'), { status: 200 });
     } catch (err) {
+      await stamp(stripe, session, { fulfil_error: String(err.message).slice(0, 480) });
       // Return 500 so Stripe retries; the payment already succeeded and the
       // order must not be silently dropped.
       console.error('printify order failed', err.message);
@@ -51,8 +70,11 @@ export async function POST(req) {
   if (session.metadata?.type === 'customcat-merch') {
     try {
       const order = await createCustomCatOrder(session);
-      return new Response('customcat order ' + (order.order_id || order.id || 'created'), { status: 200 });
+      const ref = order.CUSTOMCAT_ORDER_ID || order.order_id || order.id || 'created';
+      await stamp(stripe, session, { cc_order_id: String(ref), fulfil_error: '' });
+      return new Response('customcat order ' + ref, { status: 200 });
     } catch (err) {
+      await stamp(stripe, session, { fulfil_error: String(err.message).slice(0, 480) });
       // Return 500 so Stripe retries; the payment already succeeded and the
       // order must not be silently dropped.
       console.error('customcat order failed', err.message);
