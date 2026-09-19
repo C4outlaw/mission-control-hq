@@ -630,6 +630,12 @@ function shotsFor(p, color) {
   return [...new Set([lead, ...(p.gallery || []), ...byColor, p.image].filter(Boolean))];
 }
 
+/* Grid tiles get the small WebP variant when one was generated for them. */
+const gridSrc = (src) =>
+  (typeof src === 'string' && /\/store\/ugc\/.*-1\.jpg$/.test(src))
+    ? src.replace(/-1\.jpg$/, '-1-grid.webp')
+    : src;
+
 function BBCard({ p, onOpen }) {
   const price = cents(p);
   const off = p.compareAt && p.compareAt > price ? Math.round(((p.compareAt - price) / p.compareAt) * 100) : null;
@@ -637,8 +643,17 @@ function BBCard({ p, onOpen }) {
     <button type="button" className="bb-card" onClick={onOpen} aria-label={`View ${p.name}`}>
       <span className="bb-card-kind">{p.kindName || KIND[p.kind]?.long || p.kind}</span>
       <span className="bb-card-media">
+        {/* The tile renders near 340px, so it takes a 760px WebP rather than the
+            1250px plate the product page needs — about 80% less to download. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
+        <img
+          src={gridSrc(p.image)}
+          alt={p.name}
+          width="760"
+          height="760"
+          loading="lazy"
+          decoding="async"
+        />
       </span>
       <span className="bb-card-row">
         <span className="bb-card-name">{p.name.split(' — ')[0]}</span>
@@ -1331,29 +1346,6 @@ export default function StoreClient() {
               /* eslint-disable-next-line @next/next/no-img-element */
               <img key={src} src={src} alt="" loading="lazy" decoding="async" />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= The Everyday Collection ================= */}
-      <section id="everyday" className="drop">
-        <div className="tls-shell">
-          <header className="drop-head">
-            <p className="tls-mono">The Everyday Collection · {cat30Results.length} designs · launching soon</p>
-            <h2>Wear the words you live by.</h2>
-            <p className="drop-lede">Thirty original designs — faith, family, nurses, dog people, teachers, and the two brand mantras. Pick your favourites and get first dibs when the collection drops.</p>
-          </header>
-
-          <div className="drop-pills" role="group" aria-label="Filter the collection">
-            {CAT30_FACETS.map((f) => (
-              <button key={f.id} type="button" className={`etsy-pill${cat30Facet === f.id ? ' is-on' : ''}`} onClick={() => setCat30Facet(f.id)} aria-pressed={cat30Facet === f.id}>
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="drop-grid">
-            {cat30Results.map((p) => <Cat30Card key={p.key} p={p} onOpen={() => setOpenCat30(p)} />)}
           </div>
         </div>
       </section>
