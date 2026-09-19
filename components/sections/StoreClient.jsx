@@ -592,9 +592,16 @@ function DropModal({ p, onAdd, onClose }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
+    // Locking the body loses the reader's place, so remember it and put them
+    // back exactly where they were browsing when the page closes.
+    const y = window.scrollY;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+      window.scrollTo({ top: y });
+    };
   }, [onClose]);
   return (
     <div className="etsy-modal-scrim" role="dialog" aria-modal="true" aria-label={p.name} onClick={onClose}>
@@ -680,7 +687,7 @@ function BBCard({ p, onOpen }) {
 }
 
 /* The product page: views down the left, buying rail on the right. */
-function BBProduct({ p, onAdd, onClose }) {
+function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false }) {
   const colors = p.colors || [];
   const [color, setColor] = useState(colors[0] || null);
   const [shot, setShot] = useState(0);
@@ -729,6 +736,12 @@ function BBProduct({ p, onAdd, onClose }) {
 
   return (
     <div className="bb-pdp" role="dialog" aria-modal="true" aria-label={p.name}>
+      <button className="bb-pdp-back" onClick={onClose}>
+        <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Back to shop
+      </button>
       <button className="bb-pdp-close" onClick={onClose} aria-label="Close">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -820,6 +833,11 @@ function BBProduct({ p, onAdd, onClose }) {
           <button type="button" className="bb-rail-buy" onClick={add} disabled={!sellable}>
             {added ? 'Added to bag' : sellable ? 'Add to Bag' : 'Coming soon'}
           </button>
+          {cartCount > 0 && (
+            <button type="button" className="bb-rail-checkout" onClick={onCheckout} disabled={busy}>
+              {busy ? 'Opening…' : `Checkout (${cartCount})`}
+            </button>
+          )}
           <p className="bb-rail-fine">
             {sellable
               ? 'Printed to order · ships in 3–7 business days · secure checkout via Stripe'
@@ -1469,7 +1487,16 @@ export default function StoreClient() {
       )}
 
       {/* ---------- Drop quick-view ---------- */}
-      {openDrop && <BBProduct p={openDrop} onAdd={addItem} onClose={() => setOpenDrop(null)} />}
+      {openDrop && (
+        <BBProduct
+          p={openDrop}
+          onAdd={addItem}
+          onClose={() => setOpenDrop(null)}
+          onCheckout={checkout}
+          cartCount={count}
+          busy={busy}
+        />
+      )}
 
       {/* ---------- Everyday Collection quick-view ---------- */}
       {openCat30 && <Cat30Modal p={openCat30} onClose={() => setOpenCat30(null)} />}

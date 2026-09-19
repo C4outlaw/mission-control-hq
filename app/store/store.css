@@ -1074,3 +1074,52 @@
   .bb-pdp-stage { height: 62vh; padding: 12px 12px 14px; }
   .bb-thumb { width: 52px; height: 52px; }
 }
+
+/* A labelled way back beats a bare X: shoppers return to the exact spot in
+   the grid they were browsing, so they keep shopping instead of restarting. */
+.bb-pdp-back {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #d8d4cd;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0c0a09;
+  font: inherit;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.bb-pdp-back:hover, .bb-pdp-back:focus-visible { background: #f0ece7; outline: none; }
+.bb-pdp-back:focus-visible { outline: 2px solid #0c0a09; outline-offset: 2px; }
+
+/* The product page covers the cart, so checkout has to be reachable from
+   inside it the moment something is in the bag. */
+.bb-rail-checkout {
+  margin: 10px 0 0;
+  min-height: 48px;
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #0c0a09;
+  border-radius: 0;
+  background: #ffffff;
+  color: #0c0a09;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+.bb-rail-checkout:hover:not(:disabled), .bb-rail-checkout:focus-visible:not(:disabled) {
+  background: #0c0a09;
+  color: #ffffff;
+  outline: none;
+}
+.bb-rail-checkout:disabled { opacity: .55; cursor: not-allowed; }
+
+@media (max-width: 860px) {
+  .bb-pdp-back { top: 10px; left: 10px; padding: 0 12px; font-size: 13px; }
+}
