@@ -1021,6 +1021,22 @@ export default function StoreClient() {
         <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
       </div>
 
+      {/* ================= Premium Collection ================= */}
+      <section id="premium" className="drop">
+        <div className="tls-shell">
+          <header className="drop-head">
+            <p className="tls-mono">Premium Collection · {PREMIUM_PRODUCTS.length} pieces · luxury blanks</p>
+            <h2>The premium look. Fashion-house quality.</h2>
+            <p className="drop-lede">Every design reimagined in the dark premium aesthetic — heavyweight black tees, luxury hoodies, refined typography. The Lost Jamaican, elevated.</p>
+          </header>
+
+          <div className="drop-grid">
+            {PREMIUM_PRODUCTS.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+          </div>
+        </div>
+      </section>
+
+      
       {/* ================= Drop 01 ================= */}
       <section id="drop" className="drop">
         <div className="tls-shell">
@@ -1040,21 +1056,6 @@ export default function StoreClient() {
 
           <div className="drop-grid">
             {dropResults.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= Premium Collection ================= */}
-      <section id="premium" className="drop">
-        <div className="tls-shell">
-          <header className="drop-head">
-            <p className="tls-mono">Premium Collection · {PREMIUM_PRODUCTS.length} pieces · luxury blanks</p>
-            <h2>The premium look. Fashion-house quality.</h2>
-            <p className="drop-lede">Every design reimagined in the dark premium aesthetic — heavyweight black tees, luxury hoodies, refined typography. The Lost Jamaican, elevated.</p>
-          </header>
-
-          <div className="drop-grid">
-            {PREMIUM_PRODUCTS.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
           </div>
         </div>
       </section>
