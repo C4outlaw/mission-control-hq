@@ -85,6 +85,50 @@ const SORTS = [
  * Overlay rgba(63,63,63,0.9) @ z-80, image contain + 8px radius,
  * thumbnail strip carried in, 48px round close at top-right.
  * ------------------------------------------------------------------ */
+/* Hold the page still while a dialog is open.
+ *
+ * body { overflow: hidden } is ignored by iOS Safari: the page behind keeps
+ * scrolling under your finger, so the shop drifts away while you are picking a
+ * size and you land somewhere else when you close. Pinning the body at its
+ * current offset is the only lock that holds there, and the offset is put back
+ * on the way out so you return to the exact tile you opened.
+ *
+ * Counted, because the zoom lightbox opens on top of a dialog that is already
+ * locked: only the outermost lock reads and restores the scroll position.
+ */
+let lockDepth = 0;
+let lockedAt = 0;
+function useScrollLock() {
+  useEffect(() => {
+    const b = document.body;
+    if (lockDepth++ === 0) {
+      lockedAt = window.scrollY;
+      // Removing the scrollbar would shift the page sideways; keep its width.
+      const gap = window.innerWidth - document.documentElement.clientWidth;
+      b.dataset.lockPad = b.style.paddingRight;
+      b.style.position = 'fixed';
+      b.style.top = `-${lockedAt}px`;
+      b.style.left = '0';
+      b.style.right = '0';
+      b.style.width = '100%';
+      b.style.overflow = 'hidden';
+      if (gap > 0) b.style.paddingRight = `${gap}px`;
+    }
+    return () => {
+      if (--lockDepth > 0) return;
+      b.style.position = '';
+      b.style.top = '';
+      b.style.left = '';
+      b.style.right = '';
+      b.style.width = '';
+      b.style.overflow = '';
+      b.style.paddingRight = b.dataset.lockPad || '';
+      delete b.dataset.lockPad;
+      window.scrollTo(0, lockedAt);
+    };
+  }, []);
+}
+
 function Lightbox({ shots, index, setIndex, onClose }) {
   useEffect(() => {
     const onKey = (e) => {
@@ -93,13 +137,9 @@ function Lightbox({ shots, index, setIndex, onClose }) {
       if (e.key === 'ArrowLeft') setIndex((i) => (i - 1 + shots.length) % shots.length);
     };
     document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
+    return () => document.removeEventListener('keydown', onKey);
   }, [shots.length, onClose, setIndex]);
+  useScrollLock();
 
   const shot = shots[index];
 
@@ -203,13 +243,9 @@ function ListingModal({ group, startKey, onAdd, onClose }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape' && !zoom) onClose(); };
     document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-    };
+    return () => document.removeEventListener('keydown', onKey);
   }, [onClose, zoom]);
+  useScrollLock();
 
   function add() {
     const size = item.variants.find((v) => String(v.id) === String(variantId))?.size;
@@ -707,10 +743,9 @@ function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+    return () => document.removeEventListener('keydown', onKey);
   }, [onClose]);
+  useScrollLock();
 
   const shots = useMemo(() => shotsFor(p, color), [p, color]);
   useEffect(() => { setShot(0); }, [color]);

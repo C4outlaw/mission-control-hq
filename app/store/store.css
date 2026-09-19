@@ -796,6 +796,9 @@
   position: fixed;
   inset: 0;
   z-index: 120;
+  /* Stop the scroll chaining to the shop behind when the rail hits its end --
+     on iOS that is what carried the page away mid-purchase. */
+  overscroll-behavior: contain;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 420px;
   background: #ffffff;
@@ -833,7 +836,7 @@
   color: #0c0a09;
 }
 
-.bb-pdp-rail { overflow-y: auto; border-left: 1px solid #ebe7e1; }
+.bb-pdp-rail { overflow-y: auto; overscroll-behavior: contain; border-left: 1px solid #ebe7e1; }
 .bb-rail-inner { padding: 88px 40px 118px; display: flex; flex-direction: column; }
 .bb-rail-kind { margin: 0 0 8px; font-size: 12px; color: #6b6b6b !important; }
 .bb-rail-head {
@@ -926,7 +929,7 @@
 @media (max-width: 860px) {
   /* 1fr carries an auto minimum, so a 1250px view can push the column wider
      than the phone. minmax(0,1fr) lets it shrink to the screen. */
-  .bb-pdp { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; overflow-y: auto; }
+  .bb-pdp { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; overflow-y: auto; overscroll-behavior: contain; }
   /* Phones swipe the views sideways instead of stacking them, so Add to Bag
      stays one screen down rather than three images down. */
   .bb-pdp-views {
