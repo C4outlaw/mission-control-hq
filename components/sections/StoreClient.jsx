@@ -1130,6 +1130,24 @@ export default function StoreClient() {
                 </button>
               ))}
             </div>
+            {/* Once something is in the bag there has to be a way to pay from
+                the shop itself. Until now the only Checkout lived inside a
+                product, so going back to browse stranded the buyer. */}
+            {count > 0 && (
+              <div className="bb-bar-bag">
+                <span className="bb-bar-bagcount">
+                  {count} {count === 1 ? 'piece' : 'pieces'} · {money(total)}
+                </span>
+                <button
+                  type="button"
+                  className="bb-bar-checkout"
+                  onClick={checkout}
+                  disabled={busy}
+                >
+                  {busy ? 'Opening…' : 'Checkout'}
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="bb-grid">

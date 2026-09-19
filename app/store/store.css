@@ -721,6 +721,24 @@
   border-bottom: 1px solid #ebe7e1;
 }
 .bb-bar-count { font-size: 14px; color: #666666 !important; margin: 0; }
+/* Bag + Checkout, in the bar that follows the reader down the shop. */
+.bb-bar-bag { display: flex; align-items: center; gap: 12px; }
+.bb-bar-bagcount { font-size: 13px; color: #4a4a4a; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bb-bar-checkout {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 0;
+  background: #0c0a09;
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.bb-bar-checkout:hover:not(:disabled), .bb-bar-checkout:focus-visible {
+  background: var(--gold); color: #0c0a09; outline: none;
+}
+.bb-bar-checkout:disabled { opacity: .55; cursor: progress; }
 .bb-crumb { margin: 0 0 10px; font-size: 12px; color: #666666 !important; }
 .bb-crumb span { margin: 0 6px; color: #b5b0a8; }
 .bb-card {
@@ -981,6 +999,11 @@
   color: #0c0a09;
 }
 .bb-grid > .bb-dept:first-child { margin-top: 0; }
+/* The dark shell sets `.myrie-marketing h3 { color: var(--ink) }`, which is
+   near-white and outranks a lone class -- so these headings were rendering at
+   a contrast ratio of 1.04 on the light grid, i.e. invisible. Named with the
+   shell so the light page wins on the page that is actually light. */
+.myrie-marketing h3.bb-dept { color: #0c0a09; }
 
 /* The department bar follows the reader down the page. */
 .bb-bar.is-sticky {
@@ -993,6 +1016,8 @@
 }
 @media (max-width: 860px) {
   .bb-bar.is-sticky { top: 60px; }
+  .bb-bar-bag { width: 100%; justify-content: space-between; }
+  .bb-bar-checkout { flex: 0 0 auto; }
   .bb-bar .drop-pills { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
 }
 
