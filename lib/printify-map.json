@@ -14,9 +14,10 @@
     "Blue Jean"
    ],
    "images": {
-    "Black": "/store/drop/nuhworry-tee--black.jpg",
-    "Blue Jean": "/store/drop/nuhworry-tee--blue-jean.jpg",
-    "Pepper": "/store/drop/nuhworry-tee--pepper.jpg"
+    "Black": "/store/views/nuhworry-tee--black.jpg",
+    "Blue Jean": "/store/views/nuhworry-tee--blue-jean.jpg",
+    "Pepper": "/store/views/nuhworry-tee--pepper.jpg",
+    "default": "/store/views/nuhworry-tee--black.jpg"
    },
    "gallery": [],
    "variants": [
@@ -472,9 +473,10 @@
     "Graphite"
    ],
    "images": {
-    "Black": "/store/drop/cyaafix-tee--black.jpg",
-    "Graphite": "/store/drop/cyaafix-tee--graphite.jpg",
-    "Pepper": "/store/drop/cyaafix-tee--pepper.jpg"
+    "Black": "/store/views/cyaafix-tee--black.jpg",
+    "Graphite": "/store/views/cyaafix-tee--graphite.jpg",
+    "Pepper": "/store/views/cyaafix-tee--pepper.jpg",
+    "default": "/store/views/cyaafix-tee--black.jpg"
    },
    "gallery": [],
    "variants": [
@@ -743,9 +745,10 @@
     "Moss"
    ],
    "images": {
-    "Black": "/store/drop/rudebwoy-tee--black.jpg",
-    "Moss": "/store/drop/rudebwoy-tee--moss.jpg",
-    "Pepper": "/store/drop/rudebwoy-tee--pepper.jpg"
+    "Black": "/store/views/rudebwoy-tee--black.jpg",
+    "Moss": "/store/views/rudebwoy-tee--moss.jpg",
+    "Pepper": "/store/views/rudebwoy-tee--pepper.jpg",
+    "default": "/store/views/rudebwoy-tee--black.jpg"
    },
    "gallery": [],
    "variants": [
@@ -1528,12 +1531,10 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/views/moremoney-tee--v1-front.jpg"
+    "Black": "/store/views/moremoney-tee--v1-front.jpg",
+    "default": "/store/views/moremoney-tee--v1-front.jpg"
    },
-   "gallery": [
-    "/store/views/moremoney-tee--v2-chest.jpg",
-    "/store/views/moremoney-tee--v3-fabric.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 73196,

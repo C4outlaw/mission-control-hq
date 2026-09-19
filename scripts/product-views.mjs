@@ -85,6 +85,68 @@ async function frame(buf, region, outPath, mode) {
   return `${outW}x${outH} window`;
 }
 
+
+/**
+ * Cut the garment off its backdrop and re-stage it whole on a clean 4:5 plate.
+ *
+ * Cropping a window out of the source always sacrifices something — a shoulder,
+ * a sleeve, the hem. Lifting the garment out instead means the entire shirt is
+ * in frame with air around it, and every product sits on the same ground, which
+ * is what makes a luxury grid look like one shoot rather than 32 stock photos.
+ *
+ * Flood-fills inward from the border, so backdrop colour that also appears
+ * INSIDE the garment (white lettering on a black tee) is never punched out.
+ */
+async function studio(buf, outPath, { plate = '#f4f2ef', fill = 0.80 } = {}) {
+  const { data, info } = await sharp(buf).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const W = info.width, H = info.height, C = info.channels;
+  const at = (i) => [data[i], data[i + 1], data[i + 2]];
+  const bg = at(0);
+  const near = (i) => {
+    const c = at(i);
+    return Math.abs(c[0] - bg[0]) + Math.abs(c[1] - bg[1]) + Math.abs(c[2] - bg[2]) < 90;
+  };
+  const seen = new Uint8Array(W * H);
+  const stack = [];
+  for (let x = 0; x < W; x++) stack.push(x, (H - 1) * W + x);
+  for (let y = 0; y < H; y++) stack.push(y * W, y * W + W - 1);
+  while (stack.length) {
+    const q = stack.pop();
+    if (seen[q]) continue;
+    const i = q * C;
+    if (!near(i)) continue;
+    seen[q] = 1;
+    data[i + 3] = 0;
+    const x = q % W, y = (q - x) / W;
+    if (x > 0) stack.push(q - 1);
+    if (x < W - 1) stack.push(q + 1);
+    if (y > 0) stack.push(q - W);
+    if (y < H - 1) stack.push(q + W);
+  }
+  let cut = sharp(data, { raw: { width: W, height: H, channels: C } }).png();
+  const trimmed = await cut.trim({ threshold: 1 }).toBuffer();
+  const tm = await sharp(trimmed).metadata();
+
+  // If the knockout removed nearly everything, the garment shared the backdrop's
+  // tone (black on black). Fall back to placing the source whole, uncropped.
+  const kept = (tm.width * tm.height) / (W * H);
+  const source = kept < 0.04 ? buf : trimmed;
+
+  const outW = 1200, outH = Math.round(outW / TARGET);
+  const boxW = Math.round(outW * fill), boxH = Math.round(outH * fill);
+  const fitted = await sharp(source).resize(boxW, boxH, { fit: 'inside' }).toBuffer();
+  const fm = await sharp(fitted).metadata();
+  await sharp({ create: { width: outW, height: outH, channels: 3, background: plate } })
+    .composite([{
+      input: fitted,
+      left: Math.round((outW - fm.width) / 2),
+      top: Math.round((outH - fm.height) / 2),   // centred, full garment, nothing clipped
+    }])
+    .jpeg({ quality: 92, mozjpeg: true })
+    .toFile(outPath);
+  return `${outW}x${outH} studio(${kept < 0.04 ? 'whole-source' : 'cut-out'})`;
+}
+
 const [src, outDir, slug] = process.argv.slice(2);
 if (!src || !outDir || !slug) { console.error('usage: product-views.mjs <source> <out-dir> <slug>'); process.exit(1); }
 fs.mkdirSync(outDir, { recursive: true });
@@ -104,8 +166,7 @@ const gw = full.x1 - full.x0, gh = full.y1 - full.y0;
 const chest  = { x0: cx - gw * 0.48, x1: cx + gw * 0.48, y0: full.y0 + gh * 0.04, y1: cy + gh * 0.34 };
 const fabric = { x0: full.x0 + gw * 0.02, x1: full.x0 + gw * 0.40, y0: full.y0 + gh * 0.06, y1: full.y0 + gh * 0.54 };
 
-for (const [name, region, mode] of [['1-front', full, 'window'], ['2-chest', chest, 'cover'], ['3-fabric', fabric, 'cover']]) {
-  const out = path.join(outDir, `${slug}--v${name}.jpg`);
-  console.log(`  ${path.basename(out)}  ${await frame(buf, region, out, mode)}`);
-}
+console.log(`  ${slug}--v1-front.jpg  ${await studio(buf, path.join(outDir, `${slug}--v1-front.jpg`))}`);
+console.log(`  ${slug}--v2-chest.jpg  ${await frame(buf, chest, path.join(outDir, `${slug}--v2-chest.jpg`), 'cover')}`);
+console.log(`  ${slug}--v3-fabric.jpg  ${await frame(buf, fabric, path.join(outDir, `${slug}--v3-fabric.jpg`), 'cover')}`);
 console.log('done');
