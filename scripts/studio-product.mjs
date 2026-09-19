@@ -23,14 +23,22 @@ if (!keys.length) { console.error('usage: studio-product.mjs <productKey> [...]'
 for (const key of keys) {
   const p = map.products[key];
   if (!p) { console.error(`  ! ${key} not in map`); continue; }
-  const colours = p.colors || [];
+  // Mugs and one-colour pieces carry a single 'default' image and no colourway
+  // list, so they need staging just as much as a three-colour tee.
+  const colours = (p.colors && p.colors.length) ? p.colors : ['default'];
   const images = {};
   for (const c of colours) {
-    const src = p.images?.[c];
-    const disk = src && path.join('public', src.split('?')[0]);
-    if (!disk || !fs.existsSync(disk)) { console.error(`  ! ${key}/${c}: missing ${src}`); continue; }
     const slug = `${key}--${c.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
     const out = path.join(OUT, `${slug}.jpg`);
+    // Re-runs must not read from the file they are about to overwrite, so always
+    // resolve back to the pristine mockup rather than a previously staged plate.
+    const mapped = p.images?.[c];
+    const pristine = [
+      path.join('public', 'store', 'drop', `${slug}.jpg`),
+      mapped && !/\/store\/views\//.test(mapped) ? path.join('public', mapped.split('?')[0]) : null,
+    ].filter(Boolean).find((f) => fs.existsSync(f));
+    if (!pristine) { console.error(`  ! ${key}/${c}: no source found`); continue; }
+    const disk = pristine;
     const info = await studioPlate(disk, out);
     images[c] = `/${path.relative('public', out).split(path.sep).join('/')}`;
     console.log(`  ${key}/${c}  ${info}`);
@@ -38,6 +46,7 @@ for (const key of keys) {
   if (Object.keys(images).length) {
     p.images = { ...p.images, ...images };
     if (images[colours[0]]) p.images.default = images[colours[0]];
+    if (images.default) p.images.default = images.default;
     p.gallery = [];   // the colourways are the views; no crops
   }
 }

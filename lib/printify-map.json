@@ -146,13 +146,9 @@
    "design": "nuhworry",
    "colors": [],
    "images": {
-    "default": "/store/drop/nuhworry-mug.jpg"
+    "default": "/store/views/nuhworry-mug--default.jpg"
    },
-   "gallery": [
-    "/store/drop/nuhworry-mug--g1.jpg",
-    "/store/drop/nuhworry-mug--g2.jpg",
-    "/store/drop/nuhworry-mug--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 33719,
@@ -173,14 +169,11 @@
     "Dark Green"
    ],
    "images": {
-    "Black": "/store/drop/nuhworry-cap--black.jpg",
-    "Dark Green": "/store/drop/nuhworry-cap--dark-green.jpg"
+    "Black": "/store/views/nuhworry-cap--black.jpg",
+    "Dark Green": "/store/views/nuhworry-cap--dark-green.jpg",
+    "default": "/store/views/nuhworry-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/nuhworry-cap--g1.jpg",
-    "/store/drop/nuhworry-cap--g2.jpg",
-    "/store/drop/nuhworry-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1053,13 +1046,12 @@
     "Sport Grey"
    ],
    "images": {
-    "Navy": "/store/drop/fiyahbun-hoodie--navy.jpg",
-    "Sport Grey": "/store/drop/fiyahbun-hoodie--sport-grey.jpg",
-    "Black": "/store/drop/fiyahbun-hoodie--black.jpg"
+    "Navy": "/store/views/fiyahbun-hoodie--navy.jpg",
+    "Sport Grey": "/store/views/fiyahbun-hoodie--sport-grey.jpg",
+    "Black": "/store/views/fiyahbun-hoodie--black.jpg",
+    "default": "/store/views/fiyahbun-hoodie--black.jpg"
    },
-   "gallery": [
-    "/store/drop/fiyahbun-hoodie--g1.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 31925,
@@ -1168,13 +1160,9 @@
    "design": "gwehmug",
    "colors": [],
    "images": {
-    "default": "/store/drop/gwehmug-mug.jpg"
+    "default": "/store/views/gwehmug-mug--default.jpg"
    },
-   "gallery": [
-    "/store/drop/gwehmug-mug--g1.jpg",
-    "/store/drop/gwehmug-mug--g2.jpg",
-    "/store/drop/gwehmug-mug--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 33719,
@@ -1192,13 +1180,9 @@
    "design": "goodmorning",
    "colors": [],
    "images": {
-    "default": "/store/drop/goodmorning-mug.jpg"
+    "default": "/store/views/goodmorning-mug--default.jpg"
    },
-   "gallery": [
-    "/store/drop/goodmorning-mug--g1.jpg",
-    "/store/drop/goodmorning-mug--g2.jpg",
-    "/store/drop/goodmorning-mug--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 33719,
@@ -1216,13 +1200,9 @@
    "design": "hiddenbumbo",
    "colors": [],
    "images": {
-    "default": "/store/drop/hiddenbumbo-mug.jpg"
+    "default": "/store/views/hiddenbumbo-mug--default.jpg"
    },
-   "gallery": [
-    "/store/drop/hiddenbumbo-mug--g1.jpg",
-    "/store/drop/hiddenbumbo-mug--g2.jpg",
-    "/store/drop/hiddenbumbo-mug--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 33719,
@@ -1240,13 +1220,9 @@
    "design": "frogmug",
    "colors": [],
    "images": {
-    "default": "/store/drop/frogmug-mug.jpg"
+    "default": "/store/views/frogmug-mug--default.jpg"
    },
-   "gallery": [
-    "/store/drop/frogmug-mug--g1.jpg",
-    "/store/drop/frogmug-mug--g2.jpg",
-    "/store/drop/frogmug-mug--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 33719,
@@ -1267,14 +1243,11 @@
     "Pink"
    ],
    "images": {
-    "Black": "/store/drop/nuhbaddacap-cap--black.jpg",
-    "Pink": "/store/drop/nuhbaddacap-cap--pink.jpg"
+    "Black": "/store/views/nuhbaddacap-cap--black.jpg",
+    "Pink": "/store/views/nuhbaddacap-cap--pink.jpg",
+    "default": "/store/views/nuhbaddacap-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/nuhbaddacap-cap--g1.jpg",
-    "/store/drop/nuhbaddacap-cap--g2.jpg",
-    "/store/drop/nuhbaddacap-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1300,14 +1273,11 @@
     "Green"
    ],
    "images": {
-    "Black": "/store/drop/gwehcap-cap--black.jpg",
-    "Green": "/store/drop/gwehcap-cap--green.jpg"
+    "Black": "/store/views/gwehcap-cap--black.jpg",
+    "Green": "/store/views/gwehcap-cap--green.jpg",
+    "default": "/store/views/gwehcap-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/gwehcap-cap--g1.jpg",
-    "/store/drop/gwehcap-cap--g2.jpg",
-    "/store/drop/gwehcap-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1333,14 +1303,11 @@
     "Royal"
    ],
    "images": {
-    "Black": "/store/drop/bumbocap-cap--black.jpg",
-    "Royal": "/store/drop/bumbocap-cap--royal.jpg"
+    "Black": "/store/views/bumbocap-cap--black.jpg",
+    "Royal": "/store/views/bumbocap-cap--royal.jpg",
+    "default": "/store/views/bumbocap-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/bumbocap-cap--g1.jpg",
-    "/store/drop/bumbocap-cap--g2.jpg",
-    "/store/drop/bumbocap-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1366,14 +1333,11 @@
     "Pink"
    ],
    "images": {
-    "Black": "/store/drop/rudegyal-cap--black.jpg",
-    "Pink": "/store/drop/rudegyal-cap--pink.jpg"
+    "Black": "/store/views/rudegyal-cap--black.jpg",
+    "Pink": "/store/views/rudegyal-cap--pink.jpg",
+    "default": "/store/views/rudegyal-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/rudegyal-cap--g1.jpg",
-    "/store/drop/rudegyal-cap--g2.jpg",
-    "/store/drop/rudegyal-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1399,14 +1363,11 @@
     "Royal"
    ],
    "images": {
-    "Blue/Red": "/store/drop/kissmiraas-cap--blue-red.jpg",
-    "Royal": "/store/drop/kissmiraas-cap--royal.jpg"
+    "Blue/Red": "/store/views/kissmiraas-cap--blue-red.jpg",
+    "Royal": "/store/views/kissmiraas-cap--royal.jpg",
+    "default": "/store/views/kissmiraas-cap--blue-red.jpg"
    },
-   "gallery": [
-    "/store/drop/kissmiraas-cap--g1.jpg",
-    "/store/drop/kissmiraas-cap--g2.jpg",
-    "/store/drop/kissmiraas-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84653,
@@ -1432,14 +1393,11 @@
     "Green"
    ],
    "images": {
-    "Black": "/store/drop/yardieaf-cap--black.jpg",
-    "Green": "/store/drop/yardieaf-cap--green.jpg"
+    "Black": "/store/views/yardieaf-cap--black.jpg",
+    "Green": "/store/views/yardieaf-cap--green.jpg",
+    "default": "/store/views/yardieaf-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/yardieaf-cap--g1.jpg",
-    "/store/drop/yardieaf-cap--g2.jpg",
-    "/store/drop/yardieaf-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1465,14 +1423,11 @@
     "Green"
    ],
    "images": {
-    "Black": "/store/drop/yuhtoolie-cap--black.jpg",
-    "Green": "/store/drop/yuhtoolie-cap--green.jpg"
+    "Black": "/store/views/yuhtoolie-cap--black.jpg",
+    "Green": "/store/views/yuhtoolie-cap--green.jpg",
+    "default": "/store/views/yuhtoolie-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/yuhtoolie-cap--g1.jpg",
-    "/store/drop/yuhtoolie-cap--g2.jpg",
-    "/store/drop/yuhtoolie-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1498,14 +1453,11 @@
     "Dark Navy"
    ],
    "images": {
-    "Black": "/store/drop/maddawg-cap--black.jpg",
-    "Dark Navy": "/store/drop/maddawg-cap--dark-navy.jpg"
+    "Black": "/store/views/maddawg-cap--black.jpg",
+    "Dark Navy": "/store/views/maddawg-cap--dark-navy.jpg",
+    "default": "/store/views/maddawg-cap--black.jpg"
    },
-   "gallery": [
-    "/store/drop/maddawg-cap--g1.jpg",
-    "/store/drop/maddawg-cap--g2.jpg",
-    "/store/drop/maddawg-cap--g3.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 84650,
@@ -1531,8 +1483,8 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/views/moremoney-tee--v1-front.jpg",
-    "default": "/store/views/moremoney-tee--v1-front.jpg"
+    "Black": "/store/views/moremoney-tee--black.jpg",
+    "default": "/store/views/moremoney-tee--black.jpg"
    },
    "gallery": [],
    "variants": [
@@ -1581,12 +1533,10 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/drop/moremoney-tank--black.jpg"
+    "Black": "/store/views/moremoney-tank--black.jpg",
+    "default": "/store/views/moremoney-tank--black.jpg"
    },
-   "gallery": [
-    "/store/drop/moremoney-tank--g1.jpg",
-    "/store/drop/moremoney-tank--g2.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 24641,
@@ -1627,12 +1577,10 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/more-money-hoodie-modern.webp"
+    "Black": "/store/views/moremoney-hoodie--black.jpg",
+    "default": "/store/views/moremoney-hoodie--black.jpg"
    },
-   "gallery": [
-    "/store/drop/moremoney-hoodie--g1.jpg",
-    "/store/drop/moremoney-hoodie--g2.jpg"
-   ],
+   "gallery": [],
    "variants": [
     {
      "id": 32918,
@@ -1680,7 +1628,8 @@
     "Black"
    ],
    "images": {
-    "Black": "/store/drop/moremoney-cap--black.jpg"
+    "Black": "/store/views/moremoney-cap--black.jpg",
+    "default": "/store/views/moremoney-cap--black.jpg"
    },
    "gallery": [],
    "variants": [

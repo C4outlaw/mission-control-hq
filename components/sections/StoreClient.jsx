@@ -609,9 +609,8 @@ function DropModal({ p, onAdd, onClose }) {
  * The Lost Jamaican's own.
  * ================================================================== */
 
-/* Drop products price in cents; the premium line was authored in dollars.
-   Normalise on read so neither list can render the other's magnitude. */
-const cents = (p) => (p.variants ? p.price : Math.round(p.price * 100));
+/* Every price in the catalogue is in cents, premium included. */
+const cents = (p) => p.price;
 
 /* Every view of a product: the chosen colour leads, then its other
    colourways and any extra gallery shots, de-duplicated. */
