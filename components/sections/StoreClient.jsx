@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { DESIGN_GROUPS, DROP_ALL, KIND, money } from '../../lib/store-products';
+import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 import { CATALOG30, CAT30_FACETS } from '../../lib/catalog-30';
 
@@ -1044,6 +1044,21 @@ export default function StoreClient() {
         </div>
       </section>
 
+      {/* ================= Premium Collection ================= */}
+      <section id="premium" className="drop">
+        <div className="tls-shell">
+          <header className="drop-head">
+            <p className="tls-mono">Premium Collection · {PREMIUM_PRODUCTS.length} pieces · luxury blanks</p>
+            <h2>The premium look. Fashion-house quality.</h2>
+            <p className="drop-lede">Every design reimagined in the dark premium aesthetic — heavyweight black tees, luxury hoodies, refined typography. The Lost Jamaican, elevated.</p>
+          </header>
+
+          <div className="drop-grid">
+            {PREMIUM_PRODUCTS.map((p) => <DropCard key={p.key} p={p} onOpen={() => setOpenDrop(p)} />)}
+          </div>
+        </div>
+      </section>
+
       {/* ---------- Social proof ---------- */}
       <section className="drop-proof">
         <div className="tls-shell drop-proof-inner">
@@ -1240,9 +1255,4 @@ export default function StoreClient() {
               {busy ? 'Opening…' : 'Checkout'}
             </button>
           </div>
-          {err && <p className="etsy-err">{err}</p>}
-        </div>
-      )}
-    </main>
-  );
-}
+          {err && <p className
