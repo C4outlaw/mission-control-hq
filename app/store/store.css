@@ -4,14 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
 
 .tls {
-  --ink: #0c0a09;
-  --paper: #fafaf9;
-  --surface: #ffffff;
-  --muted: #8a8578;
+  --ink: #fafaf9;
+  --paper: #0a0a0a;
+  --surface: #141414;
+  --muted: #a3a3a3;
   /* Readable secondary text on the white product cards (muted was ~3.5:1, below AA). */
-  --muted-strong: #57534e;
-  --line: #e5e1d8;
-  --gold: #a16207;
+  --muted-strong: #d4d4d4;
+  --line: #262626;
+  --gold: #c9a24b;
   --gold-soft: #c9a24b;
   background: var(--paper);
   color: var(--ink);
@@ -144,12 +144,12 @@
    ===================================================================== */
 .etsy,
 .etsy-section {
-  --e-bg: #faf8f5;        /* rgb(250,248,245) */
-  --e-ink: #312b36;       /* rgb(49,43,54)    */
-  --e-muted: #665e5c;     /* rgb(102,94,92)   */
+  --e-bg: #0a0a0a;        /* rgb(250,248,245) */
+  --e-ink: #fafaf9;       /* rgb(49,43,54)    */
+  --e-muted: #a3a3a3;     /* rgb(102,94,92)   */
   --e-green: #406221;     /* rgb(64,98,33)    */
-  --e-line: #e1dedb;
-  --e-surface: #ffffff;
+  --e-line: #262626;
+  --e-surface: #141414;
   background: var(--e-bg);
   color: var(--e-ink);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Droid Sans", Arial, sans-serif;
