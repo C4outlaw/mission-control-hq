@@ -730,8 +730,22 @@ function BBProduct({ p, onAdd, onClose }) {
       <div className="bb-pdp-views" ref={viewsRef} onScroll={onViewsScroll}>
         {shots.map((src, i) => (
           <figure className="bb-view" key={src + i}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt={`${p.name} — view ${i + 1} of ${shots.length}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+            {/\.mp4$/.test(src) ? (
+              // A turn-around shows the back of the garment better than any still.
+              <video
+                src={src}
+                poster={src.replace(/\.mp4$/, '.jpg')}
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+                aria-label={`${p.name} — turning to show the back`}
+              />
+            ) : (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={src} alt={`${p.name} — view ${i + 1} of ${shots.length}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+            )}
           </figure>
         ))}
         <span className="bb-pdp-count" aria-hidden="true">{shot + 1}/{shots.length}</span>
@@ -778,6 +792,10 @@ function BBProduct({ p, onAdd, onClose }) {
             </label>
           )}
 
+          {hasSizes && (
+            <p className="bb-rail-model">Model wears size M and is 178cm/5ft 10in</p>
+          )}
+
           <button type="button" className="bb-rail-buy" onClick={add} disabled={!sellable}>
             {added ? 'Added to bag' : sellable ? 'Add to Bag' : 'Coming soon'}
           </button>
@@ -797,9 +815,19 @@ function BBProduct({ p, onAdd, onClose }) {
             <p>{hasSizes ? 'Unisex sizing, true to size. Between sizes? Take the larger for a relaxed fit.' : 'One size.'}</p>
           </details>
           <details className="bb-acc">
+            <summary>Fabric &amp; Care</summary>
+            <p>{p.kind === 'mug' ? 'Ceramic, dishwasher and microwave safe.' : 'Soft combed cotton. Machine wash cold inside out, tumble dry low, do not iron directly on the print.'}</p>
+          </details>
+          <details className="bb-acc">
             <summary>Shipping &amp; Returns</summary>
             <p>Made and shipped from the print house in 3–7 business days. Faulty or misprinted items are replaced free.</p>
           </details>
+
+          <ul className="bb-services">
+            <li>Free returns on every order</li>
+            <li>Printed to order, never mass stocked</li>
+            <li>Secure checkout via Stripe</li>
+          </ul>
         </div>
       </aside>
     </div>

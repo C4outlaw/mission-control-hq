@@ -996,3 +996,19 @@
   .bb-bar.is-sticky { top: 60px; }
   .bb-bar .drop-pills { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
 }
+
+/* The reference PDP tells you what size the model is wearing, right where the
+   shopper is choosing their own. */
+.bb-rail-model { margin: 10px 0 0; font-size: 12.5px; color: #6b6b6b !important; }
+
+/* Service promises close the rail, as on the reference product page. */
+.bb-services { list-style: none; margin: 26px 0 0; padding: 18px 0 0; border-top: 1px solid #ebe7e1; display: grid; gap: 9px; }
+.bb-services li { position: relative; padding-left: 18px; font-size: 12.5px; color: #4a4a4a !important; }
+.bb-services li::before { content: ''; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; background: #0c0a09; }
+
+/* PDP views are square, the way the reference serves them; the listing tile
+   still crops to portrait. */
+.bb-view { aspect-ratio: 1 / 1; }
+
+/* A video view fills its square exactly like a still does. */
+.bb-view video { width: 100%; height: 100%; object-fit: cover; display: block; }
