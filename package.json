@@ -12,7 +12,10 @@
     "electron:dev": "concurrently \"npm run dev -- --port 3002\" \"wait-on tcp:3002 && electron .\"",
     "electron:prod": "npm run build && electron .",
     "dist:win": "npm run build && electron-builder --win portable",
-    "quality:gate": "powershell -ExecutionPolicy Bypass -File .\\scripts\\quality-gate.ps1"
+    "quality:gate": "powershell -ExecutionPolicy Bypass -File .\\scripts\\quality-gate.ps1",
+    "check:syntax": "node scripts/check-syntax.mjs",
+    "verify": "npm run check:syntax -- $(git ls-files \"*.js\" \"*.jsx\" \"*.mjs\" \"*.cjs\" \"*.ts\" \"*.tsx\") && npm run build",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "build": {
     "appId": "ai.myrie.marvinroom",

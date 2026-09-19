@@ -1,0 +1,9 @@
+#!/bin/sh
+# Runs the real production build before anything reaches GitHub/Vercel.
+# Bypass in an emergency with: git push --no-verify
+echo "Running production build before push..."
+npm run build || {
+  echo ""
+  echo "Push blocked: the production build fails. Vercel would reject this too."
+  exit 1
+}

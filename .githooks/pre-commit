@@ -1,0 +1,12 @@
+#!/bin/sh
+# Blocks commits containing truncated or unparseable source files.
+# Enable with: git config core.hooksPath .githooks  (npm install does this for you)
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(jsx?|mjs|cjs|tsx?)$')
+[ -z "$files" ] && exit 0
+# shellcheck disable=SC2086
+node scripts/check-syntax.mjs $files || {
+  echo ""
+  echo "Commit blocked. Re-write the file(s) in full, then commit again."
+  echo "To bypass in a genuine emergency: git commit --no-verify"
+  exit 1
+}
