@@ -4,7 +4,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 import { CATALOG30, CAT30_FACETS } from '../../lib/catalog-30';
-import { CATALOGUE, DEPARTMENTS } from '../../lib/store-unified';
+import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
 // collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
@@ -685,14 +685,14 @@ function BBProduct({ p, onAdd, onClose }) {
   const [color, setColor] = useState(colors[0] || null);
   const [shot, setShot] = useState(0);
   const [added, setAdded] = useState(false);
-  const viewsRef = useRef(null);
 
   // A Printify piece carries variant rows; a CustomCat piece carries a plain
   // size list off its blank. Both end up as {id,size} so the rest is identical.
   const isCC = p.source === 'customcat';
   const sizes = useMemo(() => {
     if (isCC) return (p.sizes || []).map((sz) => ({ id: sz, size: sz }));
-    const vs = (p.variants || []).filter((v) => !color || v.color === color);
+    // Printify blanks run to 5XL; the store only carries S to XL.
+    const vs = (p.variants || []).filter((v) => (!color || v.color === color) && isStockedSize(v.size));
     return [...vs].sort((a, b) => SIZE_ORDER.indexOf(a.size) - SIZE_ORDER.indexOf(b.size));
   }, [p, color, isCC]);
   const [variantId, setVariantId] = useState(null);
@@ -707,20 +707,7 @@ function BBProduct({ p, onAdd, onClose }) {
   }, [onClose]);
 
   const shots = useMemo(() => shotsFor(p, color), [p, color]);
-  useEffect(() => { setShot(0); viewsRef.current?.scrollTo({ top: 0 }); }, [color]);
-
-  /* Which view is in front of the reader, for the 1/N counter. */
-  function onViewsScroll(e) {
-    const el = e.currentTarget;
-    const kids = [...el.querySelectorAll('.bb-view')];
-    // Desktop stacks the views vertically; phones swipe them sideways.
-    const horiz = el.scrollWidth > el.clientWidth;
-    const mid = horiz ? el.scrollLeft + el.clientWidth / 2 : el.scrollTop + el.clientHeight / 2;
-    const i = kids.findIndex((k) => (horiz
-      ? k.offsetLeft <= mid && k.offsetLeft + k.offsetWidth > mid
-      : k.offsetTop <= mid && k.offsetTop + k.offsetHeight > mid));
-    if (i >= 0 && i !== shot) setShot(i);
-  }
+  useEffect(() => { setShot(0); }, [color]);
 
   const chosen = sizes.find((v) => String(v.id) === String(variantId)) || sizes[0];
   const hasSizes = sizes.some((v) => isRealSize(v.size));
@@ -748,29 +735,41 @@ function BBProduct({ p, onAdd, onClose }) {
         </svg>
       </button>
 
-      <div className="bb-pdp-views" ref={viewsRef} onScroll={onViewsScroll}>
-        {shots.map((src, i) => (
-          <figure className="bb-view" key={src + i}>
-            {/\.mp4$/.test(src) ? (
-              // A turn-around shows the back of the garment better than any still.
-              <video
-                src={src}
-                poster={src.replace(/\.mp4$/, '.jpg')}
-                muted
-                loop
-                playsInline
-                autoPlay
-                // The grid never loads this; only the opened product page does.
-                preload="none"
-                aria-label={`${p.name} — turning to show the back`}
-              />
-            ) : (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img src={src} alt={`${p.name} — view ${i + 1} of ${shots.length}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
-            )}
-          </figure>
-        ))}
-        <span className="bb-pdp-count" aria-hidden="true">{shot + 1}/{shots.length}</span>
+      <div className="bb-pdp-stage">
+        {/* One click lands on the whole model, sized to fit the window. Extra
+            views swap in from the rail, so nothing here ever needs scrolling. */}
+        <figure className="bb-stage-main">
+          {/\.mp4$/.test(shots[shot] || '') ? (
+            <video
+              src={shots[shot]}
+              poster={(shots[shot] || '').replace(/\.mp4$/, '.jpg')}
+              muted loop playsInline autoPlay preload="none"
+              aria-label={`${p.name} — turning to show the back`}
+            />
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img src={shots[shot]} alt={`${p.name} — view ${shot + 1} of ${shots.length}`} decoding="async" />
+          )}
+        </figure>
+
+        {shots.length > 1 && (
+          <div className="bb-stage-thumbs" role="group" aria-label="Other views">
+            {shots.map((src, i) => (
+              <button
+                key={src + i}
+                type="button"
+                className={`bb-thumb${i === shot ? ' is-on' : ''}`}
+                onClick={() => setShot(i)}
+                aria-label={`View ${i + 1}`}
+                aria-pressed={i === shot}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={/\.mp4$/.test(src) ? src.replace(/\.mp4$/, '.jpg') : src} alt="" loading="lazy" decoding="async" />
+                {/\.mp4$/.test(src) && <span className="bb-thumb-play" aria-hidden="true">▶</span>}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <aside className="bb-pdp-rail">
