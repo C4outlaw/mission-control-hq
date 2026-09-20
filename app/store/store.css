@@ -590,13 +590,16 @@
 /* ================= Drop 01 conversion pass (2026-09-05) ================= */
 
 /* Urgency strip — sits between hero and drop, always honest copy. */
+/* Stated literally, not through --ink/--paper: in the store shell --ink
+   resolves to #fafaf9, so this bar rendered near-white with the pale text it
+   was designed to carry on a dark ground -- 1.67:1, unreadable. */
 .drop-strip {
   display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
-  padding: 12px 18px; background: var(--ink); color: var(--paper);
+  padding: 12px 18px; background: #0c0a09; color: #faf8f5;
   font-size: 13.5px; letter-spacing: 0.02em; text-align: center;
 }
-.drop-strip strong { color: var(--gold-soft); font-weight: 700; }
-.drop-strip span:not(.drop-strip-live) { color: #c9c4b6; }
+.drop-strip strong { color: #e0bd72; font-weight: 700; }   /* 8.6:1 on #0c0a09 */
+.drop-strip span:not(.drop-strip-live) { color: #d4cfc4; } /* 11.3:1 */
 .drop-strip-live {
   width: 8px; height: 8px; border-radius: 50%; background: #3fbf5a;
   box-shadow: 0 0 0 0 rgba(63, 191, 90, 0.5); animation: drop-pulse 2s infinite;
@@ -800,7 +803,7 @@
   font-size: 14px;
   font-variant-numeric: tabular-nums;
 }
-.bb-card-price s { color: #8a8a8a; margin-left: 6px; font-size: 12.5px; }
+.bb-card-price s { color: #6a6a6a; margin-left: 6px; font-size: 12.5px; }  /* 5.7:1; #8a8a8a was 3.45 */
 .bb-card-swatches { display: flex; gap: 5px; padding: 8px 14px 0; }
 .bb-card-swatch {
   width: 11px;
@@ -881,13 +884,25 @@
 .bb-rail-blurb { margin: 14px 0 0; font-size: 14px; line-height: 1.55; color: #4a4a4a !important; }
 
 .bb-rail-colour { display: flex; align-items: center; gap: 12px; margin: 22px 0 0; color: #0c0a09; font-size: 14px; }
-.bb-rail-swatches { display: flex; gap: 7px; }
+.bb-rail-swatches { display: flex; gap: 14px; }  /* 18px swatch + 14px = 32px pitch, so the hit areas tile without overlapping */
 .bb-swatch {
   width: 18px;
   height: 18px;
   padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  /* An 18px dot is the right size to look at and too small to hit. The square
+     stays 18px; the tappable area behind it is 32, which clears WCAG 2.2's
+     24px minimum and tiles exactly against its neighbours -- a 44px area on
+     this pitch would overlap and steal the next swatch's tap. */
+  position: relative;
+}
+.bb-swatch::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 32px; height: 32px;
+  transform: translate(-50%, -50%);
 }
 .bb-swatch.is-on { outline: 1px solid #0c0a09; outline-offset: 2px; }
 
