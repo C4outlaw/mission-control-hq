@@ -65,8 +65,12 @@ export async function POST(req) {
 
   // CustomCat signs nothing; the shared read-only key in the payload is the
   // only proof this came from them, so it has to match exactly.
-  const expected = process.env.CUSTOMCAT_WEBHOOK_KEY || process.env.CUSTOMCAT_READONLY_KEY;
-  if (expected && !sameSecret(String(body.api_key || ''), expected)) {
+  // Their docs say the payload carries the read-only key, but the webhook was
+  // registered with the read/write one; accept either rather than risk dropping
+  // a real shipping notification over which of the two they actually send.
+  const allowed = String(process.env.CUSTOMCAT_WEBHOOK_KEYS || '')
+    .split(',').map((k) => k.trim()).filter(Boolean);
+  if (allowed.length && !allowed.some((k) => sameSecret(String(body.api_key || ''), k))) {
     return Response.json({ error: 'unauthorized' }, { status: 401 });
   }
 
