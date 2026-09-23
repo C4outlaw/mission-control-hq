@@ -70,6 +70,11 @@ export async function POST(req) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items,
+      // Stripe's own receipt (2026-09-22). Myrie bought a hoodie and got nothing: the session carried no
+      // receipt_email, so Stripe never mailed one, and our webhook returned before its email block. Setting
+      // this makes Stripe issue its own itemised receipt for every payment, independent of our SMTP - so a
+      // buyer is covered even if our mail path fails. `if_required` keeps guest checkout working.
+      customer_creation: 'if_required',
       // The buyer pays shipping, not us, and at what CustomCat actually
       // charges for this basket rather than a flat guess. CustomCat quotes US
       // rates only, so the shop posts within the US.
