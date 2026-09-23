@@ -73,6 +73,17 @@ export default function OrderLookup({ initialNumber = '', initialEmail = '' }) {
             <p className="ord-eyebrow">{order.number}</p>
             <h2>{order.status.label}</h2>
             <p className="ord-note">{order.status.detail}</p>
+            {order.status.tracking && (
+              <div className="ord-track">
+                <span>Tracking number</span>
+                <strong>{order.status.tracking}</strong>
+                {order.status.trackingUrl && (
+                  <a className="ord-btn" href={order.status.trackingUrl} target="_blank" rel="noreferrer">
+                    Track this parcel
+                  </a>
+                )}
+              </div>
+            )}
           </header>
           <dl className="ord-facts">
             <div><dt>Ordered</dt><dd>{new Date(order.created).toLocaleDateString()}</dd></div>

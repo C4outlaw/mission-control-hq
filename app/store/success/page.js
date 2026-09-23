@@ -70,6 +70,18 @@ export default async function SuccessPage({ searchParams }) {
 
             <p className="ord-note">{order.status.detail}</p>
 
+            {order.status.tracking && (
+              <div className="ord-track">
+                <span>Tracking number</span>
+                <strong>{order.status.tracking}</strong>
+                {order.status.trackingUrl && (
+                  <a className="ord-btn" href={order.status.trackingUrl} target="_blank" rel="noreferrer">
+                    Track this parcel
+                  </a>
+                )}
+              </div>
+            )}
+
             <div className="ord-actions">
               <Link className="ord-btn" href={`/store/orders?number=${order.number}&email=${encodeURIComponent(order.email || '')}`}>
                 Check on this order

@@ -1346,3 +1346,13 @@
   .ord-facts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .ord-number { flex-direction: column; gap: 4px; }
 }
+
+/* Tracking, once the print house has shipped. */
+.ord-track {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px;
+  margin: 0 0 24px; padding: 16px 18px; border: 1px solid #0c0a09;
+}
+.ord-track span { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #6b6b6b; }
+.ord-track strong { font-size: 17px; font-variant-numeric: tabular-nums; letter-spacing: .04em; overflow-wrap: anywhere; }
+.ord-track .ord-btn { margin-left: auto; min-height: 44px; padding: 11px 18px; font-size: 14px; }
+@media (max-width: 520px) { .ord-track .ord-btn { margin-left: 0; width: 100%; } }
