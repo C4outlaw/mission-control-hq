@@ -34,14 +34,6 @@ const nextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      // The store is the business now, so the front door opens onto it.
-      // Temporary (307) so the marketing home can be restored without a
-      // permanent redirect stuck in everyone's browser cache.
-      { source: '/', destination: '/store', permanent: false },
-    ];
-  },
   async rewrites() {
     return [
       // Serve the static Beach Bucket Vite build under /beach-bucket-live
