@@ -14,12 +14,20 @@ const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-editorial", di
 export const metadata = {
   metadataBase: new URL('https://www.myriehq.com'),
   title: {
-    default: 'Myrie HQ | Daytona & Orlando Marketing Agency',
+    default: 'Myrie HQ | The Lost Jamaican — Dancehall & Reggae History',
     template: '%s | Myrie HQ',
   },
+  // The root is the strongest URL on the domain, so it has to carry the thing
+  // people actually search for. The agency keywords still rank from their own
+  // dedicated pages (/daytona-beach-marketing-agency, /local-seo-orlando, ...).
   description:
-    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants, bars, and local businesses in Daytona Beach and Orlando.',
+    'The Lost Jamaican: cinematic short documentaries on dancehall and reggae history, plus the prompt packs behind them. From Myrie HQ in Daytona Beach.',
   keywords: [
+    'The Lost Jamaican',
+    'dancehall history',
+    'reggae history',
+    'Jamaican music history',
+    'dancehall documentary',
     'Daytona marketing agency',
     'Orlando marketing agency',
     'restaurant website design',
@@ -31,15 +39,15 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: 'https://www.myriehq.com',
-    title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
-    description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
+    title: 'Myrie HQ | The Lost Jamaican — Dancehall & Reggae History',
+    description: 'Cinematic short documentaries on dancehall and reggae history, and the prompt packs behind them.',
     siteName: 'Myrie HQ',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Myrie HQ — websites, menus & marketing for restaurants and bars' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'The Lost Jamaican — dancehall and reggae history from Myrie HQ' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Myrie HQ | Daytona & Orlando Marketing Agency',
-    description: 'Premium websites, local SEO, brand creative, and growth systems for restaurants, bars, and local businesses.',
+    title: 'Myrie HQ | The Lost Jamaican — Dancehall & Reggae History',
+    description: 'Cinematic short documentaries on dancehall and reggae history, and the prompt packs behind them.',
     images: ['/og-image.jpg'],
   },
 };
