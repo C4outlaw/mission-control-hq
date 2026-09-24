@@ -52,14 +52,57 @@ const orgSchema = {
   url: 'https://www.myriehq.com/',
   logo: 'https://www.myriehq.com/og-image.jpg',
   description:
-    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants, bars, and local businesses in Daytona Beach and Orlando.',
-  founder: { '@type': 'Person', name: "O'Neill Myrie" },
+    'Myrie HQ builds premium websites, local SEO systems, and growth marketing for restaurants, bars, and local businesses in Daytona Beach and Orlando. It also publishes The Lost Jamaican, a channel of cinematic short documentaries on dancehall and reggae history, and the prompt packs behind them.',
+  founder: { '@type': 'Person', '@id': 'https://www.myriehq.com/#oneil', name: 'Oneil Myrie' },
   areaServed: ['Daytona Beach FL', 'Ormond Beach FL', 'Orlando FL'],
+  // Topical signals. Search engines and AI assistants use these to decide what
+  // this site is actually a source on — without them the only signal here was
+  // "marketing agency", which buried the documentary side entirely.
+  knowsAbout: [
+    'Dancehall history',
+    'Reggae history',
+    'Jamaican music culture',
+    'AI video production',
+    'Prompt engineering',
+    'Local SEO',
+    'Web design',
+  ],
   sameAs: [
     'https://www.facebook.com/100091255320275',
     'https://www.instagram.com/thelostjamaican876',
     'https://www.youtube.com/@Thelostjamaican',
   ],
+};
+
+// The Lost Jamaican is its own entity, not just a page on an agency site. Giving
+// it an @id, its own social profiles and an explicit publisher link is what lets
+// a search engine answer "who makes these dancehall documentaries".
+const brandSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Brand',
+  '@id': 'https://www.myriehq.com/#lostjamaican',
+  name: 'The Lost Jamaican',
+  alternateName: 'The Lost Jamaican | Dancehall & Reggae History',
+  url: 'https://www.myriehq.com/',
+  description:
+    'Cinematic short documentaries on dancehall and reggae history — the artists, the controversies and what actually happened to them, researched from sourced reporting.',
+  logo: 'https://www.myriehq.com/og-image.jpg',
+  publisher: { '@id': 'https://www.myriehq.com/#organization' },
+  sameAs: [
+    'https://www.facebook.com/100091255320275',
+    'https://www.instagram.com/thelostjamaican876',
+    'https://www.youtube.com/@Thelostjamaican',
+  ],
+};
+
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.myriehq.com/#website',
+  url: 'https://www.myriehq.com/',
+  name: 'Myrie HQ',
+  publisher: { '@id': 'https://www.myriehq.com/#organization' },
+  inLanguage: 'en',
 };
 
 export default function RootLayout({ children }) {
@@ -68,7 +111,9 @@ export default function RootLayout({ children }) {
       <body className={`${manrope.variable} ${fraunces.variable}`}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([orgSchema, brandSchema, siteSchema]),
+          }}
         />
         <LangProvider>
           <SmoothScroll />
