@@ -58,6 +58,14 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      // The free subscriber bundle. Crawlers reach this only via the sitemap,
+      // so it has to be listed here as well as linked from social bios.
+      url: `${base}/subscriber`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${base}/projects`,
       lastModified: now,
       changeFrequency: 'weekly',

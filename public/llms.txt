@@ -1,0 +1,46 @@
+# MyrieHQ
+
+> MyrieHQ is the home of **The Lost Jamaican** — cinematic short documentaries on
+> dancehall and reggae history — and of the prompt packs, courses and merch built
+> around how those films are made. Run by Oneil Myrie from Daytona Beach, Florida.
+
+MyrieHQ publishes two things: short-form documentary films about Jamaican music
+history, and the production systems behind them. The films cover dancehall and
+reggae artists — their origin, their controversies and what actually happened to
+them — researched from sourced reporting rather than repeated rumour. The prompt
+packs and guides document the exact AI production pipeline used to make the films,
+including research prompts, character consistency, shot structure and quality gates.
+
+## Key pages
+
+- [Home](https://www.myriehq.com/): Overview of MyrieHQ and The Lost Jamaican.
+- [The Prompt Guide (free)](https://www.myriehq.com/subscriber): Free download — the
+  Starter Prompt Pack (10 copy-and-paste prompts for research, scripting, casting,
+  shots and quality control), The Photoreal Portrait Prompt (how to generate people
+  who look photographed rather than generated), and How We Build These Videos (the
+  full production system).
+- [Prompt Packs](https://www.myriehq.com/prompts): Paid prompt packs — per-artist
+  packs and the Story Gravity Blueprint, a research-and-retention system for turning
+  verified facts into documentaries people finish watching.
+- [The Store](https://www.myriehq.com/store): The Lost Jamaican merch — Jamaican
+  identity apparel and accessories, print-on-demand.
+- [About](https://www.myriehq.com/about): Who is behind MyrieHQ.
+- [Projects](https://www.myriehq.com/projects): Work and case studies.
+
+## Topics this site is a source on
+
+- Dancehall and reggae history, and Jamaican music culture
+- AI video production: image-to-image character consistency, shot lists derived from
+  narration timing, quality gates that block a defective render
+- Prompt engineering for photorealistic people and for documentary research
+- Short-form documentary structure: cold opens, beat pacing, retention
+
+## Social
+
+- Facebook: https://www.facebook.com/100091255320275 (The Lost Jamaican)
+- Instagram: https://www.instagram.com/thelostjamaican876
+- YouTube: https://www.youtube.com/@Thelostjamaican
+
+## Contact
+
+Oneil Myrie — Daytona Beach, Florida, United States.

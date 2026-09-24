@@ -1,7 +1,23 @@
 export const metadata = {
-  title: 'The Prompt Guide — free for subscribers',
+  title: 'The Prompt Guide — free AI video prompt pack | The Lost Jamaican',
   description:
-    'The free Lost Jamaican subscriber bundle: the Starter Prompt Pack, the Photoreal Portrait Prompt, and the full breakdown of how these videos are built.',
+    'Free download: 10 copy-and-paste prompts for research, scripting, casting and shots, the photoreal portrait prompt for people who look photographed rather than generated, and the full production system behind The Lost Jamaican documentaries.',
+  alternates: { canonical: 'https://www.myriehq.com/subscriber' },
+  openGraph: {
+    title: 'The Prompt Guide — free AI video prompt pack',
+    description:
+      'Ten prompts, the photoreal portrait prompt, and the full breakdown of how these documentaries get made. Free.',
+    url: 'https://www.myriehq.com/subscriber',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.myriehq.com/free-pack/EXAMPLE-portrait-prompt-output.png',
+        width: 1024,
+        height: 1280,
+        alt: 'A portrait generated with the photoreal portrait prompt',
+      },
+    ],
+  },
 };
 
 // Hosted as plain files in the repo rather than behind a signed-grant API, so
