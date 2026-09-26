@@ -4,6 +4,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
+import StoreBooks from './StoreBooks';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
 // collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
@@ -1087,6 +1088,9 @@ export default function StoreClient() {
           </div>
         </div>
       </section>
+
+      {/* ---------- Coloring books (link out to Amazon) ---------- */}
+      <StoreBooks />
 
       {/* ---------- Urgency strip ---------- */}
       <div className="drop-strip" role="note">
