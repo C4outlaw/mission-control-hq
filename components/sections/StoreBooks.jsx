@@ -1,44 +1,62 @@
-import { LIVE_BOOKS } from '../../lib/store-books';
+import { BOOKS } from '../../lib/store-books';
 
-/* Coloring books sit straight under the hero. They sell on Amazon, so each
-   card links out instead of joining the cart. */
+/* "Grab your kids' coloring book!" — the coloring books, straight under the
+   shop masthead. They sell on Amazon, so each card links out instead of
+   joining the cart. */
+
+const TITLE = [
+  ['Grab', 'is-coral'],
+  ['your', 'is-teal'],
+  ["kids'", 'is-purple'],
+  ['coloring', 'is-orange'],
+  ['book!', 'is-pink'],
+];
+
 export default function StoreBooks() {
-  if (!LIVE_BOOKS.length) return null;
   return (
-    <section id="books" className="tlj-books" aria-labelledby="tlj-books-title">
-      <div className="tls-shell">
-        <header className="tlj-books-head">
-          <p className="tls-mono">New · Coloring books by The Lost Jamaican</p>
-          <h2 id="tlj-books-title">Color the island.</h2>
-        </header>
-        <div className="tlj-books-grid">
-          {LIVE_BOOKS.map((b) => (
-            <article className="tlj-book" key={b.id}>
-              <a href={b.amazon} target="_blank" rel="noopener noreferrer" className="tlj-book-cover">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.cover} alt={`${b.title} coloring book cover`} loading="lazy" decoding="async" />
-              </a>
-              <div className="tlj-book-body">
-                <h3>{b.title}</h3>
-                <p className="tlj-book-sub">{b.subtitle}</p>
-                <p className="tlj-book-blurb">{b.blurb}</p>
-                <div className="tlj-book-peek" aria-label="Pages from inside the book">
-                  {b.pages.map((src) => (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img key={src} src={src} alt="" loading="lazy" decoding="async" />
-                  ))}
-                </div>
-                <div className="tlj-book-buy">
-                  <span className="tlj-book-price">{b.price}</span>
-                  <a href={b.amazon} target="_blank" rel="noopener noreferrer" className="tlj-book-btn">
-                    Buy on Amazon <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
+    <div id="books" className="kids-books" role="region" aria-labelledby="kids-books-title">
+      <h3 id="kids-books-title" className="kids-title">
+        {TITLE.map(([word, tone]) => (
+          <span key={word} className={tone}>{word}</span>
+        ))}
+      </h3>
+      <svg className="kids-squiggle" viewBox="0 0 300 18" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M2 12 Q 20 2 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 8" />
+      </svg>
+      <p className="kids-sub">Bold, easy pages for little hands, printed on one side so markers never bleed through.</p>
+
+      <div className="kids-grid">
+        {BOOKS.map((b) => (
+          <article className="kid-card" key={b.id}>
+            <div className="kid-cover">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={b.cover} alt={`${b.title} coloring book cover`} loading="lazy" decoding="async" />
+              <span className="kid-badge">{b.badge}</span>
+            </div>
+            <div className="kid-body">
+              <h4>{b.title}</h4>
+              <p className="kid-subtitle">{b.subtitle}</p>
+              <p className="kid-blurb">{b.blurb}</p>
+              <div className="kid-peek" aria-label="Pages from inside the book">
+                {b.pages.map((src) => (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img key={src} src={src} alt="" loading="lazy" decoding="async" />
+                ))}
               </div>
-            </article>
-          ))}
-        </div>
+              <div className="kid-buy">
+                <span className="kid-price">{b.price}</span>
+                {b.amazon ? (
+                  <a href={b.amazon} target="_blank" rel="noopener noreferrer" className="kid-btn">
+                    Get it on Amazon <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <span className="kid-soon">On Amazon this week</span>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

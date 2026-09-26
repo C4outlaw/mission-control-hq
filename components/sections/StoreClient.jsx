@@ -1089,9 +1089,6 @@ export default function StoreClient() {
         </div>
       </section>
 
-      {/* ---------- Coloring books (link out to Amazon) ---------- */}
-      <StoreBooks />
-
       {/* ---------- Urgency strip ---------- */}
       <div className="drop-strip" role="note">
         <span className="drop-strip-live" aria-hidden="true" />
@@ -1109,6 +1106,8 @@ export default function StoreClient() {
           <header className="drop-head is-masthead">
             <p className="tls-mono">The Lost Jamaican · {shopResults.length} pieces · printed to order</p>
             <h2 className="shop-masthead">EVERYTHING, IN ONE PLACE</h2>
+            {/* Coloring books first: they link out to Amazon, not the cart. */}
+            <StoreBooks />
             {/* The ask, stated plainly and with some pride. Nobody responds to
                 begging, but people do back something they already watch. */}
             <div className="shop-cta">

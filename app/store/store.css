@@ -1,7 +1,7 @@
 /* The Lost Jamaican store — editorial studio aesthetic (noth.in-inspired).
    Design system: Playfair Display + Inter + IBM Plex Mono · charcoal/gold · spacious.
    Self-contained (tls- prefix); nothing here overrides the marketing site. */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Fredoka:wght@500;600;700&display=swap');
 
 .tls {
   --ink: #fafaf9;
@@ -1358,41 +1358,85 @@
 @media (max-width: 520px) { .ord-track .ord-btn { margin-left: 0; width: 100%; } }
 
 /* ==================================================================
-   Coloring books (2026-09-26) — straight under the hero. Explicit
-   colours: the marketing shell's --ink resolves light on this page.
+   Kids' coloring books (2026-09-26) — straight under the masthead.
+   Playful on purpose: sticker badges, tilted cards, crayon colours.
+   Explicit colours and doubled selectors because the marketing shell's
+   --ink and `.myrie-marketing p/h3` rules otherwise leak in.
    ================================================================== */
-.tlj-books { background: #faf6ee; color: #1c1917; padding: 72px 0; }
-.tlj-books-head { margin-bottom: 36px; }
-.tlj-books-head .tls-mono { color: #7a6a4f; }
-.myrie-marketing .tlj-books h2, .tlj-books h2 {
-  font-family: 'Playfair Display', Georgia, serif; font-weight: 500;
-  font-size: clamp(30px, 4vw, 48px); line-height: 1.05; margin: 10px 0 0; color: #1c1917;
-  text-wrap: balance;
+.drop-head.is-masthead { container-type: inline-size; }
+.drop-head h2.shop-masthead { white-space: nowrap; text-wrap: nowrap; font-size: min(8rem, var(--masthead-fit, 6.2cqi)); }
+@media (max-width: 640px) { .drop-head h2.shop-masthead { font-size: var(--masthead-fit, 6.2cqi); } }
+
+.tls .kids-books {
+  position: relative; overflow: hidden;
+  margin: 4px 0 36px; padding: clamp(22px, 4vw, 46px);
+  border: 3px solid #1c1917; border-radius: 30px;
+  background-color: #fff4c2;
+  background-image:
+    radial-gradient(circle at 6% 14%, #ffb4a2 0 9px, transparent 10px),
+    radial-gradient(circle at 94% 10%, #a0e7e5 0 12px, transparent 13px),
+    radial-gradient(circle at 88% 88%, #cdb4ff 0 10px, transparent 11px),
+    radial-gradient(circle at 3% 92%, #ffd166 0 14px, transparent 15px),
+    radial-gradient(circle at 50% 4%, #b8f2c9 0 7px, transparent 8px);
+  color: #2a211c;
 }
-.tlj-books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 28px; }
-.tlj-book {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 22px;
-  background: #ffffff; border: 1px solid #e7dfcf; border-radius: 16px; padding: 18px;
+.tls .kids-books .kids-title {
+  margin: 0; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700;
+  font-size: clamp(32px, 5.4vw, 64px); line-height: 1.05; letter-spacing: -0.01em;
+  display: flex; flex-wrap: wrap; gap: 0 0.28em;
 }
-.tlj-book-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; display: block; }
-.tlj-book-body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.myrie-marketing .tlj-book h3, .tlj-book h3 {
-  font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 26px;
-  margin: 0; color: #1c1917;
+.kids-title span { display: inline-block; }
+.kids-title span:nth-child(odd) { transform: rotate(-2.5deg); }
+.kids-title span:nth-child(even) { transform: rotate(2deg) translateY(2px); }
+.kids-title .is-coral { color: #d8431f; }
+.kids-title .is-teal { color: #0b7a6f; }
+.kids-title .is-purple { color: #5b3fa8; }
+.kids-title .is-orange { color: #c2410c; }
+.kids-title .is-pink { color: #be185d; }
+.kids-squiggle { display: block; width: min(420px, 70%); height: 14px; margin: 6px 0 12px; }
+.kids-squiggle path { fill: none; stroke: #d8431f; stroke-width: 4; stroke-linecap: round; }
+.tls .kids-books .kids-sub { margin: 0 0 26px; max-width: 52ch; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.45; color: #3b2f2a; }
+
+.kids-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr)); gap: 28px; }
+.tls .kids-books .kid-card {
+  display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 20px;
+  padding: 16px; background: #ffffff; border: 3px solid #1c1917; border-radius: 22px;
+  box-shadow: 7px 7px 0 #1c1917; transform: rotate(-1.2deg); transition: transform .2s ease, box-shadow .2s ease;
 }
-.tlj-book .tlj-book-sub { margin: 0; font-size: 14px; font-weight: 600; color: #7a6a4f; }
-.tlj-book .tlj-book-blurb { margin: 0; font-size: 15px; line-height: 1.55; color: #44403c; }
-.tlj-book-peek { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 2px; }
-.tlj-book-peek img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid #e7dfcf; border-radius: 6px; display: block; background: #fff; }
-.tlj-book-buy { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 6px; }
-.tlj-book .tlj-book-price { font-size: 22px; font-weight: 700; color: #1c1917; font-variant-numeric: tabular-nums; }
-.tlj-book-btn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 12px 18px; border-radius: 999px;
-  background: #1c1917; color: #ffffff; font-weight: 600; font-size: 15px; text-decoration: none;
+.tls .kids-books .kid-card:nth-child(even) { transform: rotate(1.2deg); }
+.tls .kids-books .kid-card:hover { transform: rotate(0) translateY(-4px); box-shadow: 9px 11px 0 #1c1917; }
+.kid-cover { position: relative; }
+.kid-cover img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 3px solid #1c1917; border-radius: 14px; }
+.kid-badge {
+  position: absolute; top: -10px; right: -10px; padding: 8px 12px; border: 3px solid #1c1917; border-radius: 999px;
+  background: #ffd166; color: #1c1917; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700; font-size: 14px;
+  transform: rotate(8deg); box-shadow: 2px 3px 0 #1c1917; white-space: nowrap;
 }
-.tlj-book-btn:hover { background: #3a332d; }
-.tlj-book-btn:focus-visible, .tlj-book-cover:focus-visible { outline: 3px solid #c9a24b; outline-offset: 3px; }
+.kid-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tls .kids-books .kid-card h4 { margin: 2px 0 0; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.05; color: #1c1917; }
+.tls .kids-books .kid-subtitle { margin: 0; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 15px; color: #5b3fa8; }
+.tls .kids-books .kid-blurb { margin: 0; font-size: 15px; line-height: 1.5; color: #44403c; }
+.kid-peek { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.kid-peek img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid #1c1917; border-radius: 8px; background: #fff; }
+.kid-buy { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.tls .kids-books .kid-price { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; font-size: 26px; color: #1c1917; font-variant-numeric: tabular-nums; }
+.tls .kids-books .kid-btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border: 3px solid #1c1917; border-radius: 999px;
+  background: #d8431f; color: #ffffff; text-decoration: none;
+  font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 600; font-size: 16px;
+  box-shadow: 0 4px 0 #1c1917; transition: transform .1s ease, box-shadow .1s ease;
+}
+.tls .kids-books .kid-btn:hover { background: #b83616; }
+.tls .kids-books .kid-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #1c1917; }
+.kid-btn:focus-visible { outline: 3px solid #5b3fa8; outline-offset: 3px; }
+.tls .kids-books .kid-soon {
+  padding: 9px 14px; border: 2px dashed #1c1917; border-radius: 999px; background: #ffffff; color: #1c1917;
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 14px;
+}
 @media (max-width: 640px) {
-  .tlj-books { padding: 48px 0; }
-  .tlj-book { grid-template-columns: 1fr; }
+  .tls .kids-books .kid-card { grid-template-columns: 1fr; }
+  .kid-badge { right: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tls .kids-books .kid-card, .tls .kids-books .kid-btn { transition: none; }
 }
