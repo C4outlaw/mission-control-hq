@@ -78,5 +78,25 @@ export default function sitemap() {
       priority: 0.7,
     },
 
-  ];
+      // Policy pages. Meta's shop review checks for a reachable return policy,
+    // and the free-pack form must not collect emails with no privacy policy behind it.
+    {
+      url: `${base}/privacy`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${base}/terms`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${base}/returns`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+];
 }
