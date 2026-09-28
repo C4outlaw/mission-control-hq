@@ -689,7 +689,9 @@ function BBCard({ p, onOpen }) {
   const price = cents(p);
   const off = p.compareAt && p.compareAt > price ? Math.round(((p.compareAt - price) / p.compareAt) * 100) : null;
   return (
-    <button type="button" className="bb-card" onClick={onOpen} aria-label={`View ${p.name}`}>
+    // The id is the anchor the Meta product feed links to, so a shopper
+    // arriving from a tagged post lands on the piece they tapped.
+    <button type="button" id={`p-${p.id}`} className="bb-card" onClick={onOpen} aria-label={`View ${p.name}`}>
       <span className="bb-card-kind">{p.kindName || KIND[p.kind]?.long || p.kind}</span>
       <span className="bb-card-media">
         {/* The tile renders near 340px, so it takes a 760px WebP rather than the
