@@ -928,6 +928,17 @@ export default function StoreClient() {
   const [openListing, setOpenListing] = useState(null);
   const [dropFacet, setDropFacet] = useState('all');
   const [openDrop, setOpenDrop] = useState(null);
+  // Shoppers arriving from a Facebook or Instagram shop land on /checkout and
+  // are handed here as /store?p=<id>. Open that piece so they can pick a size
+  // instead of hunting for it in the grid.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const id = new URLSearchParams(window.location.search).get('p');
+    if (!id) return;
+    const item = CATALOGUE.find((x) => x.id === id);
+    if (item) setOpenDrop(item);
+  }, []);
+
   const [heroVideoOk, setHeroVideoOk] = useState(true);
   const [welcomePlaying, setWelcomePlaying] = useState(false);
   const welcomeRef = useRef(null);
