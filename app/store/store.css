@@ -1358,85 +1358,65 @@
 @media (max-width: 520px) { .ord-track .ord-btn { margin-left: 0; width: 100%; } }
 
 /* ==================================================================
-   Kids' coloring books (2026-09-26) — straight under the masthead.
-   Playful on purpose: sticker badges, tilted cards, crayon colours.
-   Explicit colours and doubled selectors because the marketing shell's
-   --ink and `.myrie-marketing p/h3` rules otherwise leak in.
+   Kids' coloring books carousel (2026-09-30) — straight under the masthead.
+   One compact row: swipe on phones, arrows on desktop. Explicit colours and
+   doubled selectors because the marketing shell's --ink and `.myrie-marketing
+   p/h3` rules otherwise leak in.
    ================================================================== */
 .drop-head.is-masthead { container-type: inline-size; }
 .drop-head h2.shop-masthead { white-space: nowrap; text-wrap: nowrap; font-size: min(8rem, var(--masthead-fit, 6.2cqi)); }
 @media (max-width: 640px) { .drop-head h2.shop-masthead { font-size: var(--masthead-fit, 6.2cqi); } }
 
 .tls .kids-books {
-  position: relative; overflow: hidden;
-  margin: 4px 0 36px; padding: clamp(22px, 4vw, 46px);
-  border: 3px solid #1c1917; border-radius: 30px;
-  background-color: #fff4c2;
-  background-image:
-    radial-gradient(circle at 6% 14%, #ffb4a2 0 9px, transparent 10px),
-    radial-gradient(circle at 94% 10%, #a0e7e5 0 12px, transparent 13px),
-    radial-gradient(circle at 88% 88%, #cdb4ff 0 10px, transparent 11px),
-    radial-gradient(circle at 3% 92%, #ffd166 0 14px, transparent 15px),
-    radial-gradient(circle at 50% 4%, #b8f2c9 0 7px, transparent 8px);
-  color: #2a211c;
+  position: relative; margin: 4px 0 30px; padding: 18px 0 16px 18px;
+  border: 3px solid #1c1917; border-radius: 24px; background: #fff4c2; color: #2a211c; overflow: hidden;
 }
+.kids-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-right: 18px; margin-bottom: 12px; }
 .tls .kids-books .kids-title {
   margin: 0; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700;
-  font-size: clamp(32px, 5.4vw, 64px); line-height: 1.05; letter-spacing: -0.01em;
-  display: flex; flex-wrap: wrap; gap: 0 0.28em;
+  font-size: clamp(24px, 3.6vw, 40px); line-height: 1.05; display: flex; flex-wrap: wrap; gap: 0 0.26em;
 }
 .kids-title span { display: inline-block; }
 .kids-title span:nth-child(odd) { transform: rotate(-2.5deg); }
 .kids-title span:nth-child(even) { transform: rotate(2deg) translateY(2px); }
-.kids-title .is-coral { color: #d8431f; }
-.kids-title .is-teal { color: #0b7a6f; }
-.kids-title .is-purple { color: #5b3fa8; }
-.kids-title .is-orange { color: #c2410c; }
-.kids-title .is-pink { color: #be185d; }
-.kids-squiggle { display: block; width: min(420px, 70%); height: 14px; margin: 6px 0 12px; }
-.kids-squiggle path { fill: none; stroke: #d8431f; stroke-width: 4; stroke-linecap: round; }
-.tls .kids-books .kids-sub { margin: 0 0 26px; max-width: 52ch; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 500; font-size: 18px; line-height: 1.45; color: #3b2f2a; }
-
-.kids-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr)); gap: 28px; }
+.kids-title .is-coral { color: #d8431f; } .kids-title .is-teal { color: #0b7a6f; } .kids-title .is-purple { color: #5b3fa8; }
+.kids-title .is-orange { color: #c2410c; } .kids-title .is-pink { color: #be185d; }
+.kids-arrows { display: flex; gap: 8px; flex: none; }
+.tls .kids-books .kids-arrow {
+  width: 40px; height: 40px; border-radius: 50%; border: 3px solid #1c1917; background: #ffffff; color: #1c1917;
+  font-size: 24px; line-height: 1; font-weight: 700; cursor: pointer; box-shadow: 0 3px 0 #1c1917;
+}
+.tls .kids-books .kids-arrow:active { transform: translateY(2px); box-shadow: 0 1px 0 #1c1917; }
+.kids-track {
+  display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 0;
+  padding: 10px 18px 12px 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+}
+.kids-track::-webkit-scrollbar { display: none; }
+.kids-track:focus-visible { outline: 3px solid #5b3fa8; outline-offset: 2px; border-radius: 12px; }
 .tls .kids-books .kid-card {
-  display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 20px;
-  padding: 16px; background: #ffffff; border: 3px solid #1c1917; border-radius: 22px;
-  box-shadow: 7px 7px 0 #1c1917; transform: rotate(-1.2deg); transition: transform .2s ease, box-shadow .2s ease;
+  flex: 0 0 clamp(190px, 44vw, 250px); scroll-snap-align: start; display: flex; flex-direction: column; gap: 6px;
+  padding: 10px; background: #ffffff; border: 3px solid #1c1917; border-radius: 18px; box-shadow: 4px 4px 0 #1c1917;
 }
-.tls .kids-books .kid-card:nth-child(even) { transform: rotate(1.2deg); }
-.tls .kids-books .kid-card:hover { transform: rotate(0) translateY(-4px); box-shadow: 9px 11px 0 #1c1917; }
 .kid-cover { position: relative; }
-.kid-cover img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 3px solid #1c1917; border-radius: 14px; }
+.kid-cover img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid #1c1917; border-radius: 12px; }
 .kid-badge {
-  position: absolute; top: -10px; right: -10px; padding: 8px 12px; border: 3px solid #1c1917; border-radius: 999px;
-  background: #ffd166; color: #1c1917; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700; font-size: 14px;
-  transform: rotate(8deg); box-shadow: 2px 3px 0 #1c1917; white-space: nowrap;
+  position: absolute; top: -8px; right: -8px; padding: 5px 10px; border: 2px solid #1c1917; border-radius: 999px;
+  background: #ffd166; color: #1c1917; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; font-size: 12px;
+  transform: rotate(8deg); box-shadow: 2px 2px 0 #1c1917; white-space: nowrap;
 }
-.kid-body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.tls .kids-books .kid-card h4 { margin: 2px 0 0; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.05; color: #1c1917; }
-.tls .kids-books .kid-subtitle { margin: 0; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 15px; color: #5b3fa8; }
-.tls .kids-books .kid-blurb { margin: 0; font-size: 15px; line-height: 1.5; color: #44403c; }
-.kid-peek { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-.kid-peek img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid #1c1917; border-radius: 8px; background: #fff; }
-.kid-buy { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
-.tls .kids-books .kid-price { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; font-size: 26px; color: #1c1917; font-variant-numeric: tabular-nums; }
+.tls .kids-books .kid-card h4 { margin: 4px 0 0; font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 700; font-size: 20px; line-height: 1.1; color: #1c1917; }
+.tls .kids-books .kid-subtitle { margin: 0; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 13px; line-height: 1.3; color: #5b3fa8; }
+.kid-buy { margin-top: auto; padding-top: 4px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tls .kids-books .kid-price { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; font-size: 20px; color: #1c1917; font-variant-numeric: tabular-nums; }
 .tls .kids-books .kid-btn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 11px 18px; border: 3px solid #1c1917; border-radius: 999px;
-  background: #d8431f; color: #ffffff; text-decoration: none;
-  font-family: 'Fredoka', 'Arial Rounded MT Bold', system-ui, sans-serif; font-weight: 600; font-size: 16px;
-  box-shadow: 0 4px 0 #1c1917; transition: transform .1s ease, box-shadow .1s ease;
+  display: inline-flex; align-items: center; gap: 4px; padding: 8px 14px; border: 2px solid #1c1917; border-radius: 999px;
+  background: #d8431f; color: #ffffff; text-decoration: none; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 14px;
+  box-shadow: 0 3px 0 #1c1917;
 }
 .tls .kids-books .kid-btn:hover { background: #b83616; }
-.tls .kids-books .kid-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #1c1917; }
-.kid-btn:focus-visible { outline: 3px solid #5b3fa8; outline-offset: 3px; }
-.tls .kids-books .kid-soon {
-  padding: 9px 14px; border: 2px dashed #1c1917; border-radius: 999px; background: #ffffff; color: #1c1917;
-  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 14px;
-}
-@media (max-width: 640px) {
-  .tls .kids-books .kid-card { grid-template-columns: 1fr; }
-  .kid-badge { right: 8px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .tls .kids-books .kid-card, .tls .kids-books .kid-btn { transition: none; }
-}
+.tls .kids-books .kid-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #1c1917; }
+.kid-btn:focus-visible, .kids-arrow:focus-visible { outline: 3px solid #5b3fa8; outline-offset: 3px; }
+.tls .kids-books .kid-soon { padding: 6px 10px; border: 2px dashed #1c1917; border-radius: 999px; background: #ffffff; color: #1c1917; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600; font-size: 12px; }
+@media (max-width: 640px) { .kids-arrows { display: none; } .tls .kids-books .kid-card { flex-basis: 62vw; } }
+@media (prefers-reduced-motion: reduce) { .kids-track { scroll-behavior: auto; } }
+

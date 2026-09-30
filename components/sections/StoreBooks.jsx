@@ -1,8 +1,11 @@
+'use client';
+
+import { useRef } from 'react';
 import { BOOKS } from '../../lib/store-books';
 
-/* "Grab your kids' coloring book!" — the coloring books, straight under the
-   shop masthead. They sell on Amazon, so each card links out instead of
-   joining the cart. */
+/* "Grab your kids' coloring book!" — a compact carousel straight under the shop
+   masthead. Swipe on phones, arrows on desktop; it stays one row tall however
+   many books are added. Books sell on Amazon, so cards link out. */
 
 const TITLE = [
   ['Grab', 'is-coral'],
@@ -13,19 +16,31 @@ const TITLE = [
 ];
 
 export default function StoreBooks() {
+  const track = useRef(null);
+  const step = (dir) => {
+    const el = track.current;
+    if (!el) return;
+    const card = el.querySelector('.kid-card');
+    el.scrollBy({ left: dir * ((card?.offsetWidth || 260) + 18), behavior: 'smooth' });
+  };
+
   return (
     <div id="books" className="kids-books" role="region" aria-labelledby="kids-books-title">
-      <h3 id="kids-books-title" className="kids-title">
-        {TITLE.map(([word, tone]) => (
-          <span key={word} className={tone}>{word}</span>
-        ))}
-      </h3>
-      <svg className="kids-squiggle" viewBox="0 0 300 18" aria-hidden="true" preserveAspectRatio="none">
-        <path d="M2 12 Q 20 2 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 8" />
-      </svg>
-      <p className="kids-sub">Bold, easy pages for little hands, printed on one side so markers never bleed through.</p>
+      <div className="kids-head">
+        <h3 id="kids-books-title" className="kids-title">
+          {TITLE.map(([word, tone]) => (
+            <span key={word} className={tone}>{word}</span>
+          ))}
+        </h3>
+        {BOOKS.length > 1 && (
+          <div className="kids-arrows">
+            <button type="button" className="kids-arrow" onClick={() => step(-1)} aria-label="Previous book">‹</button>
+            <button type="button" className="kids-arrow" onClick={() => step(1)} aria-label="Next book">›</button>
+          </div>
+        )}
+      </div>
 
-      <div className="kids-grid">
+      <div className="kids-track" ref={track} tabIndex={0} aria-label="Coloring books, swipe to see more">
         {BOOKS.map((b) => (
           <article className="kid-card" key={b.id}>
             <div className="kid-cover">
@@ -33,26 +48,17 @@ export default function StoreBooks() {
               <img src={b.cover} alt={`${b.title} coloring book cover`} loading="lazy" decoding="async" />
               <span className="kid-badge">{b.badge}</span>
             </div>
-            <div className="kid-body">
-              <h4>{b.title}</h4>
-              <p className="kid-subtitle">{b.subtitle}</p>
-              <p className="kid-blurb">{b.blurb}</p>
-              <div className="kid-peek" aria-label="Pages from inside the book">
-                {b.pages.map((src) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img key={src} src={src} alt="" loading="lazy" decoding="async" />
-                ))}
-              </div>
-              <div className="kid-buy">
-                <span className="kid-price">{b.price}</span>
-                {b.amazon ? (
-                  <a href={b.amazon} target="_blank" rel="noopener noreferrer" className="kid-btn">
-                    Get it on Amazon <span aria-hidden="true">↗</span>
-                  </a>
-                ) : (
-                  <span className="kid-soon">On Amazon this week</span>
-                )}
-              </div>
+            <h4>{b.title}</h4>
+            <p className="kid-subtitle">{b.subtitle}</p>
+            <div className="kid-buy">
+              <span className="kid-price">{b.price}</span>
+              {b.amazon ? (
+                <a href={b.amazon} target="_blank" rel="noopener noreferrer" className="kid-btn">
+                  Get it <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <span className="kid-soon">Coming soon</span>
+              )}
             </div>
           </article>
         ))}
