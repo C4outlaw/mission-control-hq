@@ -1398,7 +1398,7 @@
   padding: 10px; background: #ffffff; border: 3px solid #1c1917; border-radius: 18px; box-shadow: 4px 4px 0 #1c1917;
 }
 .kid-cover { position: relative; }
-.kid-cover img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border: 2px solid #1c1917; border-radius: 12px; }
+.kid-cover img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #fffaf0; border: 2px solid #1c1917; border-radius: 12px; } /* portrait covers show whole */
 .kid-badge {
   position: absolute; top: -8px; right: -8px; padding: 5px 10px; border: 2px solid #1c1917; border-radius: 999px;
   background: #ffd166; color: #1c1917; font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; font-size: 12px;
