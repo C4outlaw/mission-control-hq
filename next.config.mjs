@@ -34,6 +34,13 @@ const nextConfig = {
       },
     ];
   },
+  // myriehq.com opens straight on the store (Myrie, 2026-09-30). Temporary (307), not
+  // permanent, so browsers don't cache it forever if the home page comes back.
+  async redirects() {
+    return [
+      { source: '/', destination: '/store', permanent: false },
+    ];
+  },
   async rewrites() {
     return [
       // Serve the static Beach Bucket Vite build under /beach-bucket-live
