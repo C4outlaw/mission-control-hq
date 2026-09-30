@@ -59,6 +59,29 @@ async function emailBuyer({ to, number, tracking, url, partial, remaining }) {
   return true;
 }
 
+/**
+ * Find the Stripe checkout session an order-shipped event refers to.
+ *
+ * CustomCat echoes back whatever external id the order was placed under, and
+ * that has been both shapes: the raw Stripe session id (cs_live_...) and the
+ * short human order number (TLJ-XXXXXXXX, the last 8 characters of that same
+ * session id). Passing the short form straight to Stripe throws, the handler
+ * 500s, CustomCat retries forever and the buyer never hears that their parcel
+ * shipped - the exact silent failure this endpoint exists to prevent.
+ */
+async function resolveSession(stripe, rawId) {
+  if (/^cs_/i.test(rawId)) {
+    return stripe.checkout.sessions.retrieve(rawId);
+  }
+  // TLJ-XXXXXXXX -> match on the last 8 characters of the session id.
+  const suffix = rawId.replace(/^TLJ-/i, '').toUpperCase();
+  if (!suffix) return null;
+  for await (const s of stripe.checkout.sessions.list({ limit: 100 })) {
+    if (String(s.id).slice(-8).toUpperCase() === suffix) return s;
+  }
+  return null;
+}
+
 export async function POST(req) {
   const body = await req.json().catch(() => null);
   if (!body) return Response.json({ error: 'bad payload' }, { status: 400 });
@@ -74,16 +97,18 @@ export async function POST(req) {
     return Response.json({ error: 'unauthorized' }, { status: 401 });
   }
 
-  const sessionId = String(body.order_id || '');
+  const rawId = String(body.order_id || '');
   const tracking = String(body.tracker_number || body.tracking_number || '').trim();
   const trackUrl = String(body.tracking_url || '').trim();
   const remaining = Number(body['items_remaining:'] ?? body.items_remaining ?? 0);
   const partial = remaining > 0;
-  if (!sessionId) return Response.json({ error: 'no order_id' }, { status: 400 });
+  if (!rawId) return Response.json({ error: 'no order_id' }, { status: 400 });
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await resolveSession(stripe, rawId);
+    if (!session) return Response.json({ error: 'no order matching ' + rawId }, { status: 404 });
+    const sessionId = session.id;
     const pi = typeof session.payment_intent === 'string'
       ? session.payment_intent
       : session.payment_intent?.id;
