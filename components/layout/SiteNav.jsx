@@ -53,6 +53,8 @@ export default function SiteNav({ links }) {
         </nav>
 
         <div className="site-nav-actions">
+          {/* Phones hide the link row, so the store needs its own button in the bar. */}
+          <a className="site-nav-shop" href="/store" onClick={() => setMenuOpen(false)}>Shop</a>
           <LanguageToggle />
           <ThemeToggle />
           <a className="site-nav-cta" href="/#contact" onClick={() => setMenuOpen(false)}>
@@ -74,7 +76,7 @@ export default function SiteNav({ links }) {
       {/* Mobile drawer */}
       <div className={`site-nav-drawer${menuOpen ? ' is-open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!menuOpen}>
         <nav className="site-nav-drawer-links" aria-label="Mobile navigation">
-          {items.map((item) => (
+          {[...items].sort((a, b) => (b.href === '/store') - (a.href === '/store')).map((item) => (
             <a key={item.href} href={item.href} className={item.className} onClick={() => setMenuOpen(false)}>{item.label}</a>
           ))}
         </nav>

@@ -2409,3 +2409,22 @@ html.theme-dark .myrie-marketing .site-nav-cta:hover {
   letter-spacing: 0.06em;
   color: #b8860b;
 }
+
+/* Phone store button (2026-09-30): the link row is hidden on small screens, so
+   the store gets a permanent button in the bar; Book a call moves to the menu. */
+.myrie-marketing .site-nav-shop { display: none; }
+@media (max-width: 920px) {
+  .myrie-marketing .site-nav-shop {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 16px; border-radius: 999px;
+    background: #c9a24b; color: #0c0a09 !important;
+    font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;
+  }
+  .myrie-marketing .site-nav-shop:focus-visible { outline: 3px solid #0c0a09; outline-offset: 2px; }
+}
+@media (max-width: 720px) {
+  .myrie-marketing .site-nav-cta { display: none; }
+}
+@media (max-width: 380px) {
+  .myrie-marketing .site-nav-actions .lang-toggle, .myrie-marketing .site-nav-actions [class*="lang"] { display: none; }
+}
