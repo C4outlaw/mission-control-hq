@@ -1516,3 +1516,57 @@
 }
 .bb-thumb { position: relative; }
 @media (prefers-reduced-motion: reduce) { .bb-spin { scroll-behavior: auto; } }
+
+/* ---- founder band (2026-10-02) ------------------------------------------
+   Full-bleed portrait with the copy sitting in the dark left third of the
+   frame. The gradient is what makes the text legible over a photograph whose
+   left side is already dark - without it the copy floats whenever the image
+   is re-cropped at another viewport. */
+.bb-founder {
+  position: relative;
+  min-height: clamp(380px, 46vw, 620px);
+  display: grid; align-items: end;
+  overflow: hidden; background: #0a0a0a;
+}
+.bb-founder-shot {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;
+}
+.bb-founder::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(8,8,8,.92) 0%, rgba(8,8,8,.72) 34%, rgba(8,8,8,0) 62%),
+              linear-gradient(0deg, rgba(8,8,8,.85) 0%, rgba(8,8,8,0) 46%);
+}
+.bb-founder-copy {
+  position: relative; z-index: 2;
+  max-width: 34rem; padding: clamp(24px, 4vw, 56px); color: #f4f2ed;
+}
+.bb-founder-kicker {
+  margin: 0 0 10px; font-size: .68rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: #c9a227;
+}
+.bb-founder h2 {
+  margin: 0 0 12px; font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800; letter-spacing: -.03em; line-height: .95; text-transform: uppercase;
+}
+.bb-founder-copy p:not(.bb-founder-kicker) {
+  margin: 0 0 22px; max-width: 32ch; font-size: .95rem; line-height: 1.6; opacity: .88;
+}
+.bb-founder-cta {
+  border: 1px solid rgba(244,242,237,.85); background: none; color: inherit;
+  padding: 13px 22px; cursor: pointer;
+  font: inherit; font-size: .7rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  transition: background .2s ease, color .2s ease;
+}
+.bb-founder-cta:hover { background: #f4f2ed; color: #0a0a0a; }
+.bb-founder-cta:focus-visible { outline: 2px solid #c9a227; outline-offset: 3px; }
+@media (max-width: 640px) {
+  /* On a phone the portrait is taller than it is wide, so the copy sits under
+     the face rather than across it. */
+  .bb-founder { min-height: 560px; }
+  .bb-founder-shot { object-position: 50% 14%; }
+  .bb-founder::before {
+    background: linear-gradient(0deg, rgba(8,8,8,.94) 0%, rgba(8,8,8,.62) 38%, rgba(8,8,8,0) 66%);
+  }
+}

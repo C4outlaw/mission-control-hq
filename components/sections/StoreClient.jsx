@@ -840,6 +840,36 @@ function Spin360({ frames, alt }) {
   );
 }
 
+
+/* The house has a face.
+ *
+ * Myrie writes these lines, sets the type and wears the pieces before they ship - he is
+ * the founder and the model both. A label that is one person reads as a label worth
+ * buying from, so he goes between the shop and the social proof: after a shopper has
+ * seen the clothes, before they are asked to take anyone else's word for them.
+ */
+function FounderBand({ onShop }) {
+  return (
+    <section className="bb-founder" aria-labelledby="bb-founder-h">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="bb-founder-shot" src="/store/shoot/founder-myrie.webp" alt="Myrie, founder of The Lost Jamaican" loading="lazy" decoding="async" />
+      <div className="bb-founder-copy">
+        <p className="bb-founder-kicker">Founder &amp; face of the house</p>
+        <h2 id="bb-founder-h">Myrie</h2>
+        <p>
+          Every line on these pieces is one he grew up hearing. He writes them, sets the type,
+          wears them first, and signs off every print before it ships.
+        </p>
+        {onShop && (
+          <button type="button" className="bb-founder-cta" onClick={onShop}>
+            Shop the hoodie he&rsquo;s wearing
+          </button>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy = false }) {
   // Step through the catalogue straight from the hero, so a shopper can flick along the
   // designs without closing the panel.
@@ -1324,6 +1354,11 @@ export default function StoreClient() {
           </div>
         </div>
       </section>
+
+      <FounderBand onShop={() => {
+        const hoodie = CATALOGUE.find((x) => x.id === 'premium-money-hoodie-black');
+        if (hoodie) setOpenDrop(hoodie);
+      }} />
 
       {/* ---------- Social proof ---------- */}
       <section className="drop-proof">
