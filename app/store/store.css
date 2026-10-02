@@ -1425,13 +1425,17 @@
 /* ---- other designs, under the big shirt (2026-10-02) --------------------
    Myrie: thumbnails go UNDER the hero, not beside it - "nobody's going to look
    to the right". Tap a thumb and it becomes the big shirt. */
-.bb-more { margin-top: 14px; }
+/* min-width:0 is load-bearing. A flex/grid child defaults to min-width:auto, so this
+   scroller refused to shrink below its content (20 thumbs x 84px + gaps = 1832px) and
+   stretched the whole image column to 1832px, pushing the hero shirt off-screen. */
+.bb-more { margin-top: 14px; min-width: 0; max-width: 100%; width: 100%; overflow: hidden; }
 .bb-more h3.bb-more-h, .bb-more p.bb-more-h {
   margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .02em;
   text-transform: uppercase; color: #111; opacity: .75;
 }
 .bb-more-rail {
   display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
+  min-width: 0; max-width: 100%;
   scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
 }
 .bb-more-rail::-webkit-scrollbar { height: 6px; }
