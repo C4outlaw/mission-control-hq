@@ -1441,7 +1441,7 @@
 .bb-more-rail::-webkit-scrollbar { height: 6px; }
 .bb-more-rail::-webkit-scrollbar-thumb { background: rgba(0,0,0,.22); border-radius: 3px; }
 .bb-more-thumb {
-  position: relative; flex: 0 0 84px; width: 84px; height: 84px; padding: 0;
+  position: relative; flex: 0 0 124px; width: 124px; height: 124px; padding: 0;
   border: 1px solid rgba(0,0,0,.12); border-radius: 8px; overflow: hidden;
   background: rgba(0,0,0,.04); cursor: pointer; scroll-snap-align: start;
 }
@@ -1449,8 +1449,8 @@
 .bb-more-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bb-more-ph { display: block; width: 100%; height: 100%; }
 .bb-more-tag {
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 0;
-  font-size: .68rem; font-weight: 700; color: #fff; background: rgba(0,0,0,.62);
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 4px 0;
+  font-size: .82rem; font-weight: 700; color: #fff; background: rgba(0,0,0,.62);
 }
 /* arrows on the big shirt - flick along the catalogue without leaving the panel */
 .bb-stage-main { position: relative; }
@@ -1464,6 +1464,6 @@
 .bb-stage-prev { left: 10px; }
 .bb-stage-next { right: 10px; }
 @media (max-width: 640px) {
-  .bb-more-thumb { flex-basis: 72px; width: 72px; height: 72px; }
+  .bb-more-thumb { flex-basis: 108px; width: 108px; height: 108px; }
   .bb-stage-nav { width: 34px; height: 34px; }
 }
