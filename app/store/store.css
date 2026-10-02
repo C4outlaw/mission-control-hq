@@ -1484,3 +1484,35 @@
   .bb-more-thumb { flex-basis: 108px; width: 108px; height: 108px; }
   .bb-stage-nav { width: 34px; height: 34px; }
 }
+
+/* ---- 360 turntable (2026-10-02) ------------------------------------------
+   Myrie asked to be able to turn the garment around and see the fibre. Eight
+   frames off the same ghost mannequin; drag maps horizontal travel to frames.
+   touch-action:none is load-bearing - without it a drag scrolls the page on a
+   phone and the garment never turns. */
+.bb-spin {
+  position: relative; width: 100%; height: 100%;
+  display: grid; place-items: center;
+  touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none;
+}
+.bb-spin.is-ready:active { cursor: grabbing; }
+.bb-spin img {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+  pointer-events: none; -webkit-user-drag: none;
+}
+.bb-spin:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.bb-spin-hint {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  padding: 7px 14px; border-radius: 999px; pointer-events: none;
+  background: rgba(10, 10, 10, .72); color: #fff;
+  font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+}
+/* the 360 badge on its thumbnail, so the view is discoverable from the rail */
+.bb-thumb-360 {
+  position: absolute; right: 3px; bottom: 3px;
+  padding: 1px 5px; border-radius: 4px;
+  background: rgba(10, 10, 10, .74); color: #fff;
+  font-size: .56rem; font-weight: 800; letter-spacing: .06em;
+}
+.bb-thumb { position: relative; }
+@media (prefers-reduced-motion: reduce) { .bb-spin { scroll-behavior: auto; } }

@@ -4,6 +4,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { DESIGN_GROUPS, DROP_ALL, KIND, money, PREMIUM_PRODUCTS } from '../../lib/store-products';
 import { COURSES } from '../../lib/store-catalog';
 import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
+import { spinFrames } from '../../lib/store-shoot';
 import StoreBooks from './StoreBooks';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
@@ -679,6 +680,7 @@ const gridSrc = (src) => {
   // Every store image has a 760px WebP twin generated beside it; the tile only
   // ever renders about 340px, so the full plate is pure waste in the grid.
   if (/\/store\/ugc\/.*-1\.jpg$/.test(src)) return src.replace(/-1\.jpg$/, '-1-grid.webp');
+  if (/\/store\/shoot\/[^?]+\.webp$/.test(src)) return src.replace(/\.webp$/, '-grid.webp');
   if (/\/store\/(catalog-30|premium|model|views)\/[^?]+\.(jpg|webp|png)$/.test(src)) {
     return src.replace(/\.(jpg|webp|png)$/, '-grid.webp');
   }
@@ -759,6 +761,81 @@ function MoreFromStore({ current, onOpen }) {
           </button>
         ))}
       </div>
+    </div>
+  );
+}
+
+
+/* Drag-to-rotate turntable.
+ *
+ * Myrie: "you should be able to turn it around in a 360 view to see what the shirt looks
+ * like... the material should be like really high end to where you can actually see the fibers."
+ *
+ * Eight frames shot on the same ghost mannequin under the same light. Every frame is
+ * preloaded before the viewer becomes draggable, otherwise the first spin stutters through
+ * blank gaps. Pointer events cover mouse and touch with one code path; `touch-action: none`
+ * on the element stops a drag from scrolling the page underneath it.
+ */
+function Spin360({ frames, alt }) {
+  const [i, setI] = useState(0);
+  const [ready, setReady] = useState(false);
+  const [hint, setHint] = useState(true);
+  const drag = useRef(null);
+
+  useEffect(() => {
+    let live = true, left = frames.length;
+    frames.forEach((src) => {
+      const im = new Image();
+      im.onload = im.onerror = () => { if (live && --left === 0) setReady(true); };
+      im.src = src;
+    });
+    return () => { live = false; };
+  }, [frames]);
+
+  // A sixth of the element's width is one frame: a full drag across the image is
+  // roughly one full turn, which is the ratio that feels right on both phone and desktop.
+  const step = (clientX, w) => {
+    const d = drag.current;
+    if (!d) return;
+    const per = Math.max(18, w / (frames.length * 1.5));
+    const n = Math.round((clientX - d.x0) / per);
+    if (n !== d.last) {
+      d.last = n;
+      setI(((d.i0 + n) % frames.length + frames.length) % frames.length);
+    }
+  };
+
+  const onDown = (e) => {
+    if (!ready) return;
+    setHint(false);
+    drag.current = { x0: e.clientX, i0: i, last: 0, w: e.currentTarget.clientWidth };
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+  const onMove = (e) => { if (drag.current) step(e.clientX, drag.current.w); };
+  const onUp = (e) => { drag.current = null; e.currentTarget.releasePointerCapture?.(e.pointerId); };
+
+  return (
+    <div
+      className={`bb-spin${ready ? ' is-ready' : ''}`}
+      onPointerDown={onDown}
+      onPointerMove={onMove}
+      onPointerUp={onUp}
+      onPointerCancel={onUp}
+      role="slider"
+      tabIndex={0}
+      aria-label={`${alt} — drag to rotate`}
+      aria-valuemin={0}
+      aria-valuemax={frames.length - 1}
+      aria-valuenow={i}
+      onKeyDown={(e) => {
+        // Keyboard parity: the turntable is useless to anyone who cannot drag.
+        if (e.key === 'ArrowRight') { setHint(false); setI((v) => (v + 1) % frames.length); }
+        if (e.key === 'ArrowLeft') { setHint(false); setI((v) => (v - 1 + frames.length) % frames.length); }
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={frames[i]} alt={`${alt} — rotated view ${i + 1} of ${frames.length}`} draggable={false} decoding="async" />
+      {hint && <span className="bb-spin-hint" aria-hidden="true">{ready ? 'Drag to rotate' : 'Loading 360°…'}</span>}
     </div>
   );
 }
@@ -844,7 +921,9 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
             <button type="button" className="bb-stage-nav bb-stage-next"
                     onClick={() => onOpen(neighbours.next)} aria-label="Next design">›</button>
           )}
-          {/\.mp4$/.test(shots[shot] || '') ? (
+          {spinFrames(shots[shot]) ? (
+            <Spin360 frames={spinFrames(shots[shot])} alt={p.name} />
+          ) : /\.mp4$/.test(shots[shot] || '') ? (
             <video
               src={shots[shot]}
               poster={(shots[shot] || '').replace(/\.mp4$/, '.jpg')}
@@ -869,7 +948,11 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
                 aria-pressed={i === shot}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={/\.mp4$/.test(src) ? src.replace(/\.mp4$/, '.jpg') : src} alt="" loading="lazy" decoding="async" />
+                <img
+                  src={spinFrames(src) ? spinFrames(src)[1] : /\.mp4$/.test(src) ? src.replace(/\.mp4$/, '.jpg') : src}
+                  alt="" loading="lazy" decoding="async"
+                />
+                {spinFrames(src) && <span className="bb-thumb-360" aria-hidden="true">360°</span>}
                 {/\.mp4$/.test(src) && <span className="bb-thumb-play" aria-hidden="true">▶</span>}
               </button>
             ))}
