@@ -933,6 +933,8 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
               : 'This piece is not open for orders yet.'}
           </p>
 
+          {onOpen && <MoreFromStore current={p} onOpen={onOpen} onAdd={onAdd} />}
+
           <details className="bb-acc" open>
             <summary>Product Details</summary>
             <p>{p.blurb || 'An original Lost Jamaican design.'}</p>
@@ -957,7 +959,6 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
             <li>Secure checkout via Stripe</li>
           </ul>
 
-          {onOpen && <MoreFromStore current={p} onOpen={onOpen} onAdd={onAdd} />}
         </div>
       </aside>
     </div>
