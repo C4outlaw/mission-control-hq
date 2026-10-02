@@ -725,7 +725,54 @@ function BBCard({ p, onOpen }) {
 }
 
 /* The product page: views down the left, buying rail on the right. */
-function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false }) {
+
+/* Cross-sell rail shown inside the product panel. Keeps a shopper who is mid-purchase from
+   having to go back out and scroll the store again to find a second piece. */
+function MoreFromStore({ current, onOpen, onAdd }) {
+  const picks = useMemo(() => {
+    const others = CATALOGUE.filter((x) => x.sellable && x.id !== current.id);
+    // same department first - a tee shopper wants another tee before a mug
+    const same = others.filter((x) => x.dept === current.dept);
+    const rest = others.filter((x) => x.dept !== current.dept);
+    return [...same, ...rest].slice(0, 14);
+  }, [current]);
+
+  if (!picks.length) return null;
+
+  return (
+    <div className="bb-more">
+      <h3 className="bb-more-h">More from the store</h3>
+      <p className="bb-more-sub">Add another piece without leaving this one.</p>
+      <div className="bb-more-rail">
+        {picks.map((x) => (
+          <article key={x.id} className="bb-more-card">
+            <button
+              type="button"
+              className="bb-more-img"
+              onClick={() => onOpen(x)}
+              aria-label={`View ${x.name}`}
+            >
+              {x.image ? <img src={x.image} alt={x.name} loading="lazy" /> : <span className="bb-more-ph" />}
+            </button>
+            <button type="button" className="bb-more-name" onClick={() => onOpen(x)}>{x.name}</button>
+            <div className="bb-more-foot">
+              <span className="bb-more-price">{money(x.price)}</span>
+              <button
+                type="button"
+                className="bb-more-add"
+                onClick={() => onOpen(x)}
+              >
+                View
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy = false }) {
   const colors = p.colors || [];
   const [color, setColor] = useState(colors[0] || null);
   const [shot, setShot] = useState(0);
@@ -909,6 +956,8 @@ function BBProduct({ p, onAdd, onClose, onCheckout, cartCount = 0, busy = false 
             <li>Printed to order, never mass stocked</li>
             <li>Secure checkout via Stripe</li>
           </ul>
+
+          {onOpen && <MoreFromStore current={p} onOpen={onOpen} onAdd={onAdd} />}
         </div>
       </aside>
     </div>
@@ -1319,6 +1368,7 @@ export default function StoreClient() {
           onAdd={addItem}
           onClose={() => setOpenDrop(null)}
           onCheckout={checkout}
+          onOpen={(x) => setOpenDrop(x)}
           cartCount={count}
           busy={busy}
         />
