@@ -728,44 +728,35 @@ function BBCard({ p, onOpen }) {
 
 /* Cross-sell rail shown inside the product panel. Keeps a shopper who is mid-purchase from
    having to go back out and scroll the store again to find a second piece. */
-function MoreFromStore({ current, onOpen, onAdd }) {
+function MoreFromStore({ current, onOpen }) {
   const picks = useMemo(() => {
     const others = CATALOGUE.filter((x) => x.sellable && x.id !== current.id);
-    // same department first - a tee shopper wants another tee before a mug
     const same = others.filter((x) => x.dept === current.dept);
     const rest = others.filter((x) => x.dept !== current.dept);
-    return [...same, ...rest].slice(0, 14);
+    return [...same, ...rest].slice(0, 20);
   }, [current]);
 
   if (!picks.length) return null;
 
   return (
     <div className="bb-more">
-      <h3 className="bb-more-h">More from the store</h3>
-      <p className="bb-more-sub">Add another piece without leaving this one.</p>
+      <p className="bb-more-h">More designs — tap to open</p>
       <div className="bb-more-rail">
         {picks.map((x) => (
-          <article key={x.id} className="bb-more-card">
-            <button
-              type="button"
-              className="bb-more-img"
-              onClick={() => onOpen(x)}
-              aria-label={`View ${x.name}`}
-            >
-              {x.image ? <img src={x.image} alt={x.name} loading="lazy" /> : <span className="bb-more-ph" />}
-            </button>
-            <button type="button" className="bb-more-name" onClick={() => onOpen(x)}>{x.name}</button>
-            <div className="bb-more-foot">
-              <span className="bb-more-price">{money(x.price)}</span>
-              <button
-                type="button"
-                className="bb-more-add"
-                onClick={() => onOpen(x)}
-              >
-                View
-              </button>
-            </div>
-          </article>
+          <button
+            key={x.id}
+            type="button"
+            className="bb-more-thumb"
+            onClick={() => onOpen(x)}
+            title={`${x.name} — ${money(x.price)}`}
+            aria-label={`Open ${x.name}, ${money(x.price)}`}
+          >
+            {x.image
+              ? /* eslint-disable-next-line @next/next/no-img-element */
+                <img src={x.image} alt={x.name} loading="lazy" decoding="async" />
+              : <span className="bb-more-ph" />}
+            <span className="bb-more-tag">{money(x.price)}</span>
+          </button>
         ))}
       </div>
     </div>
@@ -773,6 +764,15 @@ function MoreFromStore({ current, onOpen, onAdd }) {
 }
 
 function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy = false }) {
+  // Step through the catalogue straight from the hero, so a shopper can flick along the
+  // designs without closing the panel.
+  const neighbours = useMemo(() => {
+    const list = CATALOGUE.filter((x) => x.sellable);
+    const i = list.findIndex((x) => x.id === p.id);
+    if (i < 0) return { prev: null, next: null };
+    return { prev: list[(i - 1 + list.length) % list.length] || null,
+             next: list[(i + 1) % list.length] || null };
+  }, [p]);
   const colors = p.colors || [];
   const [color, setColor] = useState(colors[0] || null);
   const [shot, setShot] = useState(0);
@@ -836,6 +836,14 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
         {/* One click lands on the whole model, sized to fit the window. Extra
             views swap in from the rail, so nothing here ever needs scrolling. */}
         <figure className="bb-stage-main">
+          {onOpen && neighbours.prev && (
+            <button type="button" className="bb-stage-nav bb-stage-prev"
+                    onClick={() => onOpen(neighbours.prev)} aria-label="Previous design">‹</button>
+          )}
+          {onOpen && neighbours.next && (
+            <button type="button" className="bb-stage-nav bb-stage-next"
+                    onClick={() => onOpen(neighbours.next)} aria-label="Next design">›</button>
+          )}
           {/\.mp4$/.test(shots[shot] || '') ? (
             <video
               src={shots[shot]}
@@ -867,6 +875,10 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
             ))}
           </div>
         )}
+
+        {/* The rest of the store, directly under the big shirt. Tap one and it becomes
+            the big shirt - no trip back out to the grid. */}
+        {onOpen && <MoreFromStore current={p} onOpen={onOpen} />}
       </div>
 
       <aside className="bb-pdp-rail">
@@ -932,8 +944,6 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
               ? 'Printed to order · ships in 3–7 business days · secure checkout via Stripe'
               : 'This piece is not open for orders yet.'}
           </p>
-
-          {onOpen && <MoreFromStore current={p} onOpen={onOpen} onAdd={onAdd} />}
 
           <details className="bb-acc" open>
             <summary>Product Details</summary>

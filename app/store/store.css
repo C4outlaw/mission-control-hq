@@ -1422,56 +1422,44 @@
 
 
 
-/* ---- cross-sell rail inside the product panel (2026-10-01) ----------------
-   A shopper mid-purchase should be able to add a second piece without going
-   back out to the grid. Horizontal scroll so it costs no vertical space on a
-   phone, snap points so it lands cleanly on each card. */
-.bb-more { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,.1); }
-/* The heading inherited a muted colour from the panel and rendered near-white on
-   white. Set it explicitly and give the sub-line real contrast. */
-/* A site-wide heading rule was beating a single-class selector and rendering this
-   near-white on white (computed rgb(250,250,249)). The panel's own text is dark, so
-   match it and win on specificity rather than fight with !important. */
-.bb-pdp .bb-more h3.bb-more-h,
-.bb-more h3.bb-more-h {
-  margin: 0; font-size: 1rem; font-weight: 800; letter-spacing: .01em;
-  color: #111; opacity: 1;
+/* ---- other designs, under the big shirt (2026-10-02) --------------------
+   Myrie: thumbnails go UNDER the hero, not beside it - "nobody's going to look
+   to the right". Tap a thumb and it becomes the big shirt. */
+.bb-more { margin-top: 14px; }
+.bb-more h3.bb-more-h, .bb-more p.bb-more-h {
+  margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .02em;
+  text-transform: uppercase; color: #111; opacity: .75;
 }
-.bb-pdp .bb-more p.bb-more-sub,
-.bb-more p.bb-more-sub { margin: 4px 0 14px; font-size: .82rem; color: #555; opacity: 1; }
-.bb-more-name { color: #111; }
-.bb-more-price { color: #111; }
-.bb-more-add { color: #111; border-color: #111; }
 .bb-more-rail {
-  display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px;
-  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin;
 }
 .bb-more-rail::-webkit-scrollbar { height: 6px; }
 .bb-more-rail::-webkit-scrollbar-thumb { background: rgba(0,0,0,.22); border-radius: 3px; }
-.bb-more-card {
-  flex: 0 0 132px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 6px;
+.bb-more-thumb {
+  position: relative; flex: 0 0 84px; width: 84px; height: 84px; padding: 0;
+  border: 1px solid rgba(0,0,0,.12); border-radius: 8px; overflow: hidden;
+  background: rgba(0,0,0,.04); cursor: pointer; scroll-snap-align: start;
 }
-.bb-more-img {
-  display: block; width: 132px; height: 132px; padding: 0; border: 0; cursor: pointer;
-  background: rgba(0,0,0,.04); border-radius: 10px; overflow: hidden;
-}
-.bb-more-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bb-more-thumb:hover { border-color: rgba(0,0,0,.45); }
+.bb-more-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bb-more-ph { display: block; width: 100%; height: 100%; }
-.bb-more-name {
-  border: 0; background: none; padding: 0; text-align: left; cursor: pointer;
-  font-size: .8rem; line-height: 1.25; font-weight: 600;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+.bb-more-tag {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 0;
+  font-size: .68rem; font-weight: 700; color: #fff; background: rgba(0,0,0,.62);
 }
-.bb-more-name:hover { text-decoration: underline; }
-.bb-more-foot { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-.bb-more-price { font-size: .82rem; font-weight: 700; }
-.bb-more-add {
-  border: 1px solid currentColor; background: none; cursor: pointer;
-  font-size: .72rem; font-weight: 700; padding: 3px 9px; border-radius: 999px;
+/* arrows on the big shirt - flick along the catalogue without leaving the panel */
+.bb-stage-main { position: relative; }
+.bb-stage-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+  width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(0,0,0,.15); background: rgba(255,255,255,.92);
+  font-size: 1.5rem; line-height: 1; color: #111; display: grid; place-items: center;
 }
-.bb-more-add:hover { background: rgba(0,0,0,.06); }
+.bb-stage-nav:hover { background: #fff; }
+.bb-stage-prev { left: 10px; }
+.bb-stage-next { right: 10px; }
 @media (max-width: 640px) {
-  .bb-more-card { flex-basis: 116px; }
-  .bb-more-img { width: 116px; height: 116px; }
+  .bb-more-thumb { flex-basis: 72px; width: 72px; height: 72px; }
+  .bb-stage-nav { width: 34px; height: 34px; }
 }
