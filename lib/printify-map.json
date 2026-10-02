@@ -136,7 +136,9 @@
      "price": 2899
     }
    ],
-   "compareAt": 2999
+   "compareAt": 2999,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "nuhworry-mug": {
    "id": "6a99809016a9c0eb930b23cd",
@@ -156,7 +158,9 @@
      "color": null
     }
    ],
-   "compareAt": 1899
+   "compareAt": 1899,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "nuhworry-cap": {
    "id": "6a998092df99c380120593ac",
@@ -589,7 +593,9 @@
      "price": 2899
     }
    ],
-   "compareAt": 2999
+   "compareAt": 2999,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "tallawahbird-tee": {
    "id": "6a9980ab55c82affd50ad270",
@@ -861,7 +867,9 @@
      "price": 2899
     }
    ],
-   "compareAt": 2999
+   "compareAt": 2999,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "yardie-hoodie": {
    "id": "6a9980b69169de6a730efec7",
@@ -1151,7 +1159,9 @@
      "price": 4199
     }
    ],
-   "compareAt": 4499
+   "compareAt": 4499,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "gwehmug-mug": {
    "id": "6a9980bd76f0c3a9150cabe6",
@@ -1171,7 +1181,9 @@
      "color": null
     }
    ],
-   "compareAt": 1899
+   "compareAt": 1899,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "goodmorning-mug": {
    "id": "6a9980c04c72cd7149090e65",
@@ -1191,7 +1203,9 @@
      "color": null
     }
    ],
-   "compareAt": 1899
+   "compareAt": 1899,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "hiddenbumbo-mug": {
    "id": "6a9980c19169de6a730efeeb",
@@ -1211,7 +1225,9 @@
      "color": null
     }
    ],
-   "compareAt": 1899
+   "compareAt": 1899,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "frogmug-mug": {
    "id": "6a9980c303ca0e7cdc0ab6f0",
@@ -1231,7 +1247,9 @@
      "color": null
     }
    ],
-   "compareAt": 1899
+   "compareAt": 1899,
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "nuhbaddacap-cap": {
    "id": "6a9980c503ca0e7cdc0ab6f2",
@@ -1529,7 +1547,9 @@
      "color": "Black",
      "price": 2399
     }
-   ]
+   ],
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "moremoney-tank": {
    "id": "6a9cb041fdaf5390260585fd",
@@ -1573,7 +1593,9 @@
      "color": "Black",
      "price": 2399
     }
-   ]
+   ],
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "moremoney-hoodie": {
    "id": "6a9cb09295867a75c30a5cf1",
@@ -1623,7 +1645,9 @@
      "color": "Black",
      "price": 4199
     }
-   ]
+   ],
+   "hidden": true,
+   "hiddenReason": "Printify retired 2026-10-01; re-list once the art is live at CustomCat"
   },
   "moremoney-cap": {
    "id": "6a9cb1c655cbcc89ba043e87",
