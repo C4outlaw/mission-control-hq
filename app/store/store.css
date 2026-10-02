@@ -1429,9 +1429,16 @@
 .bb-more { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(0,0,0,.1); }
 /* The heading inherited a muted colour from the panel and rendered near-white on
    white. Set it explicitly and give the sub-line real contrast. */
-.bb-more-h { margin: 0; font-size: 1rem; font-weight: 800; letter-spacing: .01em;
-             color: #111; opacity: 1; }
-.bb-more-sub { margin: 4px 0 14px; font-size: .82rem; color: #555; opacity: 1; }
+/* A site-wide heading rule was beating a single-class selector and rendering this
+   near-white on white (computed rgb(250,250,249)). The panel's own text is dark, so
+   match it and win on specificity rather than fight with !important. */
+.bb-pdp .bb-more h3.bb-more-h,
+.bb-more h3.bb-more-h {
+  margin: 0; font-size: 1rem; font-weight: 800; letter-spacing: .01em;
+  color: #111; opacity: 1;
+}
+.bb-pdp .bb-more p.bb-more-sub,
+.bb-more p.bb-more-sub { margin: 4px 0 14px; font-size: .82rem; color: #555; opacity: 1; }
 .bb-more-name { color: #111; }
 .bb-more-price { color: #111; }
 .bb-more-add { color: #111; border-color: #111; }
