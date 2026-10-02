@@ -1440,13 +1440,30 @@
 }
 .bb-more-rail::-webkit-scrollbar { height: 6px; }
 .bb-more-rail::-webkit-scrollbar-thumb { background: rgba(0,0,0,.22); border-radius: 3px; }
+/* The shirts are black photographed on a near-black backdrop. At tile size that reads
+   as a dark square and the designs vanish. A defined edge plus a small lift in
+   brightness and contrast separates garment from background without changing what the
+   product actually looks like - the hero image is left untouched and honest. */
 .bb-more-thumb {
   position: relative; flex: 0 0 124px; width: 124px; height: 124px; padding: 0;
-  border: 1px solid rgba(0,0,0,.12); border-radius: 8px; overflow: hidden;
-  background: rgba(0,0,0,.04); cursor: pointer; scroll-snap-align: start;
+  border: 1px solid rgba(0,0,0,.28); border-radius: 10px; overflow: hidden;
+  background: #efeeec; cursor: pointer; scroll-snap-align: start;
+  box-shadow: 0 1px 4px rgba(0,0,0,.14);
+  transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
 }
-.bb-more-thumb:hover { border-color: rgba(0,0,0,.45); }
-.bb-more-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bb-more-thumb:hover {
+  border-color: rgba(0,0,0,.6); transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.22);
+}
+.bb-more-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: brightness(1.14) contrast(1.1);
+}
+/* a faint inner ring so the dark photo never bleeds into the tile edge */
+.bb-more-thumb::after {
+  content: ''; position: absolute; inset: 0; border-radius: 10px; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}
 .bb-more-ph { display: block; width: 100%; height: 100%; }
 .bb-more-tag {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 4px 0;
