@@ -1,0 +1,213 @@
+/* ============================================================================
+   The Lost Jamaican — dark store
+   ----------------------------------------------------------------------------
+   Why this works now and would not have before: every product plate was
+   re-shot on a mid-grey seamless. On a dark field a grey tile reads LIGHTER
+   than the page, so the garment glows out of it. With the old black-on-black
+   mockups a dark theme would have been a page of invisible holes.
+
+   The palette is the existing brand turned down, not a different brand:
+   the bone (#F4F2ED) becomes the ink, the gold (#C9A24B) stays exactly where
+   it was. Nothing here introduces a new hue.
+
+   Rules this follows:
+   - Never pure black. #0B0B0C is warm, so the gold and the garments sit in
+     the same light rather than floating on a void.
+   - Never pure white type. #EDE9E2 at 15px on #0B0B0C is comfortable;
+     #FFFFFF at that size glares and reads cheap.
+   - One accent, used for one job - what is chosen, and what costs money.
+   - Elevation by surface, not by shadow. Shadows are invisible on dark;
+     a panel steps up to #141416 instead.
+   - Hairlines are the bone at low alpha, so they warm with the page rather
+     than reading as grey lines drawn on top of it.
+   ========================================================================= */
+
+[data-store-theme='dark'] {
+  --d-bg: #0b0b0c;          /* page */
+  --d-surface: #141416;     /* cards, the product panel */
+  --d-raise: #1b1b1e;       /* inputs, menus, things you open */
+  --d-line: rgba(237, 233, 226, 0.13);
+  --d-line-soft: rgba(237, 233, 226, 0.07);
+  --d-text: #ede9e2;        /* the bone, used as ink */
+  --d-text-2: #9c958b;      /* secondary - 4.6:1 on the page */
+  --d-gold: #c9a24b;
+}
+
+/* ---- page ---------------------------------------------------------------- */
+[data-store-theme='dark'].myrie-marketing.site,
+[data-store-theme='dark'] .myrie-marketing.site,
+[data-store-theme='dark'] main,
+[data-store-theme='dark'] .drop,
+[data-store-theme='dark'] .etsy,
+[data-store-theme='dark'] .drop-proof {
+  background: var(--d-bg);
+  color: var(--d-text);
+}
+[data-store-theme='dark'] .tls-shell { color: var(--d-text); }
+
+/* ---- the grid -----------------------------------------------------------
+   The plates carry their own mid-grey, so the tiles need no surface of their
+   own; the field between them does the separating. */
+[data-store-theme='dark'] .bb-card { color: var(--d-text); }
+[data-store-theme='dark'] .bb-card-media { background: #17171a; }
+[data-store-theme='dark'] .bb-card-kind { color: var(--d-text-2); }
+[data-store-theme='dark'] .bb-card-name { color: var(--d-text); }
+[data-store-theme='dark'] .bb-card-price { color: var(--d-text); }
+/* the struck price is meant to recede, but #7d766d measured 4.39:1 - under AA.
+   #8d857b keeps it quiet and still legible. */
+[data-store-theme='dark'] .bb-card-price s { color: #8d857b; }
+[data-store-theme='dark'] .bb-card:focus-visible { outline-color: var(--d-gold); }
+[data-store-theme='dark'] .bb-dept {
+  color: var(--d-text) !important;
+  border-bottom-color: var(--d-line);
+}
+[data-store-theme='dark'] .bb-card-swatch { border-color: rgba(237, 233, 226, 0.3); }
+
+/* ---- toolbar, crumbs, pills --------------------------------------------- */
+[data-store-theme='dark'] .bb-bar { border-bottom-color: var(--d-line); }
+[data-store-theme='dark'] .bb-bar-count { color: var(--d-text-2) !important; }
+[data-store-theme='dark'] .bb-crumb { color: var(--d-text-2) !important; }
+[data-store-theme='dark'] .bb-crumb span { color: #5e584f; }
+[data-store-theme='dark'] .etsy-pill {
+  background: transparent !important;
+  color: var(--d-text) !important;
+  border-color: var(--d-line) !important;
+}
+[data-store-theme='dark'] .etsy-pill:hover { border-color: rgba(237, 233, 226, 0.4) !important; }
+[data-store-theme='dark'] .etsy-pill.is-on {
+  background: var(--d-text) !important;
+  color: #0b0b0c !important;
+  border-color: var(--d-text) !important;
+}
+[data-store-theme='dark'] .etsy-sortbtn {
+  background: var(--d-raise); color: var(--d-text); border-color: var(--d-line);
+}
+[data-store-theme='dark'] .etsy-sortbtn:hover { background: #232327; }
+[data-store-theme='dark'] .etsy-sortmenu {
+  background: var(--d-raise); border-color: var(--d-line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+[data-store-theme='dark'] .etsy-sortmenu button { color: var(--d-text); }
+[data-store-theme='dark'] .etsy-sortmenu button:hover { background: #26262b; }
+
+/* ---- the product panel --------------------------------------------------
+   One step up from the page. On dark, elevation has to be a surface change:
+   a drop shadow against #0B0B0C is simply invisible. */
+[data-store-theme='dark'] .bb-pdp { background: var(--d-surface); color: var(--d-text); }
+[data-store-theme='dark'] .bb-pdp-stage { background: var(--d-surface); }
+[data-store-theme='dark'] .bb-stage-main { background: transparent; }
+[data-store-theme='dark'] .bb-pdp-back,
+[data-store-theme='dark'] .bb-pdp-close { color: var(--d-text); }
+[data-store-theme='dark'] .bb-rail-kind { color: var(--d-text-2); }
+[data-store-theme='dark'] .bb-rail-head,
+[data-store-theme='dark'] .bb-rail-name,
+[data-store-theme='dark'] .bb-rail-price { color: var(--d-text); }
+[data-store-theme='dark'] .bb-rail-blurb,
+[data-store-theme='dark'] .bb-rail-model,
+[data-store-theme='dark'] .bb-rail-fine { color: var(--d-text-2); }
+[data-store-theme='dark'] .bb-rail-size select {
+  background: var(--d-raise); color: var(--d-text); border-color: var(--d-line);
+}
+[data-store-theme='dark'] .bb-acc { border-color: var(--d-line); }
+[data-store-theme='dark'] .bb-acc summary { color: var(--d-text); }
+[data-store-theme='dark'] .bb-acc p { color: var(--d-text-2); }
+[data-store-theme='dark'] .bb-services { color: var(--d-text-2); border-top-color: var(--d-line); }
+[data-store-theme='dark'] .bb-thumb { border-color: var(--d-line); background: #17171a; }
+[data-store-theme='dark'] .bb-thumb.is-on { border-color: var(--d-text); }
+[data-store-theme='dark'] .bb-stage-nav {
+  background: rgba(20, 20, 22, 0.88); color: var(--d-text); border-color: var(--d-line);
+}
+[data-store-theme='dark'] .bb-stage-nav:hover { background: #212125; }
+[data-store-theme='dark'] .bb-more h3.bb-more-h,
+[data-store-theme='dark'] .bb-more p.bb-more-h { color: var(--d-text); }
+[data-store-theme='dark'] .bb-more-thumb { border-color: var(--d-line); background: #17171a; }
+[data-store-theme='dark'] .bb-more-thumb:hover { border-color: rgba(237, 233, 226, 0.45); }
+
+/* ---- the one place money is asked for -----------------------------------
+   Bone for Add to Bag: it is the brightest thing on the page, which is where
+   the eye should land. Gold is kept for Checkout, so the two reads differ. */
+[data-store-theme='dark'] .bb-rail-buy {
+  background: var(--d-text); color: #0b0b0c;
+}
+[data-store-theme='dark'] .bb-rail-buy:disabled { background: #3a3a3e; color: #8d867c; }
+[data-store-theme='dark'] .bb-rail-checkout,
+[data-store-theme='dark'] .bb-bar-checkout {
+  background: var(--d-gold); color: #0b0b0c;
+}
+[data-store-theme='dark'] .bb-rail-checkout:hover,
+[data-store-theme='dark'] .bb-bar-checkout:hover { background: #d8b45c; }
+[data-store-theme='dark'] .bb-bar-bagcount { color: var(--d-text-2); }
+
+/* ---- the kids' books, after the clothes --------------------------------- */
+[data-store-theme='dark'] .shop-books { border-top-color: var(--d-line); }
+[data-store-theme='dark'] .shop-books-h { color: var(--d-text); }
+[data-store-theme='dark'] .shop-books-sub { color: var(--d-text-2); }
+[data-store-theme='dark'] .kids-books .kb-card,
+[data-store-theme='dark'] .kids-books article {
+  background: var(--d-surface); border-color: var(--d-line); color: var(--d-text);
+}
+
+/* ---- social proof + footer ---------------------------------------------- */
+[data-store-theme='dark'] .drop-proof { border-top-color: var(--d-line); }
+[data-store-theme='dark'] .drop-proof h2,
+[data-store-theme='dark'] .drop-proof p { color: var(--d-text); }
+[data-store-theme='dark'] .drop-proof a { color: var(--d-gold); }
+
+/* ---- motion -------------------------------------------------------------
+   One considered moment rather than many: tiles lift on hover, which on a
+   dark field reads as the garment catching light. */
+[data-store-theme='dark'] .bb-card-media { transition: box-shadow .4s cubic-bezier(.16,1,.3,1); }
+[data-store-theme='dark'] .bb-card:hover .bb-card-media {
+  box-shadow: 0 0 0 1px rgba(237, 233, 226, 0.16), 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-store-theme='dark'] .bb-card-media { transition: none; }
+}
+
+/* `.tls .drop:has(.bb-grid)` paints the shop white and, because :has() carries
+   its argument's specificity, outranks a plain scoped override. Match it. */
+[data-store-theme='dark'] .tls .drop:has(.bb-grid),
+[data-store-theme='dark'] .tls .drop,
+[data-store-theme='dark'] .tls .etsy,
+[data-store-theme='dark'] .tls section { background: var(--d-bg); }
+
+/* ---- the kids' books on dark --------------------------------------------
+   This section is deliberately warmer than the store - it is a different buyer.
+   On a cream page that reads as friendly; on a dark one it shouts, which is the
+   clash that got it moved below the clothes in the first place. So the warmth
+   stays only in the badge, and the covers become the only colour in the block. */
+[data-store-theme='dark'] .kids-books { background: transparent; }
+[data-store-theme='dark'] .kid-card {
+  background: var(--d-surface);
+  border-color: var(--d-line);
+  color: var(--d-text);
+}
+[data-store-theme='dark'] .kid-card h3,
+[data-store-theme='dark'] .kid-card .kid-title { color: var(--d-text); }
+[data-store-theme='dark'] .kid-card p,
+[data-store-theme='dark'] .kid-card .kid-sub { color: var(--d-text-2); }
+[data-store-theme='dark'] .kid-badge { background: var(--d-gold); color: #0b0b0c; }
+[data-store-theme='dark'] .kids-arrow {
+  background: var(--d-raise); color: var(--d-text); border-color: var(--d-line);
+}
+[data-store-theme='dark'] .kids-arrow:hover { background: #26262b; }
+[data-store-theme='dark'] .kids-books h2,
+[data-store-theme='dark'] .kids-books .kids-head { color: var(--d-text); }
+
+/* Three controls in the panel carry their own near-white so they stay visible
+   over product photography. On dark they became the brightest things on the
+   screen, pulling the eye off the garment and off Add to Bag. */
+[data-store-theme='dark'] .bb-pdp-back,
+[data-store-theme='dark'] .bb-pdp-close {
+  background: rgba(20, 20, 22, 0.88) !important;
+  color: var(--d-text) !important;
+  border: 1px solid var(--d-line);
+  backdrop-filter: blur(6px);
+}
+[data-store-theme='dark'] .bb-pdp-back:hover,
+[data-store-theme='dark'] .bb-pdp-close:hover { background: #26262b !important; }
+/* the sticky buy strip sits on the panel, not above it */
+[data-store-theme='dark'] .bb-rail-actions {
+  background: var(--d-surface) !important;
+  border-top: 1px solid var(--d-line);
+}

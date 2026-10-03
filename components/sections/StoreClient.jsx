@@ -1102,6 +1102,17 @@ function BBProduct({ p, onAdd, onClose, onCheckout, onOpen, cartCount = 0, busy 
 
 
 export default function StoreClient() {
+  // Dark is the default, rendered on the server. /store?theme=light drops it,
+  // so the previous look stays one URL away for comparison.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const want = new URLSearchParams(window.location.search).get('theme');
+    const el = document.querySelector('.myrie-marketing.site');
+    if (!el) return;
+    if (want === 'light') el.removeAttribute('data-store-theme');
+    else el.setAttribute('data-store-theme', 'dark');
+  }, []);
+
   const [cart, setCart] = useState([]);
   const [dept, setDept] = useState('all');
   const shopResults = useMemo(() => (dept === 'all' ? CATALOGUE : CATALOGUE.filter((i) => i.dept === dept)), [dept]);

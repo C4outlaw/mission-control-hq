@@ -2,6 +2,7 @@ import SiteNav from '../../components/layout/SiteNav';
 import Footer from '../../components/layout/Footer';
 import StoreClient from '../../components/sections/StoreClient';
 import './store.css';
+import './store-dark.css';
 
 export const metadata = {
   title: 'The Lost Jamaican Store',
@@ -13,7 +14,9 @@ export const metadata = {
 
 export default function StorePage() {
   return (
-    <div className="myrie-marketing site">
+    // Dark is the store default. Rendered here rather than set from an effect
+    // so the page never paints light first and then flips.
+    <div className="myrie-marketing site" data-store-theme="dark">
       <SiteNav />
       <main style={{ paddingTop: '80px', minHeight: '80vh' }}>
         <StoreClient />
