@@ -58,6 +58,16 @@
 .tls-hero-media {
   position: absolute; inset: 0; opacity: 1; pointer-events: none;
 }
+/* Desktop (2026-10-03): the box used to be only as tall as its copy, so on wide
+   screens the 16:9 film was cropped top and bottom (1920 showed 72% of the
+   height, 2560 only 55%) and looked zoomed in. Sizing the box to the film's own
+   16:9, capped at one screen tall, shows the whole frame; copy sits at the foot. */
+@media (min-width: 769px) {
+  .tls-hero {
+    min-height: min(56.25vw, 100svh);
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+}
 .tls-hero-media video, .tls-hero-media img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   /* The hero box is wider than the film's 16:9, so cover crops vertically, and the
