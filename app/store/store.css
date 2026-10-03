@@ -1662,18 +1662,18 @@
 }
 .shop-darkrun .bb-crumb { margin: 0 0 6px; color: #9d978e !important; font-size: 11px; }
 .shop-darkrun .bb-crumb span { color: #5d574f; }
-.shop-darkrun .bb-bar {
+.bb-bar.is-dark {
   margin: 0; padding-bottom: 10px; border-bottom: 0;
 }
-.shop-darkrun .bb-bar-count { color: #9d978e !important; }
-.shop-darkrun .bb-bar-bagcount { color: #c9c3ba; }
+.bb-bar.is-dark-count { color: #9d978e !important; }
+.bb-bar.is-dark-bagcount { color: #c9c3ba; }
 /* the pills were drawn for the bone background */
-.shop-darkrun .etsy-pill {
+.bb-bar.is-dark .etsy-pill {
   background: transparent; color: #e8e4dd; border-color: rgba(244,242,237,.3);
 }
-.shop-darkrun .etsy-pill:hover { border-color: rgba(244,242,237,.7); }
-.shop-darkrun .etsy-pill.is-on { background: #f4f2ed; color: #0a0a0a; border-color: #f4f2ed; }
-.shop-darkrun .bb-bar-checkout { background: #c9a227; color: #0a0a0a; }
+.bb-bar.is-dark .etsy-pill:hover { border-color: rgba(244,242,237,.7); }
+.bb-bar.is-dark .etsy-pill.is-on { background: #f4f2ed; color: #0a0a0a; border-color: #f4f2ed; }
+.bb-bar.is-dark-checkout { background: #c9a227; color: #0a0a0a; }
 
 @media (max-width: 760px) {
   /* At phone width a 16:9 band is only ~211px tall, too short to carry the copy
@@ -1706,7 +1706,7 @@
 /* The sticky bar carries its own pale background so it stays readable once it
    detaches from the dark run and floats over the grid. Recolouring only its text
    made it white-on-white the moment it stuck - it has to own the dark too. */
-.shop-darkrun .bb-bar.is-sticky {
+.bb-bar.is-sticky.is-dark {
   background: #0a0a0a;
   padding-left: max(16px, calc(50vw - 800px + 32px));
   padding-right: max(16px, calc(50vw - 800px + 32px));
@@ -1719,17 +1719,26 @@
 /* The pill colours are set by a more specific selector elsewhere, so recolouring
    them for the dark bar needs that specificity plus a flag - without it the two
    inactive pills rendered #0c0a09 on #0a0a0a, i.e. empty outlines. */
-.shop-darkrun .drop-pills .etsy-pill,
-.shop-darkrun .bb-bar .etsy-pill {
+.bb-bar.is-dark .drop-pills .etsy-pill,
+.bb-bar.is-dark .etsy-pill {
   color: #e8e4dd !important;
   background: transparent !important;
   border-color: rgba(244, 242, 237, .34) !important;
 }
-.shop-darkrun .drop-pills .etsy-pill:hover,
-.shop-darkrun .bb-bar .etsy-pill:hover { border-color: rgba(244, 242, 237, .75) !important; }
-.shop-darkrun .drop-pills .etsy-pill.is-on,
-.shop-darkrun .bb-bar .etsy-pill.is-on {
+.bb-bar.is-dark .drop-pills .etsy-pill:hover,
+.bb-bar.is-dark .etsy-pill:hover { border-color: rgba(244, 242, 237, .75) !important; }
+.bb-bar.is-dark .drop-pills .etsy-pill.is-on,
+.bb-bar.is-dark .etsy-pill.is-on {
   color: #0a0a0a !important;
   background: #f4f2ed !important;
   border-color: #f4f2ed !important;
 }
+
+
+/* The crumb strip keeps the black; the bar carries its own so it can stay a
+   direct child of the shell and go on sticking the length of the grid. */
+.shop-darkrun { padding-bottom: 0; }
+
+/* The base rule sets this !important for the bone background, so matching it is
+   the only way to lift "37 items" off the black - #666 on #0a0a0a is ~2.5:1. */
+.bb-bar.is-dark .bb-bar-count { color: #a8a299 !important; }

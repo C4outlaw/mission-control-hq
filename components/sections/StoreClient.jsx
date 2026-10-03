@@ -1316,8 +1316,9 @@ export default function StoreClient() {
             <nav className="bb-crumb" aria-label="Breadcrumb">
               The Lost Jamaican<span aria-hidden="true">/</span>Store
             </nav>
+          </div>
 
-          <div className="bb-bar is-sticky">
+          <div className="bb-bar is-sticky is-dark">
             <p className="bb-bar-count">{shopResults.length} {shopResults.length === 1 ? 'item' : 'items'}</p>
             <div className="drop-pills" role="group" aria-label="Shop by department">
               <button type="button" className={`etsy-pill${dept === 'all' ? ' is-on' : ''}`} onClick={() => setDept('all')} aria-pressed={dept === 'all'}>All</button>
@@ -1345,7 +1346,6 @@ export default function StoreClient() {
                 </button>
               </div>
             )}
-          </div>
           </div>
 
           <div className="bb-grid">
