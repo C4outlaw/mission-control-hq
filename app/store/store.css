@@ -1578,3 +1578,158 @@
     background: linear-gradient(0deg, rgba(8,8,8,.94) 0%, rgba(8,8,8,.62) 38%, rgba(8,8,8,0) 66%);
   }
 }
+
+/* ---- founder band leading the shop (2026-10-02) -------------------------
+   Myrie above the clothes instead of at the foot of the page. It replaces a
+   767px stack - heading, coloring-book carousel, CTA - so it has to be shorter
+   than that stack, or moving him up would push the first shirt further down
+   rather than closer. The portrait is 16:9, so a wide strip shows it close to
+   uncropped; the old placement forced a taller box and cut into the frame. */
+.bb-founder.is-lead {
+  /* break the shell the way the product grid does, so it reads as a band */
+  width: 100vw; margin-inline: calc(50% - 50vw);
+  min-height: clamp(300px, 30vw, 420px);
+  margin-bottom: 26px;
+}
+.bb-founder.is-lead .bb-founder-copy { padding: clamp(20px, 3vw, 42px); }
+.bb-founder.is-lead h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+.bb-founder.is-lead .bb-founder-copy p:not(.bb-founder-kicker) {
+  margin-bottom: 14px; font-size: .9rem;
+}
+.bb-founder-back { font-size: .85rem !important; opacity: .95 !important; }
+.bb-founder-back strong { color: #c9a227; }
+@media (max-width: 640px) {
+  /* Taller on a phone so the face is not squeezed, but still well under the
+     block it replaced. */
+  .bb-founder.is-lead { min-height: 430px; }
+  .bb-founder.is-lead .bb-founder-shot { object-position: 50% 16%; }
+}
+
+/* the masthead keeps only the line that orients a shopper */
+.drop-head.is-masthead.is-lean { padding-bottom: 10px; }
+.drop-head.is-masthead.is-lean .drop-lede { margin-top: 4px; }
+
+/* ---- the kids' books, after the clothes --------------------------------- */
+.shop-books { padding: 54px 0 10px; border-top: 1px solid rgba(0,0,0,.09); }
+.shop-books-h {
+  margin: 0; font-size: .8rem; font-weight: 800;
+  letter-spacing: .17em; text-transform: uppercase;
+}
+.shop-books-sub { margin: 6px 0 18px; font-size: .85rem; opacity: .7; }
+
+/* The masthead is now one line of reassurance between the owner and the grid,
+   so it does not need the breathing room a three-part block did. */
+.drop-head.is-masthead.is-lean { margin-bottom: 16px !important; padding-bottom: 4px; }
+.drop-head.is-masthead.is-lean .tls-mono { margin: 2px 0 !important; }
+@media (max-width: 640px) { .bb-founder.is-lead { min-height: 390px; } }
+
+/* The shop scope colours its headings near-black for the bone background. The
+   founder band is dark, and moving it inside the shop put its name - MYRIE -
+   at #0c0a09 on #0a0a0a, i.e. invisible. It was legible at the foot of the page
+   only because it sat outside that scope. State the colour where it cannot be
+   outranked by a bare descendant selector. */
+.bb-founder h2#bb-founder-h,
+.bb-founder .bb-founder-copy h2 { color: #f4f2ed; }
+.bb-founder .bb-founder-copy p,
+.bb-founder .bb-founder-copy p strong { color: #f4f2ed; }
+.bb-founder .bb-founder-kicker { color: #c9a227; }
+.bb-founder .bb-founder-back strong { color: #c9a227; }
+
+/* ---- lead band: the whole frame, and a black run into the product ------
+   Myrie asked to see the entire photo of him sitting, not a cropped band, and
+   for the pale strip under it to go black so the page runs straight into the
+   shirts. The source is 16:9, so giving the band that aspect ratio shows the
+   frame complete at any width. */
+.bb-founder.is-lead {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  margin-bottom: 0;
+}
+.bb-founder.is-lead .bb-founder-shot { object-position: 50% 50%; }
+.bb-founder.is-lead .bb-founder-copy { padding: clamp(18px, 2.6vw, 44px); }
+.bb-founder-fine {
+  margin: 14px 0 0 !important;
+  font-size: .62rem !important; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; opacity: .6 !important;
+}
+
+/* crumb + filter bar on the same black, full-bleed, so there is no pale
+   barrier between the portrait and the first shirt */
+.shop-darkrun {
+  width: 100vw; margin-inline: calc(50% - 50vw);
+  background: #0a0a0a; color: #f4f2ed;
+  padding: 10px max(16px, calc(50vw - 800px + 32px)) 0;
+}
+.shop-darkrun .bb-crumb { margin: 0 0 6px; color: #9d978e !important; font-size: 11px; }
+.shop-darkrun .bb-crumb span { color: #5d574f; }
+.shop-darkrun .bb-bar {
+  margin: 0; padding-bottom: 10px; border-bottom: 0;
+}
+.shop-darkrun .bb-bar-count { color: #9d978e !important; }
+.shop-darkrun .bb-bar-bagcount { color: #c9c3ba; }
+/* the pills were drawn for the bone background */
+.shop-darkrun .etsy-pill {
+  background: transparent; color: #e8e4dd; border-color: rgba(244,242,237,.3);
+}
+.shop-darkrun .etsy-pill:hover { border-color: rgba(244,242,237,.7); }
+.shop-darkrun .etsy-pill.is-on { background: #f4f2ed; color: #0a0a0a; border-color: #f4f2ed; }
+.shop-darkrun .bb-bar-checkout { background: #c9a227; color: #0a0a0a; }
+
+@media (max-width: 760px) {
+  /* At phone width a 16:9 band is only ~211px tall, too short to carry the copy
+     over the picture - so the picture keeps its full frame and the words sit
+     beneath it on the same black. */
+  .bb-founder.is-lead { aspect-ratio: auto; display: block; }
+  .bb-founder.is-lead .bb-founder-shot {
+    position: static; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover;
+  }
+  .bb-founder.is-lead::before { display: none; }
+  .bb-founder.is-lead .bb-founder-copy {
+    position: static; max-width: none; background: #0a0a0a; padding: 18px 16px 20px;
+  }
+  .bb-founder.is-lead h2 { margin-bottom: 8px; }
+}
+
+@media (max-width: 760px) {
+  /* With the picture now full-frame above the words, the four-line bio is what
+     pushes the shirts down. On a phone the name, the ask and the button carry
+     it; the bio stays on desktop where it costs nothing. */
+  .bb-founder.is-lead .bb-founder-copy > p:not(.bb-founder-back):not(.bb-founder-kicker):not(.bb-founder-fine) {
+    display: none;
+  }
+  .bb-founder.is-lead .bb-founder-fine { display: none; }
+  .bb-founder.is-lead .bb-founder-copy { padding: 14px 16px 16px; }
+  .bb-founder.is-lead h2 { font-size: 2rem; margin-bottom: 6px; }
+  .bb-founder-back { margin-bottom: 14px !important; }
+}
+
+/* The sticky bar carries its own pale background so it stays readable once it
+   detaches from the dark run and floats over the grid. Recolouring only its text
+   made it white-on-white the moment it stuck - it has to own the dark too. */
+.shop-darkrun .bb-bar.is-sticky {
+  background: #0a0a0a;
+  padding-left: max(16px, calc(50vw - 800px + 32px));
+  padding-right: max(16px, calc(50vw - 800px + 32px));
+  margin-left: calc(-1 * max(16px, calc(50vw - 800px + 32px)));
+  margin-right: calc(-1 * max(16px, calc(50vw - 800px + 32px)));
+  padding-top: 8px;
+  border-bottom: 1px solid rgba(244,242,237,.14);
+}
+
+/* The pill colours are set by a more specific selector elsewhere, so recolouring
+   them for the dark bar needs that specificity plus a flag - without it the two
+   inactive pills rendered #0c0a09 on #0a0a0a, i.e. empty outlines. */
+.shop-darkrun .drop-pills .etsy-pill,
+.shop-darkrun .bb-bar .etsy-pill {
+  color: #e8e4dd !important;
+  background: transparent !important;
+  border-color: rgba(244, 242, 237, .34) !important;
+}
+.shop-darkrun .drop-pills .etsy-pill:hover,
+.shop-darkrun .bb-bar .etsy-pill:hover { border-color: rgba(244, 242, 237, .75) !important; }
+.shop-darkrun .drop-pills .etsy-pill.is-on,
+.shop-darkrun .bb-bar .etsy-pill.is-on {
+  color: #0a0a0a !important;
+  background: #f4f2ed !important;
+  border-color: #f4f2ed !important;
+}

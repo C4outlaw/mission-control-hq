@@ -848,9 +848,9 @@ function Spin360({ frames, alt }) {
  * buying from, so he goes between the shop and the social proof: after a shopper has
  * seen the clothes, before they are asked to take anyone else's word for them.
  */
-function FounderBand({ onShop }) {
+function FounderBand({ onShop, lead = false }) {
   return (
-    <section className="bb-founder" aria-labelledby="bb-founder-h">
+    <section className={`bb-founder${lead ? ' is-lead' : ''}`} aria-labelledby="bb-founder-h">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="bb-founder-shot" src="/store/shoot/founder-myrie.webp" alt="Myrie, founder of The Lost Jamaican" loading="lazy" decoding="async" />
       <div className="bb-founder-copy">
@@ -860,10 +860,22 @@ function FounderBand({ onShop }) {
           Every line on these pieces is one he grew up hearing. He writes them, sets the type,
           wears them first, and signs off every print before it ships.
         </p>
+        {/* Leading the shop, the band has to do the job the masthead used to: say why
+            buying matters, right before the grid rather than a screen and a half later. */}
+        {lead && (
+          <>
+            <p className="bb-founder-back">
+              <strong>Wear it. Back it.</strong> Every piece funds the next video.
+            </p>
+          </>
+        )}
         {onShop && (
           <button type="button" className="bb-founder-cta" onClick={onShop}>
             Shop the hoodie he&rsquo;s wearing
           </button>
+        )}
+        {lead && (
+          <p className="bb-founder-fine">The Lost Jamaican · printed to order</p>
         )}
       </div>
     </section>
@@ -1289,25 +1301,21 @@ export default function StoreClient() {
         * thin labelled rule where one department becomes the next.        */}
       <section id="shop" className="drop">
         <div className="tls-shell">
-          <header className="drop-head is-masthead">
-            <p className="tls-mono">The Lost Jamaican · {shopResults.length} pieces · printed to order</p>
-            <h2 className="shop-masthead">EVERYTHING, IN ONE PLACE</h2>
-            {/* Coloring books first: they link out to Amazon, not the cart. */}
-            <StoreBooks />
-            {/* The ask, stated plainly and with some pride. Nobody responds to
-                begging, but people do back something they already watch. */}
-            <div className="shop-cta">
-              <p className="shop-cta-line">Wear it. Back it.</p>
-              <p className="shop-cta-body">
-                Every piece funds the next video. <strong>Pick one thing.</strong>
-              </p>
-            </div>
-            <p className="drop-lede">Scroll the whole shop, or jump to a department.</p>
-          </header>
+          {/* The owner, wearing the stock, directly above it. This replaced a 767px
+              stack of heading, coloring-book carousel and CTA that pushed the first
+              shirt two screens down - and put children's books in front of a shopper
+              who came for dancehall merch. The books now follow the clothes. */}
+          <FounderBand lead onShop={() => {
+            const hoodie = CATALOGUE.find((x) => x.id === 'premium-money-hoodie-black');
+            if (hoodie) setOpenDrop(hoodie);
+          }} />
 
-          <nav className="bb-crumb" aria-label="Breadcrumb">
-            The Lost Jamaican<span aria-hidden="true">/</span>Store
-          </nav>
+          {/* Crumb and filter bar run on the same black as the portrait, so the
+              page goes photo -> bar -> product with no pale strip breaking it up. */}
+          <div className="shop-darkrun">
+            <nav className="bb-crumb" aria-label="Breadcrumb">
+              The Lost Jamaican<span aria-hidden="true">/</span>Store
+            </nav>
 
           <div className="bb-bar is-sticky">
             <p className="bb-bar-count">{shopResults.length} {shopResults.length === 1 ? 'item' : 'items'}</p>
@@ -1338,6 +1346,7 @@ export default function StoreClient() {
               </div>
             )}
           </div>
+          </div>
 
           <div className="bb-grid">
             {shopResults.map((item, i) => {
@@ -1355,10 +1364,15 @@ export default function StoreClient() {
         </div>
       </section>
 
-      <FounderBand onShop={() => {
-        const hoodie = CATALOGUE.find((x) => x.id === 'premium-money-hoodie-black');
-        if (hoodie) setOpenDrop(hoodie);
-      }} />
+      {/* A different buyer and a different look, so they sit after the clothes
+          rather than in front of them. */}
+      <section className="shop-books">
+        <div className="tls-shell">
+          <h2 className="shop-books-h">For the kids</h2>
+          <p className="shop-books-sub">Activity books, sold through Amazon.</p>
+          <StoreBooks />
+        </div>
+      </section>
 
       {/* ---------- Social proof ---------- */}
       <section className="drop-proof">
