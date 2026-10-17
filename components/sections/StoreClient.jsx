@@ -1334,6 +1334,35 @@ export default function StoreClient() {
           'Recipe journals, planners, lunchboxes, kitchen gifts',
         ]}
       />
+      <PatwaPackCard
+        pack="music"
+        id="music-sticker-pack"
+        title="Sound System Sticker Pack"
+        kicker="NEW · INSTANT DOWNLOAD"
+        image="/store/music-sticker-pack.jpg"
+        alt="Sound System Sticker Pack: 30 music stickers including turntable, bass bin, boombox, nyabinghi drum, saxophone and jukebox"
+        bullets={[
+          '30 reggae and sound system die-cut stickers, transparent PNG',
+          'Turntables, bass bins, boomboxes, drums, horns and more',
+          'Printable sticker sheets, ready for US Letter',
+          'Guitar cases, speakers, DJ gear, laptops, gifts',
+        ]}
+      />
+      <PatwaPackCard
+        pack="beach"
+        id="beach-sticker-pack"
+        title="Jamaica Travel Sticker Pack"
+        kicker="NEW · INSTANT DOWNLOAD"
+        image="/store/beach-sticker-pack.jpg"
+        reverse
+        alt="Jamaica Travel Sticker Pack: 30 beach and landmark stickers including Seven Mile Beach, Blue Mountains, waterfalls, Rose Hall and a sea turtle"
+        bullets={[
+          '30 Jamaican beach, waterfall and landmark die-cut stickers, transparent PNG',
+          'Blue Mountains, Rose Hall, YS Falls, sea turtles, fishing canoes and more',
+          'Printable sticker sheets, ready for US Letter',
+          'Travel journals, planners, suitcases, water bottles, gifts',
+        ]}
+      />
 
       {/* ============ One shop, one flow ============ *
         * Three stacked sections with three card styles read as three
