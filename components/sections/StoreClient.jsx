@@ -6,6 +6,7 @@ import { COURSES } from '../../lib/store-catalog';
 import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
 import { spinFrames } from '../../lib/store-shoot';
 import StoreBooks from './StoreBooks';
+import PatwaPackCard from './PatwaPackCard';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
 // collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
@@ -1304,6 +1305,8 @@ export default function StoreClient() {
         <strong>Drop 01 is live</strong>
         <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
       </div>
+
+      <PatwaPackCard />
 
       {/* ============ One shop, one flow ============ *
         * Three stacked sections with three card styles read as three

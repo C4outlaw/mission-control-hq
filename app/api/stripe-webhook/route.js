@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 import { byId, packById, PACKS, signGrant } from '../../../lib/prompt-packs';
+import { PATWA_PACK, sendPatwaPackEmail } from '../../../lib/print-pack';
 import { createPrintifyOrder } from '../../../lib/printify-order';
 import { createCustomCatOrder } from '../../../lib/customcat-order';
 
@@ -178,6 +179,20 @@ export async function POST(req) {
 
   // Every paid order, whatever it is, gets Stripe's own receipt.
   await stripeReceipt(stripe, session);
+
+  // Patwa Sticker Pack: instant digital download, nothing to ship. Without this branch the order would
+  // fall through to the prompt-pack fulfilment below and email the buyer the wrong pack.
+  if (session.metadata?.pack === PATWA_PACK.id) {
+    const buyer = session.customer_details?.email || session.customer_email;
+    await sendPatwaPackEmail(buyer, session.id);
+    await notifyOwner(session, {
+      kind: 'Patwa Sticker Pack (digital)', ref: session.id,
+      items: [PATWA_PACK.name],
+      money: `${((session.amount_total || 0) / 100).toFixed(2)} ${(session.currency || 'usd').toUpperCase()}`,
+      buyer,
+    });
+    return new Response('patwa pack delivered', { status: 200 });
+  }
 
   // Physical merch: hand the paid order to Printify for production and shipping.
   // Digital-pack fulfilment below is untouched.
