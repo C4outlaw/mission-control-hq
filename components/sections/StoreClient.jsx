@@ -1306,7 +1306,34 @@ export default function StoreClient() {
         <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
       </div>
 
-      <PatwaPackCard />
+      <PatwaPackCard
+        pack="patwa"
+        id="sticker-pack"
+        title="Patwa Sticker Pack"
+        image="/store/patwa-sticker-pack.jpg"
+        alt="Patwa Sticker Pack: 30 colourful Jamaican stickers including jerk chicken, beef patty, doctor bird, bobsled and more"
+        bullets={[
+          '30 colourful Jamaican die-cut stickers, transparent PNG',
+          'Printable sticker sheets, ready for US Letter',
+          '6 patois wall prints, 8x10 and 16x20',
+          'Planners, journals, laptops, bottles, gifts',
+        ]}
+      />
+      <PatwaPackCard
+        pack="food"
+        id="food-sticker-pack"
+        title="Jamaican Food Sticker Pack"
+        kicker="NEW · INSTANT DOWNLOAD"
+        image="/store/food-sticker-pack.jpg"
+        reverse
+        alt="Jamaican Food Sticker Pack: 30 food and drink stickers including oxtail, curry goat, sorrel, ackee, soursop and jerk pork"
+        bullets={[
+          '30 Jamaican food and drink die-cut stickers, transparent PNG',
+          'Oxtail, curry goat, sorrel, ackee, jerk, soursop and more',
+          'Printable sticker sheets, ready for US Letter',
+          'Recipe journals, planners, lunchboxes, kitchen gifts',
+        ]}
+      />
 
       {/* ============ One shop, one flow ============ *
         * Three stacked sections with three card styles read as three

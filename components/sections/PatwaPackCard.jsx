@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // The $5 instant-download Patwa Sticker Pack. Checkout is created server-side at /api/pack-checkout,
 // which fixes the price, so this button only starts the session and redirects to Stripe.
-export default function PatwaPackCard() {
+export default function PatwaPackCard({ pack = 'patwa', id = 'sticker-pack', kicker = 'NEW · INSTANT DOWNLOAD', title = 'Patwa Sticker Pack', image = '/store/patwa-sticker-pack.jpg', alt, bullets, reverse = false }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
 
@@ -11,7 +11,7 @@ export default function PatwaPackCard() {
     setBusy(true);
     setErr('');
     try {
-      const r = await fetch('/api/pack-checkout', { method: 'POST' });
+      const r = await fetch('/api/pack-checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pack }) });
       const d = await r.json();
       if (!r.ok || !d.url) throw new Error(d.error || 'Checkout unavailable');
       window.location.href = d.url;
@@ -22,24 +22,23 @@ export default function PatwaPackCard() {
   }
 
   return (
-    <section id="sticker-pack" style={{ background: '#141414', color: '#f3eee4', padding: '40px 16px' }}>
-      <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
+    <section id={id} style={{ background: '#141414', color: '#f3eee4', padding: '40px 16px' }}>
+      <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', flexWrap: 'wrap', flexDirection: reverse ? 'row-reverse' : 'row', gap: 32, alignItems: 'center' }}>
         <img
-          src="/store/patwa-sticker-pack.jpg"
-          alt="Patwa Sticker Pack: 30 colourful Jamaican stickers including jerk chicken, beef patty, doctor bird, bobsled and more"
+          src={image}
+          alt={alt}
           width={480}
           height={600}
           loading="lazy"
           style={{ width: '100%', maxWidth: 440, height: 'auto', borderRadius: 12, flex: '1 1 300px' }}
         />
         <div style={{ flex: '1 1 320px' }}>
-          <p style={{ color: '#f0b900', letterSpacing: 3, fontSize: 13, margin: 0 }}>NEW · INSTANT DOWNLOAD</p>
-          <h2 style={{ fontSize: 34, lineHeight: 1.1, margin: '8px 0 12px' }}>Patwa Sticker Pack</h2>
+          <p style={{ color: '#f0b900', letterSpacing: 3, fontSize: 13, margin: 0 }}>{kicker}</p>
+          <h2 style={{ fontSize: 34, lineHeight: 1.1, margin: '8px 0 12px' }}>{title}</h2>
           <ul style={{ paddingLeft: 20, margin: '0 0 18px', lineHeight: 1.7 }}>
-            <li>30 colourful Jamaican die-cut stickers, transparent PNG</li>
-            <li>Printable sticker sheets, ready for US Letter</li>
-            <li>6 patois wall prints, 8x10 and 16x20</li>
-            <li>Planners, journals, laptops, bottles, gifts</li>
+            {bullets.map((b) => (
+              <li key={b}>{b}</li>
+            ))}
           </ul>
           <button
             onClick={buy}
