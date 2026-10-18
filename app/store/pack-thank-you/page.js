@@ -2,7 +2,7 @@ import Stripe from 'stripe';
 import { stickerPackById, packLinks } from '../../../lib/print-pack';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Your sticker pack', robots: { index: false, follow: false } };
+export const metadata = { title: 'Your download', robots: { index: false, follow: false } };
 
 const wrap = { minHeight: '100vh', background: '#141414', color: '#f3eee4', padding: '64px 20px', fontFamily: 'system-ui, sans-serif' };
 const card = { maxWidth: 640, margin: '0 auto' };
@@ -42,14 +42,21 @@ export default async function PackThankYou({ searchParams }) {
       <div style={card}>
         <p style={{ color: '#f0b900', letterSpacing: 3, fontSize: 13, margin: 0 }}>THE LOST JAMAICAN</p>
         <h1 style={{ fontSize: 36, margin: '8px 0 12px' }}>Thank you! Walk good.</h1>
-        <p>Your {pack.name.replace('The Lost Jamaican — ', '')} is ready. It is split into {links.length} zip files so each one downloads fast. Download all of them.</p>
+        <p>
+          Your {pack.name.replace('The Lost Jamaican — ', '')} is ready.{' '}
+          {pack.book
+            ? 'Tap the book link, then Download. It saves as one PDF that opens on any phone or computer.'
+            : `It is split into ${links.length} zip files so each one downloads fast. Download all of them.`}
+        </p>
         {links.map((l) => (
           <a key={l.url} href={l.url} style={btn}>
-            Download: {l.label} <span style={{ fontWeight: 400, opacity: 0.85 }}>({l.items} files, {l.mb} MB)</span>
+            {pack.book ? '' : 'Download: '}{l.label} <span style={{ fontWeight: 400, opacity: 0.85 }}>({l.items ? `${l.items} files, ` : ''}{l.mb} MB)</span>
           </a>
         ))}
         <p style={{ opacity: 0.75, fontSize: 14 }}>
-          We also emailed these links to you. They work for 14 days. Stickers are transparent PNGs, and the sheets print on US Letter sticker paper (any wall prints in your pack print at 8x10 or 16x20). Personal use only.
+          {pack.book
+            ? 'We also emailed these links to you. They work for 14 days. Cultural and food content only, not medical advice. Personal use only.'
+            : 'We also emailed these links to you. They work for 14 days. Stickers are transparent PNGs, and the sheets print on US Letter sticker paper (any wall prints in your pack print at 8x10 or 16x20). Personal use only.'}
         </p>
       </div>
     </main>

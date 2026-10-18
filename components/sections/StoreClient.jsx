@@ -1307,6 +1307,24 @@ export default function StoreClient() {
       </div>
 
       <PatwaPackCard
+        pack="bush-medicine"
+        id="bush-medicine-book"
+        title="Bush Medicine: 50 Jamaican Home Remedies"
+        kicker="NEW BOOK · INSTANT PDF DOWNLOAD"
+        image="/store/bush-medicine-book.jpg"
+        imageSize={[800, 1200]}
+        alt="Bush Medicine: 50 Jamaican Home Remedies, The Lost Jamaican. Green and gold cover with ginger, turmeric, garlic, mint, honey and a stone mortar and pestle"
+        bullets={[
+          'Full-color illustrated kitchen and heritage edition, 113-page PDF',
+          '50 entries, each with its own two-page spread, ingredient art, preparation steps, storage notes and cautions',
+          'Revised edition: 27 original herbal entries replaced with documented kitchen substitutions (change log included)',
+          'Cultural and food content only, not medical advice or proven treatments',
+        ]}
+        cta="Get the book · $9.99"
+        previewHref="/store/bush-medicine-preview.pdf"
+        note="Digital PDF · personal use · secure checkout by Stripe · AI-assisted illustrations, not plant-identification guides · not clinically reviewed"
+      />
+      <PatwaPackCard
         pack="patwa"
         id="sticker-pack"
         title="Patwa Sticker Pack"

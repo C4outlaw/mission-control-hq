@@ -1,0 +1,76 @@
+{
+  "file": "BUSH-MEDICINE-FULL-COLOR.pdf",
+  "bytes": 60201785,
+  "sha256": "63507e183c630aabffe3dd7b9a38d59996efb26b30f6cdca37aa207fef92c5fb",
+  "pages": 113,
+  "parts": [
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part01",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part02",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part03",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part04",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part05",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part06",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part07",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part08",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part09",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part10",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part11",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part12",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part13",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part14",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part15",
+      "bytes": 4000000
+    },
+    {
+      "file": "BUSH-MEDICINE-FULL-COLOR.pdf.part16",
+      "bytes": 201785
+    }
+  ],
+  "changeLog": {
+    "file": "BUSH-MEDICINE-EDITORIAL-CHANGE-LOG.md",
+    "bytes": 10951
+  }
+}

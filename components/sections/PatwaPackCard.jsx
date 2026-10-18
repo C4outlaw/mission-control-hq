@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 // The $5 instant-download Patwa Sticker Pack. Checkout is created server-side at /api/pack-checkout,
 // which fixes the price, so this button only starts the session and redirects to Stripe.
-export default function PatwaPackCard({ pack = 'patwa', id = 'sticker-pack', kicker = 'NEW · INSTANT DOWNLOAD', title = 'Patwa Sticker Pack', image = '/store/patwa-sticker-pack.jpg', alt, bullets, reverse = false }) {
+export default function PatwaPackCard({ pack = 'patwa', id = 'sticker-pack', kicker = 'NEW · INSTANT DOWNLOAD', title = 'Patwa Sticker Pack', image = '/store/patwa-sticker-pack.jpg', imageSize = [480, 600], alt, bullets, reverse = false, cta = 'Get the pack · $5', previewHref, note = 'Digital download · personal use · secure checkout by Stripe' }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState('');
 
@@ -27,8 +27,8 @@ export default function PatwaPackCard({ pack = 'patwa', id = 'sticker-pack', kic
         <img
           src={image}
           alt={alt}
-          width={480}
-          height={600}
+          width={imageSize[0]}
+          height={imageSize[1]}
           loading="lazy"
           style={{ width: '100%', maxWidth: 440, height: 'auto', borderRadius: 12, flex: '1 1 300px' }}
         />
@@ -45,10 +45,15 @@ export default function PatwaPackCard({ pack = 'patwa', id = 'sticker-pack', kic
             disabled={busy}
             style={{ background: '#009b3a', color: '#fff', border: 0, borderRadius: 10, padding: '16px 28px', fontSize: 18, fontWeight: 700, cursor: busy ? 'wait' : 'pointer', minHeight: 48 }}
           >
-            {busy ? 'Opening checkout…' : 'Get the pack · $5'}
+            {busy ? 'Opening checkout…' : cta}
           </button>
+          {previewHref ? (
+            <a href={previewHref} target="_blank" rel="noopener" style={{ display: 'inline-block', marginLeft: 16, color: '#f0b900', fontWeight: 600, padding: '14px 0' }}>
+              Free preview (PDF)
+            </a>
+          ) : null}
           {err ? <p role="alert" style={{ color: '#ff8a80', marginTop: 12 }}>{err}</p> : null}
-          <p style={{ opacity: 0.7, fontSize: 13, marginTop: 14 }}>Digital download · personal use · secure checkout by Stripe</p>
+          <p style={{ opacity: 0.7, fontSize: 13, marginTop: 14 }}>{note}</p>
         </div>
       </div>
     </section>

@@ -38,9 +38,16 @@ export async function GET(req) {
   } catch {
     return new Response('Download temporarily unavailable.', { status: 500 });
   }
+  const type = name.endsWith('.pdf')
+    ? 'application/pdf'
+    : name.endsWith('.md')
+      ? 'text/markdown; charset=utf-8'
+      : /\.part\d+$/.test(name)
+        ? 'application/octet-stream' // a book slice, joined in the browser by /store/book-download
+        : 'application/zip';
   return new Response(buf, {
     headers: {
-      'Content-Type': name.endsWith('.pdf') ? 'application/pdf' : 'application/zip',
+      'Content-Type': type,
       'Content-Disposition': `attachment; filename="${name}"`,
       'Cache-Control': 'no-store',
     },
