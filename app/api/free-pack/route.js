@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { tooManyRequests } from '../../../lib/rate-limit';
 
 // Free-pack email capture for myriehq.com/subscriber.
 // Two jobs: email the pack to the person (which is what verifies the address),
@@ -13,6 +14,8 @@ const PACK_URL = 'https://www.myriehq.com/free-pack/THE-PROMPT-GUIDE.zip';
 const SUBJECT_TAG = '[LIST]';
 
 export async function POST(req) {
+  const limited = tooManyRequests(req);
+  if (limited) return limited;
   try {
     const b = await req.json().catch(() => ({}));
     if (b.company) return Response.json({ ok: true }, { status: 200 }); // honeypot

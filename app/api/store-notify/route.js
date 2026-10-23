@@ -1,8 +1,11 @@
 import nodemailer from 'nodemailer';
+import { tooManyRequests } from '../../../lib/rate-limit';
 
 // Store launch-notify capture for The Lost Jamaican store.
 // Mirrors /api/contact: honeypot, graceful failure, emails the signup to us.
 export async function POST(req) {
+  const limited = tooManyRequests(req);
+  if (limited) return limited;
   try {
     const b = await req.json().catch(() => ({}));
     if (b.company) return Response.json({ ok: true }, { status: 200 });

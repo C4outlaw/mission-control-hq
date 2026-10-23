@@ -1,9 +1,12 @@
 import nodemailer from 'nodemailer';
+import { tooManyRequests } from '../../../lib/rate-limit';
 
 // Lead-capture endpoint for the homepage contact form.
 // Mirrors the existing nodemailer routes; fails gracefully (never throws) so the
 // form can fall back to showing email/phone if SMTP isn't configured.
 export async function POST(req) {
+  const limited = tooManyRequests(req);
+  if (limited) return limited;
   try {
     const b = await req.json().catch(() => ({}));
 

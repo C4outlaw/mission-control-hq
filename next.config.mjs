@@ -30,6 +30,10 @@ const nextConfig = {
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), geolocation=(), microphone=(self)' },
+          // Security audit 2026-10-23: no script/style/connect restrictions (Stripe, analytics and
+          // inline Next.js bootstraps keep working); this only blocks clickjacking from other
+          // origins, plugin objects, <base> hijacking, and forces https for mixed content.
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests" },
         ],
       },
     ];

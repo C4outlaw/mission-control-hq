@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import { answerLunaQuestion } from '../../../lib/luna-knowledge.mjs';
+import { tooManyRequests } from '../../../lib/rate-limit';
 
 const clean = (value, max = 200) => String(value || '').trim().slice(0, max);
 
@@ -25,6 +26,8 @@ function escapeHtml(value) {
 }
 
 export async function POST(req) {
+  const limited = tooManyRequests(req, { limit: 30 });
+  if (limited) return limited;
   try {
     const body = await req.json().catch(() => ({}));
     if (body.company) return Response.json({ status: 'answered', reply: 'Thank you.', needsContact: false });
