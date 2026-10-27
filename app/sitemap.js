@@ -58,14 +58,6 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
-      // The free subscriber bundle. Crawlers reach this only via the sitemap,
-      // so it has to be listed here as well as linked from social bios.
-      url: `${base}/subscriber`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${base}/projects`,
       lastModified: now,
       changeFrequency: 'weekly',
@@ -79,7 +71,7 @@ export default function sitemap() {
     },
 
       // Policy pages. Meta's shop review checks for a reachable return policy,
-    // and the free-pack form must not collect emails with no privacy policy behind it.
+    // and the store forms must not collect emails with no privacy policy behind it.
     {
       url: `${base}/privacy`,
       lastModified: now,
