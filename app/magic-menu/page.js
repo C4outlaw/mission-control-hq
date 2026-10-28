@@ -54,7 +54,7 @@ export default function MagicMenuPage() {
             <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))', gap: 12 }}>
               {modules.map((m) => (
                 <article key={m.name} style={{ border: '1px solid #2b3b59', borderRadius: 12, padding: 14, background: '#131c2e' }}>
-                  <h3 style={{ margin: '0 0 8px', fontSize: 18 }}>{m.name}</h3>
+                  <h2 style={{ margin: '0 0 8px', fontSize: 18 }}>{m.name}</h2>
                   <p style={{ margin: 0, color: '#bfd0eb', lineHeight: 1.55 }}>{m.desc}</p>
                 </article>
               ))}
