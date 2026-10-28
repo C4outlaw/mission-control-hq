@@ -33,7 +33,7 @@ export default function HeroCinematic() {
           ref={videoRef}
           className="hero-bg-3d-scene-video"
           src="/assets/hero/hero-3d-box.mp4"
-          poster="/assets/hero/hero-3d-box.png"
+          poster="/assets/hero/hero-3d-box.webp"
           autoPlay
           muted
           loop
@@ -46,7 +46,7 @@ export default function HeroCinematic() {
         <video
           className="hero-bg-mobile-video"
           src="/assets/hero/waterfall-hero.mp4"
-          poster="/assets/hero/waterfall-hero.png"
+          poster="/assets/hero/waterfall-hero.webp"
           autoPlay
           muted
           loop

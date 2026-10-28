@@ -4,7 +4,8 @@ import ProjectsClient from '../../components/sections/ProjectsClient';
 
 export const metadata = {
   title: 'Portfolio · Myrie HQ',
-  description: 'Selected work for restaurants, bars, and local businesses across Daytona Beach and Orlando: websites, brand commercials, daily specials systems, and marketing automation.',
+  description: 'Work for restaurants, bars and local businesses in Daytona Beach and Orlando: websites, brand commercials, daily specials and marketing automation.',
+  alternates: { canonical: 'https://www.myriehq.com/projects' },
 };
 
 export default function ProjectsPage() {

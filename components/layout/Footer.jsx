@@ -63,22 +63,22 @@ export default function Footer() {
         </Reveal>
 
         <Reveal className="ti-foot-col">
-          <h4>{t('footer.h_services')}</h4>
+          <h2 className="foot-h">{t('footer.h_services')}</h2>
           <ul>{services.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.05}>
-          <h4>{t('footer.h_work')}</h4>
+          <h2 className="foot-h">{t('footer.h_work')}</h2>
           <ul>{work.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.1}>
-          <h4>{t('footer.h_company')}</h4>
+          <h2 className="foot-h">{t('footer.h_company')}</h2>
           <ul>{company.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}</ul>
         </Reveal>
 
         <Reveal className="ti-foot-col" delay={0.15}>
-          <h4>{t('footer.h_contact')}</h4>
+          <h2 className="foot-h">{t('footer.h_contact')}</h2>
           <ul>
             <li><a href="mailto:myriework@gmail.com">myriework@gmail.com</a></li>
             <li><a href="tel:+13867958727">+1 (386) 795-8727</a></li>
@@ -136,7 +136,7 @@ export default function Footer() {
         .ti-foot-social a:hover { color: var(--warm); border-color: var(--warm); transform: translateY(-2px); }
 
         /* Premium uppercase column headers */
-        .ti-foot-col h4 {
+        .ti-foot-col h4, .ti-foot-col .foot-h {
           color: var(--muted);
           font-size: 11px;
           font-weight: 600;

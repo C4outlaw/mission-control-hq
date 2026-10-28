@@ -32,7 +32,7 @@ export default function MagicMenuPage() {
         <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: '260px 1fr', gap: 14 }}>
           <aside style={{ border: '1px solid #233047', borderRadius: 14, background: '#0f1625', padding: 14 }}>
             <p style={{ margin: 0, fontSize: 11, letterSpacing: '.12em', color: '#93a5c3', textTransform: 'uppercase' }}>Menu Magic</p>
-            <h2 style={{ margin: '8px 0 12px', fontSize: 22, letterSpacing: '-.02em' }}>App Navigation</h2>
+            <p style={{ margin: '8px 0 12px', fontSize: 22, fontWeight: 700, letterSpacing: '-.02em' }}>App Navigation</p>
             <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9, color: '#d3def1' }}>
               <li>Dashboard</li>
               <li>Menu Builder</li>

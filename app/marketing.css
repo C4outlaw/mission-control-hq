@@ -552,7 +552,7 @@ html.lenis, html.lenis body { height: auto; }
 .myrie-marketing .hero-cinematic .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .myrie-marketing .hero-bg-image {
   position: absolute; inset: 0;
-  background-image: url('/assets/hero/waterfall-hero.png');
+  background-image: url('/assets/hero/waterfall-hero.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

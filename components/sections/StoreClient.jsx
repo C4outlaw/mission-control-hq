@@ -6,7 +6,6 @@ import { COURSES } from '../../lib/store-catalog';
 import { CATALOGUE, DEPARTMENTS, isStockedSize } from '../../lib/store-unified';
 import { spinFrames } from '../../lib/store-shoot';
 import StoreBooks from './StoreBooks';
-import PatwaPackCard from './PatwaPackCard';
 
 // 2026-07-26: store wiped to the hero only, ahead of the new 40-design
 // collection (Myrie's sketch: one big shirt view with its mug + hat beneath).
@@ -1306,82 +1305,6 @@ export default function StoreClient() {
         <span>· launch pricing until the next drop lands · printed to order, ships in 3–7 days</span>
       </div>
 
-      <PatwaPackCard
-        pack="bush-medicine"
-        id="bush-medicine-book"
-        title="Bush Medicine: 50 Jamaican Home Remedies"
-        kicker="NEW BOOK · INSTANT PDF DOWNLOAD"
-        image="/store/bush-medicine-book.jpg"
-        imageSize={[800, 1200]}
-        alt="Bush Medicine: 50 Jamaican Home Remedies, The Lost Jamaican. Green and gold cover with ginger, turmeric, garlic, mint, honey and a stone mortar and pestle"
-        bullets={[
-          'Full-color illustrated kitchen and heritage edition, 113-page PDF',
-          '50 entries, each with its own two-page spread, ingredient art, preparation steps, storage notes and cautions',
-          'Revised edition: 27 original herbal entries replaced with documented kitchen substitutions (change log included)',
-          'Cultural and food content only, not medical advice or proven treatments',
-        ]}
-        cta="Get the book · $9.99"
-        previewHref="/store/bush-medicine-preview.pdf"
-        note="Digital PDF · personal use · secure checkout by Stripe · AI-assisted illustrations, not plant-identification guides · not clinically reviewed"
-      />
-      <PatwaPackCard
-        pack="patwa"
-        id="sticker-pack"
-        title="Patwa Sticker Pack"
-        image="/store/patwa-sticker-pack.jpg"
-        alt="Patwa Sticker Pack: 30 colourful Jamaican stickers including jerk chicken, beef patty, doctor bird, bobsled and more"
-        bullets={[
-          '30 colourful Jamaican die-cut stickers, transparent PNG',
-          'Printable sticker sheets, ready for US Letter',
-          '6 patois wall prints, 8x10 and 16x20',
-          'Planners, journals, laptops, bottles, gifts',
-        ]}
-      />
-      <PatwaPackCard
-        pack="food"
-        id="food-sticker-pack"
-        title="Jamaican Food Sticker Pack"
-        kicker="NEW · INSTANT DOWNLOAD"
-        image="/store/food-sticker-pack.jpg"
-        reverse
-        alt="Jamaican Food Sticker Pack: 30 food and drink stickers including oxtail, curry goat, sorrel, ackee, soursop and jerk pork"
-        bullets={[
-          '30 Jamaican food and drink die-cut stickers, transparent PNG',
-          'Oxtail, curry goat, sorrel, ackee, jerk, soursop and more',
-          'Printable sticker sheets, ready for US Letter',
-          'Recipe journals, planners, lunchboxes, kitchen gifts',
-        ]}
-      />
-      <PatwaPackCard
-        pack="music"
-        id="music-sticker-pack"
-        title="Sound System Sticker Pack"
-        kicker="NEW · INSTANT DOWNLOAD"
-        image="/store/music-sticker-pack.jpg"
-        alt="Sound System Sticker Pack: 30 music stickers including turntable, bass bin, boombox, nyabinghi drum, saxophone and jukebox"
-        bullets={[
-          '30 reggae and sound system die-cut stickers, transparent PNG',
-          'Turntables, bass bins, boomboxes, drums, horns and more',
-          'Printable sticker sheets, ready for US Letter',
-          'Guitar cases, speakers, DJ gear, laptops, gifts',
-        ]}
-      />
-      <PatwaPackCard
-        pack="beach"
-        id="beach-sticker-pack"
-        title="Jamaica Travel Sticker Pack"
-        kicker="NEW · INSTANT DOWNLOAD"
-        image="/store/beach-sticker-pack.jpg"
-        reverse
-        alt="Jamaica Travel Sticker Pack: 30 beach and landmark stickers including Seven Mile Beach, Blue Mountains, waterfalls, Rose Hall and a sea turtle"
-        bullets={[
-          '30 Jamaican beach, waterfall and landmark die-cut stickers, transparent PNG',
-          'Blue Mountains, Rose Hall, YS Falls, sea turtles, fishing canoes and more',
-          'Printable sticker sheets, ready for US Letter',
-          'Travel journals, planners, suitcases, water bottles, gifts',
-        ]}
-      />
-
       {/* ============ One shop, one flow ============ *
         * Three stacked sections with three card styles read as three
         * different shops. This is a single wall of product: the proven
@@ -1470,10 +1393,15 @@ export default function StoreClient() {
             <h2>As seen on <a href="https://www.tiktok.com/@thelostjamaican" target="_blank" rel="noreferrer">@thelostjamaican</a></h2>
             <p>41.9k strong on TikTok. Every design comes straight out of the videos — wear what the yard already knows.</p>
           </div>
-          <div className="drop-proof-shots" aria-hidden="true">
-            {['/store/model/money--m-beard-blk.jpg', '/store/model/neverlose--w-braids-blk.jpg', '/store/model/flagx--w-beach-blk.jpg', '/store/model/wahgwaan--m-dread-blk2.jpg'].map((src) => (
+          <div className="drop-proof-shots">
+            {[
+              ['/store/model/money--m-beard-blk.jpg', 'Man in a black Lost Jamaican Money tee'],
+              ['/store/model/neverlose--w-braids-blk.jpg', 'Woman in a black Lost Jamaican Never Lose tee'],
+              ['/store/model/flagx--w-beach-blk.jpg', 'Woman on the beach in a black Jamaican flag tee'],
+              ['/store/model/wahgwaan--m-dread-blk2.jpg', 'Man with locs in a black Wah Gwaan tee'],
+            ].map(([src, alt]) => (
               /* eslint-disable-next-line @next/next/no-img-element */
-              <img key={src} src={gridSrc(src)} alt="" loading="lazy" decoding="async" />
+              <img key={src} src={gridSrc(src)} alt={alt} loading="lazy" decoding="async" />
             ))}
           </div>
         </div>

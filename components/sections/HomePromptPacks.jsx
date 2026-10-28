@@ -27,8 +27,8 @@ export default function HomePromptPacks() {
         </div>
         <a href="/prompts" aria-hidden="true" tabIndex={-1} style={{ flex: '0 1 260px' }}>
           <img
-            src="/prompts/pack-page1.png"
-            alt=""
+            src="/prompts/pack-page1.webp"
+            alt="First page of The Lost Jamaican prompt pack"
             width={410}
             height={547}
             loading="lazy"

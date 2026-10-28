@@ -1,7 +1,7 @@
 export const metadata = {
   title: 'Prompt Packs — The Lost Jamaican',
   description:
-    'Every prompt, model setting, and quality gate behind our dancehall & reggae documentary shorts. Name your price and download the exact prompt pack for your next video.',
+    'Every prompt, model setting and quality gate behind our dancehall and reggae documentary shorts. Name your price and get the exact pack for your next video.',
   alternates: {
     canonical: 'https://www.myriehq.com/prompts',
   },

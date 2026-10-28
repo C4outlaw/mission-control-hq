@@ -43,6 +43,14 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/', destination: '/store', permanent: false },
+      // One host only: the bare domain served a full duplicate of the site.
+      // Send every apex request to the www host the canonicals already name.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'myriehq.com' }],
+        destination: 'https://www.myriehq.com/:path*',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

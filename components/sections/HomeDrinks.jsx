@@ -8,20 +8,20 @@ import Coverflow from '../motion/Coverflow';
  */
 const BASE = '/assets/work/beach-bucket-design/drinks';
 const SLIDES = [
-  { src: 'monday.png',              cap: 'Monday — Daily Specials' },
-  { src: 'tuesday.png',             cap: 'Tuesday — Daily Specials' },
-  { src: 'wednesday.png',           cap: 'Wednesday — Daily Specials' },
-  { src: 'thursday.png',            cap: 'Thursday — Daily Specials' },
-  { src: 'friday.png',              cap: 'Friday — Daily Specials' },
-  { src: 'saturday.png',            cap: 'Saturday — Daily Specials' },
-  { src: 'sunday.png',              cap: 'Sunday — Daily Specials' },
-  { src: 'blueberry-bay-breeze.png',cap: 'Blueberry Bay Breeze' },
-  { src: 'cucumber-cooler.png',     cap: 'Cucumber Cooler' },
-  { src: 'citrus-seabreeze.png',    cap: 'Citrus Seabreeze' },
-  { src: 'orange-crush.png',        cap: 'Orange Crush' },
-  { src: 'grape-pop.png',           cap: 'Grape Pop' },
-  { src: 'cherry-lemonade.png',     cap: 'Cherry Lemonade' },
-  { src: 'raspberry-lemonade.png',  cap: 'Raspberry Lemonade' },
+  { src: 'monday.webp',              cap: 'Monday — Daily Specials' },
+  { src: 'tuesday.webp',             cap: 'Tuesday — Daily Specials' },
+  { src: 'wednesday.webp',           cap: 'Wednesday — Daily Specials' },
+  { src: 'thursday.webp',            cap: 'Thursday — Daily Specials' },
+  { src: 'friday.webp',              cap: 'Friday — Daily Specials' },
+  { src: 'saturday.webp',            cap: 'Saturday — Daily Specials' },
+  { src: 'sunday.webp',              cap: 'Sunday — Daily Specials' },
+  { src: 'blueberry-bay-breeze.webp',cap: 'Blueberry Bay Breeze' },
+  { src: 'cucumber-cooler.webp',     cap: 'Cucumber Cooler' },
+  { src: 'citrus-seabreeze.webp',    cap: 'Citrus Seabreeze' },
+  { src: 'orange-crush.webp',        cap: 'Orange Crush' },
+  { src: 'grape-pop.webp',           cap: 'Grape Pop' },
+  { src: 'cherry-lemonade.webp',     cap: 'Cherry Lemonade' },
+  { src: 'raspberry-lemonade.webp',  cap: 'Raspberry Lemonade' },
 ];
 
 export default function HomeDrinks() {

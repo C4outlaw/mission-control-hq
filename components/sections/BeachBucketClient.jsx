@@ -12,21 +12,21 @@ export default function BeachBucketClient() {
   const sigCap = (name) => `${name} ${t('bb.cap_signature')}`;
 
   const drinks = [
-    { src: '/assets/work/beach-bucket-design/drinks/all-drinks.png',           caption: t('bb.cap_grid') },
-    { src: '/assets/work/beach-bucket-design/drinks/monday.png',               caption: dayCap('bb.day_monday') },
-    { src: '/assets/work/beach-bucket-design/drinks/tuesday.png',              caption: dayCap('bb.day_tuesday') },
-    { src: '/assets/work/beach-bucket-design/drinks/wednesday.png',            caption: dayCap('bb.day_wednesday') },
-    { src: '/assets/work/beach-bucket-design/drinks/thursday.png',             caption: dayCap('bb.day_thursday') },
-    { src: '/assets/work/beach-bucket-design/drinks/friday.png',               caption: dayCap('bb.day_friday') },
-    { src: '/assets/work/beach-bucket-design/drinks/saturday.png',             caption: dayCap('bb.day_saturday') },
-    { src: '/assets/work/beach-bucket-design/drinks/sunday.png',               caption: dayCap('bb.day_sunday') },
-    { src: '/assets/work/beach-bucket-design/drinks/blueberry-bay-breeze.png', caption: sigCap('Blueberry Bay Breeze') },
-    { src: '/assets/work/beach-bucket-design/drinks/cherry-lemonade.png',      caption: sigCap('Cherry Lemonade') },
-    { src: '/assets/work/beach-bucket-design/drinks/citrus-seabreeze.png',     caption: sigCap('Citrus Seabreeze') },
-    { src: '/assets/work/beach-bucket-design/drinks/cucumber-cooler.png',      caption: sigCap('Cucumber Cooler') },
-    { src: '/assets/work/beach-bucket-design/drinks/grape-pop.png',            caption: sigCap('Grape Pop') },
-    { src: '/assets/work/beach-bucket-design/drinks/orange-crush.png',         caption: sigCap('Orange Crush') },
-    { src: '/assets/work/beach-bucket-design/drinks/raspberry-lemonade.png',   caption: sigCap('Raspberry Lemonade') },
+    { src: '/assets/work/beach-bucket-design/drinks/all-drinks.webp',           caption: t('bb.cap_grid') },
+    { src: '/assets/work/beach-bucket-design/drinks/monday.webp',               caption: dayCap('bb.day_monday') },
+    { src: '/assets/work/beach-bucket-design/drinks/tuesday.webp',              caption: dayCap('bb.day_tuesday') },
+    { src: '/assets/work/beach-bucket-design/drinks/wednesday.webp',            caption: dayCap('bb.day_wednesday') },
+    { src: '/assets/work/beach-bucket-design/drinks/thursday.webp',             caption: dayCap('bb.day_thursday') },
+    { src: '/assets/work/beach-bucket-design/drinks/friday.webp',               caption: dayCap('bb.day_friday') },
+    { src: '/assets/work/beach-bucket-design/drinks/saturday.webp',             caption: dayCap('bb.day_saturday') },
+    { src: '/assets/work/beach-bucket-design/drinks/sunday.webp',               caption: dayCap('bb.day_sunday') },
+    { src: '/assets/work/beach-bucket-design/drinks/blueberry-bay-breeze.webp', caption: sigCap('Blueberry Bay Breeze') },
+    { src: '/assets/work/beach-bucket-design/drinks/cherry-lemonade.webp',      caption: sigCap('Cherry Lemonade') },
+    { src: '/assets/work/beach-bucket-design/drinks/citrus-seabreeze.webp',     caption: sigCap('Citrus Seabreeze') },
+    { src: '/assets/work/beach-bucket-design/drinks/cucumber-cooler.webp',      caption: sigCap('Cucumber Cooler') },
+    { src: '/assets/work/beach-bucket-design/drinks/grape-pop.webp',            caption: sigCap('Grape Pop') },
+    { src: '/assets/work/beach-bucket-design/drinks/orange-crush.webp',         caption: sigCap('Orange Crush') },
+    { src: '/assets/work/beach-bucket-design/drinks/raspberry-lemonade.webp',   caption: sigCap('Raspberry Lemonade') },
   ];
 
   const breakfast = [

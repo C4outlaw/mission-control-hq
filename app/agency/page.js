@@ -14,6 +14,12 @@ import HomeMobileCTA from '../../components/sections/HomeMobileCTA';
 import HomeProcess from '../../components/sections/HomeProcess';
 import HomeContact from '../../components/sections/HomeContact';
 
+export const metadata = {
+  title: 'Restaurant & Local Business Marketing Agency',
+  description: 'Myrie HQ builds websites, brand commercials and marketing systems for restaurants, bars and local businesses in Daytona Beach and Orlando.',
+  alternates: { canonical: 'https://www.myriehq.com/agency' },
+};
+
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',

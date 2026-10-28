@@ -23,7 +23,7 @@ export default function HeroLV() {
         ref={videoRef}
         className="lv-hero-bg"
         src="/assets/hero/waterfall-hero.mp4"
-        poster="/assets/hero/waterfall-hero.png"
+        poster="/assets/hero/waterfall-hero.webp"
         autoPlay
         muted
         loop
