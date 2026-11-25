@@ -27,6 +27,7 @@ export default function SiteNav({ links }) {
   }, [menuOpen]);
 
   const items = links || [
+    { href: '/studio', label: 'Studio & Rates' },
     { href: '/agency#showcase',  label: t('nav.work') },
     { href: '/agency#try-app',   label: t('nav.magic_menu') },
     { href: '/agency#bundle',    label: t('nav.services') },

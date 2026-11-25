@@ -3,6 +3,7 @@ export default function sitemap() {
   const now = new Date();
 
   return [
+    { url: `${base}/studio`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
     // '/' 307s to /store, so it is not listed; a redirecting URL in a sitemap is a crawl error.
     {
       url: `${base}/about`,
