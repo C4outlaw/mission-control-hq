@@ -19,6 +19,5 @@ export default function Showreel() {
       <a href={sourceUrl(film.id)} target="_blank" rel="noopener noreferrer">Watch original on TikTok ↗</a>
       <a className="studio-download" href="/downloads/The-Lost-Jamaican-Client-Flyer.pdf" download>Download rates & flyer ↓</a></div>
     </article>;
-  })}</div>;
+  })}<article className="studio-film"><div className="studio-player"><a className="studio-play" href="https://www.facebook.com/share/r/1aPDcnSVLW/" target="_blank" rel="noopener noreferrer" aria-label="Watch Which one did you grow up on? on Facebook"><span className="studio-film-number">04</span><span className="studio-play-icon" aria-hidden="true">↗</span><strong>Which one did you grow up on?</strong><span>Watch original on Facebook</span></a></div><div className="studio-film-copy"><p className="studio-eyebrow">Jamaican food & culture</p><h3>Which one did you grow up on?</h3><p className="studio-note">Opens the original Facebook Reel. View count available on Facebook.</p><a href="https://www.facebook.com/share/r/1aPDcnSVLW/" target="_blank" rel="noopener noreferrer">Watch original on Facebook ↗</a><a className="studio-download" href="/downloads/The-Lost-Jamaican-Client-Flyer.pdf" download>Download rates & flyer ↓</a></div></article></div>;
 }
-

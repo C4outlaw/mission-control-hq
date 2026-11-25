@@ -4,7 +4,6 @@ The public `/studio/metrics` route is a read-only, refresh-capable contract. It 
 
 To connect a future provider, pass an authorized server-side adapter to `readMetrics`. Each result must contain numeric `count`, ISO `observedAt`, canonical HTTPS `sourceUrl`, and optional `approximate`. Never expose provider credentials to the client. Keep per-post errors isolated. A returned snapshot is accepted for at most 24 hours and never from the future. The route caches for five minutes; the client refreshes every five minutes. The UI labels counts as snapshots with UTC time. Add real provider integration tests before enabling `connected: true`.
 
-Sources are official TikTok videos selected by the owner-facing research team and verified for native playback on 2026-11-25. Native players are loaded only after a visitor clicks; original platform links are always available. The Instagram documentary uses explicit click-out links because reliable playback was not confirmed. No Facebook placeholder or fabricated view totals.
+Sources are official TikTok videos selected by the owner-facing research team and verified for native playback on 2026-11-25. Native players are loaded only after a visitor clicks; original platform links are always available. The Instagram documentary uses explicit click-out links because reliable playback was not confirmed. The fourth card links out to the verified official Facebook food-and-culture Reel; it does not claim embed playback or display stale view totals.
 
 Every download CTA downloads the approved client flyer, NOT the portfolio video. Approved PDF SHA256: 0ae6dcbb598c8485aca214d3b854dda49f7cba9fc52af30e2ac73491e6945b24.
-
