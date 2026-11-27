@@ -28,7 +28,7 @@
 - 2c (the wireframe): generate the image with Grok, or do it in Remotion as an edge-detect overlay on 2b (`ffmpeg -vf edgedetect` tinted orange) for a cheaper and consistent result.
 - If Grok won't make the tyre read clearly, use the fallback from the brief: a sewing needle hanging over the balloon on the Jamaican road (the original's device, new setting).
 
-## Open questions for Myrie (stage 1 checkpoint)
-1. **Whose brand goes on the end card:** Myrie HQ (agency), The Lost Jamaican, or The Beach Bucket? Default: **Myrie HQ**, with the line "DM 'POP' for a free ad idea".
-2. Keep the on-screen text in standard English (a cleaner retention test), or switch to patois (e.g. "Yuh just watch a balloon fi 7 seconds")?
-3. Tyre (default) or needle?
+## Decisions (Myrie, approved)
+1. End card brand: **Myrie HQ**, with the line "DM 'POP' for a free ad idea".
+2. On-screen text: **standard English**, identical to the original (a clean retention test).
+3. Impact device: **route taxi tyre**. Use the needle fallback only if Grok can't make the tyre read clearly, and tell Myrie if you switch.

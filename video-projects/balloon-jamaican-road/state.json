@@ -3,12 +3,12 @@
   "beats": 8,
   "done": {
     "script": true,
-    "script_approved": false,
+    "script_approved": true,
     "refs": [],
     "frames": [],
     "clips": [],
     "audio": [],
     "composed": false
   },
-  "next_step": "Stage 1 checkpoint: Myrie answers the 3 open questions in script.md, then stage 2: generate locked refs in Grok (BALLOON on Jamaican road, route TAXI front tyre, empty ROAD)."
+  "next_step": "Stage 2: generate locked refs in Grok (BALLOON on Jamaican road, white route TAXI front tyre, empty ROAD), show them to Myrie, lock the approved ones. Brand for the end card: Myrie HQ (see branding/myriehq-v3)."
 }
