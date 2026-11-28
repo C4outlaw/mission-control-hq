@@ -1,0 +1,27 @@
+{
+  "content_types": {
+    "talking_head": "One person speaking to camera for most of the reel.",
+    "screen_recording": "Mostly a phone or computer screen being shown.",
+    "broll_story": "A story told over B-roll footage, often with a voiceover.",
+    "list": "Numbered points or a countdown ('5 ways to...').",
+    "tutorial": "Step-by-step how-to the viewer can follow along with.",
+    "before_after": "A clear before and after: a transformation, a result, a redo.",
+    "reaction": "Reacting to someone else's post, video, comment or news.",
+    "skit": "Acted scene, characters or a comedy bit.",
+    "carousel_video": "Still images or slides played as a video.",
+    "other": "None of the above."
+  },
+  "hook_styles": {
+    "question": "Opens with a question to the viewer.",
+    "bold_claim": "Opens with a strong statement or promise.",
+    "result_first": "Shows or says the result before explaining how.",
+    "story_open": "Drops straight into a story moment ('Last week I...').",
+    "mistake_callout": "Calls out a mistake the viewer is probably making.",
+    "list_promise": "Promises a number of things ('3 apps that...').",
+    "contrarian": "Goes against common advice ('Stop doing X').",
+    "curiosity_gap": "Hints at something without saying it, so the viewer stays to find out.",
+    "direct_address": "Names the viewer or their situation ('If you're a coach with...').",
+    "visual_only": "No spoken hook; the first frame or on-screen text does the work.",
+    "other": "None of the above."
+  }
+}

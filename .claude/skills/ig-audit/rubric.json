@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "total": 100,
+  "note": "Score honestly. Most first-pass profiles land in the 30s to 50s. A stranger lands here from one reel and decides in a few seconds whether to follow, so the parts they read first carry the most points.",
+  "items": [
+    {
+      "id": "name_field",
+      "label": "Name field",
+      "points": 13,
+      "full_marks": "The bold line under the photo (30 characters) holds the name plus the words someone would type into Instagram search to find this kind of account, for example 'Sam Lee | Home workouts for dads'. Instagram search reads this line.",
+      "common_fail": "Only a first and last name, or a name with emoji, so the account never shows up when people search the topic."
+    },
+    {
+      "id": "bio_first_line",
+      "label": "Bio, first line",
+      "points": 13,
+      "full_marks": "The first line tells a stranger who this account is for and what they get from following, in words that audience would use themselves.",
+      "common_fail": "A list of identities ('Founder | Gym rat | Dad'), a vague motto, or a job title nobody outside the industry understands."
+    },
+    {
+      "id": "proof_or_offer",
+      "label": "Proof or offer",
+      "points": 8,
+      "full_marks": "The rest of the bio gives one reason to believe (a real number, a result, a name people know) or one clear thing to get, written as a sentence.",
+      "common_fail": "Nothing that backs up the first line, or a wall of keywords and emoji."
+    },
+    {
+      "id": "pinned_three",
+      "label": "Pinned posts",
+      "points": 12,
+      "full_marks": "Three posts are pinned and each does a different job: one shows proof, one explains what the account offers, one introduces the person. They were chosen on purpose.",
+      "common_fail": "Nothing pinned, or three random old hits that don't tell a new visitor anything about the account today."
+    },
+    {
+      "id": "link",
+      "label": "Link",
+      "points": 7,
+      "full_marks": "One link that matches what the bio promises: the free thing, the offer, or the next step. Two at the most.",
+      "common_fail": "No link, a broken one, or a link page with so many buttons that nobody clicks any of them."
+    },
+    {
+      "id": "highlights",
+      "label": "Highlights",
+      "points": 7,
+      "full_marks": "Four to six highlights that answer what a new follower wants to know (results, how it works, about me, the offer), with matching covers and names that make sense at a glance.",
+      "common_fail": "No highlights, or a long row of old trips and events named with emoji only."
+    },
+    {
+      "id": "grid_covers",
+      "label": "Grid covers",
+      "points": 9,
+      "full_marks": "The first nine covers are readable as tiny thumbnails and make the topic of the account obvious without opening anything. Covers are picked, often with a few words of text.",
+      "common_fail": "Nine blurry frames of a face mid-sentence, so the grid says nothing about what the account is."
+    },
+    {
+      "id": "photo",
+      "label": "Profile photo",
+      "points": 5,
+      "full_marks": "A recent, well-lit face that fills most of the circle, with a plain background, recognisable at tiny size.",
+      "common_fail": "A logo on a personal account, a far-away full-body shot, or a dark, old photo."
+    },
+    {
+      "id": "handle",
+      "label": "Handle",
+      "points": 4,
+      "full_marks": "Easy to say out loud and spell after hearing it once, and the same on the other platforms.",
+      "common_fail": "Extra underscores, swapped letters or numbers that nobody can remember."
+    },
+    {
+      "id": "account_setup",
+      "label": "Account setup",
+      "points": 5,
+      "full_marks": "A creator or business account, with a category that fits the content and a contact option that someone actually checks.",
+      "common_fail": "A personal account (no insights, no contact button), or a category that doesn't match the content."
+    },
+    {
+      "id": "recent_activity",
+      "label": "Recent activity",
+      "points": 10,
+      "full_marks": "A post in the last seven days, and the comments on the latest posts are answered.",
+      "common_fail": "Weeks since the last post, or a pile of comments nobody replied to, so the account looks abandoned."
+    },
+    {
+      "id": "story_presence",
+      "label": "Stories",
+      "points": 7,
+      "full_marks": "A story is up now, or the account posts stories most days, so a visitor sees a real person behind it.",
+      "common_fail": "No story ring at all."
+    }
+  ]
+}
