@@ -1,0 +1,14 @@
+{
+  "slug": "balloon-jamaican-road",
+  "beats": 8,
+  "done": {
+    "script": true,
+    "script_approved": true,
+    "refs": [],
+    "frames": [],
+    "clips": [],
+    "audio": [],
+    "composed": false
+  },
+  "next_step": "Stage 2: generate locked refs in Grok (BALLOON on Jamaican road, white route TAXI front tyre, empty ROAD), show them to Myrie, lock the approved ones. Brand for the end card: Myrie HQ (see branding/myriehq-v3)."
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "myrie-laptop-comeback",
+  "beats": 26,
+  "done": {
+    "script": true,
+    "script_approved": false,
+    "refs": [],
+    "frames": [],
+    "clips": [],
+    "audio": [],
+    "composed": false
+  },
+  "next_step": "Stage 1 checkpoint: Myrie approves script.md (answer the open questions at the bottom), then stage 2: generate locked refs in Grok (MYRIE x Wardrobes A/B/C using public/images/myrie-headshot.jpg, NADIA, DRE x2 outfits, JADE, rainy neon street, marina club, taped laptop, white supercar)."
+}
