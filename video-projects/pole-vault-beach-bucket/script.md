@@ -36,8 +36,8 @@
 - Beat 13 replaces the original's real Google-Earth-style map shot. Build it in Remotion with a static map image plus an animated path (no screen recording of a map app needed).
 - Beats 14-15 are the brand payoff. Keep the switch to real footage, because it's what makes the twist land.
 
-## Open questions for Myrie (stage 1 checkpoint)
-1. Keep the generic athlete, or make the vaulter **Myrie**?
-2. Bloody Mary as the punchline, or a dish (e.g. a breakfast plate)?
-3. Narration: local TTS, or will you record the voice?
-4. Can someone shoot a 5-second clip of the Bloody Mary on the deck, or should I use the existing site photos?
+## Decisions (Myrie, approved)
+1. Vaulter: **generic athlete** (no lettering on the singlet).
+2. Punchline: the **famous Bloody Mary**.
+3. Narration: **local TTS** (calm, slightly amused male voice).
+4. Final shots: **existing site photos and video** (`hero-video.mp4`, sunset photos, the Bloody Mary drinks card, the logo). No new shoot.
