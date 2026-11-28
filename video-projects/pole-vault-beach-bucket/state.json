@@ -1,0 +1,14 @@
+{
+  "slug": "pole-vault-beach-bucket",
+  "beats": 15,
+  "done": {
+    "script": true,
+    "script_approved": false,
+    "refs": [],
+    "frames": [],
+    "clips": [],
+    "audio": [],
+    "composed": false
+  },
+  "next_step": "Stage 1 checkpoint: Myrie answers the 4 open questions in script.md, then stage 2: generate locked refs in Grok (VAULTER, POLE, TOWER, Beach Bucket DECK)."
+}
